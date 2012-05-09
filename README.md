@@ -12,7 +12,7 @@ Open North has permission to redistribute all datasets in this repository. Pleas
 
 ### Lineage
 
-All datasets are from government sources, with one exception: the postal code dataset in the `postcodes/fed` directory is from [Geocoder.ca](http://geocoder.ca/). ([Canada Post has sued Geocoder.ca](http://geocoder.ca/?sued=1) for distributing this file.)
+All datasets are from government sources, with one exception: the postal code dataset in the `postcodes/fed` directory is from [Geocoder.ca](http://geocoder.ca/). ([Canada Post has sued Geocoder.ca](http://geocoder.ca/?sued=1) for distributing this file.) The `definition.py` files will have more details on sources and any modifications made to the files.
 
 ### Completeness
 
