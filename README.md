@@ -24,7 +24,7 @@ We do not have permission to redistribute every dataset available through the [R
 
 ## Contact
 
-Please use [GitHub Issues](http://github.com/opennorth/represent-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
+Please use [GitHub Issues](http://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
 
 ## Acknowledgements
 
