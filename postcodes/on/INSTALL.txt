@@ -1,0 +1,2 @@
+python manage.py loadpostcodeconcordance ontario-electoral-districts elections.on.ca "Postal Codes-107.txt"
+python manage.py loadpostcodeconcordance ontario-electoral-districts elections.on.ca "Postal Codes-107-ManyEDs.txt"

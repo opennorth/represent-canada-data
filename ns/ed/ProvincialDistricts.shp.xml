@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>Elections Nova Scotia</origin>
+				<pubdate></pubdate>
+				<title Sync="TRUE">ProvincialDistricts</title>
+				<geoform Sync="TRUE">vector digital data</geoform>
+				<onlink>http://www.electionsnovascotia.ns.ca/geoginfo.asp</onlink>
+				<ftname Sync="TRUE">ProvincialDistricts</ftname></citeinfo>
+		</citation>
+		<descript>
+			<abstract>
+Electoral district boundaries defined by the Nova Scotia House of Assembly, November 28, 2002, with the enactment of Chapter 34 of the Acts of 2002, An Act to Amend Chapter 1 (1992 Supplement) of the Revised Statutes, 1989, the House of Assembly Act.
+
+Pursuant to Section 5A of the House of Assembly Act, boundaries amended May 20, 2004 with the enactment of Chapter 13 of the Acts of 2004, An Act to Amend Chapter 1 (1992 Supplement) of the Revised Statutes, 1989, the House of Assembly Act.
+
+Name of Halifax Citadel was changed to Halifax Citadel-Sable Island by Chapter 17 of the Acts of 2008 amending the House of Assembly Act. Name of Bedford was changed to Bedford-Birch Cove by Chapter 18 of the Acts of 2008 amending the House of Assembly Act.
+</abstract>
+			<purpose>Digital representation of electoral geography for Nova Scotia, used to support the electoral process.</purpose>
+			<langdata Sync="TRUE">en</langdata></descript>
+		<timeperd>
+			<timeinfo>
+				<sngdate>
+					<caldate></caldate>
+				</sngdate>
+			</timeinfo>
+			<current></current>
+		</timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>Every 10 years</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc Sync="TRUE">-66.579873</westbc>
+				<eastbc Sync="TRUE">-59.476602</eastbc>
+				<northbc Sync="TRUE">47.260769</northbc>
+				<southbc Sync="TRUE">43.370843</southbc>
+			</bounding>
+			<lboundng><leftbc Sync="TRUE">228893.290793</leftbc><rightbc Sync="TRUE">766821.470000</rightbc><bottombc Sync="TRUE">4807437.269701</bottombc><topbc Sync="TRUE">5234143.058515</topbc></lboundng></spdom>
+		<keywords>
+			<theme>
+				<themekt>None</themekt>
+				<themekey>electoral district</themekey>
+				<themekey>electoral geography</themekey>
+			</theme>
+		</keywords>
+		<accconst>For public use</accconst>
+		<useconst>Elections Nova Scotia (ENS) grants to the user of this data set a royalty-free , non-exclusive use of the digital geographic data. The user has no ownership rights in the geographic data.  Ownership of the geographic data and all intellectual property rights therein, if any, shall remain at all times with ENS. The user is authorized to use the geographic data solely for its own internal operation with respect to its specific needs. Reproduction or redistribution of copyrighted geographic data outside of user's organization or entity is expressly forbidden unless prior permission is granted by ENS.</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntperp>
+					<cntper>Pierre Gareau</cntper>
+					<cntorg>Elections Nova Scotia</cntorg>
+				</cntperp>
+				<cntpos>Manager of GIS</cntpos>
+				<cntaddr>
+					<addrtype>physical address</addrtype>
+					<address>7037 Mumford Rd, Suite 6</address>
+					<city>Halifax</city>
+					<state>Nova Scotia</state>
+					<postal>B3L 3C8</postal>
+					<country>Canada</country>
+				</cntaddr>
+				<cntaddr>
+					<addrtype>mailing address</addrtype>
+					<address>PO Box 246</address>
+					<city>Halifax</city>
+					<state>Nova Scotia</state>
+					<postal>B3J 3C8</postal>
+					<country>Canada</country>
+				</cntaddr>
+				<cntvoice>1-800-565-1504</cntvoice>
+				<cnttdd>902-424-7475</cnttdd>
+				<cntfax>902-424-6622</cntfax>
+				<cntemail>elections.gov.ns.ca</cntemail>
+				<hours>8:30 AM TO 4:30 PM</hours>
+			</cntinfo>
+		</ptcontac>
+		<native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</native>
+		<natvform Sync="TRUE">Shapefile</natvform></idinfo>
+	<spdoinfo>
+		<direct Sync="TRUE">Vector</direct>
+		<ptvctinf>
+			<sdtsterm Name="ProvincialDistricts">
+				<sdtstype Sync="TRUE">G-polygon</sdtstype>
+				<ptvctcnt Sync="TRUE">53</ptvctcnt>
+			</sdtsterm>
+			<esriterm Name="ProvincialDistricts"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom Sync="TRUE">Polygon</efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">53</efeacnt><spindex Sync="TRUE">FALSE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm></ptvctinf>
+	</spdoinfo>
+	<spref>
+		<horizsys>
+			<planar>
+				<planci>
+					<plance Sync="TRUE">coordinate pair</plance>
+					<coordrep>
+						<absres Sync="TRUE">0.000000</absres>
+						<ordres Sync="TRUE">0.000000</ordres>
+					</coordrep>
+					<plandu Sync="TRUE">meters</plandu>
+				</planci>
+				<mapproj><mapprojn Sync="TRUE">Transverse Mercator</mapprojn><transmer><sfctrmer Sync="TRUE">0.999600</sfctrmer><longcm Sync="TRUE">-63.000000</longcm><latprjo Sync="TRUE">0.000000</latprjo><feast Sync="TRUE">500000.000000</feast><fnorth Sync="TRUE">0.000000</fnorth></transmer></mapproj></planar>
+			<geodetic>
+				<horizdn Sync="TRUE">D_North_American_1983_CSRS</horizdn>
+				<ellips Sync="TRUE">Geodetic Reference System 80</ellips>
+				<semiaxis Sync="TRUE">6378137.000000</semiaxis>
+				<denflat Sync="TRUE">298.257222</denflat>
+			</geodetic>
+			<cordsysn><geogcsn Sync="TRUE">GCS_North_American_1983_CSRS</geogcsn><projcsn Sync="TRUE">NAD_1983_CSRS_UTM_Zone_20N</projcsn></cordsysn></horizsys>
+	</spref>
+	<eainfo>
+		<detailed Name="ProvincialDistricts">
+			<enttyp>
+				<enttypl Sync="TRUE">ProvincialDistricts</enttypl>
+				<enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">53</enttypc></enttyp>
+			<attr>
+				<attrlabl>FID</attrlabl>
+				<attrdef>Internal feature number.</attrdef>
+				<attrdefs>ESRI</attrdefs>
+				<attrdomv>
+					<udom>Sequential unique whole numbers that are automatically generated.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">FID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr>
+				<attrlabl>Shape</attrlabl>
+				<attrdef>Feature geometry.</attrdef>
+				<attrdefs>ESRI</attrdefs>
+				<attrdomv>
+					<udom>Coordinates defining the features.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">Shape</attalias><attrtype Sync="TRUE">Geometry</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr>
+				<attrlabl>ET_ID</attrlabl>
+				<attalias Sync="TRUE">ET_ID</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">19</attwidth><atnumdec Sync="TRUE">5</atnumdec></attr>
+			<attr>
+				<attrlabl>AREA_SQM</attrlabl>
+				<attrdef>Area of Electoral District</attrdef>
+				<attalias Sync="TRUE">AREA_SQM</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">19</attwidth><atnumdec Sync="TRUE">5</atnumdec></attr>
+			<attr>
+				<attrlabl>DIST_NO</attrlabl>
+				<attrdef>Electoral District Number</attrdef>
+				<attalias Sync="TRUE">DIST_NO</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>DISTRICT</attrlabl>
+				<attrdef>Electoral District Name</attrdef>
+				<attalias Sync="TRUE">DISTRICT</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">100</attwidth></attr>
+		</detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntperp>
+					<cntper>Pierre Gareau</cntper>
+					<cntorg>Elections Nova Scotia</cntorg>
+				</cntperp>
+				<cntpos>Manager of GIS</cntpos>
+				<cntaddr>
+					<addrtype>physical address</addrtype>
+					<address>7037 Mumford Rd, Suite 6</address>
+					<city>Halifax</city>
+					<state>Nova Scotia</state>
+					<postal>B3L 2J1</postal>
+					<country>Canada</country>
+				</cntaddr>
+				<cntaddr>
+					<addrtype>mailing address</addrtype>
+					<address>PO Box 2246</address>
+					<city>Halifax</city>
+					<state>Nova Scotia</state>
+					<postal>B3J 3C8</postal>
+					<country>Canada</country>
+				</cntaddr>
+				<cntvoice>1-800-565-1504</cntvoice>
+				<cnttdd>902-424-7475</cnttdd>
+				<cntfax>902-424-6622</cntfax>
+				<cntemail>elections@gov.ns.ca</cntemail>
+				<hours>8:30 am to 4:30 pm</hours>
+			</cntinfo>
+		</distrib>
+		<resdesc>Downloadable Data</resdesc>
+		<distliab>In no event shall ENS have any liability whatsoever for payment of any consequential, incidental, indirect, special, or tort damages of any kind, including, but not limited to, any loss of profits arising out of use of or reliance on the geographic data or arising out of the delivery, installation, operation, or support by ENS</distliab>
+		<stdorder>
+			<digform>
+				<digtinfo>
+					<transize>2.404</transize>
+					<dssize Sync="TRUE">2.404</dssize></digtinfo>
+			</digform>
+		</stdorder>
+	</distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20110329</metd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>Elections Nova Scotia</cntorg>
+					<cntper>Pierre Gareau</cntper>
+				</cntorgp>
+				<cntaddr>
+					<addrtype>physical address</addrtype>
+					<address>7037 Mumford Rd, Suite 6</address>
+					<city>Halifax</city>
+					<state>Nova Scotia</state>
+					<postal>B3L 2J1</postal>
+					<country>Canada</country>
+				</cntaddr>
+				<cntaddr>
+					<addrtype>mailing address</addrtype>
+					<address>PO Box 2246</address>
+					<city>Halifax</city>
+					<state>Nova Scotia</state>
+					<postal>B3J 3C8</postal>
+					<country>Canada</country>
+				</cntaddr>
+				<cntvoice>1-800-565-1504</cntvoice>
+				<cnttdd>902-424-7475</cnttdd>
+				<cntfax>902-424-6622</cntfax>
+				<cntemail>elections@gov.ns.ca</cntemail>
+				<hours>8:30 am to 4:30 pm</hours>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<mettc Sync="TRUE">local time</mettc>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<langmeta Sync="TRUE">en</langmeta><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<Esri><MetaID>{4311ABE0-5C12-44A4-AF85-3BF44F8DFF78}</MetaID><CreaDate>20110329</CreaDate><CreaTime>16164700</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20110329</SyncDate><SyncTime>16164700</SyncTime><ModDate>20110329</ModDate><ModTime>16164700</ModTime></Esri><dataqual><lineage><procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">C:\WINDOWS\Temp\xml25.tmp</srcused><procdate Sync="TRUE">20110329</procdate><proctime Sync="TRUE">16164700</proctime></procstep></lineage></dataqual><dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</envirDesc><dataLang><languageCode Sync="TRUE" value="en"></languageCode></dataLang><idCitation><resTitle Sync="TRUE">ProvincialDistricts</resTitle><presForm><PresFormCd Sync="TRUE" value="005"></PresFormCd></presForm></idCitation><spatRpType><SpatRepTypCd Sync="TRUE" value="001"></SpatRepTypCd></spatRpType><dataExt><geoEle><GeoBndBox esriExtentType="native"><westBL Sync="TRUE">228893.290793</westBL><eastBL Sync="TRUE">766821.47</eastBL><northBL Sync="TRUE">5234143.058515</northBL><southBL Sync="TRUE">4807437.269701</southBL><exTypeCode Sync="TRUE">1</exTypeCode></GeoBndBox></geoEle></dataExt><geoBox esriExtentType="decdegrees"><westBL Sync="TRUE">-66.579873</westBL><eastBL Sync="TRUE">-59.476602</eastBL><northBL Sync="TRUE">47.260769</northBL><southBL Sync="TRUE">43.370843</southBL><exTypeCode Sync="TRUE">1</exTypeCode></geoBox></dataIdInfo><mdLang><languageCode Sync="TRUE" value="en"></languageCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc><linkage Sync="TRUE">file://\\FS1745-RES\DATA\SHARED\develop\IT-GIS Group Projects\Website\PostingBoundaries\ShapeFiles\ProvincialDistricts.shp</linkage><protocol Sync="TRUE">Local Area Network</protocol></onLineSrc><transSize Sync="TRUE">2.404</transSize></distorTran><distorFormat><formatName Sync="TRUE">Shapefile</formatName></distorFormat></distributor></distInfo><refSysInfo><RefSystem><refSysID><identCode Sync="TRUE">NAD_1983_CSRS_UTM_Zone_20N</identCode></refSysID></RefSystem></refSysInfo><spatRepInfo><VectSpatRep><topLvl><TopoLevCd Sync="TRUE" value="001"></TopoLevCd></topLvl><geometObjs Name="ProvincialDistricts"><geoObjTyp><GeoObjTypCd Sync="TRUE" value="001"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">53</geoObjCnt></geometObjs></VectSpatRep></spatRepInfo><mdDateSt Sync="TRUE">20110329</mdDateSt></metadata>
