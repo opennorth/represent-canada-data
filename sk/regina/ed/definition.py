@@ -1,5 +1,4 @@
 from datetime import date
-import re
 
 import boundaries
 
