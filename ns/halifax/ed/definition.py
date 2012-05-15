@@ -2,7 +2,7 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Halifax wards',
+boundaries.register('Halifax districts',
     domain='Halifax, NS',
     last_updated=date(2012, 5, 15),
     name_func=boundaries.attr('DISTNAME'),
