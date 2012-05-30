@@ -5,7 +5,7 @@ import boundaries
 boundaries.register('Regina wards',
     domain='Regina, SK',
     last_updated=date(2012, 2, 28),
-    name_func=boundaries.attr('WARD'),
+    name_func=lambda f: 'Ward %s' % f.get('WARD'),
     id_func=boundaries.attr('WARD'),
     authority='City of Regina',
     source_url='http://openregina1.cloudapp.net/DataBrowser/openregina/Wards',
