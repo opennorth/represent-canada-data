@@ -10,4 +10,5 @@ boundaries.register("St. John's wards",
     authority="City of St. John's",
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    is_valid_func=lambda f: int(f.get('WARD')) != 0,
 )

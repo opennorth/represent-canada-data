@@ -9,6 +9,6 @@ boundaries.register('Edmonton wards',
     id_func=lambda f: re.sub(r'\D+0?', '', f.get('Name')),
     authority='City of Edmonton',
     licence_url='http://www.edmonton.ca/city_government/open_data/open-data-terms-of-use.aspx',
-    notes='We use a KML file that is no longer accessible from the Edmonton Open Data Catalogue. Convert the KML to SHP with: ogr2ogr -f "ESRI Shapefile" . CityWards2010.kml -nlt POLYGON', # @todo
+    notes='We use a KML file that is no longer accessible from the Edmonton Open Data Catalogue. Convert the KML to SHP with: ogr2ogr -f "ESRI Shapefile" . CityWards2010.kml -nlt POLYGON',
     encoding='iso-8859-1',
 )
