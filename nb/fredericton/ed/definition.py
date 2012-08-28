@@ -11,6 +11,6 @@ boundaries.register('Fredericton wards',
     source_url='http://www.fredericton.ca/en/citygovernment/DataMain.asp',
     licence_url='http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
     data_url='http://files.fredericton.ca/data/GISData/wards.zip',
-    notes='We use NAD83(CSRS) / New Brunswick Stereographic (EPSG:2953) from http://spatialreference.org/ref/epsg/2953/prj/'
+    notes='We use NAD83(CSRS) / New Brunswick Stereographic (EPSG:2953) from http://spatialreference.org/ref/epsg/2953/prj/',
     encoding='iso-8859-1',
 )
