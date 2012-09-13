@@ -1,10 +1,5 @@
-# You may need to install catdoc:
-# OS X (Homebrew)    brew install catdoc
-# Ubuntu/Debian      apt-get install catdoc
-# Fedora/Red Hat     yum install catdoc 
-xls2csv -b$'\n' Electoral.Postal.Codes.Jan.2012.xls | awk '{if(/./)print;else exit}' | tail +2 > tmp.csv
-cut -d "," -f 1 tmp.csv > names.txt
-cut -d "," -f 2 tmp.csv > postcodes.txt
-paste -d "," postcodes.txt names.txt > out.csv
-sed -i.bak 's/WINDSOR-BUCHANS/WINDSOR\/BUCHANS/' out.csv
+# easy_install pip
+# pip install csvkit
+
+in2csv Electoral.Postal.Codes.Jan.2012.xls | csvcut -c 2,1 | sed 's/WINDSOR-BUCHANS/WINDSOR\/BUCHANS/' | tail +2 > out.csv
 python manage.py loadpostcodeconcordance --searchfield=name newfoundland-and-labrador-electoral-districts gov.nl.ca out.csv
