@@ -3,7 +3,7 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Montreal boroughs',
+boundaries.register(u'Montréal boroughs',
     domain='Montréal, QC',
     last_updated=date(2011, 11, 8),
     name_func=boundaries.clean_attr('ARROND'),

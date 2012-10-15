@@ -3,7 +3,7 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Quebec boroughs',
+boundaries.register(u'Québec boroughs',
     domain='Québec, QC',
     last_updated=date(2012, 2, 16),
     name_func=boundaries.clean_attr('NOM'),
