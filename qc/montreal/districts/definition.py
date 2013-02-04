@@ -161,7 +161,7 @@ boundaries.register(u'Le Plateau-Mont-Royal districts',
 
 boundaries.register(u'Rivière-des-Prairies—Pointe-aux-Trembles districts',
     domain=u'Rivière-des-Prairies—Pointe-aux-Trembles, Montréal, QC',
-    file='Riviere-des-Prairies-Point-aux-Trembles.shp',
+    file='Riviere-des-Prairies-Pointe-aux-Trembles.shp',
     last_updated=date(2013, 4, 2),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
