@@ -63,7 +63,7 @@ boundaries.register(u'LaSalle districts',
     encoding='iso-8859-1',
 )
 
-boundaries.register(u'Le Sud-Ouest districts',,
+boundaries.register(u'Le Sud-Ouest districts',
     domain=u'Le Sud-Ouest, Montréal, QC',
     last_updated=date(2013, 4, 2),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
@@ -75,8 +75,8 @@ boundaries.register(u'Le Sud-Ouest districts',,
     encoding='iso-8859-1',
 )
 
-boundaries.register(u'L\'Île-Bizard–Sainte-Geneviève districts',
-    domain=u'L\'Île-Bizard–Sainte-Geneviève, Montréal, QC',
+boundaries.register(u'L\'Île-Bizard—Sainte-Geneviève districts',
+    domain=u'L\'Île-Bizard—Sainte-Geneviève, Montréal, QC',
     last_updated=date(2013, 4, 2),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
@@ -87,8 +87,8 @@ boundaries.register(u'L\'Île-Bizard–Sainte-Geneviève districts',
     encoding='iso-8859-1',
 )
 
-boundaries.register(u'Mercier-Hochelaga-Maisonneuve districts',
-    domain=u'Mercier-Hochelaga-Maisonneuve, Montréal, QC',
+boundaries.register(u'Mercier—Hochelaga-Maisonneuve districts',
+    domain=u'Mercier—Hochelaga-Maisonneuve, Montréal, QC',
     last_updated=date(2013, 4, 2),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
@@ -135,8 +135,8 @@ boundaries.register(u'Pierrefonds-Roxboro districts',
     encoding='iso-8859-1',
 )
 
-boundaries.register(u'Le-Plateau-Montréal districts',
-    domain=u'Le-Plateau-Montréal, Montréal, QC',
+boundaries.register(u'Le Plateau-Mont-Royal districts',
+    domain=u'Le Plateau-Mont-Royal, Montréal, QC',
     last_updated=date(2013, 4, 2),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
@@ -159,8 +159,8 @@ boundaries.register(u'Rivière-des-Prairies—Pointe-aux-Trembles districts',
     encoding='iso-8859-1',
 )
 
-boundaries.register(u'Rosemont—La-Petite-Patrie districts',
-    domain=u'Rosemont—La-Petite-Patrie, Montréal, QC',
+boundaries.register(u'Rosemont—La Petite-Patrie districts',
+    domain=u'Rosemont—La Petite-Patrie, Montréal, QC',
     last_updated=date(2013, 4, 2),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
