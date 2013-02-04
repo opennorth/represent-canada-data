@@ -96,7 +96,7 @@ boundaries.register(u'L\'Île-Bizard—Sainte-Geneviève districts',
 
 boundaries.register(u'Mercier—Hochelaga-Maisonneuve districts',
     domain=u'Mercier—Hochelaga-Maisonneuve, Montréal, QC',
-    file='Mercier-Hochelaga-Maisonneuve.shp',
+    file='Mercier-Hochelaga-Masoinneuve.shp',
     last_updated=date(2013, 4, 2),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
