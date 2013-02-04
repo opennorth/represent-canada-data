@@ -174,7 +174,7 @@ boundaries.register(u'Rivière-des-Prairies—Pointe-aux-Trembles districts',
 
 boundaries.register(u'Rosemont—La Petite-Patrie districts',
     domain=u'Rosemont—La Petite-Patrie, Montréal, QC',
-    file='Rosemont—La-Petite-Patrie.shp',
+    file='Rosemont-La-Petite-Patrie.shp',
     last_updated=date(2013, 4, 2),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
