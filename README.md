@@ -12,11 +12,11 @@ Open North has permission to redistribute all datasets in this repository. Pleas
 
 ### Lineage
 
-All datasets are from government sources, with one exception: the postal code dataset in the `postcodes/fed` directory is from [Geocoder.ca](http://geocoder.ca/). ([Canada Post has sued Geocoder.ca](http://geocoder.ca/?sued=1) for distributing this file.) The `definition.py` files will have more details on sources and any modifications made to the files.
+All datasets are from government sources, with one exception: the postal code<sup>OM</sup> dataset in the `postcodes/fed` directory is from [Geocoder.ca](http://geocoder.ca/). ([Canada Post has sued Geocoder.ca](http://geocoder.ca/?sued=1) for distributing this file.) The `definition.py` files will have more details on sources and any modifications made to the files. Postal Code<sup>OM</sup> is an official mark of Canada Post Corporation.
 
 ### Completeness
 
-We do not have permission to redistribute every dataset available through the [Represent API](http://represent.opennorth.ca/api/). Specifically, we do not have permission from the Government of Ontario to distribute its [boundary file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/Shapefile.htm) and [postal code concordance file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/PostalCodeFile.htm). You must download these files separately from Elections Ontario. You may then use the `definition.py` file we provide to load it into the database.
+We do not have permission to redistribute every dataset available through the [Represent API](http://represent.opennorth.ca/api/). Specifically, we do not have permission from the Government of Ontario to distribute its [boundary file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/Shapefile.htm) and [postal code<sup>OM</sup> concordance file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/PostalCodeFile.htm) (no longer available). You must download these files separately from Elections Ontario. You may then use the `definition.py` file we provide to load it into the database.
 
 ## Contributing
 
