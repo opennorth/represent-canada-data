@@ -10,4 +10,5 @@ boundaries.register('Cambridge wards',
     authority='City of Cambridge',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='3530010',
 )

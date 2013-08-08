@@ -11,6 +11,7 @@ boundaries.register('Charlottetown wards',
     authority='Elections Prince Edward Island',
     source_url='http://www.electionspei.ca/municipalities/charlottetown',
     data_url='http://www.electionspei.ca/municipal/details/gis/shp/charlottetown_wards.zip',
-    license_url='http://www.electionspei.ca/api/license/',
+    licence_url='http://www.electionspei.ca/api/license/',
     encoding='iso-8859-1',
+    geographic_code='1102075',
 )

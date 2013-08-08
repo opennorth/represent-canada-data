@@ -10,4 +10,5 @@ boundaries.register('Greater Sudbury wards',
     authority='City of Greater Sudbury',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='3553005',
 )

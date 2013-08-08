@@ -13,4 +13,5 @@ boundaries.register('Mississauga wards',
     data_url='http://www5.mississauga.ca/research_catalogue/G_5_Municipal_Wards.kmz',
     notes='Convert the KMZ to SHP with: unzip G_5_Municipal_Wards.kmz; ogr2ogr -f "ESRI Shapefile" ed doc.kml -nlt POLYGON Boundaries',
     encoding='iso-8859-1',
+    geographic_code='3521005',
 )

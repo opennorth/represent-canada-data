@@ -9,4 +9,5 @@ boundaries.register('St. Catharines wards',
     authority='City of St. Catharines',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='3526053',
 )

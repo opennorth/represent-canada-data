@@ -10,4 +10,5 @@ boundaries.register('Halifax districts',
     authority='Halifax Regional Municipality',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='1209034',
 )

@@ -10,4 +10,5 @@ boundaries.register('Brantford wards',
     authority='Town of Brantford',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='3529006',
 )

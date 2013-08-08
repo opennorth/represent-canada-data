@@ -10,4 +10,5 @@ boundaries.register('Guelph wards',
     authority='City of Guelph',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='3523008',
 )

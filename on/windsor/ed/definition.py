@@ -13,4 +13,5 @@ boundaries.register('Windsor wards',
     licence_url='http://www.citywindsor.ca/DataCatalogue/PDF/OpenDataTermsofUse.pdf',
     data_url='http://www.citywindsor.ca/DataCatalogue/SHP/2010_Municipal_Ward_Boundaries.zip',
     encoding='iso-8859-1',
+    geographic_code='3537039',
 )

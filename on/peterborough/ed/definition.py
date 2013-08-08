@@ -10,4 +10,5 @@ boundaries.register('Peterborough wards',
     authority='Town of Peterborough',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='3515014',
 )

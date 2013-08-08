@@ -11,4 +11,5 @@ boundaries.register(u'Lévis districts',
     authority=u'Ville de Lévis',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='2425213',
 )

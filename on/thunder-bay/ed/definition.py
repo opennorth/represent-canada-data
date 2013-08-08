@@ -10,4 +10,5 @@ boundaries.register('Thunder Bay wards',
     authority='City of Thunder Bay',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='3558004',
 )

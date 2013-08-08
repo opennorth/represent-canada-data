@@ -11,4 +11,5 @@ boundaries.register('Edmonton wards',
     licence_url='http://www.edmonton.ca/city_government/open_data/open-data-terms-of-use.aspx',
     notes='We use a KML file that is no longer accessible from the Edmonton Open Data Catalogue. Convert the KML to SHP with: ogr2ogr -f "ESRI Shapefile" . CityWards2010.kml -nlt POLYGON',
     encoding='iso-8859-1',
+    geographic_code='4811061',
 )

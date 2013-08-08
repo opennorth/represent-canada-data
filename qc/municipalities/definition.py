@@ -14,6 +14,7 @@ boundaries.register(u'Beaconsfield districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466107',
 )
 
 boundaries.register(u'Cote-Saint-Luc districts',
@@ -27,6 +28,7 @@ boundaries.register(u'Cote-Saint-Luc districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466058',
 )
 
 boundaries.register(u'Dollard-des-Ormeaux districts',
@@ -40,6 +42,7 @@ boundaries.register(u'Dollard-des-Ormeaux districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466142',
 )
 
 boundaries.register(u'Dorval districts',
@@ -53,6 +56,7 @@ boundaries.register(u'Dorval districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466087',
 )
 
 boundaries.register(u'Kirkland districts',
@@ -66,6 +70,7 @@ boundaries.register(u'Kirkland districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466102',
 )
 
 boundaries.register(u'Montréal-Est districts',
@@ -79,6 +84,7 @@ boundaries.register(u'Montréal-Est districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466007',
 )
 
 boundaries.register(u'Pointe-Claire districts',
@@ -92,6 +98,7 @@ boundaries.register(u'Pointe-Claire districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466097',
 )
 
 boundaries.register(u'Sainte-Anne-de-Bellevue districts',
@@ -105,6 +112,7 @@ boundaries.register(u'Sainte-Anne-de-Bellevue districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466117',
 )
 
 boundaries.register(u'Senneville districts',
@@ -118,6 +126,7 @@ boundaries.register(u'Senneville districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466127',
 )
 
 boundaries.register(u'Westmount districts',
@@ -131,4 +140,5 @@ boundaries.register(u'Westmount districts',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='District extracted from original shapefile',
     encoding='iso-8859-1',
+    geographic_code='2466032',
 )

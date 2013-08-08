@@ -10,4 +10,5 @@ boundaries.register('Strathcona County wards',
     authority='Strathcona County',
     notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
+    geographic_code='4811052',
 )

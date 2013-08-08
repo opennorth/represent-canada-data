@@ -22,6 +22,12 @@ We do not have permission to redistribute every dataset available through the [R
 
 [We need the ward boundaries](https://github.com/opennorth/represent-canada/issues/13) for more municipalities. Please [let us know](mailto:represent@opennorth.ca) if you have a ward boundary file. To go one step further, you can write a `definition.py` file to describe the data, using an [example `definition.py` file](http://github.com/opennorth/represent-canada-data/tree/master/examples/definition.example.comments.py).
 
+## Maintenance
+
+    mkvirtualenv representdata
+    pip install -r requirements.txt
+    python scripts/update.py
+
 ## Contact
 
 Please use [GitHub Issues](http://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).

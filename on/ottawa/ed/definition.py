@@ -13,4 +13,5 @@ boundaries.register('Ottawa wards',
     data_url='http://ottawa.ca/online_services/opendata/data/wards2010.zip',
     notes='Convert the features to 2D with: ogr2ogr -f "ESRI Shapefile" -overwrite . Wards_2010.shp -nlt POLYGON',
     encoding='iso-8859-1',
+    geographic_code='3506008',
 )

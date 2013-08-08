@@ -10,4 +10,5 @@ boundaries.register('Saskatoon wards',
     authority='City of Saskatoon',
     notes='We use a shapefile received via email. Ward 1 is split into two features. We merge them using Quantum GIS.',
     encoding='iso-8859-1',
+    geographic_code='4711066',
 )

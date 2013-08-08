@@ -13,4 +13,5 @@ boundaries.register('Caledon wards',
     data_url='http://opendata.peelregion.ca/media/2549/wardboundaries_shp.zip',
     notes="""Select only Caledon wards: ogr2ogr -f "ESRI Shapefile" -where "MUNIC='10'" Caledon.shp wardbnd_1014.shp""",
     encoding='iso-8859-1',
+    geographic_code='3521024',
 )
