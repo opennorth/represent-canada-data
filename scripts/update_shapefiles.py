@@ -1,6 +1,8 @@
 #coding: utf8
 
 from datetime import datetime
+from glob import glob
+import os
 import os.path
 import re
 from urlparse import urlparse
@@ -33,7 +35,7 @@ for slug, config in all_sources.items():
       result = urlparse(url)
 
       if result.scheme == 'ftp':
-        # @todo
+        # @todo ftp://portaldata:freedata@ftp.isc.ca/PackagedData/ElectionsSask/Boundaries.zip
         print "FTP %s\n" % url
       else:
         # Get the last modified timestamp.
@@ -59,7 +61,7 @@ for slug, config in all_sources.items():
             filename = url
           extension = os.path.splitext(filename)[1]
 
-          if extension == '.zip':
+          if extension in ('.kml', '.zip'):
             # GitPython can't handle paths starting with "./".
             if config['file'].startswith('./'):
               directory = config['file'][2:]
@@ -75,20 +77,39 @@ for slug, config in all_sources.items():
             # Download new file.
             arguments['stream'] = True
             response = requests.get(url, **arguments)
-            zip_file_path = os.path.join(config['file'], 'data.zip')
-            with open(zip_file_path, 'wb') as f:
+            data_file_path = os.path.join(config['file'], 'data%s' % extension)
+            with open(data_file_path, 'wb') as f:
               for chunk in response.iter_content():
                 f.write(chunk)
 
-            try:
-              # Unzip new file.
-              zip_file = ZipFile(zip_file_path)
-              for name in zip_file.namelist():
-                # Flatten the zip file hierarchy.
-                basename = os.path.basename(name)
-                with open(os.path.join(config['file'], basename), 'wb') as f:
-                  f.write(zip_file.read(name))
-                index.add([os.path.join(directory, basename)])
+            error_thrown = False
+            if extension == '.zip':
+              try:
+                # Unzip new file.
+                zip_file = ZipFile(data_file_path)
+                for name in zip_file.namelist():
+                  # Flatten the zip file hierarchy.
+                  if os.path.splitext(name)[1] == '.kml':
+                    basename = 'data.kml'
+                  else:
+                    basename = os.path.basename(name)
+                  with open(os.path.join(config['file'], basename), 'wb') as f:
+                    f.write(zip_file.read(name))
+                  if basename != 'data.kml':
+                    index.add([os.path.join(directory, basename)])
+              except BadZipfile:
+                error_thrown = True
+                print "Bad zip file %s\n" % url
+              finally:
+                os.unlink(data_file_path)
+
+            if not error_thrown:
+              # Convert any KML to shapefile.
+              kml_file_path = os.path.join(config['file'], 'data.kml')
+              if os.path.exists(kml_file_path):
+                if not os.system('ogr2ogr -f "ESRI Shapefile" %s %s' % (config['file'], kml_file_path)):
+                  for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
+                    index.add([name])
 
               # Update last updated timestamp.
               definition_path = os.path.join(config['file'], 'definition.py')
@@ -100,13 +121,5 @@ for slug, config in all_sources.items():
               # Print notes.
               if config.get('notes'):
                 print "%s\n%s\n" % (slug, config['notes'])
-            except BadZipfile:
-              print "Bad zip file %s\n" % url
-
-            # Clean up.
-            os.unlink(zip_file_path)
-          elif extension == '.kml':
-            # @todo
-            print "KML %s\n" % url
           else:
             print "Unrecognized extension %s\n" % url
