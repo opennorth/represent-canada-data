@@ -26,7 +26,14 @@ We do not have permission to redistribute every dataset available through the [R
 
     mkvirtualenv representdata
     pip install -r requirements.txt
-    python scripts/update.py
+    # Check that the spreadsheet is up-to-date.
+    python scripts/check_spreadsheet.py
+    # Check that the source, data and licence URLs still work.
+    python scripts/check_urls.py
+    # Review any notes about the boundaries.
+    python scripts/print_notes.py
+    # Update any out-of-date shapefiles.
+    python scripts/update_shapefiles.py
 
 ## Contact
 
