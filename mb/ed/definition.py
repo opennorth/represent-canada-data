@@ -4,7 +4,7 @@ import boundaries
 
 boundaries.register('Manitoba electoral districts',
     domain='Manitoba',
-    last_updated=date(2011, 11, 1),
+    last_updated=date(2011, 12, 14),
     name_func=boundaries.dashed_attr('ED'),
     authority='Her Majesty the Queen in Right of Manitoba',
     source_url='https://represent:weakpass@mli2.gov.mb.ca/adminbnd/index.html',

@@ -7,7 +7,7 @@ import boundaries
 
 boundaries.register('Summerside wards',
     domain='Summerside, PE',
-    last_updated=date(2010, 9, 19),
+    last_updated=date(2013, 7, 19),
     name_func=boundaries.dashed_attr('NAME'),
     id_func=lambda f: re.sub(r'\D', '', f.get('KEY')),
     authority='Elections Prince Edward Island',

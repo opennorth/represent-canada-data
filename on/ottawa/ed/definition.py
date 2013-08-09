@@ -4,7 +4,7 @@ import boundaries
 
 boundaries.register('Ottawa wards',
     domain='Ottawa, ON',
-    last_updated=date(2010, 8, 27),
+    last_updated=date(2012, 7, 22),
     name_func=boundaries.dashed_attr('WARD_EN'),
     id_func=boundaries.attr('WARD_NUM'),
     authority='City of Ottawa',

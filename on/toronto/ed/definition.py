@@ -4,7 +4,7 @@ import boundaries
 
 boundaries.register('Toronto wards',
     domain='Toronto, ON',
-    last_updated=date(2010, 6, 3),
+    last_updated=date(2012, 10, 24),
     name_func=boundaries.dashed_attr('NAME'),
     id_func=boundaries.attr('SCODE_NAME'),
     authority='City of Toronto',

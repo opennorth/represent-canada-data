@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register('Charlottetown wards',
     domain='Charlottetown, PE',
-    last_updated=date(2010, 9, 19),
+    last_updated=date(2013, 7, 19),
     name_func=boundaries.attr('NAME'),
     id_func=lambda f: re.sub(r'\D', '', f.get('KEY')),
     authority='Elections Prince Edward Island',
