@@ -16,6 +16,5 @@ boundaries.register('Newfoundland and Labrador electoral districts',
     authority='Government of Newfoundland and Labrador',
     source_url='http://www.elections.gov.nl.ca/elections/ElectoralBoundaries/index.html',
     data_url='http://www.elections.gov.nl.ca/elections/ElectoralBoundaries/Distibution_2011.zip',
-    notes='We use a shapefile received via email. The shapefile has the MLA name and party, though these may be out-of-date.',
     encoding='iso-8859-1',
 )
