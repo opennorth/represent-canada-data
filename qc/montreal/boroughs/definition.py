@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register(u'Montréal boroughs',
     domain=u'Montréal, QC',
-    last_updated=date(2011, 11, 8),
+    last_updated=date(2013, 8, 9),
     name_func=boundaries.clean_attr('ARROND'),
     authority=u'Ville de Montréal',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/polygones-arrondissements/',

@@ -4,6 +4,7 @@ from datetime import datetime
 import os.path
 import re
 from urlparse import urlparse
+from rfc6266 import parse_headers
 from zipfile import ZipFile, BadZipfile
 
 import boundaries
@@ -45,12 +46,18 @@ for slug, config in all_sources.items():
 
         # Parse the timestamp as a date.
         if last_modified:
-          last_updated = datetime.strptime(last_modified, '%a, %d %b %Y %H:%M:%S GMT').date()
+          last_updated = datetime.strptime(last_modified, '%a, %d %b %Y %H:%M:%S GMT')
         else:
-          last_updated = None
+          last_updated = datetime.now()
+        last_updated = last_updated.date()
 
-        if not last_updated or config['last_updated'] < last_updated:
-          extension = os.path.splitext(url)[1]
+        if config['last_updated'] < last_updated:
+          # Determine the file extension.
+          if response.headers.get('content-disposition'):
+            filename = parse_headers(response.headers['content-disposition']).filename_unsafe
+          else:
+            filename = url
+          extension = os.path.splitext(filename)[1]
 
           if extension == '.zip':
             # GitPython can't handle paths starting with "./".
