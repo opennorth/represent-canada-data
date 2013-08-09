@@ -11,7 +11,7 @@ boundaries.register('Mississauga wards',
     source_url='http://www.mississauga.ca/portal/residents/publicationsopendatacatalogue',
     licence_url='http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf',
     data_url='http://www5.mississauga.ca/research_catalogue/G_5_Municipal_Wards.kmz',
-    notes='Convert the KMZ to SHP with: unzip G_5_Municipal_Wards.kmz; ogr2ogr -f "ESRI Shapefile" ed doc.kml -nlt POLYGON Boundaries',
+    additional_commands='unzip G_5_Municipal_Wards.kmz; ogr2ogr -f "ESRI Shapefile" ed doc.kml -nlt POLYGON Boundaries',
     encoding='iso-8859-1',
     geographic_code='3521005',
 )

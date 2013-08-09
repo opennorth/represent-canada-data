@@ -18,6 +18,7 @@ boundaries.register('Saskatchewan electoral districts',
     source_url='https://www.geosask.ca/',
     licence_url='https://www.geosask.ca/Portal/jsp/terms_popup.jsp',
     data_url='ftp://portaldata:freedata@ftp.isc.ca/PackagedData/ElectionsSask/Boundaries.zip',
-    notes="""The zip file from Elections Saskatchewan contains 58 shapefiles, one for each electoral district. We merge them with: for i in $(ls *.shp); do ogr2ogr -f 'ESRI Shapefile' -update -append SK_ED $i -nln SK_ED; echo "Merging $i";done""",
+    notes='The zip file from Elections Saskatchewan contains 58 shapefiles, one for each electoral district.',
+    additional_commands="""for i in $(ls *.shp); do ogr2ogr -f 'ESRI Shapefile' -update -append SK_ED $i -nln SK_ED; echo "Merging $i";done""",
     encoding='iso-8859-1',
 )

@@ -20,7 +20,7 @@ def process(slug, config, url, data_file_path):
   index = repo.index
   extension = os.path.splitext(data_file_path)[1]
 
-  if extension in ('.kml', '.zip'):
+  if extension in ('.kml', '.kmz', '.zip'):
     # GitPython can't handle paths starting with "./".
     if config['file'].startswith('./'):
       directory = config['file'][2:]
@@ -40,19 +40,37 @@ def process(slug, config, url, data_file_path):
         zip_file = ZipFile(data_file_path)
         for name in zip_file.namelist():
           # Flatten the zip file hierarchy.
-          if os.path.splitext(name)[1] == '.kml':
-            basename = 'data.kml'
+          extension = os.path.splitext(name)[1]
+          if extension in ('.kml', '.kmz'):
+            basename = 'data%s' % extension # assumes one KML or KMZ file per archive
           else:
-            basename = os.path.basename(name)
+            basename = os.path.basename(name) # assumes no collisions across hierarchy
           with open(os.path.join(config['file'], basename), 'wb') as f:
             f.write(zip_file.read(name))
           if basename != 'data.kml':
             index.add([os.path.join(directory, basename)])
       except BadZipfile:
         error_thrown = True
-        print "Bad zip file %s\n" % url
+        print 'Bad zip file %s\n' % url
       finally:
         os.unlink(data_file_path)
+
+    kmz_file_path = os.path.join(config['file'], 'data.kmz')
+    if not error_thrown and os.path.exists(kmz_file_path):
+      try:
+        # Unzip any KMZ.
+        zip_file = ZipFile(kmz_file_path)
+        for name in zip_file.namelist():
+          if name == 'doc.kml':
+            with open(os.path.join(config['file'], 'data.kml'), 'wb') as f:
+              f.write(zip_file.read(name))
+          else:
+            raise Exception('Unrecognized KMZ content %s' % name)
+      except BadZipfile:
+        error_thrown = True
+        print 'Bad KMZ file %s\n' % url
+      finally:
+        os.unlink(kmz_file_path)
 
     if not error_thrown:
       # Convert any KML to shapefile.
@@ -61,6 +79,7 @@ def process(slug, config, url, data_file_path):
         if not os.system('ogr2ogr -f "ESRI Shapefile" %s %s' % (config['file'], kml_file_path)):
           for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
             index.add([name])
+        os.unlink(kml_file_path)
 
       # Update last updated timestamp.
       definition_path = os.path.join(config['file'], 'definition.py')
@@ -70,8 +89,13 @@ def process(slug, config, url, data_file_path):
         f.write(re.sub('(?<=last_updated=date\()[\d, ]+', last_updated.strftime('%Y, %-m, %-d'), definition))
 
       # Print notes.
+      notes = []
       if config.get('notes'):
-        print "%s\n%s\n" % (slug, config['notes'])
+        notes.append(config['notes'])
+      if config.get('additional_commands'):
+        notes.append(config['additional_commands'])
+      if notes:
+        print '%s\n%s\n' % (slug, '\n'.join(notes))
   else:
     print "Unrecognized extension %s\n" % url
 
@@ -80,13 +104,11 @@ boundaries.autodiscover('.')
 all_sources = boundaries.registry
 
 no_update = [
-  # Need to run additional commands.
-  'http://opendata.peelregion.ca/media/2549/wardboundary20102014_shp_04.2012.zip',
   # Needs to be split into one shapefile per municipality.
   'http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
 ]
 
-# Retrieve shapefiles
+# Retrieve shapefiles.
 for slug, config in all_sources.items():
   if config.get('data_url'):
     url = config['data_url']

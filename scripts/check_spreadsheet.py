@@ -31,6 +31,7 @@ no_geographic_code = [
   u"Verdun districts",
   u"Ville-Marie districts",
   u"Villeray—Saint-Michel—Parc-Extension districts",
+
   # Provinces
   u"Alberta electoral districts",
   u"British Columbia electoral districts",
@@ -38,9 +39,11 @@ no_geographic_code = [
   u"New Brunswick electoral districts",
   u"Newfoundland and Labrador electoral districts",
   u"Nova Scotia electoral districts",
+  u"Ontario electoral districts",
   u"Prince Edward Island electoral districts",
   u"Québec electoral districts",
   u"Saskatchewan electoral districts",
+
   # Federal
   u"Census divisions",
   u"Census subdivisions",
