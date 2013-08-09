@@ -88,8 +88,6 @@ no_update = [
 
 # Retrieve shapefiles
 for slug, config in all_sources.items():
-  if slug != 'Saskatchewan electoral districts':
-    continue
   if config.get('data_url'):
     url = config['data_url']
 
