@@ -11,7 +11,7 @@ def namer(f):
 
 boundaries.register('Saskatchewan electoral districts',
     domain='Saskatchewan',
-    last_updated=date(2010, 9, 29),
+    last_updated=date(2010, 10, 12),
     name_func=namer,
     id_func=boundaries.attr('CON_NUM'),
     authority='Elections Saskatchewan',
