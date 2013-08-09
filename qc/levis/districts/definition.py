@@ -9,7 +9,6 @@ boundaries.register(u'Lévis districts',
     name_func=boundaries.clean_attr('NOM'),
     id_func=boundaries.attr('NUMERO'),
     authority=u'Ville de Lévis',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='2425213',
 )

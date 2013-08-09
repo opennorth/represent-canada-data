@@ -8,7 +8,6 @@ boundaries.register('Waterloo wards',
     name_func=boundaries.attr('WARD'),
     id_func=boundaries.attr('WARD_NO'),
     authority='City of Waterloo',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='3530016',
 )

@@ -8,7 +8,6 @@ boundaries.register('Haldimand County wards',
     name_func=boundaries.attr('Ward'),
     id_func=lambda f: re.sub(r'\D', '', f.get('Ward')),
     authority='The Corporation of Haldimand County',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='3528018',
 )

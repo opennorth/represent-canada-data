@@ -8,7 +8,6 @@ boundaries.register('Halifax districts',
     name_func=boundaries.attr('DISTNAME'),
     id_func=boundaries.attr('DIST_ID'),
     authority='Halifax Regional Municipality',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='1209034',
 )

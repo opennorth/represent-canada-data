@@ -7,7 +7,6 @@ boundaries.register('St. Catharines wards',
     last_updated=date(2012, 9, 18),
     name_func=boundaries.clean_attr('WardName'),
     authority='City of St. Catharines',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='3526053',
 )

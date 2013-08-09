@@ -8,7 +8,7 @@ boundaries.register('Saskatoon wards',
     name_func=lambda f: 'Ward %s' % f.get('Ward'),
     id_func=boundaries.attr('Ward'),
     authority='City of Saskatoon',
-    notes='We use a shapefile received via email. Ward 1 is split into two features. We merge them using Quantum GIS.',
+    notes='Ward 1 is split into two features. We merge them using Quantum GIS.',
     encoding='iso-8859-1',
     geographic_code='4711066',
 )

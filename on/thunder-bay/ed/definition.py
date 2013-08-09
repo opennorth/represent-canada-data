@@ -8,7 +8,6 @@ boundaries.register('Thunder Bay wards',
     name_func=boundaries.attr('WARD_NAME'),
     id_func=boundaries.attr('WARD_NO'),
     authority='City of Thunder Bay',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='3558004',
 )

@@ -22,19 +22,19 @@ for row in reader:
 for slug, config in all_sources.items():
   notes = []
   if config.get('notes'):
-    notes.append("Notes: %s" % config['notes'])
+    notes.append('Notes: %s' % config['notes'])
   geographic_code = config.get('geographic_code')
   if geographic_code:
     subdivision = subdivisions.get(config['geographic_code'])
     if subdivision:
       if subdivision[19]:
-        notes.append("Online notes: %s" % subdivision[19])
+        raise Exception('%s has request notes' % slug)
       if subdivision[20]:
-        notes.append("Revisions: %s" % subdivision[20])
+        notes.append('Revision: %s' % subdivision[20])
   if notes:
     print slug
     if config.get('source_url'):
-      print "Source: %s" % config['source_url']
+      print 'Source: %s' % config['source_url']
     for note in notes:
       print note
     print

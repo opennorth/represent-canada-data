@@ -8,7 +8,6 @@ boundaries.register('Brantford wards',
     name_func=boundaries.attr('WARD_NAME'),
     id_func=boundaries.attr('WARD_ID'),
     authority='Town of Brantford',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='3529006',
 )

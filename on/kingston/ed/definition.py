@@ -8,7 +8,6 @@ boundaries.register('Kingston districts',
     name_func=boundaries.attr('ELECTORAL_'),
     id_func=boundaries.attr('ELECTORAL1'),
     authority='City of Kingston',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='3510010',
 )

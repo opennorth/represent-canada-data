@@ -8,7 +8,6 @@ boundaries.register('Ajax wards',
     name_func=lambda f: 'Ward %s' % f.get('WARD'),
     id_func=boundaries.attr('WARD'),
     authority='Town of Ajax',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='3518005',
 )

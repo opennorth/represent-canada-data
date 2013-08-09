@@ -8,7 +8,6 @@ boundaries.register('Strathcona County wards',
     name_func=lambda f: 'Ward %d' % f.get('Ward'),
     id_func=lambda f: '%d' % f.get('Ward'),
     authority='Strathcona County',
-    notes='We use a shapefile received via email.',
     encoding='iso-8859-1',
     geographic_code='4811052',
 )
