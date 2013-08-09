@@ -12,7 +12,6 @@ boundaries.register(u'Ahuntsic-Cartierville districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -25,7 +24,6 @@ boundaries.register(u'Anjou districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -38,7 +36,6 @@ boundaries.register(u'Côte-des-Neiges—Notre-Dame-de-Grâce districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -51,7 +48,6 @@ boundaries.register(u'Lachine districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -64,7 +60,6 @@ boundaries.register(u'LaSalle districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -77,7 +72,6 @@ boundaries.register(u'Le Sud-Ouest districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -90,7 +84,6 @@ boundaries.register(u'L\'Île-Bizard—Sainte-Geneviève districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -103,7 +96,6 @@ boundaries.register(u'Mercier—Hochelaga-Maisonneuve districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -116,7 +108,6 @@ boundaries.register(u'Montréal-Nord districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -129,7 +120,6 @@ boundaries.register(u'Outremont districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -142,7 +132,6 @@ boundaries.register(u'Pierrefonds-Roxboro districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -155,7 +144,6 @@ boundaries.register(u'Le Plateau-Mont-Royal districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -168,7 +156,6 @@ boundaries.register(u'Rivière-des-Prairies—Pointe-aux-Trembles districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -181,7 +168,6 @@ boundaries.register(u'Rosemont—La Petite-Patrie districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -194,7 +180,6 @@ boundaries.register(u'Saint-Laurent districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -207,7 +192,6 @@ boundaries.register(u'Saint-Léonard districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -220,7 +204,6 @@ boundaries.register(u'Verdun districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -233,7 +216,6 @@ boundaries.register(u'Ville-Marie districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
 
@@ -246,6 +228,5 @@ boundaries.register(u'Villeray—Saint-Michel—Parc-Extension districts',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-    notes='District extracted from original shapefile',
     encoding='iso-8859-1',
 )
