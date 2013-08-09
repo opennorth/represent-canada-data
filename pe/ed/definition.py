@@ -21,11 +21,10 @@ boundaries.register('Prince Edward Island electoral districts',
     source_url='http://www.electionspei.ca/provincial/districts',
     data_url='http://www.electionspei.ca/provincial/details/gis/kml/pei-provincial-districts-all.kml',
     licence_url='http://www.electionspei.ca/api/license/',
-    notes='The shapefile from gov.pe.ca has 222 features instead of 27. We use the KML from Elections PEI, which we convert to SHP with: ogr2ogr -f "ESRI Shapefile" ed pei-provincial-districts-all.kml',
     encoding='iso-8859-1',
 )
 
-# The bad data from gov.pe.ca is at:
-# Source: http://www.gov.pe.ca/gis/index.php3?number=77868&lang=E
-# Licence: http://www.gov.pe.ca/gis/license_agreement.php3
-# Data: http://www.gov.pe.ca/photos/original/prov_elect_dist.SHP.zip
+# The shapefile from gov.pe.ca has 222 features instead of 27:
+# source_url='http://www.gov.pe.ca/gis/index.php3?number=77868&lang=E',
+# data_url='http://www.gov.pe.ca/photos/original/prov_elect_dist.SHP.zip',
+# licence_url='http://www.gov.pe.ca/gis/license_agreement.php3',
