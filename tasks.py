@@ -164,6 +164,8 @@ def shapefiles(base='.'):
           os.unlink(os.path.join(config['file'], basename))
           index.remove([os.path.join(directory, basename)])
 
+      files_to_add = []
+
       # Unzip any zip file.
       error_thrown = False
       if extension == '.zip':
@@ -179,7 +181,7 @@ def shapefiles(base='.'):
             with open(os.path.join(config['file'], basename), 'wb') as f:
               f.write(zip_file.read(name))
             if extension not in ('.kml', '.kmz'):
-              index.add([os.path.join(directory, basename)])
+              files_to_add.append(os.path.join(directory, basename))
         except BadZipfile:
           error_thrown = True
           print 'Bad ZIP file %s\n' % url
@@ -216,8 +218,18 @@ def shapefiles(base='.'):
             layer = re.search('^\d+: (\S+)', result).group(1)
             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON %s' % (config['file'], kml_file_path, layer), echo=True)
             for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
-              index.add([name])
+              files_to_add.append(name)
             os.unlink(kml_file_path)
+
+        # Merge multiple shapefiles into one.
+        names = glob(os.path.join(config['file'], '*.shp'))
+        if len(names) > 1:
+          for name in names:
+            run('ogr2ogr -f "ESRI Shapefile" %s %s -update -append -nln Boundaries' % (config['file'], name), echo=True)
+            basename = os.path.splitext(os.path.basename(name))[0]
+            for name in glob(os.path.join(directory, '%s.[dps][bhr][fjnpx]' % basename)):
+              files_to_add.remove(name)
+              os.unlink(name)
 
         # Convert any 3D shapefile into 2D.
         shp_file_path = os.path.join(config['file'], '*.shp')
@@ -227,6 +239,9 @@ def shapefiles(base='.'):
             print 'Too many layers %s' % url
           elif re.search('3D Polygon', result):
             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (config['file'], shp_file_path), echo=True)
+
+        # Add files to git.
+        index.add(files_to_add)
 
         # Update last updated timestamp.
         definition_path = os.path.join(config['file'], 'definition.py')
