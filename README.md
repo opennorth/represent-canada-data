@@ -24,16 +24,20 @@ We do not have permission to redistribute every dataset available through the [R
 
 ## Maintenance
 
+    # Invoke must not be installed globally.
+    pip uninstall invoke
+    # Create a virtual environment.
     mkvirtualenv representdata
+    # Install the requirements.
     pip install -r requirements.txt
     # Check that the spreadsheet is up-to-date.
-    python scripts/check_spreadsheet.py
-    # Check that the source, data and licence URLs still work.
-    python scripts/check_urls.py
+    invoke spreadsheet
+    # Check that the source, data and licence URLs work.
+    invoke urls
     # Review any notes about the boundaries.
-    python scripts/print_notes.py
+    invoke notes
     # Update any out-of-date shapefiles.
-    python scripts/update_shapefiles.py
+    invoke shapefiles
 
 ## Contact
 

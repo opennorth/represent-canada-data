@@ -240,6 +240,10 @@ def shapefiles(base='.'):
           elif re.search('3D Polygon', result):
             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (config['file'], shp_file_path), echo=True)
 
+        # Run any additional commands.
+        if config.get('ogr2ogr'):
+          run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (config['file'], shp_file_path, config['ogr2ogr']), echo=True)
+
         # Add files to git.
         index.add(files_to_add)
 
@@ -249,9 +253,6 @@ def shapefiles(base='.'):
           definition = f.read()
         with open(definition_path, 'w') as f:
           f.write(re.sub('(?<=last_updated=date\()[\d, ]+', last_updated.strftime('%Y, %-m, %-d'), definition))
-
-        if config.get('ogr2ogr'):
-          run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (config['file'], shp_file_path, config['ogr2ogr']), echo=True)
 
         # Print notes.
         notes = []
