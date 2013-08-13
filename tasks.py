@@ -75,7 +75,7 @@ def spreadsheet(base='.'):
       row = rows.get(config['geographic_code'])
       if row:
         if row[5] != 'Y':
-          print "Change 'Shapefile?' for %s (%s) from '%s' to 'Y'" % (slug, geographic_code, row[5])
+          print 'Change "Shapefile?" for %s (%s) from "%s" to "Y"' % (slug, geographic_code, row[5])
       else:
         print "%s (%s) isn't in the spreadsheet" % (slug, geographic_code)
     elif slug not in no_geographic_code:
@@ -95,20 +95,20 @@ def urls(base='.'):
           ftp.login(result.username, result.password)
           ftp.cwd(os.path.dirname(result.path))
           if os.path.basename(result.path) not in ftp.nlst():
-            print "404 %s" % url
+            print '404 %s' % url
           ftp.quit()
         else:
           try:
             arguments = {'allow_redirects': True}
             if result.username:
-              url = "%s://%s%s" % (result.scheme, result.hostname, result.path)
+              url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
               arguments['auth'] = (result.username, result.password)
             response = requests.head(url, **arguments)
             status_code = response.status_code
             if status_code != 200:
-              print "%d %s" % (status_code, url)
+              print '%d %s' % (status_code, url)
           except requests.exceptions.ConnectionError:
-            print "404 %s" % url
+            print '404 %s' % url
 
 # Prints notes about the boundaries.
 @task
@@ -146,11 +146,12 @@ def shapefiles(base='.'):
 
     from git import Repo
 
-    repo = Repo('.')
-    index = repo.index
+    # We can only process KML, KMZ and ZIP files.
     extension = os.path.splitext(data_file_path)[1]
-
     if extension in ('.kml', '.kmz', '.zip'):
+      repo = Repo('.')
+      index = repo.index
+
       # GitPython can't handle paths starting with "./".
       if config['file'].startswith('./'):
         directory = config['file'][2:]
@@ -159,14 +160,14 @@ def shapefiles(base='.'):
 
       # Remove old files.
       for basename in os.listdir(config['file']):
-        if basename not in ('.DS_Store', 'definition.py', 'LICENSE.txt', 'data.kml', 'data.zip'):
+        if basename not in ('.DS_Store', 'definition.py', 'LICENSE.txt', 'data.kml', 'data.kmz', 'data.zip'):
           os.unlink(os.path.join(config['file'], basename))
           index.remove([os.path.join(directory, basename)])
 
+      # Unzip any zip file.
       error_thrown = False
       if extension == '.zip':
         try:
-          # Unzip new file.
           zip_file = ZipFile(data_file_path)
           for name in zip_file.namelist():
             # Flatten the zip file hierarchy.
@@ -177,21 +178,23 @@ def shapefiles(base='.'):
               basename = os.path.basename(name) # assumes no collisions across hierarchy
             with open(os.path.join(config['file'], basename), 'wb') as f:
               f.write(zip_file.read(name))
-            if basename != 'data.kml':
+            if extension not in ('.kml', '.kmz'):
               index.add([os.path.join(directory, basename)])
         except BadZipfile:
           error_thrown = True
-          print 'Bad zip file %s\n' % url
+          print 'Bad ZIP file %s\n' % url
         finally:
           os.unlink(data_file_path)
 
+      # Unzip any KMZ file.
       kmz_file_path = os.path.join(config['file'], 'data.kmz')
       if not error_thrown and os.path.exists(kmz_file_path):
         try:
-          # Unzip any KMZ.
           zip_file = ZipFile(kmz_file_path)
           for name in zip_file.namelist():
-            if name == 'doc.kml':
+            # A KMZ file contains a single KML file and other supporting files.
+            # @see https://developers.google.com/kml/documentation/kmzarchives
+            if os.path.splitext(name)[1] == '.kml':
               with open(os.path.join(config['file'], 'data.kml'), 'wb') as f:
                 f.write(zip_file.read(name))
             else:
@@ -206,10 +209,24 @@ def shapefiles(base='.'):
         # Convert any KML to shapefile.
         kml_file_path = os.path.join(config['file'], 'data.kml')
         if os.path.exists(kml_file_path):
-          if not os.system('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON Boundaries' % (config['file'], kml_file_path)):
+          result = run('ogrinfo -q %s | grep -v "3D Point"' % kml_file_path, hide='out').stdout
+          if result.count('\n') > 1:
+            print 'Too many layers %s' % url
+          else:
+            layer = re.search('^\d+: (\S+)', result).group(1)
+            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON %s' % (config['file'], kml_file_path, layer), echo=True)
             for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
               index.add([name])
-          os.unlink(kml_file_path)
+            os.unlink(kml_file_path)
+
+        # Convert any 3D shapefile into 2D.
+        shp_file_path = os.path.join(config['file'], '*.shp')
+        if os.path.exists(shp_file_path):
+          result = run('ogrinfo -q %s' % shp_file_path, hide='out').stdout
+          if result.count('\n') > 1:
+            print 'Too many layers %s' % url
+          elif re.search('3D Polygon', result):
+            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (config['file'], shp_file_path), echo=True)
 
         # Update last updated timestamp.
         definition_path = os.path.join(config['file'], 'definition.py')
@@ -218,16 +235,17 @@ def shapefiles(base='.'):
         with open(definition_path, 'w') as f:
           f.write(re.sub('(?<=last_updated=date\()[\d, ]+', last_updated.strftime('%Y, %-m, %-d'), definition))
 
+        if config.get('ogr2ogr'):
+          run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (config['file'], shp_file_path, config['ogr2ogr']), echo=True)
+
         # Print notes.
         notes = []
         if config.get('notes'):
           notes.append(config['notes'])
-        if config.get('additional_commands'):
-          notes.append(config['additional_commands'])
         if notes:
           print '%s\n%s\n' % (slug, '\n'.join(notes))
     else:
-      print "Unrecognized extension %s\n" % url
+      print 'Unrecognized extension %s\n' % url
 
   from datetime import datetime
 
@@ -271,7 +289,7 @@ def shapefiles(base='.'):
           # Get the last modified timestamp.
           arguments = {'allow_redirects': True}
           if result.username:
-            url = "%s://%s%s" % (result.scheme, result.hostname, result.path)
+            url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
             arguments['auth'] = (result.username, result.password)
           response = requests.head(url, **arguments)
           last_modified = response.headers.get('last-modified')
@@ -283,7 +301,9 @@ def shapefiles(base='.'):
             last_updated = datetime.now()
           last_updated = last_updated.date()
 
-          if config['last_updated'] < last_updated:
+          if config['last_updated'] > last_updated:
+            print '%s are more recent than the source\n' % slug
+          elif config['last_updated'] < last_updated:
             # Determine the file extension.
             if response.headers.get('content-disposition'):
               filename = parse_headers(response.headers['content-disposition']).filename_unsafe
