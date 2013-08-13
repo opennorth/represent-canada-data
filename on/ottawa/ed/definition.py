@@ -11,7 +11,6 @@ boundaries.register('Ottawa wards',
     source_url='http://app06.ottawa.ca/en/city_hall/statisticsdata/opendata/info/wards2010/index.htm',
     licence_url='http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
     data_url='http://app06.ottawa.ca/cs/groups/content/@webottawa/documents/pdf/mdaw/mty4/~edisp/odata0335.zip',
-    additional_commands='ogr2ogr -f "ESRI Shapefile" -overwrite . Wards_2010.shp -nlt POLYGON',
     encoding='iso-8859-1',
     geographic_code='3506008',
 )
