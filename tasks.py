@@ -3,6 +3,7 @@
 from ftplib import FTP
 import os
 import os.path
+import re
 from urlparse import urlparse
 
 from invoke import run, task
@@ -60,10 +61,42 @@ def definitions(base='.'):
     'ogr2ogr',
   ])
 
+  valid_domains = [
+    u'Canada',
+    # Provinces and territories
+    u'Alberta',
+    u'British Columbia',
+    u'Manitoba',
+    u'New Brunswick',
+    u'Newfoundland and Labrador',
+    u'Northwest Territories',
+    u'Nova Scotia',
+    u'Nunavut',
+    u'Ontario',
+    u'Prince Edward Island',
+    u'Québec',
+    u'Saskatchewan',
+    u'Yukon',
+  ]
+
+  valid_domains_re = re.compile(', (AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)$')
+
   for slug, config in registry(base).items():
     invalid_keys = set(config.keys()) - valid_keys
     if invalid_keys:
       print "%s Unrecognized key: %s" % (config['file'], ', '.join(invalid_keys))
+    values = config.values()
+    if len(values) > len(set(values)):
+      print "%s Non-unique values" % config['file']
+    for key, value in config.items():
+      if not value:
+        print "%s Empty value for %s" % (config['file'], key)
+    if config.get('domain'):
+      if config['domain'] not in valid_domains and not valid_domains_re.search(config['domain']):
+        print "%s Unrecognized domain: %s" % (config['file'], config['domain'])
+    if config.get('encoding'):
+      if config['encoding'] not in ('iso-8859-1'):
+        print "%s Unrecognied encoding: %s" % (config['file'], config['encoding'])
 
 # Makes sure the spreadsheet doesn't undercount.
 @task
@@ -180,7 +213,6 @@ def notes(base='.'):
 def shapefiles(base='.'):
   def process(slug, config, url, data_file_path):
     from glob import glob
-    import re
     from zipfile import ZipFile, BadZipfile
 
     from git import Repo
