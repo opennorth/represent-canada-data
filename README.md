@@ -20,11 +20,11 @@ We do not have permission to redistribute every dataset available through the [R
 
 ## Contributing
 
-[We need the ward boundaries](https://github.com/opennorth/represent-canada/issues/13) for more municipalities. Please [let us know](mailto:represent@opennorth.ca) if you have a ward boundary file. To go one step further, you can write a `definition.py` file to describe the data, using an [example `definition.py` file](http://github.com/opennorth/represent-canada-data/tree/master/examples/definition.example.comments.py).
+[We need the ward boundaries](https://github.com/opennorth/represent-canada/issues/13) for more municipalities. Please [let us know](mailto:represent@opennorth.ca) if you have a ward boundary file. To go one step further, you can write a `definition.py` file to describe the data, using an [example](https://github.com/rhymeswithcycle/represent-boundaries/blob/master/definition.example.py) or [bare](https://github.com/opennorth/represent-canada-data/blob/master/definition.py) `definition.py` file.
 
 ## Maintenance
 
-One-time setup:
+### One-time setup
 
     # Invoke must not be installed globally.
     pip uninstall invoke
@@ -33,19 +33,34 @@ One-time setup:
     # Install the requirements.
     pip install -r requirements.txt
 
-Regular maintenance:
+### Regular tasks
 
-    # Load the virtual environment.
+Load the virtual environment:
+
     workon representdata
-    # Check that all data directories contain a LICENSE.txt
+
+Check that all `definition.py` files are valid:
+
+    invoke definitions
+
+Check that all data directories contain a `LICENSE.txt`:
+
     invoke licenses
-    # Check that the spreadsheet is up-to-date.
-    invoke spreadsheet
-    # Check that the source, data and licence URLs work.
+
+Check that the source, data and licence URLs work:
+
     invoke urls
-    # Review any notes about the boundaries.
+
+Check that the spreadsheet is up-to-date:
+
+    invoke spreadsheet
+
+Review any notes about the boundaries:
+
     invoke notes
-    # Update any out-of-date shapefiles.
+
+Update any out-of-date shapefiles:
+
     invoke shapefiles
 
 ## Contact

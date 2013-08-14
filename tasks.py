@@ -25,17 +25,45 @@ def csv():
   reader.next()
   return dict((row[0], row[1:]) for row in reader)
 
-# Makes sure all directories contain a LICENSE.txt
+# Makes sure all directories contain a LICENSE.txt.
 @task
 def licenses(base='.'):
   for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
-    for dirname in ('.git', 'examples'):
-      if dirname in dirnames:
-        dirnames.remove(dirname)
+    if '.git' in dirnames:
+      dirnames.remove('.git')
     if '.DS_Store' in filenames:
       filenames.remove('.DS_Store')
     if filenames and 'LICENSE.txt' not in filenames:
-      print 'No LICENSE.txt in %s' % dirpath
+      print '%s No LICENSE.txt' % dirpath
+
+# Makes sure all definitions are valid.
+@task
+def definitions(base='.'):
+  valid_keys = set([
+    # Added by boundaries.register.
+    'file',
+    # Used by represent-boundaries.
+    'singular',
+    'domain',
+    'last_updated',
+    'slug_func',
+    'name_func',
+    'id_func',
+    'is_valid_func',
+    'authority',
+    'source_url',
+    'licence_url',
+    'data_url',
+    'notes',
+    'encoding',
+    'geographic_code',
+    'ogr2ogr',
+  ])
+
+  for slug, config in registry(base).items():
+    invalid_keys = set(config.keys()) - valid_keys
+    if invalid_keys:
+      print "%s Unrecognized key: %s" % (config['file'], ', '.join(invalid_keys))
 
 # Makes sure the spreadsheet doesn't undercount.
 @task
@@ -87,18 +115,17 @@ def spreadsheet(base='.'):
     if geographic_code:
       row = rows.get(config['geographic_code'])
       if row:
-        if row[5] != 'Y':
-          print 'Change "Shapefile?" for %s (%s) from "%s" to "Y"' % (slug, geographic_code, row[5])
+        if row[3] != 'Y':
+          print '%s (%s) Change "Shapefile?" from "%s" to "Y"' % (slug, geographic_code, row[3])
       else:
-        print "%s (%s) isn't in the spreadsheet" % (slug, geographic_code)
+        print "%s (%s) Not in spreadsheet" % (slug, geographic_code)
     elif slug not in no_geographic_code:
-      print "%s doesn't have a geographic code" % slug
+      print "%s No geographic code" % slug
 
 # Makes sure URLs in definition files exist.
 @task
 def urls(base='.'):
   for slug, config in registry(base).items():
-    # Check URLs.
     for key in ('source_url', 'licence_url', 'data_url'):
       if config.get(key):
         url = config[key]
@@ -211,8 +238,6 @@ def shapefiles(base='.'):
             if os.path.splitext(name)[1] == '.kml':
               with open(os.path.join(config['file'], 'data.kml'), 'wb') as f:
                 f.write(zip_file.read(name))
-            else:
-              raise Exception('Unrecognized KMZ content %s' % name)
         except BadZipfile:
           error_thrown = True
           print 'Bad KMZ file %s\n' % url
