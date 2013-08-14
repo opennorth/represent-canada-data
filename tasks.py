@@ -26,18 +26,7 @@ def csv():
   reader.next()
   return dict((row[0], row[1:]) for row in reader)
 
-# Makes sure all directories contain a LICENSE.txt.
-@task
-def licenses(base='.'):
-  for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
-    if '.git' in dirnames:
-      dirnames.remove('.git')
-    if '.DS_Store' in filenames:
-      filenames.remove('.DS_Store')
-    if filenames and 'LICENSE.txt' not in filenames:
-      print '%s No LICENSE.txt' % dirpath
-
-# Makes sure all definitions are valid.
+# Check that all `definition.py` files are valid.
 @task
 def definitions(base='.'):
   valid_keys = set([
@@ -57,6 +46,7 @@ def definitions(base='.'):
     'data_url',
     'notes',
     'encoding',
+    # Used by this script.
     'geographic_code',
     'ogr2ogr',
   ])
@@ -98,7 +88,46 @@ def definitions(base='.'):
       if config['encoding'] not in ('iso-8859-1'):
         print "%s Unrecognied encoding: %s" % (config['file'], config['encoding'])
 
-# Makes sure the spreadsheet doesn't undercount.
+# Check that all data directories contain a `LICENSE.txt`.
+@task
+def licenses(base='.'):
+  for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
+    if '.git' in dirnames:
+      dirnames.remove('.git')
+    if '.DS_Store' in filenames:
+      filenames.remove('.DS_Store')
+    if filenames and 'LICENSE.txt' not in filenames:
+      print '%s No LICENSE.txt' % dirpath
+
+# Check that the source, data and licence URLs work.
+@task
+def urls(base='.'):
+  for slug, config in registry(base).items():
+    for key in ('source_url', 'licence_url', 'data_url'):
+      if config.get(key):
+        url = config[key]
+        result = urlparse(url)
+        if result.scheme == 'ftp':
+          ftp = FTP(result.hostname)
+          ftp.login(result.username, result.password)
+          ftp.cwd(os.path.dirname(result.path))
+          if os.path.basename(result.path) not in ftp.nlst():
+            print '404 %s' % url
+          ftp.quit()
+        else:
+          try:
+            arguments = {'allow_redirects': True}
+            if result.username:
+              url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
+              arguments['auth'] = (result.username, result.password)
+            response = requests.head(url, **arguments)
+            status_code = response.status_code
+            if status_code != 200:
+              print '%d %s' % (status_code, url)
+          except requests.exceptions.ConnectionError:
+            print '404 %s' % url
+
+# Check that the spreadsheet is up-to-date.
 @task
 def spreadsheet(base='.'):
   no_geographic_code = [
@@ -155,35 +184,7 @@ def spreadsheet(base='.'):
     elif slug not in no_geographic_code:
       print "%s No geographic code" % slug
 
-# Makes sure URLs in definition files exist.
-@task
-def urls(base='.'):
-  for slug, config in registry(base).items():
-    for key in ('source_url', 'licence_url', 'data_url'):
-      if config.get(key):
-        url = config[key]
-        result = urlparse(url)
-        if result.scheme == 'ftp':
-          ftp = FTP(result.hostname)
-          ftp.login(result.username, result.password)
-          ftp.cwd(os.path.dirname(result.path))
-          if os.path.basename(result.path) not in ftp.nlst():
-            print '404 %s' % url
-          ftp.quit()
-        else:
-          try:
-            arguments = {'allow_redirects': True}
-            if result.username:
-              url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
-              arguments['auth'] = (result.username, result.password)
-            response = requests.head(url, **arguments)
-            status_code = response.status_code
-            if status_code != 200:
-              print '%d %s' % (status_code, url)
-          except requests.exceptions.ConnectionError:
-            print '404 %s' % url
-
-# Prints notes about the boundaries.
+# Review any notes about the boundaries.
 @task
 def notes(base='.'):
   rows = csv()
@@ -208,7 +209,7 @@ def notes(base='.'):
         print note
       print
 
-# Updates shapefiles.
+# Update any out-of-date shapefiles.
 @task
 def shapefiles(base='.'):
   def process(slug, config, url, data_file_path):
