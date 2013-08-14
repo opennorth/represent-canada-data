@@ -39,6 +39,12 @@ Load the virtual environment:
 
     workon representdata
 
+Check that the spreadsheet is up-to-date:
+
+    invoke spreadsheet
+
+#### Boundaries
+
 Check that all `definition.py` files are valid:
 
     invoke definitions
@@ -51,10 +57,6 @@ Check that the source, data and licence URLs work:
 
     invoke urls
 
-Check that the spreadsheet is up-to-date:
-
-    invoke spreadsheet
-
 Review any notes about the boundaries:
 
     invoke notes
@@ -62,6 +64,12 @@ Review any notes about the boundaries:
 Update any out-of-date shapefiles:
 
     invoke shapefiles
+
+#### Representatives
+
+Check that all ScraperWiki scrapers are in Represent:
+
+    invoke scraperwiki
 
 ## Contact
 

@@ -1,5 +1,6 @@
 GitPython
 invoke
+lxml
 requests==1.2.3
 rfc6266
 -e git+http://github.com/rhymeswithcycle/represent-boundaries.git#egg=represent-boundaries

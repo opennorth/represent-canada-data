@@ -10,6 +10,7 @@ from urlparse import urlparse
 from invoke import run, task
 import requests
 
+# Returns the directory in which a shapefile exists.
 def dirname(path):
   # GitPython can't handle paths starting with "./".
   if path.startswith('./'):
@@ -19,16 +20,15 @@ def dirname(path):
   else:
     return os.path.dirname(path)
 
-# @see Command#handle in boundaries/management/commands/loadshapefiles.py
+# Reads `definition.py` files.
 def registry(base='.'):
   import boundaries
-
   boundaries.autodiscover(base)
   return boundaries.registry
 
+# Reads remote CSV files.
 def csv_reader(url):
   from StringIO import StringIO
-
   return csv.reader(StringIO(requests.get(url).content))
 
 # Reads the spreadsheet for tracking progress on data collection.
@@ -37,7 +37,7 @@ def read_spreadsheet():
   reader.next() # headers
   return dict((row[0], row[1:]) for row in reader)
 
-# Updates the spreadsheet for tracking progress on data collection.
+# Update the spreadsheet for tracking progress on data collection.
 @task
 def write_spreadsheet():
   import sys
@@ -47,7 +47,14 @@ def write_spreadsheet():
   reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv')
   abbreviations = [row[1] for row in reader]
 
-  'http://represent.opennorth.ca/representative-sets/?limit=0'
+  # @see https://github.com/opennorth/represent-canada/issues/60
+  scraperwiki_urls = {}
+  for representative_set in requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']:
+    boundary_set_url = representative_set['related']['boundary_set_url']
+    if boundary_set_url:
+      boundary_set = requests.get('http://represent.opennorth.ca%s' % boundary_set_url).json()
+      if boundary_set.get('metadata') and boundary_set['metadata'].get('geographic_code'):
+        scraperwiki_urls[boundary_set['metadata']['geographic_code']] = representative_set['scraperwiki_url']
 
   reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
   writer = csv.writer(sys.stdout)
@@ -67,9 +74,69 @@ def write_spreadsheet():
         region = 'Canada'
       else:
         raise Exception('Unrecognized name "%s"' % row[1])
-      writer.writerow([row[0], name, region, row[4]])
+      writer.writerow([
+        row[0],
+        name,
+        region,
+        row[4],
+        scraperwiki_urls.get(row[0]),
+      ])
     else:
       break
+
+# Check that all ScraperWiki scrapers are in Represent.
+@task
+def scraperwiki():
+  import lxml.html
+
+  ignore_slugs = set([
+    # Not relevant to Represent.
+    'canadian_federal_bills_wip',
+    'seao',
+    'seao_details',
+    'trial_sg_company_numbers',
+    'trial_us_nv_company_numbers',
+    'trial_us_wy_company_numbers_1',
+    # Past elections.
+    'bc_2013_candidates_1',
+    # Obsolete scrapers.
+    'halifax_city_councillors',
+    'ottawa-mayor-and-councillors',
+    'winnipeg_city_council',
+  ])
+
+  tagged_slugs = set()
+  query_string = ''
+  while True:
+    document = lxml.html.fromstring(requests.get('https://classic.scraperwiki.com/tags/cdnpoli%s' % query_string).content)
+    tagged_slugs.update(href.split('/')[2] for href in document.xpath('//*[@class="screenshot"]/@href'))
+    href = document.xpath('//*[@class="next"]/@href')
+    if href:
+      query_string = href[0]
+    else:
+      break
+
+  response = requests.get('https://api.scraperwiki.com/api/1.0/scraper/getuserinfo?format=jsondict&username=jpmckinney').json()[0]
+  scraperwiki_slugs = set(item for sublist in response['coderoles'].values() for item in sublist)
+
+  response = requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']
+  represent_slugs = set(os.path.basename(os.path.dirname(item['scraperwiki_url'])) for item in response)
+
+  response = requests.get('http://represent.opennorth.ca/candidates/?limit=0').json()['objects']
+  ignore_slugs.update(os.path.basename(os.path.dirname(item['scraperwiki_url'])) for item in response)
+
+  messages = {
+    'On ScraperWiki but not on Represent': scraperwiki_slugs - represent_slugs - ignore_slugs,
+    'On Represent but not on ScraperWiki': represent_slugs - scraperwiki_slugs,
+    'Tagged "cdnpoli" on ScraperWiki but not on Represent': tagged_slugs - scraperwiki_slugs - represent_slugs - ignore_slugs,
+    'On Represent but not tagged "cdnpoli" on ScraperWiki': represent_slugs - tagged_slugs,
+  }
+  for message, slugs in messages.items():
+    if slugs:
+      print '%s:' % message
+      for slug in slugs:
+        print 'https://classic.scraperwiki.com/scrapers/%s/' % slug
+      print
 
 # Check that all `definition.py` files are valid.
 @task
@@ -205,6 +272,7 @@ def urls(base='.'):
             print '404 %s' % url
 
 # Check that the spreadsheet is up-to-date.
+# @todo Needed?
 @task
 def spreadsheet(base='.'):
   rows = read_spreadsheet()
@@ -219,6 +287,7 @@ def spreadsheet(base='.'):
         print "%s (%s) Not in spreadsheet" % (slug, config['metadata']['geographic_code'])
 
 # Review any notes about the boundaries.
+# @todo Needed?
 @task
 def notes(base='.'):
   rows = read_spreadsheet()
