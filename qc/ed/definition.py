@@ -14,4 +14,5 @@ boundaries.register(u'Québec electoral districts',
     licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
     data_url='http://electionsquebec.qc.ca/documents/zip/circonscriptions-electorales-2011-shapefile.zip',
     encoding='iso-8859-1',
+    geographic_code='24',
 )

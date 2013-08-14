@@ -9,6 +9,15 @@ from urlparse import urlparse
 from invoke import run, task
 import requests
 
+def dirname(path):
+  # GitPython can't handle paths starting with "./".
+  if path.startswith('./'):
+    path = path[2:]
+  if os.path.isdir(path):
+    return path
+  else:
+    return os.path.dirname(path)
+
 # @see Command#handle in boundaries/management/commands/loadshapefiles.py
 def registry(base='.'):
   import boundaries
@@ -16,15 +25,27 @@ def registry(base='.'):
   boundaries.autodiscover(base)
   return boundaries.registry
 
-# Reads the spreadsheet for tracking progress on data collection.
-def csv():
+def csv_reader(url):
   import csv
   from StringIO import StringIO
 
+  return csv.reader(StringIO(requests.get(url).content))
+
+# Reads the spreadsheet for tracking progress on data collection.
+def csv():
   url = 'https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=18&output=csv'
-  reader = csv.reader(StringIO(requests.get(url).content))
-  reader.next()
+  reader = csv_reader(url)
+  reader.next() # headers
   return dict((row[0], row[1:]) for row in reader)
+
+# TODO
+@task
+def census():
+  url = 'http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV'
+  reader = csv_reader(url)
+  reader.next() # title
+  reader.next() # headers
+  reader.next() # Canada
 
 # Check that all `definition.py` files are valid.
 @task
@@ -51,6 +72,32 @@ def definitions(base='.'):
     'ogr2ogr',
   ])
 
+  no_geographic_code = [
+    # Montreal boroughs
+    u"Ahuntsic-Cartierville districts",
+    u"Anjou districts",
+    u"Côte-des-Neiges—Notre-Dame-de-Grâce districts",
+    u"L'Île-Bizard—Sainte-Geneviève districts",
+    u"Lachine districts",
+    u"LaSalle districts",
+    u"Le Plateau-Mont-Royal districts",
+    u"Le Sud-Ouest districts",
+    u"Mercier—Hochelaga-Maisonneuve districts",
+    u"Montréal-Nord districts",
+    u"Outremont districts",
+    u"Pierrefonds-Roxboro districts",
+    u"Rivière-des-Prairies—Pointe-aux-Trembles districts",
+    u"Rosemont—La Petite-Patrie districts",
+    u"Saint-Laurent districts",
+    u"Saint-Léonard districts",
+    u"Verdun districts",
+    u"Ville-Marie districts",
+    u"Villeray—Saint-Michel—Parc-Extension districts",
+    # Census boundaries
+    u"Census divisions",
+    u"Census subdivisions",
+  ]
+
   valid_domains = [
     u'Canada',
     # Provinces and territories
@@ -69,24 +116,30 @@ def definitions(base='.'):
     u'Yukon',
   ]
 
-  valid_domains_re = re.compile(', (AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)$')
+  valid_domains_re = re.compile(', (AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)\Z')
 
   for slug, config in registry(base).items():
     invalid_keys = set(config.keys()) - valid_keys
+    directory = dirname(config['file'])
     if invalid_keys:
-      print "%s Unrecognized key: %s" % (config['file'], ', '.join(invalid_keys))
+      print "%s Unrecognized key: %s" % (directory, ', '.join(invalid_keys))
     values = config.values()
     if len(values) > len(set(values)):
-      print "%s Non-unique values" % config['file']
+      print "%s Non-unique values" % directory
+    if not config.get('geographic_code') and slug not in no_geographic_code:
+      print "%s Missing geographic code" % directory
     for key, value in config.items():
       if not value:
-        print "%s Empty value for %s" % (config['file'], key)
+        print "%s Empty value for %s" % (directory, key)
     if config.get('domain'):
       if config['domain'] not in valid_domains and not valid_domains_re.search(config['domain']):
-        print "%s Unrecognized domain: %s" % (config['file'], config['domain'])
+        print "%s Unrecognized domain: %s" % (directory, config['domain'])
     if config.get('encoding'):
       if config['encoding'] not in ('iso-8859-1'):
-        print "%s Unrecognied encoding: %s" % (config['file'], config['encoding'])
+        print "%s Unrecognied encoding: %s" % (directory, config['encoding'])
+    with open(os.path.join(directory, 'definition.py')) as f:
+      if not re.search('\S\n\Z', f.read()):
+        print '%s Ends in zero or multiple newlines' % directory
 
 # Check that all data directories contain a `LICENSE.txt`.
 @task
@@ -130,46 +183,6 @@ def urls(base='.'):
 # Check that the spreadsheet is up-to-date.
 @task
 def spreadsheet(base='.'):
-  no_geographic_code = [
-    # Montreal boroughs
-    u"Ahuntsic-Cartierville districts",
-    u"Anjou districts",
-    u"Côte-des-Neiges—Notre-Dame-de-Grâce districts",
-    u"L'Île-Bizard—Sainte-Geneviève districts",
-    u"Lachine districts",
-    u"LaSalle districts",
-    u"Le Plateau-Mont-Royal districts",
-    u"Le Sud-Ouest districts",
-    u"Mercier—Hochelaga-Maisonneuve districts",
-    u"Montréal-Nord districts",
-    u"Outremont districts",
-    u"Pierrefonds-Roxboro districts",
-    u"Rivière-des-Prairies—Pointe-aux-Trembles districts",
-    u"Rosemont—La Petite-Patrie districts",
-    u"Saint-Laurent districts",
-    u"Saint-Léonard districts",
-    u"Verdun districts",
-    u"Ville-Marie districts",
-    u"Villeray—Saint-Michel—Parc-Extension districts",
-
-    # Provinces
-    u"Alberta electoral districts",
-    u"British Columbia electoral districts",
-    u"Manitoba electoral districts",
-    u"New Brunswick electoral districts",
-    u"Newfoundland and Labrador electoral districts",
-    u"Nova Scotia electoral districts",
-    u"Ontario electoral districts",
-    u"Prince Edward Island electoral districts",
-    u"Québec electoral districts",
-    u"Saskatchewan electoral districts",
-
-    # Federal
-    u"Census divisions",
-    u"Census subdivisions",
-    u"Federal electoral districts",
-  ]
-
   rows = csv()
 
   for slug, config in registry(base).items():
@@ -181,8 +194,6 @@ def spreadsheet(base='.'):
           print '%s (%s) Change "Shapefile?" from "%s" to "Y"' % (slug, geographic_code, row[3])
       else:
         print "%s (%s) Not in spreadsheet" % (slug, geographic_code)
-    elif slug not in no_geographic_code:
-      print "%s No geographic code" % slug
 
 # Review any notes about the boundaries.
 @task
@@ -223,17 +234,12 @@ def shapefiles(base='.'):
     if extension in ('.kml', '.kmz', '.zip'):
       repo = Repo('.')
       index = repo.index
-
-      # GitPython can't handle paths starting with "./".
-      if config['file'].startswith('./'):
-        directory = config['file'][2:]
-      else:
-        directory = config['file']
+      directory = dirname(config['file'])
 
       # Remove old files.
-      for basename in os.listdir(config['file']):
+      for basename in os.listdir(directory):
         if basename not in ('.DS_Store', 'definition.py', 'LICENSE.txt', 'data.kml', 'data.kmz', 'data.zip'):
-          os.unlink(os.path.join(config['file'], basename))
+          os.unlink(os.path.join(directory, basename))
           index.remove([os.path.join(directory, basename)])
 
       files_to_add = []
@@ -250,7 +256,7 @@ def shapefiles(base='.'):
               basename = 'data%s' % extension # assumes one KML or KMZ file per archive
             else:
               basename = os.path.basename(name) # assumes no collisions across hierarchy
-            with open(os.path.join(config['file'], basename), 'wb') as f:
+            with open(os.path.join(directory, basename), 'wb') as f:
               f.write(zip_file.read(name))
             if extension not in ('.kml', '.kmz'):
               files_to_add.append(os.path.join(directory, basename))
@@ -261,7 +267,7 @@ def shapefiles(base='.'):
           os.unlink(data_file_path)
 
       # Unzip any KMZ file.
-      kmz_file_path = os.path.join(config['file'], 'data.kmz')
+      kmz_file_path = os.path.join(directory, 'data.kmz')
       if not error_thrown and os.path.exists(kmz_file_path):
         try:
           zip_file = ZipFile(kmz_file_path)
@@ -269,7 +275,7 @@ def shapefiles(base='.'):
             # A KMZ file contains a single KML file and other supporting files.
             # @see https://developers.google.com/kml/documentation/kmzarchives
             if os.path.splitext(name)[1] == '.kml':
-              with open(os.path.join(config['file'], 'data.kml'), 'wb') as f:
+              with open(os.path.join(directory, 'data.kml'), 'wb') as f:
                 f.write(zip_file.read(name))
         except BadZipfile:
           error_thrown = True
@@ -279,46 +285,46 @@ def shapefiles(base='.'):
 
       if not error_thrown:
         # Convert any KML to shapefile.
-        kml_file_path = os.path.join(config['file'], 'data.kml')
+        kml_file_path = os.path.join(directory, 'data.kml')
         if os.path.exists(kml_file_path):
           result = run('ogrinfo -q %s | grep -v "3D Point"' % kml_file_path, hide='out').stdout
           if result.count('\n') > 1:
             print 'Too many layers %s' % url
           else:
-            layer = re.search('^\d+: (\S+)', result).group(1)
-            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON %s' % (config['file'], kml_file_path, layer), echo=True)
+            layer = re.search('\A\d+: (\S+)', result).group(1)
+            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON %s' % (directory, kml_file_path, layer), echo=True)
             for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
               files_to_add.append(name)
             os.unlink(kml_file_path)
 
         # Merge multiple shapefiles into one.
-        names = glob(os.path.join(config['file'], '*.shp'))
+        names = glob(os.path.join(directory, '*.shp'))
         if len(names) > 1:
           for name in names:
-            run('ogr2ogr -f "ESRI Shapefile" %s %s -update -append -nln Boundaries' % (config['file'], name), echo=True)
+            run('ogr2ogr -f "ESRI Shapefile" %s %s -update -append -nln Boundaries' % (directory, name), echo=True)
             basename = os.path.splitext(os.path.basename(name))[0]
             for name in glob(os.path.join(directory, '%s.[dps][bhr][fjnpx]' % basename)):
               files_to_add.remove(name)
               os.unlink(name)
 
         # Convert any 3D shapefile into 2D.
-        shp_file_path = os.path.join(config['file'], '*.shp')
+        shp_file_path = os.path.join(directory, '*.shp')
         if os.path.exists(shp_file_path):
           result = run('ogrinfo -q %s' % shp_file_path, hide='out').stdout
           if result.count('\n') > 1:
             print 'Too many layers %s' % url
           elif re.search('3D Polygon', result):
-            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (config['file'], shp_file_path), echo=True)
+            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (directory, shp_file_path), echo=True)
 
         # Run any additional commands.
         if config.get('ogr2ogr'):
-          run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (config['file'], shp_file_path, config['ogr2ogr']), echo=True)
+          run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (directory, shp_file_path, config['ogr2ogr']), echo=True)
 
         # Add files to git.
         index.add(files_to_add)
 
         # Update last updated timestamp.
-        definition_path = os.path.join(config['file'], 'definition.py')
+        definition_path = os.path.join(directory, 'definition.py')
         with open(definition_path) as f:
           definition = f.read()
         with open(definition_path, 'w') as f:
@@ -364,7 +370,7 @@ def shapefiles(base='.'):
             extension = os.path.splitext(url)[1]
 
             # Set the new file's name.
-            data_file_path = os.path.join(config['file'], 'data%s' % extension)
+            data_file_path = os.path.join(directory, 'data%s' % extension)
 
             # Download new file.
             ftp.retrbinary('RETR %s' % result.path, open(data_file_path, 'wb').write)
@@ -398,7 +404,7 @@ def shapefiles(base='.'):
             extension = os.path.splitext(filename)[1]
 
             # Set the new file's name.
-            data_file_path = os.path.join(config['file'], 'data%s' % extension)
+            data_file_path = os.path.join(directory, 'data%s' % extension)
 
             # Download new file.
             arguments['stream'] = True
