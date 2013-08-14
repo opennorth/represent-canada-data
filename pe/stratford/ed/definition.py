@@ -13,5 +13,5 @@ boundaries.register('Stratford, PE wards',
     data_url='http://www.electionspei.ca/municipal/details/gis/shp/stratford_wards.zip',
     licence_url='http://www.electionspei.ca/api/license/',
     encoding='iso-8859-1',
-    geographic_code='1102080',
+    metadata={'geographic_code': '1102080'},
 )

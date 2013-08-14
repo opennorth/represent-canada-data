@@ -13,5 +13,5 @@ boundaries.register('Caledon wards',
     data_url='http://opendata.peelregion.ca/media/2549/wardboundary20102014_shp_04.2012.zip',
     ogr2ogr='''-where "MUNIC='24'"''',
     encoding='iso-8859-1',
-    geographic_code='3521024',
+    metadata={'geographic_code': '3521024'},
 )

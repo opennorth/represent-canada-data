@@ -13,5 +13,5 @@ boundaries.register('Charlottetown wards',
     data_url='http://www.electionspei.ca/municipal/details/gis/shp/charlottetown_wards.zip',
     licence_url='http://www.electionspei.ca/api/license/',
     encoding='iso-8859-1',
-    geographic_code='1102075',
+    metadata={'geographic_code': '1102075'},
 )

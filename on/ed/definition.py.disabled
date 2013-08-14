@@ -12,5 +12,5 @@ boundaries.register('Ontario electoral districts',
     licence_url='http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',
     data_url='http://www.elections.on.ca/NR/rdonlyres/C34F1D43-8086-46EC-A013-C0EF42A8CC09/0/EO_107ED_2011_06_02.zip',
     encoding='iso-8859-1',
-    geographic_code='35',
+    metadata={'geographic_code': '35'},
 )

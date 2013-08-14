@@ -10,5 +10,5 @@ boundaries.register(u'Lévis districts',
     id_func=boundaries.attr('NUMERO'),
     authority=u'Ville de Lévis',
     encoding='iso-8859-1',
-    geographic_code='2425213',
+    metadata={'geographic_code': '2425213'},
 )

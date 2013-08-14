@@ -9,5 +9,5 @@ boundaries.register('Oakville wards',
     id_func=boundaries.attr('WARD'),
     authority='Town of Oakville',
     encoding='iso-8859-1',
-    geographic_code='3524001',
+    metadata={'geographic_code': '3524001'},
 )

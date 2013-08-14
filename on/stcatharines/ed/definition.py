@@ -8,5 +8,5 @@ boundaries.register('St. Catharines wards',
     name_func=boundaries.clean_attr('WardName'),
     authority='City of St. Catharines',
     encoding='iso-8859-1',
-    geographic_code='3526053',
+    metadata={'geographic_code': '3526053'},
 )

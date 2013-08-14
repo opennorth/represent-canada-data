@@ -9,5 +9,5 @@ boundaries.register('Cambridge wards',
     id_func=boundaries.attr('WARD_ID'),
     authority='City of Cambridge',
     encoding='iso-8859-1',
-    geographic_code='3530010',
+    metadata={'geographic_code': '3530010'},
 )

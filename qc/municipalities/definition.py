@@ -13,7 +13,7 @@ boundaries.register(u'Beaconsfield districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466107',
+    metadata={'geographic_code': '2466107'},
 )
 
 boundaries.register(u'Cote-Saint-Luc districts',
@@ -26,7 +26,7 @@ boundaries.register(u'Cote-Saint-Luc districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466058',
+    metadata={'geographic_code': '2466058'},
 )
 
 boundaries.register(u'Dollard-des-Ormeaux districts',
@@ -39,7 +39,7 @@ boundaries.register(u'Dollard-des-Ormeaux districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466142',
+    metadata={'geographic_code': '2466142'},
 )
 
 boundaries.register(u'Dorval districts',
@@ -52,7 +52,7 @@ boundaries.register(u'Dorval districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466087',
+    metadata={'geographic_code': '2466087'},
 )
 
 boundaries.register(u'Kirkland districts',
@@ -65,7 +65,7 @@ boundaries.register(u'Kirkland districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466102',
+    metadata={'geographic_code': '2466102'},
 )
 
 boundaries.register(u'Montréal-Est districts',
@@ -78,7 +78,7 @@ boundaries.register(u'Montréal-Est districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466007',
+    metadata={'geographic_code': '2466007'},
 )
 
 boundaries.register(u'Pointe-Claire districts',
@@ -91,7 +91,7 @@ boundaries.register(u'Pointe-Claire districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466097',
+    metadata={'geographic_code': '2466097'},
 )
 
 boundaries.register(u'Sainte-Anne-de-Bellevue districts',
@@ -104,7 +104,7 @@ boundaries.register(u'Sainte-Anne-de-Bellevue districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466117',
+    metadata={'geographic_code': '2466117'},
 )
 
 boundaries.register(u'Senneville districts',
@@ -117,7 +117,7 @@ boundaries.register(u'Senneville districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466127',
+    metadata={'geographic_code': '2466127'},
 )
 
 boundaries.register(u'Westmount districts',
@@ -130,5 +130,5 @@ boundaries.register(u'Westmount districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    geographic_code='2466032',
+    metadata={'geographic_code': '2466032'},
 )

@@ -9,5 +9,5 @@ boundaries.register('Kingston districts',
     id_func=boundaries.attr('ELECTORAL1'),
     authority='City of Kingston',
     encoding='iso-8859-1',
-    geographic_code='3510010',
+    metadata={'geographic_code': '3510010'},
 )

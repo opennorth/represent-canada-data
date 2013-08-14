@@ -12,5 +12,5 @@ boundaries.register('Regina wards',
     licence_url='http://www.regina.ca/residents/open-government/data/terms/',
     data_url='https://reginaopendatacatstore.blob.core.windows.net/converteddata/shp.Wards.zip',
     encoding='iso-8859-1',
-    geographic_code='4706027',
+    metadata={'geographic_code': '4706027'},
 )

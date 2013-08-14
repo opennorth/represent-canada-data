@@ -9,5 +9,5 @@ boundaries.register('Brantford wards',
     id_func=boundaries.attr('WARD_ID'),
     authority='Town of Brantford',
     encoding='iso-8859-1',
-    geographic_code='3529006',
+    metadata={'geographic_code': '3529006'},
 )

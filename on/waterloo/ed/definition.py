@@ -9,5 +9,5 @@ boundaries.register('Waterloo wards',
     id_func=boundaries.attr('WARD_NO'),
     authority='City of Waterloo',
     encoding='iso-8859-1',
-    geographic_code='3530016',
+    metadata={'geographic_code': '3530016'},
 )

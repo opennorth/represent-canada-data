@@ -13,5 +13,5 @@ boundaries.register(u'Montréal boroughs',
     data_url='http://depot.ville.montreal.qc.ca/polygones-arrondissements/data.zip',
     notes='The Ahuntsic-Cartierville borough is split into two features. We merge them using Quantum GIS.',
     encoding='iso-8859-1',
-    geographic_code='2466023',
+    metadata={'geographic_code': '2466023'},
 )

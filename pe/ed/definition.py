@@ -22,7 +22,7 @@ boundaries.register('Prince Edward Island electoral districts',
     data_url='http://www.electionspei.ca/provincial/details/gis/kml/pei-provincial-districts-all.kml',
     licence_url='http://www.electionspei.ca/api/license/',
     encoding='iso-8859-1',
-    geographic_code='11',
+    metadata={'geographic_code': '11'},
 )
 
 # The shapefile from gov.pe.ca has 222 features instead of 27:

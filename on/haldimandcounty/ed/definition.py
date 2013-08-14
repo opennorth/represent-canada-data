@@ -9,5 +9,5 @@ boundaries.register('Haldimand County wards',
     id_func=lambda f: re.sub(r'\D', '', f.get('Ward')),
     authority='The Corporation of Haldimand County',
     encoding='iso-8859-1',
-    geographic_code='3528018',
+    metadata={'geographic_code': '3528018'},
 )

@@ -12,5 +12,5 @@ boundaries.register('Alberta electoral districts',
     licence_url='http://www.altalis.com/agreement.html',
     data_url='http://www.altalis.com/Samples/Provincial%20Electoral%20Divisions.zip',
     encoding='iso-8859-1',
-    geographic_code='48',
+    metadata={'geographic_code': '48'},
 )

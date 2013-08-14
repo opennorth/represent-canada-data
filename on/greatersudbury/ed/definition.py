@@ -9,5 +9,5 @@ boundaries.register('Greater Sudbury wards',
     id_func=boundaries.attr('Ward'),
     authority='City of Greater Sudbury',
     encoding='iso-8859-1',
-    geographic_code='3553005',
+    metadata={'geographic_code': '3553005'},
 )

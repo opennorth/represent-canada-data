@@ -9,5 +9,5 @@ boundaries.register('Kitchener wards',
     id_func=boundaries.attr('WARDID'),
     authority='City of Kitchener',
     encoding='iso-8859-1',
-    geographic_code='3530013',
+    metadata={'geographic_code': '3530013'},
 )

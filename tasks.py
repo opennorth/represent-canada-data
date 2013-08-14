@@ -1,5 +1,6 @@
 #coding: utf8
 
+import csv
 from ftplib import FTP
 import os
 import os.path
@@ -26,26 +27,49 @@ def registry(base='.'):
   return boundaries.registry
 
 def csv_reader(url):
-  import csv
   from StringIO import StringIO
 
   return csv.reader(StringIO(requests.get(url).content))
 
 # Reads the spreadsheet for tracking progress on data collection.
-def csv():
-  url = 'https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=18&output=csv'
-  reader = csv_reader(url)
+def read_spreadsheet():
+  reader = csv_reader('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=18&output=csv')
   reader.next() # headers
   return dict((row[0], row[1:]) for row in reader)
 
-# TODO
+# Updates the spreadsheet for tracking progress on data collection.
 @task
-def census():
-  url = 'http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV'
-  reader = csv_reader(url)
+def write_spreadsheet():
+  import sys
+
+  geographic_name_re = re.compile('\A(.+) \((.+)\)\Z')
+
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv')
+  abbreviations = [row[1] for row in reader]
+
+  'http://represent.opennorth.ca/representative-sets/?limit=0'
+
+  reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
+  writer = csv.writer(sys.stdout)
   reader.next() # title
   reader.next() # headers
-  reader.next() # Canada
+  rows = {}
+  for row in reader:
+    if row:
+      result = geographic_name_re.search(row[1])
+      if result:
+        name = result.group(1)
+        region = result.group(2)
+        if region not in abbreviations:
+          raise Exception('Unrecognized region "%s" in "%s"' % (region, row[1]))
+      elif row[1] == 'Canada':
+        name = 'Canada'
+        region = 'Canada'
+      else:
+        raise Exception('Unrecognized name "%s"' % row[1])
+      writer.writerow([row[0], name, region, row[4]])
+    else:
+      break
 
 # Check that all `definition.py` files are valid.
 @task
@@ -65,10 +89,10 @@ def definitions(base='.'):
     'source_url',
     'licence_url',
     'data_url',
+    'metadata',
     'notes',
     'encoding',
     # Used by this script.
-    'geographic_code',
     'ogr2ogr',
   ])
 
@@ -123,10 +147,10 @@ def definitions(base='.'):
     directory = dirname(config['file'])
     if invalid_keys:
       print "%s Unrecognized key: %s" % (directory, ', '.join(invalid_keys))
-    values = config.values()
+    values = [value for key, value in config.items() if key != 'metadata']
     if len(values) > len(set(values)):
       print "%s Non-unique values" % directory
-    if not config.get('geographic_code') and slug not in no_geographic_code:
+    if slug not in no_geographic_code and not (config.get('metadata') and config['metadata'].get('geographic_code')):
       print "%s Missing geographic code" % directory
     for key, value in config.items():
       if not value:
@@ -183,30 +207,28 @@ def urls(base='.'):
 # Check that the spreadsheet is up-to-date.
 @task
 def spreadsheet(base='.'):
-  rows = csv()
+  rows = read_spreadsheet()
 
   for slug, config in registry(base).items():
-    geographic_code = config.get('geographic_code')
-    if geographic_code:
-      row = rows.get(config['geographic_code'])
+    if config.get('metadata') and config['metadata'].get('geographic_code'):
+      row = rows.get(config['metadata']['geographic_code'])
       if row:
         if row[3] != 'Y':
-          print '%s (%s) Change "Shapefile?" from "%s" to "Y"' % (slug, geographic_code, row[3])
+          print '%s (%s) Change "Shapefile?" from "%s" to "Y"' % (slug, config['metadata']['geographic_code'], row[3])
       else:
-        print "%s (%s) Not in spreadsheet" % (slug, geographic_code)
+        print "%s (%s) Not in spreadsheet" % (slug, config['metadata']['geographic_code'])
 
 # Review any notes about the boundaries.
 @task
 def notes(base='.'):
-  rows = csv()
+  rows = read_spreadsheet()
 
   for slug, config in registry(base).items():
     notes = []
     if config.get('notes'):
       notes.append('Notes: %s' % config['notes'])
-    geographic_code = config.get('geographic_code')
-    if geographic_code:
-      row = rows.get(config['geographic_code'])
+    if config.get('metadata') and config['metadata'].get('geographic_code'):
+      row = rows.get(config['metadata']['geographic_code'])
       if row:
         if row[8]:
           raise Exception('%s has request notes' % slug)

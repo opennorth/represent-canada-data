@@ -13,5 +13,5 @@ boundaries.register(u'Québec boroughs',
     licence_url='http://donnees.ville.quebec.qc.ca/licence.aspx',
     notes='We use WGS 84 (EPSG:4326) from http://spatialreference.org/ref/epsg/4326/prj/',
     encoding='iso-8859-1',
-    geographic_code='2423027',
+    metadata={'geographic_code': '2423027'},
 )

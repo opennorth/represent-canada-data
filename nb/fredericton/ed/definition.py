@@ -12,5 +12,5 @@ boundaries.register('Fredericton wards',
     licence_url='http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
     data_url='http://files.fredericton.ca/data/GISData/wards.zip',
     encoding='iso-8859-1',
-    geographic_code='1310032',
+    metadata={'geographic_code': '1310032'},
 )

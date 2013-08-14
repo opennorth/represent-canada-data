@@ -12,5 +12,5 @@ boundaries.register('Mississauga wards',
     licence_url='http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf',
     data_url='http://www5.mississauga.ca/research_catalogue/G_5_Municipal_Wards.kmz',
     encoding='iso-8859-1',
-    geographic_code='3521005',
+    metadata={'geographic_code': '3521005'},
 )

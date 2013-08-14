@@ -19,5 +19,5 @@ boundaries.register('Saskatchewan electoral districts',
     licence_url='https://www.geosask.ca/Portal/jsp/terms_popup.jsp',
     data_url='ftp://portaldata:freedata@ftp.isc.ca/PackagedData/ElectionsSask/Boundaries.zip',
     encoding='iso-8859-1',
-    geographic_code='47',
+    metadata={'geographic_code': '47'},
 )

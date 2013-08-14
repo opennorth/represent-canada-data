@@ -9,5 +9,5 @@ boundaries.register('Ajax wards',
     id_func=boundaries.attr('WARD'),
     authority='Town of Ajax',
     encoding='iso-8859-1',
-    geographic_code='3518005',
+    metadata={'geographic_code': '3518005'},
 )

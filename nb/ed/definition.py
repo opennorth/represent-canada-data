@@ -12,5 +12,5 @@ boundaries.register('New Brunswick electoral districts',
     data_url='http://www.gnb.ca/elections/pdf/2010PEDMaps/NB_Electoral_Districts.zip',
     notes='We use NAD83(CSRS) / New Brunswick Stereographic (EPSG:2953) from http://spatialreference.org/ref/epsg/2953/prj/',
     encoding='iso-8859-1',
-    geographic_code='13',
+    metadata={'geographic_code': '13'},
 )

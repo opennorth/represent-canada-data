@@ -12,5 +12,5 @@ boundaries.register('Ottawa wards',
     licence_url='http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
     data_url='http://app06.ottawa.ca/cs/groups/content/@webottawa/documents/pdf/mdaw/mty4/~edisp/odata0335.zip',
     encoding='iso-8859-1',
-    geographic_code='3506008',
+    metadata={'geographic_code': '3506008'},
 )
