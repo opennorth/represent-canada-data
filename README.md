@@ -24,12 +24,21 @@ We do not have permission to redistribute every dataset available through the [R
 
 ## Maintenance
 
+One-time setup:
+
     # Invoke must not be installed globally.
     pip uninstall invoke
     # Create a virtual environment.
     mkvirtualenv representdata
     # Install the requirements.
     pip install -r requirements.txt
+
+Regular maintenance:
+
+    # Load the virtual environment.
+    workon representdata
+    # Check that all data directories contain a LICENSE.txt
+    invoke licenses
     # Check that the spreadsheet is up-to-date.
     invoke spreadsheet
     # Check that the source, data and licence URLs work.

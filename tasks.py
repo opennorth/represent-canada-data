@@ -1,6 +1,7 @@
 #coding: utf8
 
 from ftplib import FTP
+import os
 import os.path
 from urlparse import urlparse
 
@@ -23,6 +24,18 @@ def csv():
   reader = csv.reader(StringIO(requests.get(url).content))
   reader.next()
   return dict((row[0], row[1:]) for row in reader)
+
+# Makes sure all directories contain a LICENSE.txt
+@task
+def licenses(base='.'):
+  for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
+    for dirname in ('.git', 'examples'):
+      if dirname in dirnames:
+        dirnames.remove(dirname)
+    if '.DS_Store' in filenames:
+      filenames.remove('.DS_Store')
+    if filenames and 'LICENSE.txt' not in filenames:
+      print 'No LICENSE.txt in %s' % dirpath
 
 # Makes sure the spreadsheet doesn't undercount.
 @task
@@ -140,7 +153,6 @@ def notes(base='.'):
 def shapefiles(base='.'):
   def process(slug, config, url, data_file_path):
     from glob import glob
-    import os
     import re
     from zipfile import ZipFile, BadZipfile
 
