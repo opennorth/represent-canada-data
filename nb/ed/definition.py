@@ -12,5 +12,4 @@ boundaries.register('New Brunswick electoral districts',
     data_url='http://www.gnb.ca/elections/pdf/2010PEDMaps/NB_Electoral_Districts.zip',
     encoding='iso-8859-1',
     metadata={'geographic_code': '13'},
-    commands="sed -i '' 's/Double_Stereographic/Oblique_Stereographic/' %s*.prj",
 )

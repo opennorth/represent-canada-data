@@ -26,7 +26,7 @@ def registry(base='.'):
   boundaries.autodiscover(base)
   return boundaries.registry
 
-# Reads remote CSV files.
+# Reads a remote CSV file.
 def csv_reader(url):
   from StringIO import StringIO
   return csv.reader(StringIO(requests.get(url).content))
@@ -42,8 +42,6 @@ def read_spreadsheet():
 def write_spreadsheet():
   import sys
 
-  geographic_name_re = re.compile('\A(.+) \((.+)\)\Z')
-
   reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv')
   abbreviations = [row[1] for row in reader]
 
@@ -56,6 +54,9 @@ def write_spreadsheet():
       if boundary_set.get('metadata') and boundary_set['metadata'].get('geographic_code'):
         scraperwiki_urls[boundary_set['metadata']['geographic_code']] = representative_set['scraperwiki_url']
 
+  # @todo track if scraped in bulk
+
+  geographic_name_re = re.compile('\A(.+) \((.+)\)\Z')
   reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
   writer = csv.writer(sys.stdout)
   reader.next() # title
@@ -66,18 +67,18 @@ def write_spreadsheet():
       result = geographic_name_re.search(row[1])
       if result:
         name = result.group(1)
-        region = result.group(2)
-        if region not in abbreviations:
-          raise Exception('Unrecognized region "%s" in "%s"' % (region, row[1]))
+        province_or_territory = result.group(2)
+        if province_or_territory not in abbreviations:
+          raise Exception('Unrecognized province or territory "%s" in "%s"' % (province_or_territory, row[1]))
       elif row[1] == 'Canada':
         name = 'Canada'
-        region = 'Canada'
+        province_or_territory = 'Canada'
       else:
         raise Exception('Unrecognized name "%s"' % row[1])
       writer.writerow([
         row[0],
         name,
-        region,
+        province_or_territory,
         row[4],
         scraperwiki_urls.get(row[0]),
       ])
@@ -399,7 +400,7 @@ def shapefiles(base='.'):
               os.unlink(name)
 
         # Convert any 3D shapefile into 2D.
-        shp_file_path = os.path.join(directory, '*.shp')
+        shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
         if os.path.exists(shp_file_path):
           result = run('ogrinfo -q %s' % shp_file_path, hide='out').stdout
           if result.count('\n') > 1:
@@ -407,9 +408,21 @@ def shapefiles(base='.'):
           elif re.search('3D Polygon', result):
             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (directory, shp_file_path), echo=True)
 
+        # Replace "Double_Stereographic" with "Oblique_Stereographic".
+        prj_file_path = glob(os.path.join(directory, '*.prj'))[0]
+        print prj_file_path
+        if os.path.exists(prj_file_path):
+          with open(prj_file_path) as f:
+            prj = f.read()
+          if 'Double_Stereographic' in prj:
+            with open(prj_file_path, 'w') as f:
+              f.write(prj.replace('Double_Stereographic', 'Oblique_Stereographic'))
+
         # Run any additional commands.
         if config.get('ogr2ogr'):
           run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (directory, shp_file_path, config['ogr2ogr']), echo=True)
+        if config.get('commands'):
+          run(config['commands'] % directory, echo=True)
 
         # Add files to git.
         index.add(files_to_add)
@@ -461,7 +474,7 @@ def shapefiles(base='.'):
             extension = os.path.splitext(url)[1]
 
             # Set the new file's name.
-            data_file_path = os.path.join(directory, 'data%s' % extension)
+            data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)
 
             # Download new file.
             ftp.retrbinary('RETR %s' % result.path, open(data_file_path, 'wb').write)
@@ -495,7 +508,7 @@ def shapefiles(base='.'):
             extension = os.path.splitext(filename)[1]
 
             # Set the new file's name.
-            data_file_path = os.path.join(directory, 'data%s' % extension)
+            data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)
 
             # Download new file.
             arguments['stream'] = True

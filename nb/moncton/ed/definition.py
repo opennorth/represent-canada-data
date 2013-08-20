@@ -10,5 +10,4 @@ boundaries.register('Moncton wards',
     authority='City of Moncton',
     encoding='iso-8859-1',
     metadata={'geographic_code': '1307022'},
-    commands="sed -i '' 's/Double_Stereographic/Oblique_Stereographic/' %s*.prj",
 )
