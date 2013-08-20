@@ -10,7 +10,7 @@ boundaries.register('New Brunswick electoral districts',
     authority='Office of the Chief Electoral Officer',
     source_url='http://www.gnb.ca/elections/10prov/10provmap-e.asp',
     data_url='http://www.gnb.ca/elections/pdf/2010PEDMaps/NB_Electoral_Districts.zip',
-    notes='We use NAD83(CSRS) / New Brunswick Stereographic (EPSG:2953) from http://spatialreference.org/ref/epsg/2953/prj/',
     encoding='iso-8859-1',
     metadata={'geographic_code': '13'},
+    commands="sed -i '' 's/Double_Stereographic/Oblique_Stereographic/' %s*.prj",
 )

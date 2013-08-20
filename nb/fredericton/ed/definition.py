@@ -13,4 +13,5 @@ boundaries.register('Fredericton wards',
     data_url='http://files.fredericton.ca/data/GISData/wards.zip',
     encoding='iso-8859-1',
     metadata={'geographic_code': '1310032'},
+    commands="sed -i '' 's/Double_Stereographic/Oblique_Stereographic/' %s*.prj",
 )

@@ -8,7 +8,7 @@ boundaries.register('Moncton wards',
     name_func=lambda f: 'Ward %s' % f.get('WARDNUMB'),
     id_func=boundaries.attr('WARDNUMB'),
     authority='City of Moncton',
-    notes='We use NAD83(CSRS) / New Brunswick Stereographic (EPSG:2953) from http://spatialreference.org/ref/epsg/2953/prj/.',
     encoding='iso-8859-1',
     metadata={'geographic_code': '1307022'},
+    commands="sed -i '' 's/Double_Stereographic/Oblique_Stereographic/' %s*.prj",
 )
