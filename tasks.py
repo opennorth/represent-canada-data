@@ -400,29 +400,36 @@ def shapefiles(base='.'):
               os.unlink(name)
 
         # Convert any 3D shapefile into 2D.
-        shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
-        if os.path.exists(shp_file_path):
+        shp_file_path = glob(os.path.join(directory, '*.shp'))
+        if shp_file_path:
+          shp_file_path = shp_file_path[0]
+        if shp_file_path and os.path.exists(shp_file_path):
           result = run('ogrinfo -q %s' % shp_file_path, hide='out').stdout
           if result.count('\n') > 1:
             print 'Too many layers %s' % url
           elif re.search('3D Polygon', result):
             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (directory, shp_file_path), echo=True)
 
-        # Replace "Double_Stereographic" with "Oblique_Stereographic".
-        prj_file_path = glob(os.path.join(directory, '*.prj'))[0]
-        print prj_file_path
-        if os.path.exists(prj_file_path):
-          with open(prj_file_path) as f:
-            prj = f.read()
-          if 'Double_Stereographic' in prj:
+          # Replace "Double_Stereographic" with "Oblique_Stereographic".
+          prj_file_path = os.path.splitext(shp_file_path)[0] + '.prj'
+          if prj_file_path and os.path.exists(prj_file_path):
+            with open(prj_file_path) as f:
+              prj = f.read()
+            if 'Double_Stereographic' in prj:
+              with open(prj_file_path, 'w') as f:
+                f.write(prj.replace('Double_Stereographic', 'Oblique_Stereographic'))
+          elif config.get('prj'):
             with open(prj_file_path, 'w') as f:
-              f.write(prj.replace('Double_Stereographic', 'Oblique_Stereographic'))
+              f.write(requests.get(config['prj']).content)
+            files_to_add.append(prj_file_path)
+          else:
+            print 'No PRJ file %s' % url
 
-        # Run any additional commands.
-        if config.get('ogr2ogr'):
-          run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (directory, shp_file_path, config['ogr2ogr']), echo=True)
-        if config.get('commands'):
-          run(config['commands'] % directory, echo=True)
+          # Run any additional commands on the shapefile.
+          if config.get('ogr2ogr'):
+            run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (directory, shp_file_path, config['ogr2ogr']), echo=True)
+          if config.get('commands'):
+            run(config['commands'] % directory, echo=True)
 
         # Add files to git.
         index.add(files_to_add)
@@ -505,7 +512,7 @@ def shapefiles(base='.'):
               filename = parse_headers(response.headers['content-disposition']).filename_unsafe
             else:
               filename = url
-            extension = os.path.splitext(filename)[1]
+            extension = os.path.splitext(filename)[1].lower()
 
             # Set the new file's name.
             data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)

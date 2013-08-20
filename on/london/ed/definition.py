@@ -11,7 +11,7 @@ boundaries.register('London wards',
     source_url='http://www.london.ca/d.aspx?s=/Open_Data/Data_Catalogue.htm',
     licence_url='http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm',
     data_url='http://www.london.ca/OpenData/ShapeFiles_Zipped/2010_electoral_wards.zip',
-    notes='We use NAD83 / UTM zone 17N (EPSG:26917) from http://spatialreference.org/ref/epsg/26917/',
     encoding='iso-8859-1',
     metadata={'geographic_code': '3539036'},
+    prj='http://spatialreference.org/ref/epsg/26917/prj/',
 )
