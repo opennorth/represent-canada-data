@@ -454,74 +454,67 @@ def shapefiles(base='.'):
 
   from rfc6266 import parse_headers
 
-  no_update = [
-    # Needs to be split into one shapefile per municipality.
-    'http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
-  ]
-
   # Retrieve shapefiles.
   for slug, config in registry(base).items():
     if config.get('data_url'):
       url = config['data_url']
+      result = urlparse(url)
 
-      if url not in no_update:
-        result = urlparse(url)
+      if result.scheme == 'ftp':
+        # Get the last modified timestamp.
+        ftp = FTP(result.hostname)
+        ftp.login(result.username, result.password)
+        last_modified = ftp.sendcmd('MDTM %s' % result.path)
 
-        if result.scheme == 'ftp':
-          # Get the last modified timestamp.
-          ftp = FTP(result.hostname)
-          ftp.login(result.username, result.password)
-          last_modified = ftp.sendcmd('MDTM %s' % result.path)
+        # Parse the timestamp as a date.
+        last_updated = datetime.strptime(last_modified[4:], '%Y%m%d%H%M%S').date()
 
-          # Parse the timestamp as a date.
-          last_updated = datetime.strptime(last_modified[4:], '%Y%m%d%H%M%S').date()
+        if config['last_updated'] < last_updated:
+          # Determine the file extension.
+          extension = os.path.splitext(url)[1]
 
-          if config['last_updated'] < last_updated:
-            # Determine the file extension.
-            extension = os.path.splitext(url)[1]
+          # Set the new file's name.
+          data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)
 
-            # Set the new file's name.
-            data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)
+          # Download new file.
+          ftp.retrbinary('RETR %s' % result.path, open(data_file_path, 'wb').write)
+          ftp.quit()
 
-            # Download new file.
-            ftp.retrbinary('RETR %s' % result.path, open(data_file_path, 'wb').write)
-            ftp.quit()
+          process(slug, config, url, data_file_path)
+      else:
+        # Get the last modified timestamp.
+        arguments = {'allow_redirects': True}
+        if result.username:
+          url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
+          arguments['auth'] = (result.username, result.password)
+        response = requests.head(url, **arguments)
+        last_modified = response.headers.get('last-modified')
 
-            process(slug, config, url, data_file_path)
+        # Parse the timestamp as a date.
+        if last_modified:
+          last_updated = datetime.strptime(last_modified, '%a, %d %b %Y %H:%M:%S GMT')
         else:
-          # Get the last modified timestamp.
-          arguments = {'allow_redirects': True}
-          if result.username:
-            url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
-            arguments['auth'] = (result.username, result.password)
-          response = requests.head(url, **arguments)
-          last_modified = response.headers.get('last-modified')
+          last_updated = datetime.now()
+        last_updated = last_updated.date()
 
-          # Parse the timestamp as a date.
-          if last_modified:
-            last_updated = datetime.strptime(last_modified, '%a, %d %b %Y %H:%M:%S GMT')
+        if config['last_updated'] > last_updated:
+          print '%s are more recent than the source\n' % slug
+        elif config['last_updated'] < last_updated:
+          # Determine the file extension.
+          if response.headers.get('content-disposition'):
+            filename = parse_headers(response.headers['content-disposition']).filename_unsafe
           else:
-            last_updated = datetime.now()
-          last_updated = last_updated.date()
+            filename = url
+          extension = os.path.splitext(filename)[1].lower()
 
-          if config['last_updated'] > last_updated:
-            print '%s are more recent than the source\n' % slug
-          elif config['last_updated'] < last_updated:
-            # Determine the file extension.
-            if response.headers.get('content-disposition'):
-              filename = parse_headers(response.headers['content-disposition']).filename_unsafe
-            else:
-              filename = url
-            extension = os.path.splitext(filename)[1].lower()
+          # Set the new file's name.
+          data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)
 
-            # Set the new file's name.
-            data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)
+          # Download new file.
+          arguments['stream'] = True
+          response = requests.get(url, **arguments)
+          with open(data_file_path, 'wb') as f:
+            for chunk in response.iter_content():
+              f.write(chunk)
 
-            # Download new file.
-            arguments['stream'] = True
-            response = requests.get(url, **arguments)
-            with open(data_file_path, 'wb') as f:
-              for chunk in response.iter_content():
-                f.write(chunk)
-
-            process(slug, config, url, data_file_path)
+          process(slug, config, url, data_file_path)
