@@ -2,8 +2,8 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Cambridge wards',
-    domain='Cambridge, ON',
+boundaries.register('Wilmot wards',
+    domain='Wilmot, ON',
     last_updated=date(2012, 5, 14),
     name_func=boundaries.attr('WardName'),
     id_func=boundaries.attr('WardNumber'),
@@ -12,6 +12,6 @@ boundaries.register('Cambridge wards',
     licence_url='http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
     data_url='http://www.regionofwaterloo.ca/opendatadownloads/WardBoundaries.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3530010'},
-    ogr2ogr='''-where "Municipali='Cambridge'"''',
+    metadata={'geographic_code': '3530020'},
+    ogr2ogr='''-where "Municipali='Wilmot'"''',
 )

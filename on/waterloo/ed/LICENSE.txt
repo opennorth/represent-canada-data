@@ -1,7 +1,1 @@
-Distributed with permission from the City of Waterloo.  Please direct licensing inquiries and requests to:
-
-Chris Jacobs
-Acting Manager, GIS, IMTS
-City of Waterloo
-Tel: 1-519-747-8550
-chris.jacob@waterloo.ca
+I. Terms of Use. Contains information provided by the Regional Municipality of Waterloo under licence (http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp).
