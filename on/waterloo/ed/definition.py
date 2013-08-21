@@ -4,7 +4,7 @@ import boundaries
 
 boundaries.register('Waterloo wards',
     domain='Waterloo, ON',
-    last_updated=date(2012, 5, 14),
+    last_updated=date(2013, 2, 20),
     name_func=boundaries.attr('WardName'),
     id_func=boundaries.attr('WardNumber'),
     authority='Region of Waterloo',

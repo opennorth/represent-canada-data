@@ -39,12 +39,77 @@ def read_spreadsheet():
 
 # Update the spreadsheet for tracking progress on data collection.
 @task
-def write_spreadsheet():
+def write_spreadsheet(base='.'):
   import sys
 
+  # Map Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
+  province_and_territory_codes = {}
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv')
+  for row in reader:
+    province_and_territory_codes[row[1]] = row[0]
+
+  # Map OCD identifiers and Standard Geographical Classification codes to names.
+  names = {}
+  reader = csv_reader('https://raw.github.com/jpmckinney/ocd-division-ids/ca/identifiers/country-ca/census_subdivision-montreal-arrondissements.csv')  # @todo switch repository and branch
+  for row in reader:
+    names[row[0].decode('utf8')] = row[1].decode('utf8')
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
+  for row in reader:
+    names[row[0].decode('utf8')] = row[1].decode('utf8')
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv')
+  for row in reader:
+    names[row[0].decode('utf8')] = row[1].decode('utf8')
+
+  data = {}
+
+  ocd_divisions = set()
+
+  # Boundary sets
+  for slug, config in registry(base).items():
+    if config.get('metadata'):
+      # Determine the ocd_division.
+      ocd_division = config['metadata'].get('ocd_division')
+      geographic_code = config['metadata'].get('geographic_code')
+      if ocd_division:
+        if geographic_code:
+          raise Exception('%s: Set ocd_division or geographic_code' % slug)
+      else:
+        if geographic_code:
+          length = len(geographic_code)
+          if length == 2:
+            ocd_division = province_and_territory_codes[geographic_code]
+          elif length == 7:
+            ocd_division = 'ocd-division/country:ca/csd:%s' % geographic_code
+          else:
+            raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
+
+      if ocd_division:
+        # Ensure ocd_division is unique.
+        if ocd_division in ocd_divisions:
+          raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
+        else:
+          ocd_divisions.add(ocd_division)
+
+        data[ocd_division] = {
+          'Shapefile?': 'Y',
+          'License URL': config.get('license_url')
+        }
+
+
+      else:
+        print 'No OCD division for %s' % slug
+
+
+  # @todo permission to distribute
+  # license URL
+  # license method
+  # last boundary (from definition.py)
+
+  # Representative sets
   reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv')
   abbreviations = [row[1] for row in reader]
 
+  # Map Standard Geographical Classification codes to ScraperWiki URLs.
   # @see https://github.com/opennorth/represent-canada/issues/60
   scraperwiki_urls = {}
   for representative_set in requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']:
@@ -53,8 +118,15 @@ def write_spreadsheet():
       boundary_set = requests.get('http://represent.opennorth.ca%s' % boundary_set_url).json()
       if boundary_set.get('metadata') and boundary_set['metadata'].get('geographic_code'):
         scraperwiki_urls[boundary_set['metadata']['geographic_code']] = representative_set['scraperwiki_url']
+      else:
+        print '%-65s No metadata' % boundary_set_url
+    else:
+      print "%-65s No boundary_set_url" % representative_set['url']
 
-  # @todo track if scraped in bulk
+  # @todo track if scraped in bulk via Represent API?
+
+  # Map to Pupa modules.
+  # @todo check for pupa scrapers
 
   geographic_name_re = re.compile('\A(.+) \((.+)\)\Z')
   reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
@@ -101,11 +173,13 @@ def scraperwiki():
     # Past elections.
     'bc_2013_candidates_1',
     # Obsolete scrapers.
+    'quebec_council',
     'halifax_city_councillors',
     'ottawa-mayor-and-councillors',
     'winnipeg_city_council',
   ])
 
+  # Collect the slugs of ScraperWiki scrapers tagged with "cdnpoli".
   tagged_slugs = set()
   query_string = ''
   while True:
@@ -162,29 +236,10 @@ def definitions(base='.'):
     'encoding',
     # Used by this script.
     'ogr2ogr',
+    'prj',
   ])
 
-  no_geographic_code = [
-    # Montreal boroughs
-    u"Ahuntsic-Cartierville districts",
-    u"Anjou districts",
-    u"Côte-des-Neiges—Notre-Dame-de-Grâce districts",
-    u"L'Île-Bizard—Sainte-Geneviève districts",
-    u"Lachine districts",
-    u"LaSalle districts",
-    u"Le Plateau-Mont-Royal districts",
-    u"Le Sud-Ouest districts",
-    u"Mercier—Hochelaga-Maisonneuve districts",
-    u"Montréal-Nord districts",
-    u"Outremont districts",
-    u"Pierrefonds-Roxboro districts",
-    u"Rivière-des-Prairies—Pointe-aux-Trembles districts",
-    u"Rosemont—La Petite-Patrie districts",
-    u"Saint-Laurent districts",
-    u"Saint-Léonard districts",
-    u"Verdun districts",
-    u"Ville-Marie districts",
-    u"Villeray—Saint-Michel—Parc-Extension districts",
+  no_geographic_code_or_ocd_division = [
     # Census boundaries
     u"Census divisions",
     u"Census subdivisions",
@@ -218,8 +273,11 @@ def definitions(base='.'):
     values = [value for key, value in config.items() if key != 'metadata']
     if len(values) > len(set(values)):
       print "%s Non-unique values" % directory
-    if slug not in no_geographic_code and not (config.get('metadata') and config['metadata'].get('geographic_code')):
-      print "%s Missing geographic code" % directory
+    if slug not in no_geographic_code_or_ocd_division:
+      if not config.get('metadata'):
+        print "%s Missing metadata" % directory
+      if not config['metadata'].get('geographic_code') and not config['metadata'].get('ocd_division'):
+        print "%s Missing geographic_code or ocd_division" % directory
     for key, value in config.items():
       if not value:
         print "%s Empty value for %s" % (directory, key)
@@ -428,8 +486,9 @@ def shapefiles(base='.'):
           # Run any additional commands on the shapefile.
           if config.get('ogr2ogr'):
             run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (directory, shp_file_path, config['ogr2ogr']), echo=True)
-          if config.get('commands'):
-            run(config['commands'] % directory, echo=True)
+            for name in list(files_to_add):
+              if not os.path.exists(name):
+                files_to_add.remove(name)
 
         # Add files to git.
         index.add(files_to_add)
