@@ -13,7 +13,7 @@ boundaries.register(u'Ahuntsic-Cartierville districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:ahuntsic-cartierville'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:ahuntsic-cartierville'},
 )
 
 boundaries.register(u'Anjou districts',
@@ -26,7 +26,7 @@ boundaries.register(u'Anjou districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:anjou'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:anjou'},
 )
 
 boundaries.register(u'Côte-des-Neiges—Notre-Dame-de-Grâce districts',
@@ -39,7 +39,7 @@ boundaries.register(u'Côte-des-Neiges—Notre-Dame-de-Grâce districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:côte-des-neiges-notre-dame-de-grâce'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:côte-des-neiges-notre-dame-de-grâce'},
 )
 
 boundaries.register(u'Lachine districts',
@@ -52,7 +52,7 @@ boundaries.register(u'Lachine districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:lachine'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:lachine'},
 )
 
 boundaries.register(u'LaSalle districts',
@@ -65,7 +65,7 @@ boundaries.register(u'LaSalle districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:lasalle'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:lasalle'},
 )
 
 boundaries.register(u'Le Plateau-Mont-Royal districts',
@@ -78,7 +78,7 @@ boundaries.register(u'Le Plateau-Mont-Royal districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:le_plateau-mont-royal'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:le_plateau-mont-royal'},
 )
 
 boundaries.register(u'Le Sud-Ouest districts',
@@ -91,7 +91,7 @@ boundaries.register(u'Le Sud-Ouest districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:le_sud-ouest'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:le_sud-ouest'},
 )
 
 boundaries.register(u'L\'Île-Bizard—Sainte-Geneviève districts',
@@ -104,7 +104,7 @@ boundaries.register(u'L\'Île-Bizard—Sainte-Geneviève districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:l~île-bizard-sainte-geneviève'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:l~île-bizard-sainte-geneviève'},
 )
 
 boundaries.register(u'Mercier—Hochelaga-Maisonneuve districts',
@@ -117,7 +117,7 @@ boundaries.register(u'Mercier—Hochelaga-Maisonneuve districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:mercier-hochelaga-maisonneuve'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:mercier-hochelaga-maisonneuve'},
 )
 
 boundaries.register(u'Montréal-Nord districts',
@@ -130,7 +130,7 @@ boundaries.register(u'Montréal-Nord districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:montréal-nord'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:montréal-nord'},
 )
 
 boundaries.register(u'Outremont districts',
@@ -143,7 +143,7 @@ boundaries.register(u'Outremont districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:outremont'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:outremont'},
 )
 
 boundaries.register(u'Pierrefonds-Roxboro districts',
@@ -156,7 +156,7 @@ boundaries.register(u'Pierrefonds-Roxboro districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:pierrefonds-roxboro'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:pierrefonds-roxboro'},
 )
 
 boundaries.register(u'Rivière-des-Prairies—Pointe-aux-Trembles districts',
@@ -169,7 +169,7 @@ boundaries.register(u'Rivière-des-Prairies—Pointe-aux-Trembles districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:rivière-des-prairies-pointe-aux-trembles'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:rivière-des-prairies-pointe-aux-trembles'},
 )
 
 boundaries.register(u'Rosemont—La Petite-Patrie districts',
@@ -182,7 +182,7 @@ boundaries.register(u'Rosemont—La Petite-Patrie districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:rosemont-la_petite-patrie'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:rosemont-la_petite-patrie'},
 )
 
 boundaries.register(u'Saint-Laurent districts',
@@ -195,7 +195,7 @@ boundaries.register(u'Saint-Laurent districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:saint-laurent'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:saint-laurent'},
 )
 
 boundaries.register(u'Saint-Léonard districts',
@@ -208,7 +208,7 @@ boundaries.register(u'Saint-Léonard districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:saint-léonard'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:saint-léonard'},
 )
 
 boundaries.register(u'Verdun districts',
@@ -221,7 +221,7 @@ boundaries.register(u'Verdun districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:verdun'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:verdun'},
 )
 
 boundaries.register(u'Ville-Marie districts',
@@ -234,7 +234,7 @@ boundaries.register(u'Ville-Marie districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:ville-marie'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:ville-marie'},
 )
 
 boundaries.register(u'Villeray—Saint-Michel—Parc-Extension districts',
@@ -247,5 +247,5 @@ boundaries.register(u'Villeray—Saint-Michel—Parc-Extension districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://depot.ville.montreal.qc.ca/elections-2009-districts/multi-poly/data.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': 'ocd-division/country:ca/csd:2466023/arrondissement:villeray-saint-michel-parc-extension'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:villeray-saint-michel-parc-extension'},
 )
