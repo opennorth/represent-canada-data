@@ -39,10 +39,6 @@ Load the virtual environment:
 
     workon representdata
 
-Check that the spreadsheet is up-to-date:
-
-    invoke spreadsheet
-
 #### Boundaries
 
 Check that all `definition.py` files are valid:
@@ -56,10 +52,6 @@ Check that all data directories contain a `LICENSE.txt`:
 Check that the source, data and license URLs work:
 
     invoke urls
-
-Review any notes about the boundaries:
-
-    invoke notes
 
 Update any out-of-date shapefiles:
 
