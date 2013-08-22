@@ -16,11 +16,11 @@ All datasets are from government sources, with one exception: the postal code<su
 
 ### Completeness
 
-We do not have permission to redistribute every dataset available through the [Represent API](http://represent.opennorth.ca/api/). Specifically, we do not have permission from the Government of Ontario to distribute its [boundary file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/Shapefile.htm) and [postal code<sup>OM</sup> concordance file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/PostalCodeFile.htm) (no longer available). You must download these files separately from Elections Ontario. You may then use the `definition.py` file we provide to load it into the database.
+We do not have permission to redistribute every dataset available through the [Represent API](http://represent.opennorth.ca/api/). For example, we do not have permission from the Government of Ontario to distribute its [boundary file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/Shapefile.htm) and [postal code<sup>OM</sup> concordance file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/PostalCodeFile.htm) (no longer available). You must download these files separately from Elections Ontario. You may then use the `definition.py` file we provide to load it into the database.
 
 ## Contributing
 
-[We need the ward boundaries](https://github.com/opennorth/represent-canada/issues/13) for more municipalities. Please [let us know](mailto:represent@opennorth.ca) if you have a ward boundary file. To go one step further, you can write a `definition.py` file to describe the data, using an [example](https://github.com/rhymeswithcycle/represent-boundaries/blob/master/definition.example.py) or [bare](https://github.com/opennorth/represent-canada-data/blob/master/definition.py) `definition.py` file.
+[We need the ward boundaries](https://github.com/opennorth/represent-canada/issues/13) for more municipalities. Please [let us know](mailto:represent@opennorth.ca) if you have a ward boundary file. To go one step further, you can write a `definition.py` file to describe the data, using the [example](https://github.com/rhymeswithcycle/represent-boundaries/blob/master/definition.example.py) `definition.py` file.
 
 ## Maintenance
 
@@ -53,7 +53,7 @@ Check that all data directories contain a `LICENSE.txt`:
 
     invoke licenses
 
-Check that the source, data and licence URLs work:
+Check that the source, data and license URLs work:
 
     invoke urls
 
