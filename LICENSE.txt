@@ -1,12 +1,1 @@
-Each directory in this repository contains a dataset. Each dataset is governed by the terms of the "LICENSE.txt" file located in each respective directory. With respect to the entire repository:
-
-I. Attribution. The New Brunswick data was provided by Service New Brunswick (http://www.snb.ca/). This attribution does not constitute an endorsement by Service New Brunswick.
-
-II. Warranty, Liability, Indemnity of Service New Brunswick.
-1. Except as expressly provided in the “Service New Brunswick Data License Agreement” (http://www.snb.ca/gdam-igec/e/2900e_agreement.asp), this data is provided “As is” without any representations, warranties, guarantees or conditions, of any kind, whether expressed or implied, statutory or otherwise.
-2. Service New Brunswick (SNB) makes no representation or warranty of any kind with respect to the accuracy, usefulness, novelty, validity, scope, completeness or currency of the data and expressly disclaims any implied warranty of merchantability or fitness for a particular purpose of the data. SNB does not ensure or warrant compatibility with past, current or future versions of your browser to access the data.
-3. The Licensee shall have no recourse against SNB, whether by way of any suit or action, for any loss, liability, damage or cost that the Licensee may suffer or incur at any time, by reason of the Licensee’s possession or use of the data.
-4. The Licensee shall indemnify SNB and its officers, employees, agents and contractors from all claims alleging loss, costs, expenses, damages or injuries (including injuries resulting in death) arising out of the Licensee’s possession or use of the data.
-5. The Licensee shall license all individuals (or companies) who obtain data or derivative products from the Licensee the right to use the data or derivative products by way of a license agreement, and that agreement shall impose upon these individuals (or companies) the same terms and conditions as those contained in Section II of this agreement.
-6. The Licensee’s liability to indemnify SNB under this agreement shall not affect or prejudice SNB from exercising any other rights under law.
-7. SNB assumes no obligation to update the data. The data may be changed without notice to the Licensee.
+Each directory in this repository contains a dataset. Each dataset is governed by the terms of the "LICENSE.txt" file located in each respective directory.
