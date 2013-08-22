@@ -37,310 +37,38 @@ def read_spreadsheet():
   reader.next() # headers
   return dict((row[0], row[1:]) for row in reader)
 
-# Update the spreadsheet for tracking progress on data collection.
-@task
-def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
-  import sys
-
-  terms = {
-    # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
-    'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use': 'I. Terms of Use. This work is provided under the terms of “City of Ottawa – Terms of Use” (http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use).  Any use of the work other than as authorized under these terms is strictly prohibited.',
-    'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Windsor – Terms of Use” (http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
-    'http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx': 'I. Terms of Use. This work is provided under the terms of City of Edmonton Open Data Terms of Use (http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx).  Any use of the work other than as authorized under these terms is strictly prohibited.',
-    'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php': """Attribution: This data is provided by the Directeur général des élections du Québec (http://www.electionsquebec.qc.ca), reproduced according to the terms of the "Conditions d'utilisation de notre site Web" (http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php). Copyright in the work belongs to the Government of Quebec.""",
-    'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm': 'I. Terms of Use. This work is provided under the terms of “Open Data London – Terms of Use” (http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm).  Any use of the work other than as authorized under these terms is strictly prohibited.',
-    'http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Mississauga – Terms of Use” (http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
-    'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx': 'I. Terms of Use. This data is provided by the City of Calgary and is made available under the Open Data Catalogue Terms of Use (https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx).',
-    # Open Government Licence.
-    'http://data.gc.ca/eng/open-government-licence-canada': 'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://data.gc.ca/eng/open-government-licence-canada).',
-    'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html': 'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
-    'http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html': 'I. Terms of Use. Contains information licensed under the Open Government Licence - Nanaimo (http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html).',
-    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default': 'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default).',
-    # Text provided by license.
-    'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/': "I. Termes d'utilisation. Contient des données reproduites, modifiées, traduites ou distribuées « telles quelles » avec la permission de la Ville de Montréal (http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/).",
-    'http://donnees.ville.quebec.qc.ca/licence.aspx': "I. Conditions d'utilisation. Contient des données reproduites et distribuées « telles quelles » avec la permission de la Ville de Québec (http://donnees.ville.quebec.qc.ca/licence.aspx).",
-    'http://opendata.peelregion.ca/terms-of-use.aspx': "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Peel's Open Data Licence - Version 1.0 (http://opendata.peelregion.ca/terms-of-use.aspx).",
-    'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp': 'I. Terms of Use. Contains information provided by the Regional Municipality of Waterloo under licence (http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp).',
-    # Kent Mewhort email (2012-02-10).
-    'https://mli2.gov.mb.ca/app/register/app/index.php': '© 2001 Her Majesty the Queen in Right of Manitoba, as represented by the Minister of Conservation. All rights reserved. Distributed under the terms of the Manitoba Land Initiative Terms and Conditions of Use (https://mli2.gov.mb.ca//app/register/app/index.php).',
-  }
-  terms_re  = {
-    # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
-    'https://www.geosask.ca/Portal/jsp/terms_popup.jsp': re.compile("\AAttribution: (Source|Adapted from): Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan, [^.]+\. The incorporation of data sourced from Her Majesty In Right Of Saskatchewan and/or Information Services Corporation of Saskatchewan, within this product shall not be construed as constituting an endorsement by Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan of such product\.\Z"),
-  }
-  all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+?.  Please direct licensing inquiries and requests to:\n\n')
-
-  open_data_licenses = [
-    'http://data.gc.ca/eng/open-government-licence-canada',
-    'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
-    'http://donnees.ville.quebec.qc.ca/licence.aspx',
-    'http://opendata.peelregion.ca/terms-of-use.aspx',
-    'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
-    'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
-    'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html',
-    'http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx',
-    'http://www.electionspei.ca/api/license/',  # no longer accessible
-    'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
-    'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm',
-    'http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf',
-    'http://www.regina.ca/residents/open-government/data/terms/',
-    'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
-    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
-    'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx',
-  ]
-  some_rights_reserved_licenses = [
-    'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',  # per CIPPIC
-    'https://mli2.gov.mb.ca/app/register/app/index.php',  # non-commercial if unmodified
-    'https://www.geosask.ca/Portal/jsp/terms_popup.jsp',  # per CIPPIC
-  ]
-  all_rights_reserved_licenses = [
-    'http://opendata-saskatoon.cloudapp.net/TermsOfUse/TermsOfUse',  # incomplete license
-    'http://www.altalis.com/agreement.html',  # per CIPPIC
-    'http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',  # per CIPPIC
-  ]
-
-  # Map Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
+# Maps Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
+def ocd_codes():
   codes = {'01': 'ocd-division/country:ca'}
   reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv')
   for row in reader:
     codes[row[1]] = row[0]
+  return codes
 
-  # Map OCD identifiers and Standard Geographical Classification codes to names.
+# Maps OCD identifiers and Standard Geographical Classification codes to names.
+def ocd_names():
+  urls = [
+    'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_manual.csv',
+    'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv',
+    'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv',
+    'https://raw.github.com/jpmckinney/ocd-division-ids/ca/identifiers/country-ca/census_subdivision-montreal-arrondissements.csv',  # @todo switch repository and branch
+  ]
   names = {}
-  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_manual.csv')
-  for row in reader:
-    names[row[0].decode('utf8')] = row[1].decode('utf8')
-  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
-  for row in reader:
-    names[row[0].decode('utf8')] = row[1].decode('utf8')
-  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv')
-  for row in reader:
-    names[row[0].decode('utf8')] = row[1].decode('utf8')
-  reader = csv_reader('https://raw.github.com/jpmckinney/ocd-division-ids/ca/identifiers/country-ca/census_subdivision-montreal-arrondissements.csv')  # @todo switch repository and branch
-  for row in reader:
-    names[row[0].decode('utf8')] = row[1].decode('utf8')
+  for url in urls:
+    for row in csv_reader(url):
+      names[row[0].decode('utf8')] = row[1].decode('utf8')
+  return names
 
-  rows = {}
-
-  ocd_divisions = set()
-
-  # Boundary sets
-  # @todo loop over private_data_base as well (private = 'N')
-  private = 'Y'
-  for slug, config in registry(base).items():
-    if config.get('metadata'):
-      # Determine the ocd_division.
-      ocd_division = config['metadata'].get('ocd_division')
-      geographic_code = config['metadata'].get('geographic_code')
-      if ocd_division:
-        if geographic_code:
-          raise Exception('%s: Set ocd_division or geographic_code' % slug)
-      else:
-        if geographic_code:
-          length = len(geographic_code)
-          if length == 2:
-            ocd_division = codes[geographic_code]
-          elif length == 7:
-            ocd_division = 'ocd-division/country:ca/csd:%s' % geographic_code
-          else:
-            raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
-
-      if ocd_division:
-        # Ensure ocd_division is unique.
-        if ocd_division in ocd_divisions:
-          raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
-        else:
-          ocd_divisions.add(ocd_division)
-
-        sections = ocd_division.split('/')
-        ocd_type, ocd_type_id = sections[-1].split(':')
-
-        # Determine province or territory.
-        if ocd_type == 'country':
-          province_or_territory = None
-        elif ocd_type in ('province', 'territory'):
-          province_or_territory = ocd_division
-        elif ocd_type == 'csd':
-          province_or_territory = codes[ocd_type_id[:2]]
-        elif ocd_type == 'arrondissement':
-          province_or_territory = codes[sections[-2].split(':')[-1][:2]]
-        else:
-          raise Exception('%s: Unrecognized OCD type %s' % (slug, ocd_type))
-        if province_or_territory:
-          province_or_territory = province_or_territory.split(':')[-1].upper()
-
-        row = {
-          'OCD': ocd_division,
-          'Geographic code': geographic_code,
-          'Geographic name': names[ocd_division],
-          'Province or territory': province_or_territory,
-          'Shapefile?': 'Y',
-
-          # Columns used once requested.
-          'Contact': None,  # manual
-          'Highrise URL': None,  # manual
-          'Request notes': '',  # manual if not received
-
-          # Columns used once received.
-          'Last boundary': config.get('last_updated'),
-          'Next boundary': None,  # manual
-          'Permission to distribute': permission,
-          'Received via': None,  # manual if MFIPPA
-          'License URL': config.get('licence_url'),
-          'Denial notes': None,  # manual
-        }
-        if config.get('data_url'):
-          row['Contact'] = 'N/A'
-          row['Received via'] = 'online'
-        else:
-          # @todo reconstruct contact from LICENSE.txt
-          row['Received via'] = 'email' # @todo MFIPPA
-
-        # @todo move some of this to licenses task?
-        directory = dirname(config['file'])
-        with open(os.path.join(directory, 'LICENSE.txt')) as f:
-          license_text = f.read().rstrip('\n')
-        if config.get('licence_url'):
-          licence_url = config['licence_url']
-          if licence_url in open_data_licenses or licence_url in some_rights_reserved_licenses:
-            if not terms.get(licence_url) and not terms_re.get(licence_url):
-              print "%-50s No known terms for License URL %s" % (slug, licence_url)
-            elif terms.get(licence_url) and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
-              print "%-50s Expected to match known license terms" % slug
-            elif licence_url in open_data_licenses:
-              row['Type of license'] = 'Open'
-            else:
-              row['Type of license'] = 'Most rights reserved'
-          elif licence_url in all_rights_reserved_licenses:
-            if not all_rights_reserved_terms_re.search(license_text):
-              print '%-50s Expected LICENSE.txt to match "all rights reserved" terms' % slug
-            else:
-              row['Type of license'] = 'All rights reserved'
-          else:
-            print '%-50s Unrecognized License URL %s' % (slug, licence_url)
-        else:
-          if not all_rights_reserved_terms_re.search(license_text):
-            print '%-50s Expected LICENSE.txt to match "all rights reserved" terms' % slug
-          else:
-            # @todo License agreements
-            row['Type of license'] = 'Unlicensed'
-
-        rows.append(row)
-      else:
-        print 'No OCD division for %s' % slug
-
-  # Representative sets
-  # reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv')
-  # abbreviations = [row[1] for row in reader]
-
-  # Map Standard Geographical Classification codes to ScraperWiki URLs.
-  # @see https://github.com/opennorth/represent-canada/issues/60
-  # scraperwiki_urls = {}
-  # for representative_set in requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']:
-  #   boundary_set_url = representative_set['related']['boundary_set_url']
-  #   if boundary_set_url:
-  #     boundary_set = requests.get('http://represent.opennorth.ca%s' % boundary_set_url).json()
-  #     if boundary_set.get('metadata') and boundary_set['metadata'].get('geographic_code'):
-  #       scraperwiki_urls[boundary_set['metadata']['geographic_code']] = representative_set['scraperwiki_url']
-  #     else:
-  #       print '%-65s No metadata' % boundary_set_url
-  #   else:
-  #     print "%-65s No boundary_set_url" % representative_set['url']
-
-  # @todo track if scraped in bulk via Represent API?
-
-  # Map to Pupa modules.
-  # @todo check for pupa scrapers
-
-  # geographic_name_re = re.compile('\A(.+) \((.+)\)\Z')
-  # reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
-  # writer = csv.writer(sys.stdout)
-  # reader.next() # title
-  # reader.next() # headers
-  # rows = {}
-  # for row in reader:
-  #   if row:
-  #     result = geographic_name_re.search(row[1])
-  #     if result:
-  #       name = result.group(1)
-  #       province_or_territory = result.group(2)
-  #       if province_or_territory not in abbreviations:
-  #         raise Exception('Unrecognized province or territory "%s" in "%s"' % (province_or_territory, row[1]))
-  #     elif row[1] == 'Canada':
-  #       name = 'Canada'
-  #       province_or_territory = 'Canada'
-  #     else:
-  #       raise Exception('Unrecognized name "%s"' % row[1])
-  #     writer.writerow([
-  #       row[0],
-  #       name,
-  #       province_or_territory,
-  #       row[4],
-  #       scraperwiki_urls.get(row[0]),
-  #     ])
-  #   else:
-  #     break
-
-  # @todo compare against live spreadsheet, log any conflicts
-  # if no conflicts, update live spreadsheet?
-  # https://code.google.com/p/gdata-python-client/
-
-# Check that all ScraperWiki scrapers are in Represent.
+# Check that all data directories contain a `LICENSE.txt`.
 @task
-def scraperwiki():
-  import lxml.html
-
-  ignore_slugs = set([
-    # Not relevant to Represent.
-    'canadian_federal_bills_wip',
-    'seao',
-    'seao_details',
-    'trial_sg_company_numbers',
-    'trial_us_nv_company_numbers',
-    'trial_us_wy_company_numbers_1',
-    # Past elections.
-    'bc_2013_candidates_1',
-    # Obsolete scrapers.
-    'halifax_city_councillors',
-    'ottawa-mayor-and-councillors',
-    'quebec_council',
-    'sherbrooke',
-    'winnipeg_city_council',
-  ])
-
-  # Collect the slugs of ScraperWiki scrapers tagged with "cdnpoli".
-  tagged_slugs = set()
-  query_string = ''
-  while True:
-    document = lxml.html.fromstring(requests.get('https://classic.scraperwiki.com/tags/cdnpoli%s' % query_string).content)
-    tagged_slugs.update(href.split('/')[2] for href in document.xpath('//*[@class="screenshot"]/@href'))
-    href = document.xpath('//*[@class="next"]/@href')
-    if href:
-      query_string = href[0]
-    else:
-      break
-
-  response = requests.get('https://api.scraperwiki.com/api/1.0/scraper/getuserinfo?format=jsondict&username=jpmckinney').json()[0]
-  scraperwiki_slugs = set(item for sublist in response['coderoles'].values() for item in sublist)
-
-  response = requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']
-  represent_slugs = set(os.path.basename(os.path.dirname(item['scraperwiki_url'])) for item in response)
-
-  response = requests.get('http://represent.opennorth.ca/candidates/?limit=0').json()['objects']
-  ignore_slugs.update(os.path.basename(os.path.dirname(item['scraperwiki_url'])) for item in response)
-
-  messages = {
-    'On ScraperWiki but not on Represent': scraperwiki_slugs - represent_slugs - ignore_slugs,
-    'On Represent but not on ScraperWiki': represent_slugs - scraperwiki_slugs,
-    'Tagged "cdnpoli" on ScraperWiki but not on Represent': tagged_slugs - scraperwiki_slugs - represent_slugs - ignore_slugs,
-    'On Represent but not tagged "cdnpoli" on ScraperWiki': represent_slugs - tagged_slugs,
-  }
-  for message, slugs in messages.items():
-    if slugs:
-      print '%s:' % message
-      for slug in slugs:
-        print 'https://classic.scraperwiki.com/scrapers/%s/' % slug
-      print
+def licenses(base='.'):
+  for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
+    if '.git' in dirnames:
+      dirnames.remove('.git')
+    if '.DS_Store' in filenames:
+      filenames.remove('.DS_Store')
+    if filenames and 'LICENSE.txt' not in filenames:
+      print '%s No LICENSE.txt' % dirpath
 
 # Check that all `definition.py` files are valid.
 @task
@@ -392,8 +120,35 @@ def definitions(base='.'):
     u'Saskatchewan',
     u'Yukon',
   ]
-
   valid_domains_re = re.compile(', (AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)\Z')
+
+  terms = {
+    # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
+    'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use': 'I. Terms of Use. This work is provided under the terms of “City of Ottawa – Terms of Use” (http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use).  Any use of the work other than as authorized under these terms is strictly prohibited.',
+    'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Windsor – Terms of Use” (http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
+    'http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx': 'I. Terms of Use. This work is provided under the terms of City of Edmonton Open Data Terms of Use (http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx).  Any use of the work other than as authorized under these terms is strictly prohibited.',
+    'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php': """Attribution: This data is provided by the Directeur général des élections du Québec (http://www.electionsquebec.qc.ca), reproduced according to the terms of the "Conditions d'utilisation de notre site Web" (http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php). Copyright in the work belongs to the Government of Quebec.""",
+    'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm': 'I. Terms of Use. This work is provided under the terms of “Open Data London – Terms of Use” (http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm).  Any use of the work other than as authorized under these terms is strictly prohibited.',
+    'http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Mississauga – Terms of Use” (http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
+    'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx': 'I. Terms of Use. This data is provided by the City of Calgary and is made available under the Open Data Catalogue Terms of Use (https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx).',
+    # Open Government Licence.
+    'http://data.gc.ca/eng/open-government-licence-canada': 'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://data.gc.ca/eng/open-government-licence-canada).',
+    'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html': 'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
+    'http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html': 'I. Terms of Use. Contains information licensed under the Open Government Licence - Nanaimo (http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html).',
+    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default': 'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default).',
+    # Text provided by license.
+    'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/': "I. Termes d'utilisation. Contient des données reproduites, modifiées, traduites ou distribuées « telles quelles » avec la permission de la Ville de Montréal (http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/).",
+    'http://donnees.ville.quebec.qc.ca/licence.aspx': "I. Conditions d'utilisation. Contient des données reproduites et distribuées « telles quelles » avec la permission de la Ville de Québec (http://donnees.ville.quebec.qc.ca/licence.aspx).",
+    'http://opendata.peelregion.ca/terms-of-use.aspx': "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Peel's Open Data Licence - Version 1.0 (http://opendata.peelregion.ca/terms-of-use.aspx).",
+    'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp': 'I. Terms of Use. Contains information provided by the Regional Municipality of Waterloo under licence (http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp).',
+    # Kent Mewhort email (2012-02-10).
+    'https://mli2.gov.mb.ca/app/register/app/index.php': '© 2001 Her Majesty the Queen in Right of Manitoba, as represented by the Minister of Conservation. All rights reserved. Distributed under the terms of the Manitoba Land Initiative Terms and Conditions of Use (https://mli2.gov.mb.ca//app/register/app/index.php).',
+  }
+  terms_re  = {
+    # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
+    'https://www.geosask.ca/Portal/jsp/terms_popup.jsp': re.compile("\AAttribution: (Source|Adapted from): Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan, [^.]+\. The incorporation of data sourced from Her Majesty In Right Of Saskatchewan and/or Information Services Corporation of Saskatchewan, within this product shall not be construed as constituting an endorsement by Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan of such product\.\Z"),
+  }
+  all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+?.  Please direct licensing inquiries and requests to:\n\n')
 
   for slug, config in registry(base).items():
     invalid_keys = set(config.keys()) - valid_keys
@@ -421,17 +176,6 @@ def definitions(base='.'):
     with open(os.path.join(directory, 'definition.py')) as f:
       if not re.search('\S\n\Z', f.read()):
         print '%s Ends in zero or multiple newlines' % directory
-
-# Check that all data directories contain a `LICENSE.txt`.
-@task
-def licenses(base='.'):
-  for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
-    if '.git' in dirnames:
-      dirnames.remove('.git')
-    if '.DS_Store' in filenames:
-      filenames.remove('.DS_Store')
-    if filenames and 'LICENSE.txt' not in filenames:
-      print '%s No LICENSE.txt' % dirpath
 
 # Check that the source, data and license URLs work.
 @task
@@ -668,3 +412,260 @@ def shapefiles(base='.'):
               f.write(chunk)
 
           process(slug, config, url, data_file_path)
+
+# Check that all ScraperWiki scrapers are in Represent.
+@task
+def scraperwiki():
+  import lxml.html
+
+  ignore_slugs = set([
+    # Not relevant to Represent.
+    'canadian_federal_bills_wip',
+    'seao',
+    'seao_details',
+    'trial_sg_company_numbers',
+    'trial_us_nv_company_numbers',
+    'trial_us_wy_company_numbers_1',
+    # Past elections.
+    'bc_2013_candidates_1',
+    # Obsolete scrapers.
+    'halifax_city_councillors',
+    'ottawa-mayor-and-councillors',
+    'quebec_council',
+    'sherbrooke',
+    'winnipeg_city_council',
+  ])
+
+  # Collect the slugs of ScraperWiki scrapers tagged with "cdnpoli".
+  tagged_slugs = set()
+  query_string = ''
+  while True:
+    document = lxml.html.fromstring(requests.get('https://classic.scraperwiki.com/tags/cdnpoli%s' % query_string).content)
+    tagged_slugs.update(href.split('/')[2] for href in document.xpath('//*[@class="screenshot"]/@href'))
+    href = document.xpath('//*[@class="next"]/@href')
+    if href:
+      query_string = href[0]
+    else:
+      break
+
+  response = requests.get('https://api.scraperwiki.com/api/1.0/scraper/getuserinfo?format=jsondict&username=jpmckinney').json()[0]
+  scraperwiki_slugs = set(item for sublist in response['coderoles'].values() for item in sublist)
+
+  response = requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']
+  represent_slugs = set(os.path.basename(os.path.dirname(item['scraperwiki_url'])) for item in response)
+
+  response = requests.get('http://represent.opennorth.ca/candidates/?limit=0').json()['objects']
+  ignore_slugs.update(os.path.basename(os.path.dirname(item['scraperwiki_url'])) for item in response)
+
+  messages = {
+    'On ScraperWiki but not on Represent': scraperwiki_slugs - represent_slugs - ignore_slugs,
+    'On Represent but not on ScraperWiki': represent_slugs - scraperwiki_slugs,
+    'Tagged "cdnpoli" on ScraperWiki but not on Represent': tagged_slugs - scraperwiki_slugs - represent_slugs - ignore_slugs,
+    'On Represent but not tagged "cdnpoli" on ScraperWiki': represent_slugs - tagged_slugs,
+  }
+  for message, slugs in messages.items():
+    if slugs:
+      print '%s:' % message
+      for slug in slugs:
+        print 'https://classic.scraperwiki.com/scrapers/%s/' % slug
+      print
+
+# Update the spreadsheet for tracking progress on data collection.
+@task
+def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
+  import sys
+
+  open_data_licenses = [
+    'http://data.gc.ca/eng/open-government-licence-canada',
+    'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
+    'http://donnees.ville.quebec.qc.ca/licence.aspx',
+    'http://opendata.peelregion.ca/terms-of-use.aspx',
+    'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
+    'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
+    'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html',
+    'http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx',
+    'http://www.electionspei.ca/api/license/',  # no longer accessible
+    'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
+    'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm',
+    'http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf',
+    'http://www.regina.ca/residents/open-government/data/terms/',
+    'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
+    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
+    'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx',
+  ]
+  some_rights_reserved_licenses = [
+    'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',  # per CIPPIC
+    'https://mli2.gov.mb.ca/app/register/app/index.php',  # non-commercial if unmodified
+    'https://www.geosask.ca/Portal/jsp/terms_popup.jsp',  # per CIPPIC
+  ]
+  all_rights_reserved_licenses = [
+    'http://opendata-saskatoon.cloudapp.net/TermsOfUse/TermsOfUse',  # incomplete license
+    'http://www.altalis.com/agreement.html',  # per CIPPIC
+    'http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',  # per CIPPIC
+  ]
+
+  codes = ocd_codes()
+  names = ocd_names()
+  ocd_divisions = set()
+  rows = {}
+
+  # Boundary sets
+  # @todo loop over private_data_base as well (private = 'N')
+  private = 'Y'
+  for slug, config in registry(base).items():
+    if config.get('metadata'):
+      # Determine the ocd_division.
+      ocd_division = config['metadata'].get('ocd_division')
+      geographic_code = config['metadata'].get('geographic_code')
+      if ocd_division:
+        if geographic_code:
+          raise Exception('%s: Set ocd_division or geographic_code' % slug)
+      else:
+        if geographic_code:
+          length = len(geographic_code)
+          if length == 2:
+            ocd_division = codes[geographic_code]
+          elif length == 7:
+            ocd_division = 'ocd-division/country:ca/csd:%s' % geographic_code
+          else:
+            raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
+
+      if ocd_division:
+        # Ensure ocd_division is unique.
+        if ocd_division in ocd_divisions:
+          raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
+        else:
+          ocd_divisions.add(ocd_division)
+
+        sections = ocd_division.split('/')
+        ocd_type, ocd_type_id = sections[-1].split(':')
+
+        # Determine province or territory.
+        if ocd_type == 'country':
+          province_or_territory = None
+        elif ocd_type in ('province', 'territory'):
+          province_or_territory = ocd_division
+        elif ocd_type == 'csd':
+          province_or_territory = codes[ocd_type_id[:2]]
+        elif ocd_type == 'arrondissement':
+          province_or_territory = codes[sections[-2].split(':')[-1][:2]]
+        else:
+          raise Exception('%s: Unrecognized OCD type %s' % (slug, ocd_type))
+        if province_or_territory:
+          province_or_territory = province_or_territory.split(':')[-1].upper()
+
+        row = {
+          'OCD': ocd_division,
+          'Geographic code': geographic_code,
+          'Geographic name': names[ocd_division],
+          'Province or territory': province_or_territory,
+          'Shapefile?': 'Y',
+
+          # Columns used once requested.
+          'Contact': None,  # manual
+          'Highrise URL': None,  # manual
+          'Request notes': '',  # manual if not received
+
+          # Columns used once received.
+          'Last boundary': config.get('last_updated'),
+          'Next boundary': None,  # manual
+          'Permission to distribute': permission,
+          'Received via': None,  # manual if MFIPPA
+          'License URL': config.get('licence_url'),
+          'Denial notes': None,  # manual
+        }
+        if config.get('data_url'):
+          row['Contact'] = 'N/A'
+          row['Received via'] = 'online'
+        else:
+          # @todo reconstruct contact from LICENSE.txt
+          row['Received via'] = 'email' # @todo MFIPPA
+
+        # @todo move some of this to licenses task?
+        directory = dirname(config['file'])
+        with open(os.path.join(directory, 'LICENSE.txt')) as f:
+          license_text = f.read().rstrip('\n')
+        if config.get('licence_url'):
+          licence_url = config['licence_url']
+          if licence_url in open_data_licenses or licence_url in some_rights_reserved_licenses:
+            if not terms.get(licence_url) and not terms_re.get(licence_url):
+              print "%-50s No known terms for License URL %s" % (slug, licence_url)
+            elif terms.get(licence_url) and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
+              print "%-50s Expected to match known license terms" % slug
+            elif licence_url in open_data_licenses:
+              row['Type of license'] = 'Open'
+            else:
+              row['Type of license'] = 'Most rights reserved'
+          elif licence_url in all_rights_reserved_licenses:
+            if not all_rights_reserved_terms_re.search(license_text):
+              print '%-50s Expected LICENSE.txt to match "all rights reserved" terms' % slug
+            else:
+              row['Type of license'] = 'All rights reserved'
+          else:
+            print '%-50s Unrecognized License URL %s' % (slug, licence_url)
+        else:
+          if not all_rights_reserved_terms_re.search(license_text):
+            print '%-50s Expected LICENSE.txt to match "all rights reserved" terms' % slug
+          else:
+            # @todo License agreements
+            row['Type of license'] = 'Unlicensed'
+
+        rows.append(row)
+      else:
+        print 'No OCD division for %s' % slug
+
+  # Representative sets
+  # reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv')
+  # abbreviations = [row[1] for row in reader]
+
+  # Map Standard Geographical Classification codes to ScraperWiki URLs.
+  # @see https://github.com/opennorth/represent-canada/issues/60
+  # scraperwiki_urls = {}
+  # for representative_set in requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']:
+  #   boundary_set_url = representative_set['related']['boundary_set_url']
+  #   if boundary_set_url:
+  #     boundary_set = requests.get('http://represent.opennorth.ca%s' % boundary_set_url).json()
+  #     if boundary_set.get('metadata') and boundary_set['metadata'].get('geographic_code'):
+  #       scraperwiki_urls[boundary_set['metadata']['geographic_code']] = representative_set['scraperwiki_url']
+  #     else:
+  #       print '%-65s No metadata' % boundary_set_url
+  #   else:
+  #     print "%-65s No boundary_set_url" % representative_set['url']
+
+  # @todo track if scraped in bulk via Represent API?
+
+  # Map to Pupa modules.
+  # @todo check for pupa scrapers
+
+  # geographic_name_re = re.compile('\A(.+) \((.+)\)\Z')
+  # reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
+  # writer = csv.writer(sys.stdout)
+  # reader.next() # title
+  # reader.next() # headers
+  # rows = {}
+  # for row in reader:
+  #   if row:
+  #     result = geographic_name_re.search(row[1])
+  #     if result:
+  #       name = result.group(1)
+  #       province_or_territory = result.group(2)
+  #       if province_or_territory not in abbreviations:
+  #         raise Exception('Unrecognized province or territory "%s" in "%s"' % (province_or_territory, row[1]))
+  #     elif row[1] == 'Canada':
+  #       name = 'Canada'
+  #       province_or_territory = 'Canada'
+  #     else:
+  #       raise Exception('Unrecognized name "%s"' % row[1])
+  #     writer.writerow([
+  #       row[0],
+  #       name,
+  #       province_or_territory,
+  #       row[4],
+  #       scraperwiki_urls.get(row[0]),
+  #     ])
+  #   else:
+  #     break
+
+  # @todo compare against live spreadsheet, log any conflicts
+  # if no conflicts, update live spreadsheet?
+  # https://code.google.com/p/gdata-python-client/

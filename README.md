@@ -41,13 +41,13 @@ Load the virtual environment:
 
 #### Boundaries
 
-Check that all `definition.py` files are valid:
-
-    invoke definitions
-
 Check that all data directories contain a `LICENSE.txt`:
 
     invoke licenses
+
+Check that all `definition.py` files are valid:
+
+    invoke definitions
 
 Check that the source, data and license URLs work:
 
