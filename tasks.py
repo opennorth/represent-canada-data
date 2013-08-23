@@ -10,6 +10,37 @@ from urlparse import urlparse
 from invoke import run, task
 import requests
 
+open_data_licenses = [
+  'http://data.gc.ca/eng/open-government-licence-canada',
+  'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
+  'http://donnees.ville.quebec.qc.ca/licence.aspx',
+  'http://opendata.peelregion.ca/terms-of-use.aspx',
+  'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
+  'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
+  'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html',
+  'http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx',
+  'http://www.electionspei.ca/api/license/',  # no longer accessible
+  'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
+  'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm',
+  'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf',
+  'http://www.regina.ca/residents/open-government/data/terms/',
+  'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
+  'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
+  'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx',
+]
+
+some_rights_reserved_licenses = [
+  'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',  # per CIPPIC
+  'https://mli2.gov.mb.ca/app/register/app/index.php',  # no commercial redistribution
+  'https://www.geosask.ca/Portal/jsp/terms_popup.jsp',  # per CIPPIC
+]
+
+all_rights_reserved_licenses = [
+  'http://opendata-saskatoon.cloudapp.net/TermsOfUse/TermsOfUse',  # open data license pending
+  'http://www.altalis.com/agreement.html',  # per CIPPIC
+  'http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',  # per CIPPIC
+]
+
 # Returns the directory in which a shapefile exists.
 def dirname(path):
   # GitPython can't handle paths starting with "./".
@@ -31,33 +62,51 @@ def csv_reader(url):
   from StringIO import StringIO
   return csv.reader(StringIO(requests.get(url).content))
 
-# Reads the spreadsheet for tracking progress on data collection.
-def read_spreadsheet():
-  reader = csv_reader('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=18&output=csv')
-  reader.next() # headers
-  return dict((row[0], row[1:]) for row in reader)
-
 # Maps Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
+ocd_codes_memo = {}
 def ocd_codes():
-  codes = {'01': 'ocd-division/country:ca'}
-  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv')
-  for row in reader:
-    codes[row[1]] = row[0]
-  return codes
+  if not ocd_codes_memo:
+    ocd_codes_memo['01'] = 'ocd-division/country:ca'
+    reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv')
+    for row in reader:
+      ocd_codes_memo[row[1]] = row[0]
+  return ocd_codes_memo
 
 # Maps OCD identifiers and Standard Geographical Classification codes to names.
+ocd_names_memo = {}
 def ocd_names():
-  urls = [
-    'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_manual.csv',
-    'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv',
-    'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv',
-    'https://raw.github.com/jpmckinney/ocd-division-ids/ca/identifiers/country-ca/census_subdivision-montreal-arrondissements.csv',  # @todo switch repository and branch
-  ]
-  names = {}
-  for url in urls:
-    for row in csv_reader(url):
-      names[row[0].decode('utf8')] = row[1].decode('utf8')
-  return names
+  if not ocd_names_memo:
+    urls = [
+      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_manual.csv',
+      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv',
+      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_divisions.csv',
+      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv',
+      'https://raw.github.com/jpmckinney/ocd-division-ids/ca/identifiers/country-ca/census_subdivision-montreal-arrondissements.csv',  # @todo switch repository and branch
+    ]
+    for url in urls:
+      for row in csv_reader(url):
+        ocd_names_memo[row[0].decode('utf8')] = row[1].decode('utf8')
+  return ocd_names_memo
+
+# Returns the Open Civic Data division identifier and Standard Geographical Classification code.
+def get_ocd_division(slug, config):
+  ocd_division = config['metadata'].get('ocd_division')
+  geographic_code = config['metadata'].get('geographic_code')
+  if ocd_division:
+    if geographic_code:
+      raise Exception('%s: Set ocd_division or geographic_code' % slug)
+  else:
+    if geographic_code:
+      length = len(geographic_code)
+      if length == 2:
+        ocd_division = ocd_codes()[geographic_code]
+      elif length == 4:
+        ocd_division = 'ocd-division/country:ca/cd:%s' % geographic_code
+      elif length == 7:
+        ocd_division = 'ocd-division/country:ca/csd:%s' % geographic_code
+      else:
+        raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
+  return [ocd_division, geographic_code]
 
 # Check that all data directories contain a `LICENSE.txt`.
 @task
@@ -73,54 +122,36 @@ def licenses(base='.'):
 # Check that all `definition.py` files are valid.
 @task
 def definitions(base='.'):
+  import lxml.html
+
   valid_keys = set([
     # Added by boundaries.register.
     'file',
     # Used by represent-boundaries.
-    'name',  # @todo check contains OCD name
-    'singular',  # @todo check contains OCD name
-    'domain',  # @todo check using OCD name
+    'name',
+    'singular',
+    'domain',
     'last_updated',
     'slug_func',
     'name_func',
     'id_func',
     'is_valid_func',
-    'authority',  # @todo check contains OCD name
+    'authority',
     'source_url',
     'licence_url',
     'data_url',
     'metadata',
     'notes',
     'encoding',
-    # Used by this script.
+    # Used by this script. Not validated.
     'ogr2ogr',
     'prj',
   ])
 
-  no_geographic_code_or_ocd_division = [
-    # Census boundaries
-    u"Census divisions",
-    u"Census subdivisions",
-  ]
-
-  valid_domains = [
-    u'Canada',
-    # Provinces and territories
-    u'Alberta',
-    u'British Columbia',
-    u'Manitoba',
-    u'New Brunswick',
-    u'Newfoundland and Labrador',
-    u'Northwest Territories',
-    u'Nova Scotia',
-    u'Nunavut',
-    u'Ontario',
-    u'Prince Edward Island',
-    u'Québec',
-    u'Saskatchewan',
-    u'Yukon',
-  ]
-  valid_domains_re = re.compile(', (AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT)\Z')
+  valid_metadata_keys = set([
+    'geographic_code',
+    'ocd_division',
+  ])
 
   terms = {
     # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
@@ -129,7 +160,7 @@ def definitions(base='.'):
     'http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx': 'I. Terms of Use. This work is provided under the terms of City of Edmonton Open Data Terms of Use (http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php': """Attribution: This data is provided by the Directeur général des élections du Québec (http://www.electionsquebec.qc.ca), reproduced according to the terms of the "Conditions d'utilisation de notre site Web" (http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php). Copyright in the work belongs to the Government of Quebec.""",
     'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm': 'I. Terms of Use. This work is provided under the terms of “Open Data London – Terms of Use” (http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm).  Any use of the work other than as authorized under these terms is strictly prohibited.',
-    'http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Mississauga – Terms of Use” (http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
+    'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Mississauga – Terms of Use” (http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx': 'I. Terms of Use. This data is provided by the City of Calgary and is made available under the Open Data Catalogue Terms of Use (https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx).',
     # Open Government Licence.
     'http://data.gc.ca/eng/open-government-licence-canada': 'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://data.gc.ca/eng/open-government-licence-canada).',
@@ -144,38 +175,191 @@ def definitions(base='.'):
     # Kent Mewhort email (2012-02-10).
     'https://mli2.gov.mb.ca/app/register/app/index.php': '© 2001 Her Majesty the Queen in Right of Manitoba, as represented by the Minister of Conservation. All rights reserved. Distributed under the terms of the Manitoba Land Initiative Terms and Conditions of Use (https://mli2.gov.mb.ca//app/register/app/index.php).',
   }
-  terms_re  = {
+
+  terms_re = {
     # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
     'https://www.geosask.ca/Portal/jsp/terms_popup.jsp': re.compile("\AAttribution: (Source|Adapted from): Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan, [^.]+\. The incorporation of data sourced from Her Majesty In Right Of Saskatchewan and/or Information Services Corporation of Saskatchewan, within this product shall not be construed as constituting an endorsement by Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan of such product\.\Z"),
   }
+
   all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+?.  Please direct licensing inquiries and requests to:\n\n')
 
+  authorities = [
+    u'Elections Prince Edward Island',
+    u'Regional Municipality of Peel',
+    u'Regional Municipality of Waterloo',
+    u'Ville de Montréal',
+  ]
+
+  # Map census type codes to names.
+  census_division_type_names = {}
+  document = lxml.html.fromstring(requests.get('http://www12.statcan.gc.ca/census-recensement/2011/ref/dict/table-tableau/table-tableau-4-eng.cfm').content)
+  for abbr in document.xpath('//table/tbody/tr/th[1]/abbr'):
+    census_division_type_names[abbr.text_content()] = re.sub(' /.+\Z', '', abbr.attrib['title'])
+  census_subdivision_type_names = {}
+  document = lxml.html.fromstring(requests.get('http://www12.statcan.gc.ca/census-recensement/2011/ref/dict/table-tableau/table-tableau-5-eng.cfm').content)
+  for abbr in document.xpath('//table/tbody/tr/th[1]/abbr'):
+    census_subdivision_type_names[abbr.text_content()] = re.sub(' /.+\Z', '', abbr.attrib['title'])
+
+  # Map OCD identifiers to census subdivision types.
+  types = {}
+  reader = csv_reader('https://raw.github.com/jpmckinney/ocd-division-ids/ca/mappings/country-ca-types/ca_census_divisions.csv')  # @todo switch repository and branch
+  for row in reader:
+    types[row[0]] = census_division_type_names[row[1].decode('utf8')]
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-types/ca_census_subdivisions.csv')
+  for row in reader:
+    types[row[0]] = census_subdivision_type_names[row[1].decode('utf8')]
+
+  codes = ocd_codes()
+  names = ocd_names()
+  ocd_divisions = set()
+
   for slug, config in registry(base).items():
-    invalid_keys = set(config.keys()) - valid_keys
     directory = dirname(config['file'])
+
+    # Validate LICENSE.txt.
+    license_path = os.path.join(directory, 'LICENSE.txt')
+    if os.path.exists(license_path):
+      with open(license_path) as f:
+        license_text = f.read().rstrip('\n')
+      if config.get('licence_url'):
+        licence_url = config['licence_url']
+        if licence_url in open_data_licenses or licence_url in some_rights_reserved_licenses:
+          if not terms.get(licence_url) and not terms_re.get(licence_url):
+            print "%-50s No LICENSE.txt template for License URL %s" % (slug, licence_url)
+          elif terms.get(licence_url) and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
+            print "%-50s Expected LICENSE.txt to match license-specific template" % slug
+        elif licence_url in all_rights_reserved_licenses:
+          if not all_rights_reserved_terms_re.search(license_text):
+            print '%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug
+        else:
+          print '%-50s Unrecognized License URL %s' % (slug, licence_url)
+      elif not all_rights_reserved_terms_re.search(license_text):
+        print '%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug
+
+    # Check for invalid keys, non-unique or empty values.
+    invalid_keys = set(config.keys()) - valid_keys
     if invalid_keys:
-      print "%s Unrecognized key: %s" % (directory, ', '.join(invalid_keys))
+      print "%-50s Unrecognized key: %s" % (slug, ', '.join(invalid_keys))
     values = [value for key, value in config.items() if key != 'metadata']
     if len(values) > len(set(values)):
-      print "%s Non-unique values" % directory
-    # @todo check slug contains OCD name
-    if slug not in no_geographic_code_or_ocd_division:
-      if not config.get('metadata'):
-        print "%s Missing metadata" % directory
-      if not config['metadata'].get('geographic_code') and not config['metadata'].get('ocd_division'):
-        print "%s Missing geographic_code or ocd_division" % directory
+      print "%-50s Non-unique values" % slug
     for key, value in config.items():
       if not value:
-        print "%s Empty value for %s" % (directory, key)
-    if config.get('domain'):
-      if config['domain'] not in valid_domains and not valid_domains_re.search(config['domain']):
-        print "%s Unrecognized domain: %s" % (directory, config['domain'])
-    if config.get('encoding'):
-      if config['encoding'] != 'iso-8859-1':
-        print "%s Unrecognied encoding: %s" % (directory, config['encoding'])
-    with open(os.path.join(directory, 'definition.py')) as f:
-      if not re.search('\S\n\Z', f.read()):
-        print '%s Ends in zero or multiple newlines' % directory
+        print "%-50s Empty value for %s" % (slug, key)
+
+    # Check for missing required keys.
+    for key in ('domain', 'last_updated', 'name_func', 'authority', 'encoding'):
+      if not config.get(key):
+        print "%-50s Missing %s" % (slug, key)
+    if not config.get('source_url') and (config.get('licence_url') or config.get('data_url')):
+      print "%-50s Missing source_url" % slug
+    if config.get('source_url') and not config.get('licence_url') and not config.get('data_url'):
+      print "%-50s Missing licence_url or data_url" % slug
+
+    # Validate fields.
+    for key in ('name', 'singular'):
+      if config.get(key):
+        print "%-50s Expected %s to be missing" % (slug, key)
+    if config.get('encoding') and config['encoding'] != 'iso-8859-1':
+      print "%-50s Expected encoding to be iso-8859-1 not %s" % (slug, config['encoding'])
+
+    if slug not in ('Census divisions', 'Census subdivisions'):
+      if config.get('metadata'):
+        # Check for invalid keys or empty values.
+        invalid_keys = set(config['metadata'].keys()) - valid_metadata_keys
+        if invalid_keys:
+          print "%-50s Unrecognized key: %s" % (slug, ', '.join(invalid_keys))
+        for key, value in config['metadata'].items():
+          if not value:
+            print "%-50s Empty value for %s" % (slug, key)
+
+        ocd_division, geographic_code = get_ocd_division(slug, config)
+
+        if ocd_division:
+          # Ensure ocd_division is unique.
+          if ocd_division in ocd_divisions:
+            raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
+          else:
+            ocd_divisions.add(ocd_division)
+
+          sections = ocd_division.split('/')
+          ocd_type, ocd_type_id = sections[-1].split(':')
+
+          # Validate domain.
+          name = names[ocd_division]
+          if ocd_type == 'country':
+            expected = 'Federal electoral districts'
+            if slug != expected:
+              print "%-50s Expected slug to be %s" % (slug, expected)
+
+            if config['domain'] != name:
+              print "%-50s Expected domain to be %s not %s" % (slug, name, config['domain'])
+
+            expected = 'Her Majesty the Queen in Right of Canada'
+            if config['authority'] != expected:
+              print "%-50s Expected authority to be %s not %s" % (slug, expected, config['authority'])
+
+          elif ocd_type in ('province', 'territory'):
+            expected = '%s electoral districts' % name
+            if slug != expected:
+              print "%-50s Expected slug to be %s" % (slug, expected)
+
+            if config['domain'] != name:
+              print "%-50s Expected domain to be %s not %s" % (slug, name, config['domain'])
+
+            expected = 'Her Majesty the Queen in Right of %s' % name
+            if config['authority'] != expected:
+              print "%-50s Expected authority to be %s not %s" % (slug, expected, config['authority'])
+
+          elif ocd_type in ('cd', 'csd'):
+            province_or_territory_code = ocd_type_id[:2]
+            province_or_territory_abbreviation = codes[province_or_territory_code].split(':')[-1].upper()
+
+            if province_or_territory_code == '24':
+              expected = re.compile('\A%s (boroughs|districts)\Z' % name)
+            else:
+              expected = re.compile('\A%s (districts|divisions|wards)\Z' % name)
+            if not expected.search(slug):
+              print "%-50s Expected slug to match %s" % (slug, expected.pattern)
+
+            expected = '%s, %s' % (name, province_or_territory_abbreviation)
+            if config['domain'] != expected:
+              print "%-50s Expected domain to be %s not %s" % (slug, expected, config['domain'])
+
+            if province_or_territory_code == '24':
+              preposition = 'de'
+            else:
+              preposition = 'of'
+            expected = '%s %s %s' % (types[ocd_division], preposition, name)
+            if config['authority'] != expected and config['authority'] not in authorities:
+              print "%-50s Expected authority to be %s not %s" % (slug, expected, config['authority'])
+
+          elif ocd_type == 'arrondissement':
+            census_subdivision_ocd_division = '/'.join(sections[:-1])
+            census_subdivision_name = names[census_subdivision_ocd_division]
+            province_or_territory_code = census_subdivision_ocd_division.split(':')[-1][:2]
+            province_or_territory_abbreviation = codes[province_or_territory_code].split(':')[-1].upper()
+
+            expected = '%s districts' % name
+            if slug != expected:
+              print "%-50s Expected slug to be %s" % (slug, expected)
+
+            expected = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
+            if config['domain'] != expected:
+              print "%-50s Expected domain to be %s not %s" % (slug, expected, config['domain'])
+
+            if province_or_territory_code == '24':
+              preposition = 'de'
+            else:
+              preposition = 'of'
+            expected = '%s %s %s' % (types[census_subdivision_ocd_division], preposition, census_subdivision_name)
+            if config['authority'] != expected:
+              print "%-50s Expected authority to be %s not %s" % (slug, expected, config['authority'])
+
+          else:
+            raise Exception('%s: Unrecognized OCD type %s' % (slug, ocd_type))
+      else:
+        print "%-50s Missing metadata" % slug
 
 # Check that the source, data and license URLs work.
 @task
@@ -475,38 +659,8 @@ def scraperwiki():
 def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
   import sys
 
-  open_data_licenses = [
-    'http://data.gc.ca/eng/open-government-licence-canada',
-    'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
-    'http://donnees.ville.quebec.qc.ca/licence.aspx',
-    'http://opendata.peelregion.ca/terms-of-use.aspx',
-    'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
-    'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
-    'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html',
-    'http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx',
-    'http://www.electionspei.ca/api/license/',  # no longer accessible
-    'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
-    'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm',
-    'http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf',
-    'http://www.regina.ca/residents/open-government/data/terms/',
-    'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
-    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
-    'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx',
-  ]
-  some_rights_reserved_licenses = [
-    'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',  # per CIPPIC
-    'https://mli2.gov.mb.ca/app/register/app/index.php',  # non-commercial if unmodified
-    'https://www.geosask.ca/Portal/jsp/terms_popup.jsp',  # per CIPPIC
-  ]
-  all_rights_reserved_licenses = [
-    'http://opendata-saskatoon.cloudapp.net/TermsOfUse/TermsOfUse',  # incomplete license
-    'http://www.altalis.com/agreement.html',  # per CIPPIC
-    'http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',  # per CIPPIC
-  ]
-
   codes = ocd_codes()
   names = ocd_names()
-  ocd_divisions = set()
   rows = {}
 
   # Boundary sets
@@ -514,29 +668,9 @@ def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
   private = 'Y'
   for slug, config in registry(base).items():
     if config.get('metadata'):
-      # Determine the ocd_division.
-      ocd_division = config['metadata'].get('ocd_division')
-      geographic_code = config['metadata'].get('geographic_code')
-      if ocd_division:
-        if geographic_code:
-          raise Exception('%s: Set ocd_division or geographic_code' % slug)
-      else:
-        if geographic_code:
-          length = len(geographic_code)
-          if length == 2:
-            ocd_division = codes[geographic_code]
-          elif length == 7:
-            ocd_division = 'ocd-division/country:ca/csd:%s' % geographic_code
-          else:
-            raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
+      ocd_division, geographic_code = get_ocd_division(slug, config)
 
       if ocd_division:
-        # Ensure ocd_division is unique.
-        if ocd_division in ocd_divisions:
-          raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
-        else:
-          ocd_divisions.add(ocd_division)
-
         sections = ocd_division.split('/')
         ocd_type, ocd_type_id = sections[-1].split(':')
 
@@ -545,12 +679,10 @@ def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
           province_or_territory = None
         elif ocd_type in ('province', 'territory'):
           province_or_territory = ocd_division
-        elif ocd_type == 'csd':
+        elif ocd_type in ('cd', 'csd'):
           province_or_territory = codes[ocd_type_id[:2]]
         elif ocd_type == 'arrondissement':
           province_or_territory = codes[sections[-2].split(':')[-1][:2]]
-        else:
-          raise Exception('%s: Unrecognized OCD type %s' % (slug, ocd_type))
         if province_or_territory:
           province_or_territory = province_or_territory.split(':')[-1].upper()
 
@@ -581,34 +713,20 @@ def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
           # @todo reconstruct contact from LICENSE.txt
           row['Received via'] = 'email' # @todo MFIPPA
 
-        # @todo move some of this to licenses task?
         directory = dirname(config['file'])
         with open(os.path.join(directory, 'LICENSE.txt')) as f:
           license_text = f.read().rstrip('\n')
         if config.get('licence_url'):
           licence_url = config['licence_url']
-          if licence_url in open_data_licenses or licence_url in some_rights_reserved_licenses:
-            if not terms.get(licence_url) and not terms_re.get(licence_url):
-              print "%-50s No known terms for License URL %s" % (slug, licence_url)
-            elif terms.get(licence_url) and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
-              print "%-50s Expected to match known license terms" % slug
-            elif licence_url in open_data_licenses:
-              row['Type of license'] = 'Open'
-            else:
-              row['Type of license'] = 'Most rights reserved'
+          if licence_url in open_data_licenses:
+            row['Type of license'] = 'Open'
+          elif licence_url in some_rights_reserved_licenses:
+            row['Type of license'] = 'Most rights reserved'
           elif licence_url in all_rights_reserved_licenses:
-            if not all_rights_reserved_terms_re.search(license_text):
-              print '%-50s Expected LICENSE.txt to match "all rights reserved" terms' % slug
-            else:
-              row['Type of license'] = 'All rights reserved'
-          else:
-            print '%-50s Unrecognized License URL %s' % (slug, licence_url)
+            row['Type of license'] = 'All rights reserved'
         else:
-          if not all_rights_reserved_terms_re.search(license_text):
-            print '%-50s Expected LICENSE.txt to match "all rights reserved" terms' % slug
-          else:
-            # @todo License agreements
-            row['Type of license'] = 'Unlicensed'
+          # @todo License agreements
+          row['Type of license'] = 'Unlicensed'
 
         rows.append(row)
       else:
@@ -667,5 +785,11 @@ def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
   #     break
 
   # @todo compare against live spreadsheet, log any conflicts
+
+  # Reads the spreadsheet for tracking progress on data collection.
+  # reader = csv_reader('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=18&output=csv')
+  # reader.next() # headers
+  # live = dict((row[0], row[1:]) for row in reader)
+
   # if no conflicts, update live spreadsheet?
   # https://code.google.com/p/gdata-python-client/
