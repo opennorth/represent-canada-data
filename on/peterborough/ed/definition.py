@@ -7,7 +7,7 @@ boundaries.register('Peterborough wards',
     last_updated=date(2012, 9, 05),
     name_func=boundaries.attr('NAME'),
     id_func=boundaries.attr('WARD_ID'),
-    authority='Town of Peterborough',
+    authority='City of Peterborough',
     encoding='iso-8859-1',
     metadata={'geographic_code': '3515014'},
 )
