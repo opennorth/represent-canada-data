@@ -3,7 +3,7 @@ import re
 
 import boundaries
 
-boundaries.register('Stratford, PE wards',
+boundaries.register('Stratford wards',
     domain='Stratford, PE',
     last_updated=date(2013, 7, 19),
     name_func=boundaries.attr('NAME'),

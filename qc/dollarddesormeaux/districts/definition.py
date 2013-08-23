@@ -3,8 +3,8 @@ from datetime import date
 
 import boundaries
 
-boundaries.register(u'Dollard-des-Ormeaux districts',
-    domain=u'Dollard-des-Ormeaux, QC',
+boundaries.register(u'Dollard-Des Ormeaux districts',
+    domain=u'Dollard-Des Ormeaux, QC',
     last_updated=date(2013, 8, 21),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',

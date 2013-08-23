@@ -3,8 +3,8 @@ from datetime import date
 
 import boundaries
 
-boundaries.register(u'Cote-Saint-Luc districts',
-    domain=u'Cote-Saint-Luc, QC',
+boundaries.register(u'Côte-Saint-Luc districts',
+    domain=u'Côte-Saint-Luc, QC',
     last_updated=date(2013, 8, 21),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
