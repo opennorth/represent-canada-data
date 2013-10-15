@@ -19,7 +19,7 @@ open_data_licenses = [
   'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
   'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html',
   'http://www.edmonton.ca/city_government/initiatives_innovation/open-data-terms-of-use.aspx',
-  'http://www.electionspei.ca/api/license/',  # no longer accessible
+  'http://www.electionspei.ca/apilicense',
   'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
   'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm',
   'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf',

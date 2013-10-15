@@ -11,7 +11,7 @@ boundaries.register('Stratford wards',
     authority='Elections Prince Edward Island',
     source_url='http://www.electionspei.ca/municipalities/stratford',
     data_url='http://www.electionspei.ca/municipal/details/gis/shp/stratford_wards.zip',
-    licence_url='http://www.electionspei.ca/api/license/',
+    licence_url='http://www.electionspei.ca/apilicense',
     encoding='iso-8859-1',
     metadata={'geographic_code': '1102080'},
 )

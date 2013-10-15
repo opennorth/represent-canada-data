@@ -20,7 +20,7 @@ boundaries.register('Prince Edward Island electoral districts',
     authority='Her Majesty the Queen in Right of Prince Edward Island',
     source_url='http://www.electionspei.ca/provincial/districts',
     data_url='http://www.electionspei.ca/provincial/details/gis/kml/pei-provincial-districts-all.kml',
-    licence_url='http://www.electionspei.ca/api/license/',
+    licence_url='http://www.electionspei.ca/apilicense',
     encoding='iso-8859-1',
     metadata={'geographic_code': '11'},
 )
