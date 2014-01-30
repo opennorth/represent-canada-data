@@ -7,12 +7,12 @@ import boundaries
 def ider(f):
     import boundaries
     return {
-        'Désiré-Girouard': '1',
-        'La Présentation': '2',
-        'Fénelon': '3',
-        'Pine Beach': '4',
-        'Strathmore': '5',
-        'Surrey': '6',
+        u'Désiré-Girouard': '1',
+        u'La Présentation': '2',
+        u'Fénelon': '3',
+        u'Pine Beach': '4',
+        u'Strathmore': '5',
+        u'Surrey': '6',
     }[boundaries.attr('NOM_DISTRI')(f)]
 
 boundaries.register(u'Dorval districts',
