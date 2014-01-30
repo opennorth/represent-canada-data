@@ -13,7 +13,7 @@ def ider(f):
         'Pine Beach': '4',
         'Strathmore': '5',
         'Surrey': '6',
-    }[boundaries.attr('NOM_DISTRI')]
+    }[boundaries.attr('NOM_DISTRI')(f)]
 
 boundaries.register(u'Dorval districts',
     domain=u'Dorval, QC',
