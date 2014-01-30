@@ -5,6 +5,7 @@ import boundaries
 
 # @see http://www.ville.dorval.qc.ca/en/downloads/pdf/Map_Electoral_Districts.pdf
 def ider(f):
+    import boundaries
     return {
         'Désiré-Girouard': '1',
         'La Présentation': '2',
