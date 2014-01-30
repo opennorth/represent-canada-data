@@ -285,7 +285,7 @@ def definitions(base='.'):
           sections = ocd_division.split('/')
           ocd_type, ocd_type_id = sections[-1].split(':')
 
-          # Validate domain.
+          # Validate slug, domain and authority.
           name = names[ocd_division]
           if ocd_type == 'country':
             expected = 'Federal electoral districts'
