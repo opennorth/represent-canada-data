@@ -1,11 +1,12 @@
 from datetime import date
+import re
 
 import boundaries
 
 boundaries.register('Fredericton wards',
     domain='Fredericton, NB',
     last_updated=date(2012, 8, 27),
-    name_func=boundaries.attr('Ward'),
+    name_func=lambda f: re.sub(' / ', '/', f.get('Ward')),
     id_func=boundaries.attr('Ward_Num'),
     authority='City of Fredericton',
     source_url='http://www.fredericton.ca/en/citygovernment/DataMain.asp',
