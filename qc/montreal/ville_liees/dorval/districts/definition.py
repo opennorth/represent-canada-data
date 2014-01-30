@@ -3,10 +3,22 @@ from datetime import date
 
 import boundaries
 
+# @see http://www.ville.dorval.qc.ca/en/downloads/pdf/Map_Electoral_Districts.pdf
+def ider(f):
+    return {
+        'Désiré-Girouard': '1',
+        'La Présentation': '2',
+        'Fénelon': '3',
+        'Pine Beach': '4',
+        'Strathmore': '5',
+        'Surrey': '6',
+    }[boundaries.attr('NOM_DISTRI')]
+
 boundaries.register(u'Dorval districts',
     domain=u'Dorval, QC',
     last_updated=date(2013, 8, 21),
-    name_func=boundaries.clean_attr('NOM_DISTRI'),
+    name_func=boundaries.attr('NOM_DISTRI'),
+    id_func=ider,
     authority=u'Ville de Montréal',
     source_url='http://donnees.ville.montreal.qc.ca/fiche/elections-2009-districts/',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
