@@ -3,7 +3,6 @@ from datetime import date
 import boundaries
 
 def namer(f):
-    import boundaries
     n = boundaries.clean_attr('ELEC_DISTR')(f)
     if n == 'Ths Isles of Notre Dame':
         return u'The Isles of Notre Dame'
