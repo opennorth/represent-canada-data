@@ -3,6 +3,7 @@ from datetime import date
 import boundaries
 
 def namer(f):
+    import boundaries
     n = boundaries.dashed_attr('CON_NAME')(f)
     if n == 'Regina North East':
         return u'Regina Northeast'
