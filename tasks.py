@@ -81,7 +81,7 @@ def ocd_names():
       'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv',
       'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_divisions.csv',
       'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv',
-      'https://raw.github.com/jpmckinney/ocd-division-ids/ca/identifiers/country-ca/census_subdivision-montreal-arrondissements.csv',  # @todo switch repository and branch
+      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/census_subdivision-montreal-arrondissements.csv',
     ]
     for url in urls:
       for row in csv_reader(url):
@@ -202,7 +202,7 @@ def definitions(base='.'):
 
   # Map OCD identifiers to census subdivision types.
   types = {}
-  reader = csv_reader('https://raw.github.com/jpmckinney/ocd-division-ids/ca/mappings/country-ca-types/ca_census_divisions.csv')  # @todo switch repository and branch
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-types/ca_census_divisions.csv')
   for row in reader:
     types[row[0]] = census_division_type_names[row[1].decode('utf8')]
   reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-types/ca_census_subdivisions.csv')
@@ -596,63 +596,6 @@ def shapefiles(base='.'):
               f.write(chunk)
 
           process(slug, config, url, data_file_path)
-
-# Check that all ScraperWiki scrapers are in Represent.
-@task
-def scraperwiki():
-  import lxml.html
-
-  ignore_slugs = set([
-    # Not relevant to Represent.
-    'canadian_federal_bills_wip',
-    'seao',
-    'seao_details',
-    'trial_sg_company_numbers',
-    'trial_us_nv_company_numbers',
-    'trial_us_wy_company_numbers_1',
-    # Past elections.
-    'bc_2013_candidates_1',
-    # Obsolete scrapers.
-    'halifax_city_councillors',
-    'ottawa-mayor-and-councillors',
-    'quebec_council',
-    'sherbrooke',
-    'winnipeg_city_council',
-  ])
-
-  # Collect the slugs of ScraperWiki scrapers tagged with "cdnpoli".
-  tagged_slugs = set()
-  query_string = ''
-  while True:
-    document = lxml.html.fromstring(requests.get('https://classic.scraperwiki.com/tags/cdnpoli%s' % query_string).content)
-    tagged_slugs.update(href.split('/')[2] for href in document.xpath('//*[@class="screenshot"]/@href'))
-    href = document.xpath('//*[@class="next"]/@href')
-    if href:
-      query_string = href[0]
-    else:
-      break
-
-  response = requests.get('https://api.scraperwiki.com/api/1.0/scraper/getuserinfo?format=jsondict&username=jpmckinney').json()[0]
-  scraperwiki_slugs = set(item for sublist in response['coderoles'].values() for item in sublist)
-
-  response = requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']
-  represent_slugs = set(os.path.basename(os.path.dirname(item['scraperwiki_url'])) for item in response)
-
-  response = requests.get('http://represent.opennorth.ca/candidates/?limit=0').json()['objects']
-  ignore_slugs.update(os.path.basename(os.path.dirname(item['scraperwiki_url'])) for item in response)
-
-  messages = {
-    'On ScraperWiki but not on Represent': scraperwiki_slugs - represent_slugs - ignore_slugs,
-    'On Represent but not on ScraperWiki': represent_slugs - scraperwiki_slugs,
-    'Tagged "cdnpoli" on ScraperWiki but not on Represent': tagged_slugs - scraperwiki_slugs - represent_slugs - ignore_slugs,
-    'On Represent but not tagged "cdnpoli" on ScraperWiki': represent_slugs - tagged_slugs,
-  }
-  for message, slugs in messages.items():
-    if slugs:
-      print '%s:' % message
-      for slug in slugs:
-        print 'https://classic.scraperwiki.com/scrapers/%s/' % slug
-      print
 
 # Update the spreadsheet for tracking progress on data collection.
 @task
