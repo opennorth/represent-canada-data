@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register(u'Québec boroughs',
     domain=u'Québec, QC',
-    last_updated=date(2013, 8, 20),
+    last_updated=date(2014, 2, 4),
     name_func=boundaries.clean_attr('NOM'),
     id_func=boundaries.attr('CODE'),
     authority=u'Ville de Québec',
