@@ -6,7 +6,7 @@ import boundaries
 boundaries.register(u'Lachine districts',
     domain=u'Lachine, Montréal, QC',
     last_updated=date(2013, 10, 16),
-    name_func=lambda f: re.sub(u'', '—', f.get('NOM_DISTRI')), # control character, m-dash
+    name_func=lambda f: re.sub(u'', u'—', f.get('NOM_DISTRI')), # control character, m-dash
     authority=u'Ville de Montréal',
     source_url='http://donnees.ville.montreal.qc.ca/dataset/elections-2013-districts-electoraux',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
