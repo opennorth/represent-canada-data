@@ -488,16 +488,19 @@ def shapefiles(base='.'):
               files_to_add.remove(name)
               os.unlink(name)
 
-        # Convert any 3D shapefile into 2D.
         shp_file_path = glob(os.path.join(directory, '*.shp'))
         if shp_file_path:
           shp_file_path = shp_file_path[0]
         if shp_file_path and os.path.exists(shp_file_path):
+          # Convert any 3D shapefile into 2D.
           result = run('ogrinfo -q %s' % shp_file_path, hide='out').stdout
           if result.count('\n') > 1:
             print 'Too many layers %s' % url
           elif re.search('3D Polygon', result):
             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (directory, shp_file_path), echo=True)
+            for name in list(files_to_add):
+              if not os.path.exists(name):
+                files_to_add.remove(name)
 
           # Replace "Double_Stereographic" with "Oblique_Stereographic".
           prj_file_path = os.path.splitext(shp_file_path)[0] + '.prj'
