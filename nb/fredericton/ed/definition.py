@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register('Fredericton wards',
     domain='Fredericton, NB',
-    last_updated=date(2012, 8, 27),
+    last_updated=date(2013, 11, 26),
     name_func=lambda f: re.sub(' / ', '/', f.get('Ward')),
     id_func=boundaries.attr('Ward_Num'),
     authority='City of Fredericton',
