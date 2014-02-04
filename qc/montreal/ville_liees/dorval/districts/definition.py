@@ -17,7 +17,7 @@ def ider(f):
 
 boundaries.register(u'Dorval districts',
     domain=u'Dorval, QC',
-    last_updated=date(2013, 8, 21),
+    last_updated=date(2013, 10, 6),
     name_func=boundaries.attr('NOM_DISTRI'),
     id_func=ider,
     authority=u'Ville de Montréal',

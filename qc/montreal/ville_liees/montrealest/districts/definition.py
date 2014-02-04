@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register(u'Montréal-Est districts',
     domain=u'Montréal-Est, QC',
-    last_updated=date(2013, 8, 21),
+    last_updated=date(2013, 10, 6),
     name_func=lambda f: 'District %s' % re.sub(r'\D', '', f.get('NOM_DISTRI')),
     id_func=lambda f: re.sub(r'\D', '', f.get('NOM_DISTRI')),
     authority=u'Ville de Montréal',

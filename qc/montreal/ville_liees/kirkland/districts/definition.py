@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register(u'Kirkland districts',
     domain=u'Kirkland, QC',
-    last_updated=date(2013, 8, 21),
+    last_updated=date(2013, 10, 6),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
     authority=u'Ville de Montréal',
     source_url='http://donnees.ville.montreal.qc.ca/dataset/elections-2009-districts-electoraux',
