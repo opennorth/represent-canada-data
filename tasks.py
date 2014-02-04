@@ -413,7 +413,12 @@ def shapefiles(base='.'):
     # We can only process KML, KMZ and ZIP files.
     extension = os.path.splitext(data_file_path)[1]
     if extension in ('.kml', '.kmz', '.zip'):
-      repo = Repo('.')
+      repo_path = os.path.dirname(data_file_path)
+      while not os.path.exists(os.path.join(repo_path, '.git')) and not repo_path == '/':
+        repo_path = os.path.join(repo_path, '..')
+      repo_path = os.path.realpath(repo_path)
+
+      repo = Repo(repo_path)
       index = repo.index
       directory = dirname(config['file'])
 
@@ -421,7 +426,7 @@ def shapefiles(base='.'):
       for basename in os.listdir(directory):
         if basename not in ('.DS_Store', 'definition.py', 'LICENSE.txt', 'data.kml', 'data.kmz', 'data.zip'):
           os.unlink(os.path.join(directory, basename))
-          index.remove([os.path.join(directory, basename)])
+          index.remove([os.path.relpath(os.path.join(directory, basename), repo_path)])
 
       files_to_add = []
 
@@ -525,7 +530,7 @@ def shapefiles(base='.'):
                 files_to_add.remove(name)
 
         # Add files to git.
-        index.add(files_to_add)
+        index.add([os.path.relpath(name, repo_path) for name in files_to_add])
 
         # Update last updated timestamp.
         definition_path = os.path.join(directory, 'definition.py')
