@@ -578,6 +578,8 @@ def shapefiles(base='.'):
           url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
           arguments['auth'] = (result.username, result.password)
         response = requests.head(url, **arguments)
+        if response.status_code == 405: # if HEAD requests are not allowed
+          response = requests.get(url, **arguments)
         last_modified = response.headers.get('last-modified')
 
         # Parse the timestamp as a date.
