@@ -1,5 +1,7 @@
 [pep8]
-ignore=E111,E121,E501
+ignore=E111,E121,E124,E128,E501
 # E111 indentation is not a multiple of four
 # E121 continuation line indentation is not a multiple of four
+# E124 closing bracket does not match visual indentation
+# E128 continuation line under-indented for visual indent
 # E501 line too long (X > 79 characters)

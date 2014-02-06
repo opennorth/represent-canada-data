@@ -2,6 +2,7 @@ from datetime import date
 
 import boundaries
 
+
 def namer(f):
     import boundaries
     return re.sub(' Ward \d+\Z', '', boundaries.clean_attr('NAME')(f))

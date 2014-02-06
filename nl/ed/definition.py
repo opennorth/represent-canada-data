@@ -2,6 +2,7 @@ from datetime import date
 
 import boundaries
 
+
 def namer(f):
     import boundaries
     n = boundaries.clean_attr('ELEC_DISTR')(f)
