@@ -1,6 +1,8 @@
+autopep8==0.9.7
 GitPython
 invoke
 lxml
+pep8==1.4.6
 requests==1.2.3
 rfc6266
 -e git+http://github.com/rhymeswithcycle/represent-boundaries.git#egg=represent-boundaries

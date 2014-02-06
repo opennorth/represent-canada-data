@@ -1,0 +1,5 @@
+[pep8]
+ignore=E111,E121,E501
+# E111 indentation is not a multiple of four
+# E121 continuation line indentation is not a multiple of four
+# E501 line too long (X > 79 characters)

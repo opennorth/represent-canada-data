@@ -1,4 +1,4 @@
-#coding: utf8
+# coding: utf8
 
 import csv
 from ftplib import FTP
@@ -57,18 +57,24 @@ def dirname(path):
     return os.path.dirname(path)
 
 # Reads `definition.py` files.
+
+
 def registry(base='.'):
   import boundaries
   boundaries.autodiscover(base)
   return boundaries.registry
 
 # Reads a remote CSV file.
+
+
 def csv_reader(url):
   from StringIO import StringIO
   return csv.reader(StringIO(requests.get(url).content))
 
 # Maps Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
 ocd_codes_memo = {}
+
+
 def ocd_codes():
   if not ocd_codes_memo:
     ocd_codes_memo['01'] = 'ocd-division/country:ca'
@@ -79,6 +85,8 @@ def ocd_codes():
 
 # Maps OCD identifiers and Standard Geographical Classification codes to names.
 ocd_names_memo = {}
+
+
 def ocd_names():
   if not ocd_names_memo:
     urls = [
@@ -94,6 +102,8 @@ def ocd_names():
   return ocd_names_memo
 
 # Returns the Open Civic Data division identifier and Standard Geographical Classification code.
+
+
 def get_ocd_division(slug, config):
   ocd_division = config['metadata'].get('ocd_division')
   geographic_code = config['metadata'].get('geographic_code')
@@ -136,7 +146,7 @@ def permissions(base='.'):
       filenames.remove('.DS_Store')
     for filename in filenames:
       path = os.path.join(dirpath, filename)
-      if os.stat(path).st_mode != 33188: # 100644 octal
+      if os.stat(path).st_mode != 33188:  # 100644 octal
         os.chmod(path, stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
 
 
@@ -184,9 +194,9 @@ def definitions(base='.'):
     'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Mississauga – Terms of Use” (http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx': 'I. Terms of Use. This data is provided by the City of Calgary and is made available under the Open Data Catalogue Terms of Use (https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx).',
     # Open Government Licence.
-    'http://data.gc.ca/eng/open-government-licence-canada': 
+    'http://data.gc.ca/eng/open-government-licence-canada':
       'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://data.gc.ca/eng/open-government-licence-canada).',
-    'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html': 
+    'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html':
       'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
     'http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html':
       'I. Terms of Use. Contains information licensed under the Open Government Licence - Nanaimo (http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html).',
@@ -459,9 +469,9 @@ def shapefiles(base='.'):
             # Flatten the zip file hierarchy.
             extension = os.path.splitext(name)[1]
             if extension in ('.kml', '.kmz'):
-              basename = 'data%s' % extension # assumes one KML or KMZ file per archive
+              basename = 'data%s' % extension  # assumes one KML or KMZ file per archive
             else:
-              basename = os.path.basename(name) # assumes no collisions across hierarchy
+              basename = os.path.basename(name)  # assumes no collisions across hierarchy
             with open(os.path.join(directory, basename), 'wb') as f:
               f.write(zip_file.read(name))
             if extension not in ('.kml', '.kmz'):
@@ -606,7 +616,7 @@ def shapefiles(base='.'):
           url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
           arguments['auth'] = (result.username, result.password)
         response = requests.head(url, **arguments)
-        if response.status_code == 405: # if HEAD requests are not allowed
+        if response.status_code == 405:  # if HEAD requests are not allowed
           response = requests.get(url, **arguments)
         last_modified = response.headers.get('last-modified')
 
@@ -697,7 +707,7 @@ def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
           row['Received via'] = 'online'
         else:
           # @todo reconstruct contact from LICENSE.txt
-          row['Received via'] = 'email' # @todo MFIPPA
+          row['Received via'] = 'email'  # @todo MFIPPA
 
         directory = dirname(config['file'])
         with open(os.path.join(directory, 'LICENSE.txt')) as f:
