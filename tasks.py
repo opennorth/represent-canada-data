@@ -1,6 +1,6 @@
 # coding: utf8
 
-import csv
+import csv, codecs, cStringIO
 from ftplib import FTP
 import os
 import os.path
@@ -23,7 +23,7 @@ open_data_licenses = [
   'http://www.electionspei.ca/apilicense',
   'http://www.hamilton.ca/NR/rdonlyres/C58984A4-FE11-40B9-A231-8572EB922AAA/0/OpenDataTermsAndConditions_Final.htm',
   'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
-  'http://www.london.ca/d.aspx?s=/Open_Data/Open_Data_Terms_Use.htm',
+  'http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx',
   'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf',
   'http://www.regina.ca/residents/open-government/data/terms/',
   'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
@@ -78,9 +78,10 @@ ocd_codes_memo = {}
 def ocd_codes():
   if not ocd_codes_memo:
     ocd_codes_memo['01'] = 'ocd-division/country:ca'
-    reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv')
-    for row in reader:
+    for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv'):
       ocd_codes_memo[row[1]] = row[0]
+    for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv'):
+      ocd_codes_memo[row[0].split(':')[-1]] = row[0]
   return ocd_codes_memo
 
 # Maps OCD identifiers and Standard Geographical Classification codes to names.
@@ -122,6 +123,36 @@ def get_ocd_division(slug, config):
       else:
         raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
   return [ocd_division, geographic_code]
+
+
+class UnicodeWriter:
+    """
+    A CSV writer which will write rows to CSV file "f",
+    which is encoded in the given encoding.
+    """
+
+    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
+        # Redirect output to a queue
+        self.queue = cStringIO.StringIO()
+        self.writer = csv.writer(self.queue, dialect=dialect, **kwds)
+        self.stream = f
+        self.encoder = codecs.getincrementalencoder(encoding)()
+
+    def writerow(self, row):
+        self.writer.writerow([s.encode("utf-8") for s in row])
+        # Fetch UTF-8 output from the queue ...
+        data = self.queue.getvalue()
+        data = data.decode("utf-8")
+        # ... and reencode it into the target encoding
+        data = self.encoder.encode(data)
+        # write to the target stream
+        self.stream.write(data)
+        # empty queue
+        self.queue.truncate(0)
+
+    def writerows(self, rows):
+        for row in rows:
+            self.writerow(row)
 
 
 # Check that all data directories contain a `LICENSE.txt`.
@@ -652,16 +683,40 @@ def shapefiles(base='.'):
 
 # Update the spreadsheet for tracking progress on data collection.
 @task
-def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
+def spreadsheet(base='.'):
   import sys
+
+  headers = [
+    'OCD',
+    'Geographic code',
+    'Geographic name',
+    'Province or territory',
+    'Population',
+    'Shapefile?',
+    'Scraper?',
+
+    # Columns used once requested.
+    'Contact',
+    'Highrise URL',
+    'Request notes',
+    'Received via',
+
+    # Columns used once received.
+    'Last boundary',
+    'Next boundary',
+    'Permission to distribute',
+    'Type of license',
+    'License URL',
+    'Denial notes',
+  ]
 
   codes = ocd_codes()
   names = ocd_names()
-  rows = {}
+  shapefiles = {}
 
   # Boundary sets
-  # @todo loop over private_data_base as well (private = 'N')
-  private = 'Y'
+  # @todo loop over '../represent-canada-private-data' as well (permission_to_distribute = 'N')
+  permission_to_distribute = 'Y'
   for slug, config in registry(base).items():
     if config.get('metadata'):
       ocd_division, geographic_code = get_ocd_division(slug, config)
@@ -672,42 +727,42 @@ def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
 
         # Determine province or territory.
         if ocd_type == 'country':
-          province_or_territory = None
+          province_or_territory = ''
         elif ocd_type in ('province', 'territory'):
           province_or_territory = ocd_division
         elif ocd_type in ('cd', 'csd'):
           province_or_territory = codes[ocd_type_id[:2]]
         elif ocd_type == 'arrondissement':
           province_or_territory = codes[sections[-2].split(':')[-1][:2]]
+
         if province_or_territory:
           province_or_territory = province_or_territory.split(':')[-1].upper()
 
-        row = {
+        data = {
           'OCD': ocd_division,
           'Geographic code': geographic_code,
           'Geographic name': names[ocd_division],
           'Province or territory': province_or_territory,
           'Shapefile?': 'Y',
-
-          # Columns used once requested.
-          'Contact': None,  # manual
-          'Highrise URL': None,  # manual
+          'Highrise URL': '',  # manual
           'Request notes': '',  # manual if not received
-
-          # Columns used once received.
-          'Last boundary': config.get('last_updated'),
-          'Next boundary': None,  # manual
-          'Permission to distribute': permission,
-          'Received via': None,  # manual if MFIPPA
-          'License URL': config.get('licence_url'),
-          'Denial notes': None,  # manual
+          'Next boundary': '',  # manual
+          'Permission to distribute': permission_to_distribute,
+          'License URL': config.get('licence_url', ''),
+          'Denial notes': '',  # manual
         }
-        if config.get('data_url'):
-          row['Contact'] = 'N/A'
-          row['Received via'] = 'online'
+
+        if config.get('last_updated'):
+          data['Last boundary'] = config['last_updated'].strftime('%Y-%m-%d')
         else:
-          # @todo reconstruct contact from LICENSE.txt
-          row['Received via'] = 'email'  # @todo MFIPPA
+          data['Last boundary'] = ''
+
+        if config.get('data_url'):
+          data['Contact'] = 'N/A'
+          data['Received via'] = 'online'
+        else:
+          data['Contact'] = '' # @todo reconstruct contact from LICENSE.txt
+          data['Received via'] = 'email'  # @todo manual if MFIPPA
 
         directory = dirname(config['file'])
         with open(os.path.join(directory, 'LICENSE.txt')) as f:
@@ -715,70 +770,86 @@ def spreadsheet(base='.', private_data_base='../represent-canada-private-data'):
         if config.get('licence_url'):
           licence_url = config['licence_url']
           if licence_url in open_data_licenses:
-            row['Type of license'] = 'Open'
+            data['Type of license'] = 'Open'
           elif licence_url in some_rights_reserved_licenses:
-            row['Type of license'] = 'Most rights reserved'
+            data['Type of license'] = 'Most rights reserved'
           elif licence_url in all_rights_reserved_licenses:
-            row['Type of license'] = 'All rights reserved'
+            data['Type of license'] = 'All rights reserved'
+          else:
+            raise Exception(licence_url)
         else:
           # @todo License agreements
-          row['Type of license'] = 'Unlicensed'
+          data['Type of license'] = 'Unlicensed'
 
-        rows.append(row)
+        shapefiles[geographic_code] = data
       else:
         print 'No OCD division for %s' % slug
 
-  # Representative sets
-  # reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv')
-  # abbreviations = [row[1] for row in reader]
+  data_urls = {}
+  for representative_set in requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']:
+    boundary_set_url = representative_set['related']['boundary_set_url']
+    if boundary_set_url:
+      if boundary_set_url != '/boundary-sets/census-subdivisions/':
+        boundary_set = requests.get('http://represent.opennorth.ca%s' % boundary_set_url).json()
+        if boundary_set.get('extra') and boundary_set['extra'].get('geographic_code'):
+          data_urls[boundary_set['extra']['geographic_code']] = representative_set['data_url']
+        else:
+          print '%-65s No extra' % boundary_set_url
+    else:
+      print '%-65s No boundary_set_url' % representative_set['url']
 
-  # Map Standard Geographical Classification codes to ScraperWiki URLs.
-  # @see https://github.com/opennorth/represent-canada/issues/60
-  # scraperwiki_urls = {}
-  # for representative_set in requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']:
-  #   boundary_set_url = representative_set['related']['boundary_set_url']
-  #   if boundary_set_url:
-  #     boundary_set = requests.get('http://represent.opennorth.ca%s' % boundary_set_url).json()
-  #     if boundary_set.get('metadata') and boundary_set['metadata'].get('geographic_code'):
-  #       scraperwiki_urls[boundary_set['metadata']['geographic_code']] = representative_set['scraperwiki_url']
-  #     else:
-  #       print '%-65s No metadata' % boundary_set_url
-  #   else:
-  #     print "%-65s No boundary_set_url" % representative_set['url']
+  abbreviations = {}
+  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv'):
+    abbreviations[row[1]] = row[0].split(':')[-1].upper()
 
-  # @todo track if scraped in bulk via Represent API?
+  reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
+  writer = UnicodeWriter(sys.stdout)
+  reader.next()  # title
+  reader.next()  # headers
 
-  # Map to Pupa modules.
-  # @todo check for pupa scrapers
+  writer.writerow(headers)
+  for row in reader:
+    if row:
+      if shapefiles.get(row[0]):
+        data = shapefiles[row[0]]
+        data['Scraper?'] = data_urls.get(row[0], '')
+        data['Population'] = row[4]
+      else:
+        result = re.search('\A(.+) \((.+)\)\Z', row[1].decode('iso-8859-1'))
+        if result:
+          name = result.group(1)
+          province_or_territory = abbreviations[result.group(2)]
+        elif row[1] == 'Canada':
+          name = 'Canada'
+          province_or_territory = ''
+        else:
+          raise Exception('Unrecognized name "%s"' % row[1])
 
-  # geographic_name_re = re.compile('\A(.+) \((.+)\)\Z')
-  # reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
-  # writer = csv.writer(sys.stdout)
-  # reader.next() # title
-  # reader.next() # headers
-  # rows = {}
-  # for row in reader:
-  #   if row:
-  #     result = geographic_name_re.search(row[1])
-  #     if result:
-  #       name = result.group(1)
-  #       province_or_territory = result.group(2)
-  #       if province_or_territory not in abbreviations:
-  #         raise Exception('Unrecognized province or territory "%s" in "%s"' % (province_or_territory, row[1]))
-  #     elif row[1] == 'Canada':
-  #       name = 'Canada'
-  #       province_or_territory = 'Canada'
-  #     else:
-  #       raise Exception('Unrecognized name "%s"' % row[1])
-  #     writer.writerow([
-  #       row[0],
-  #       name,
-  #       province_or_territory,
-  #       row[4],
-  #       scraperwiki_urls.get(row[0]),
-  #     ])
-  #   else:
-  #     break
+        data = {
+          'OCD': codes[row[0]],
+          'Geographic code': row[0],
+          'Geographic name': name,
+          'Province or territory': province_or_territory,
+          'Population': row[4],
+          'Shapefile?': 'N',
+          'Scraper?': data_urls.get(row[0], ''),
+
+          'Contact': '',
+          'Highrise URL': '',
+          'Request notes': '',
+          'Received via': '',
+
+          'Last boundary': '',
+          'Next boundary': '',
+          'Permission to distribute': '',
+          'Type of license': '',
+          'License URL': '',
+          'Denial notes': '',
+        }
+
+      writer.writerow([data[header] for header in headers])
+    else:
+      break
 
   # @todo compare against live spreadsheet, log any conflicts
 
