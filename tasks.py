@@ -1,15 +1,25 @@
 # coding: utf8
 
 import csv, codecs, cStringIO
+from collections import OrderedDict
+from datetime import datetime
 from ftplib import FTP
+from glob import glob
 import os
 import os.path
 import re
 import stat
+import sys
+from StringIO import StringIO
 from urlparse import urlparse
+from zipfile import ZipFile, BadZipfile
 
+import boundaries
+from git import Repo
 from invoke import run, task
+import lxml.html
 import requests
+from rfc6266 import parse_headers
 
 open_data_licenses = [
   'http://data.gc.ca/eng/open-government-licence-canada',
@@ -45,6 +55,8 @@ all_rights_reserved_licenses = [
   'http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',  # per CIPPIC
 ]
 
+all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+?.  Please direct licensing inquiries and requests to:\n\n(.+)', re.MULTILINE | re.DOTALL)
+
 
 # Returns the directory in which a shapefile exists.
 def dirname(path):
@@ -56,25 +68,20 @@ def dirname(path):
   else:
     return os.path.dirname(path)
 
+
 # Reads `definition.py` files.
-
-
 def registry(base='.'):
-  import boundaries
   boundaries.autodiscover(base)
   return boundaries.registry
 
+
 # Reads a remote CSV file.
-
-
 def csv_reader(url):
-  from StringIO import StringIO
   return csv.reader(StringIO(requests.get(url).content))
 
-# Maps Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
+
 ocd_codes_memo = {}
-
-
+# Maps Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
 def ocd_codes():
   if not ocd_codes_memo:
     ocd_codes_memo['01'] = 'ocd-division/country:ca'
@@ -84,10 +91,9 @@ def ocd_codes():
       ocd_codes_memo[row[0].split(':')[-1]] = row[0]
   return ocd_codes_memo
 
-# Maps OCD identifiers and Standard Geographical Classification codes to names.
+
 ocd_names_memo = {}
-
-
+# Maps OCD identifiers and Standard Geographical Classification codes to names.
 def ocd_names():
   if not ocd_names_memo:
     urls = [
@@ -102,9 +108,8 @@ def ocd_names():
         ocd_names_memo[row[0].decode('utf8')] = row[1].decode('utf8')
   return ocd_names_memo
 
+
 # Returns the Open Civic Data division identifier and Standard Geographical Classification code.
-
-
 def get_ocd_division(slug, config):
   ocd_division = config['metadata'].get('ocd_division')
   geographic_code = config['metadata'].get('geographic_code')
@@ -122,7 +127,7 @@ def get_ocd_division(slug, config):
         ocd_division = 'ocd-division/country:ca/csd:%s' % geographic_code
       else:
         raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
-  return [ocd_division, geographic_code]
+  return ocd_division
 
 
 class UnicodeWriter:
@@ -184,8 +189,6 @@ def permissions(base='.'):
 # Check that all `definition.py` files are valid.
 @task
 def definitions(base='.'):
-  import lxml.html
-
   valid_keys = set([
     # Added by boundaries.register.
     'file',
@@ -251,8 +254,6 @@ def definitions(base='.'):
     # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
     'https://www.geosask.ca/Portal/jsp/terms_popup.jsp': re.compile("\AAttribution: (Source|Adapted from): Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan, [^.]+\. The incorporation of data sourced from Her Majesty In Right Of Saskatchewan and/or Information Services Corporation of Saskatchewan, within this product shall not be construed as constituting an endorsement by Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan of such product\.\Z"),
   }
-
-  all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+?.  Please direct licensing inquiries and requests to:\n\n')
 
   authorities = [
     u'Elections Prince Edward Island',
@@ -344,7 +345,8 @@ def definitions(base='.'):
           if not value:
             print "%-50s Empty value for %s" % (slug, key)
 
-        ocd_division, geographic_code = get_ocd_division(slug, config)
+        ocd_division = get_ocd_division(slug, config)
+        geographic_code = config['metadata'].get('geographic_code')
 
         if ocd_division:
           # Ensure ocd_division is unique.
@@ -466,10 +468,6 @@ def urls(base='.'):
 @task
 def shapefiles(base='.'):
   def process(slug, config, url, data_file_path):
-    from glob import glob
-    from zipfile import ZipFile, BadZipfile
-
-    from git import Repo
 
     # We can only process KML, KMZ and ZIP files.
     extension = os.path.splitext(data_file_path)[1]
@@ -609,10 +607,6 @@ def shapefiles(base='.'):
     else:
       print 'Unrecognized extension %s\n' % url
 
-  from datetime import datetime
-
-  from rfc6266 import parse_headers
-
   # Retrieve shapefiles.
   for slug, config in registry(base).items():
     if config.get('data_url'):
@@ -684,24 +678,68 @@ def shapefiles(base='.'):
 # Update the spreadsheet for tracking progress on data collection.
 @task
 def spreadsheet(base='.'):
-  import sys
+  no_municipal_subdivisions = [
+    '1001542',
+    '1005018',
+    '2426030',
+    '2461035',
+    '2466072',
+    '2473020',
+    '2479088',
+    '2488055',
+    '2491025',
+    '2491042',
+    '2492022',
+    '3501012',
+    '3518013',
+    '3519046',
+    '3526043',
+    '3531011',
+    '3532042',
+    '3534021',
+    '3538030',
+    '3548044',
+    '4602044',
+    '4609029',
+    '4622026',
+    '4701024',
+    '4707039',
+    '4708004',
+    '4709012',
+    '4716029',
+    '4801006',
+    '4802012',
+    '4802034',
+    '4805018',
+    '4806006',
+    '4806012',
+    '4806019',
+    '4806021',
+    '4808011',
+    '4808012',
+    '4808031',
+    '4810011',
+    '4811002',
+    '4811016',
+    '4811048',
+    '4811049',
+    '4811056',
+    '4811062',
+    '4812002',
+    '4815023',
+    '4819012',
+    '6001009',
+    '6106023',
+  ]
 
-  headers = [
-    'OCD',
-    'Geographic code',
-    'Geographic name',
-    'Province or territory',
-    'Population',
-    'Shapefile?',
-    'Scraper?',
-
-    # Columns used once requested.
+  request_headers = [
     'Contact',
     'Highrise URL',
     'Request notes',
     'Received via',
+  ]
 
-    # Columns used once received.
+  receipt_headers = [
     'Last boundary',
     'Next boundary',
     'Permission to distribute',
@@ -710,81 +748,29 @@ def spreadsheet(base='.'):
     'Denial notes',
   ]
 
+  headers = [
+    'OCD',
+    'Geographic code',
+    'Geographic name',
+    'Province or territory',
+    'Population',
+    'Scraper?',
+    'Shapefile?',
+  ] + request_headers + receipt_headers
+
   codes = ocd_codes()
   names = ocd_names()
-  shapefiles = {}
+  records = OrderedDict()
 
-  # Boundary sets
-  # @todo loop over '../represent-canada-private-data' as well (permission_to_distribute = 'N')
-  permission_to_distribute = 'Y'
-  for slug, config in registry(base).items():
-    if config.get('metadata'):
-      ocd_division, geographic_code = get_ocd_division(slug, config)
+  abbreviations = {}
+  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv'):
+    abbreviations[row[1]] = row[0].split(':')[-1].upper()
 
-      if ocd_division:
-        sections = ocd_division.split('/')
-        ocd_type, ocd_type_id = sections[-1].split(':')
+  sgc_codes = {}
+  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv'):
+    sgc_codes[row[0]] = row[1]
 
-        # Determine province or territory.
-        if ocd_type == 'country':
-          province_or_territory = ''
-        elif ocd_type in ('province', 'territory'):
-          province_or_territory = ocd_division
-        elif ocd_type in ('cd', 'csd'):
-          province_or_territory = codes[ocd_type_id[:2]]
-        elif ocd_type == 'arrondissement':
-          province_or_territory = codes[sections[-2].split(':')[-1][:2]]
-
-        if province_or_territory:
-          province_or_territory = province_or_territory.split(':')[-1].upper()
-
-        data = {
-          'OCD': ocd_division,
-          'Geographic code': geographic_code,
-          'Geographic name': names[ocd_division],
-          'Province or territory': province_or_territory,
-          'Shapefile?': 'Y',
-          'Highrise URL': '',  # manual
-          'Request notes': '',  # manual if not received
-          'Next boundary': '',  # manual
-          'Permission to distribute': permission_to_distribute,
-          'License URL': config.get('licence_url', ''),
-          'Denial notes': '',  # manual
-        }
-
-        if config.get('last_updated'):
-          data['Last boundary'] = config['last_updated'].strftime('%Y-%m-%d')
-        else:
-          data['Last boundary'] = ''
-
-        if config.get('data_url'):
-          data['Contact'] = 'N/A'
-          data['Received via'] = 'online'
-        else:
-          data['Contact'] = '' # @todo reconstruct contact from LICENSE.txt
-          data['Received via'] = 'email'  # @todo manual if MFIPPA
-
-        directory = dirname(config['file'])
-        with open(os.path.join(directory, 'LICENSE.txt')) as f:
-          license_text = f.read().rstrip('\n')
-        if config.get('licence_url'):
-          licence_url = config['licence_url']
-          if licence_url in open_data_licenses:
-            data['Type of license'] = 'Open'
-          elif licence_url in some_rights_reserved_licenses:
-            data['Type of license'] = 'Most rights reserved'
-          elif licence_url in all_rights_reserved_licenses:
-            data['Type of license'] = 'All rights reserved'
-          else:
-            raise Exception(licence_url)
-        else:
-          # @todo License agreements
-          data['Type of license'] = 'Unlicensed'
-
-        shapefiles[geographic_code] = data
-      else:
-        print 'No OCD division for %s' % slug
-
+  # Get scraper URLs.
   data_urls = {}
   for representative_set in requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']:
     boundary_set_url = representative_set['related']['boundary_set_url']
@@ -794,69 +780,164 @@ def spreadsheet(base='.'):
         if boundary_set.get('extra') and boundary_set['extra'].get('geographic_code'):
           data_urls[boundary_set['extra']['geographic_code']] = representative_set['data_url']
         else:
-          print '%-65s No extra' % boundary_set_url
+          sys.stderr.write('%-60s No extra\n' % boundary_set_url)
     else:
-      print '%-65s No boundary_set_url' % representative_set['url']
+      sys.stderr.write('%-60s No boundary_set_url\n' % representative_set['url'])
 
-  abbreviations = {}
-  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv'):
-    abbreviations[row[1]] = row[0].split(':')[-1].upper()
+  # Create records for provinces and territories.
+  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv'):
+    records[sgc_codes[row[0]]] = {
+      'OCD': row[0],
+      'Geographic code': sgc_codes[row[0]],
+      'Geographic name': row[1],
+      'Province or territory': row[0].split(':')[-1].upper(),
+      'Population': '',
+      'Scraper?': data_urls.get(sgc_codes[row[0]], ''),
+      'Shapefile?': '',
+      'Contact': '',
+      'Highrise URL': '',
+      'Request notes': '',
+      'Received via': '',
+      'Last boundary': '',
+      'Next boundary': '',
+      'Permission to distribute': '',
+      'Type of license': '',
+      'License URL': '',
+      'Denial notes': '',
+    }
 
+  # Create records for census subdivisions.
   reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
-  writer = UnicodeWriter(sys.stdout)
   reader.next()  # title
   reader.next()  # headers
-
-  writer.writerow(headers)
   for row in reader:
     if row:
-      if shapefiles.get(row[0]):
-        data = shapefiles[row[0]]
-        data['Scraper?'] = data_urls.get(row[0], '')
-        data['Population'] = row[4]
+      result = re.search('\A(.+) \((.+)\)\Z', row[1].decode('iso-8859-1'))
+      if result:
+        name = result.group(1)
+        province_or_territory = abbreviations[result.group(2)]
+      elif row[1] == 'Canada':
+        name = 'Canada'
+        province_or_territory = ''
       else:
-        result = re.search('\A(.+) \((.+)\)\Z', row[1].decode('iso-8859-1'))
-        if result:
-          name = result.group(1)
-          province_or_territory = abbreviations[result.group(2)]
-        elif row[1] == 'Canada':
-          name = 'Canada'
-          province_or_territory = ''
-        else:
-          raise Exception('Unrecognized name "%s"' % row[1])
+        raise Exception('Unrecognized name "%s"' % row[1])
 
-        data = {
-          'OCD': codes[row[0]],
-          'Geographic code': row[0],
-          'Geographic name': name,
-          'Province or territory': province_or_territory,
-          'Population': row[4],
-          'Shapefile?': 'N',
-          'Scraper?': data_urls.get(row[0], ''),
+      record = {
+        'OCD': codes[row[0]],
+        'Geographic code': row[0],
+        'Geographic name': name,
+        'Province or territory': province_or_territory,
+        'Population': row[4],
+        'Scraper?': data_urls.get(row[0], ''),
+        'Contact': '',
+        'Highrise URL': '',
+        'Request notes': '',
+        'Received via': '',
+        'Last boundary': '',
+        'Next boundary': '',
+        'Permission to distribute': '',
+        'Type of license': '',
+        'License URL': '',
+        'Denial notes': '',
+      }
 
-          'Contact': '',
-          'Highrise URL': '',
-          'Request notes': '',
-          'Received via': '',
+      if row[0] in no_municipal_subdivisions or province_or_territory == 'BC':
+        for header in ['Shapefile?'] + request_headers + receipt_headers:
+          record[header] = 'N/A'
+      else:
+        record['Shapefile?'] = ''
 
-          'Last boundary': '',
-          'Next boundary': '',
-          'Permission to distribute': '',
-          'Type of license': '',
-          'License URL': '',
-          'Denial notes': '',
-        }
-
-      writer.writerow([data[header] for header in headers])
+      records[row[0]] = record
     else:
       break
 
-  # @todo compare against live spreadsheet, log any conflicts
+  # Merge information from received data.
+  for directory, permission_to_distribute in [(base, 'Y'), ('../represent-canada-private-data', 'N')]:
+    boundaries.registry = {}
+    for slug, config in registry(directory).items():
+      if config.get('metadata'):
+        geographic_code = config['metadata'].get('geographic_code')
+        if geographic_code:
+          license_path = os.path.join(dirname(config['file']), 'LICENSE.txt')
+          license_text = ''
+          if os.path.exists(license_path):
+            with open(license_path) as f:
+              license_text = f.read().rstrip('\n').decode('utf-8')
 
-  # Reads the spreadsheet for tracking progress on data collection.
-  # reader = csv_reader('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=18&output=csv')
-  # reader.next() # headers
-  # live = dict((row[0], row[1:]) for row in reader)
+          record = records[geographic_code]
+          record['Shapefile?'] = 'Y'
+          record['Permission to distribute'] = permission_to_distribute
+          record['License URL'] = config.get('licence_url', '')
 
-  # if no conflicts, update live spreadsheet?
+          if config.get('last_updated'):
+            record['Last boundary'] = config['last_updated'].strftime('%Y-%m-%d')
+
+          if config.get('source_url'):
+            record['Contact'] = 'N/A'
+            record['Received via'] = 'online'
+          else:
+            match = all_rights_reserved_terms_re.search(license_text)
+            if match:
+              record['Contact'] = match.group(1)
+            record['Received via'] = 'email'
+
+          if config.get('licence_url'):
+            licence_url = config['licence_url']
+            if licence_url in open_data_licenses:
+              record['Type of license'] = 'Open'
+            elif licence_url in some_rights_reserved_licenses:
+              record['Type of license'] = 'Most rights reserved'
+            elif licence_url in all_rights_reserved_licenses:
+              record['Type of license'] = 'All rights reserved'
+            else:
+              raise Exception(licence_url)
+          elif all_rights_reserved_terms_re.search(license_text):
+            record['Type of license'] = 'All rights reserved'
+          else:
+            record['Type of license'] = 'Custom'
+        else:
+          sys.stderr.write('%-60s No geographic_code\n' % slug)
+
+  reader = csv.DictReader(StringIO(requests.get('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=18&output=csv').content))
+  for row in reader:
+    geographic_code = row['Geographic code']
+    record = records[geographic_code]
+
+    for key in row:
+      if key in ('Highrise URL', 'Request notes', 'Last boundary', 'Next boundary', 'Denial notes'):  # manual data
+        continue
+      a = record[key]
+      b = row[key].decode('utf-8')
+
+      # @todo remove after update spreadsheet
+      if key == 'Geographic name':
+        b = re.sub(' \(.+\)\Z', '', b)
+      if (key in request_headers or key in receipt_headers) and a == "N/A" and b == "":
+        continue
+
+      if a != b:
+        # Scrapers for municipalities without wards are tracked manually.
+        # In-progress requests are tracked manually.
+        # Contacts for in-progress requests and private data are tracked manually.
+        # We may have a contact to confirm the nonexistence of municipal subdivisions.
+        # MFIPPA requests are tracked manually.
+        # Additional details about license agreements and written consent are tracked manually.
+        # We may have information for a bad shapefile from an in-progress request.
+        if (key == 'Scraper?'         and not a         and record['Shapefile?'] == 'N/A') or \
+           (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or \
+           (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or \
+           (key == 'Contact'          and a == 'N/A'    and record['Shapefile?'] == 'N/A') or \
+           (key == 'Received via'     and a == 'email'  and b == 'MFIPPA') or \
+           (key == 'Type of license'  and '(' in b) or \
+           (key in ('Received via', 'Type of license', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested'):
+          record[key] = b
+        elif key not in ('Geographic name', 'Scraper?'): # @todo switch to else after update spreadsheet
+          sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, re.sub('\n', ', ', a), b))
+
+  writer = UnicodeWriter(sys.stdout)
+  writer.writerow(headers)
+  for _, record in records.items():
+    writer.writerow([record[header] for header in headers])
+
+  # @todo if no conflicts, update live spreadsheet?
   # https://code.google.com/p/gdata-python-client/
