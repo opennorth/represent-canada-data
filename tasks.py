@@ -5,6 +5,7 @@ from ftplib import FTP
 import os
 import os.path
 import re
+import stat
 from urlparse import urlparse
 
 from invoke import run, task
@@ -43,6 +44,7 @@ all_rights_reserved_licenses = [
   'http://www.altalis.com/agreement.html',  # per CIPPIC
   'http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',  # per CIPPIC
 ]
+
 
 # Returns the directory in which a shapefile exists.
 def dirname(path):
@@ -111,6 +113,7 @@ def get_ocd_division(slug, config):
         raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
   return [ocd_division, geographic_code]
 
+
 # Check that all data directories contain a `LICENSE.txt`.
 @task
 def licenses(base='.'):
@@ -121,6 +124,21 @@ def licenses(base='.'):
       filenames.remove('.DS_Store')
     if filenames and 'LICENSE.txt' not in filenames:
       print '%s No LICENSE.txt' % dirpath
+
+
+# Fix file permissions.
+@task
+def permissions(base='.'):
+  for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
+    if '.git' in dirnames:
+      dirnames.remove('.git')
+    if '.DS_Store' in filenames:
+      filenames.remove('.DS_Store')
+    for filename in filenames:
+      path = os.path.join(dirpath, filename)
+      if os.stat(path).st_mode != 33188: # 100644 octal
+        os.chmod(path, stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
+
 
 # Check that all `definition.py` files are valid.
 @task
@@ -373,6 +391,7 @@ def definitions(base='.'):
       else:
         print "%-50s Missing metadata" % slug
 
+
 # Check that the source, data and license URLs work.
 @task
 def urls(base='.'):
@@ -400,6 +419,7 @@ def urls(base='.'):
               print '%d %s' % (status_code, url)
           except requests.exceptions.ConnectionError:
             print '404 %s' % url
+
 
 # Update any out-of-date shapefiles.
 @task
@@ -618,6 +638,7 @@ def shapefiles(base='.'):
               f.write(chunk)
 
           process(slug, config, url, data_file_path)
+
 
 # Update the spreadsheet for tracking progress on data collection.
 @task

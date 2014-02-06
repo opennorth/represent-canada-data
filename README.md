@@ -57,6 +57,10 @@ Update any out-of-date shapefiles:
 
     invoke shapefiles
 
+File file permissions:
+
+    invoke permissions
+
 ## Contact
 
 Please use [GitHub Issues](http://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
