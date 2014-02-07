@@ -111,8 +111,6 @@ authorities = [
   u'Ville de Montréal',
 ]
 
-# @todo Make a list of SGC codes with wards
-# http://www.electionsquebec.qc.ca/francais/municipal/carte-electorale/liste-des-municipalites-divisees-en-districts-electoraux.php?index=1
 # @todo Add census subdivision type to be able to flag municipalities with potential wards?
 # http://www.municipalaffairs.gov.ab.ca/am_types_of_municipalities_in_alberta.cfm
 # http://www.gov.ns.ca/snsmr/election/FinalCouncillistElected2008.pdf
@@ -120,20 +118,6 @@ no_municipal_subdivisions = [
   # NL
   '1001542',
   '1005018',
-  # QC
-  '2426030',
-  '2461035',
-  '2466047',
-  '2466062',
-  '2466072',
-  '2466092',
-  '2466112',
-  '2473020',
-  '2479088',
-  '2488055',
-  '2491025',
-  '2491042',
-  '2492022',
   # ON
   '3501012',
   '3518013',

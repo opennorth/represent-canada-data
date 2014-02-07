@@ -590,6 +590,10 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
   names = ocd_names()
   records = OrderedDict()
 
+  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-subdivisions/ca_municipal_subdivisions.csv'):
+    if row[1] == "N":
+      no_municipal_subdivisions.append(row[0].split(':')[-1])
+
   abbreviations = {}
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv'):
     abbreviations[row[1]] = row[0].split(':')[-1].upper()
@@ -744,7 +748,8 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         # MFIPPA requests are tracked manually.
         # Additional details about license agreements and written consent are tracked manually.
         # We may have information for a bad shapefile from an in-progress request.
-        if (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Denial notes')) or \
+        if b and \
+           (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Denial notes')) or \
            (key == 'Scraper?'         and not a         and record['Shapefile?'] == 'N/A') or \
            (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or \
            (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or \
@@ -753,7 +758,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
            (key == 'Type of license'  and '(' in b) or \
            (key in ('Received via', 'Type of license', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested'):
           record[key] = b
-        elif key not in ('Geographic name', 'Population'):  # accents and separators
+        elif key != 'Population':  # separators
           sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
 
   writer = UnicodeWriter(sys.stdout)
