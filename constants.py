@@ -111,8 +111,6 @@ authorities = [
   u'Ville de Montréal',
 ]
 
-# @todo Add census subdivision type to be able to flag municipalities with potential wards?
-# http://www.municipalaffairs.gov.ab.ca/am_types_of_municipalities_in_alberta.cfm
 municipal_subdivisions = {
   # NL
   '1001542': 'N',
@@ -137,28 +135,6 @@ municipal_subdivisions = {
   '4708004': 'N',
   '4709012': 'N',
   '4716029': 'N',
-  # AB
-  '4801006': 'N',
-  '4802012': 'N',
-  '4802034': 'N',
-  '4805018': 'N',
-  '4806006': 'N',
-  '4806012': 'N',
-  '4806019': 'N',
-  '4806021': 'N',
-  '4808011': 'N',
-  '4808012': 'N',
-  '4808031': 'N',
-  '4810011': 'N',
-  '4811002': 'N',
-  '4811016': 'N',
-  '4811048': 'N',
-  '4811049': 'N',
-  '4811056': 'N',
-  '4811062': 'N',
-  '4812002': 'N',
-  '4815023': 'N',
-  '4819012': 'N',
   # YT
   '6001009': 'N',
   # NT
