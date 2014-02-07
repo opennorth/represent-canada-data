@@ -1,6 +1,7 @@
 autopep8==0.9.7
+gdata==2.0.18
 GitPython
-invoke
+invoke==0.7.0
 lxml
 pep8==1.4.6
 requests==1.2.3
