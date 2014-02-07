@@ -33,7 +33,7 @@ from constants import (
   valid_keys,
   valid_metadata_keys,
   authorities,
-  no_municipal_subdivisions,
+  municipal_subdivisions,
   request_headers,
   receipt_headers,
   headers,
@@ -170,24 +170,10 @@ def permissions(base='.'):
 # Check that all `definition.py` files are valid.
 @task
 def definitions(base='.'):
-  # Map census type codes to names.
-  census_division_type_names = {}
-  document = lxml.html.fromstring(requests.get('http://www12.statcan.gc.ca/census-recensement/2011/ref/dict/table-tableau/table-tableau-4-eng.cfm').content)
-  for abbr in document.xpath('//table/tbody/tr/th[1]/abbr'):
-    census_division_type_names[abbr.text_content()] = re.sub(' /.+\Z', '', abbr.attrib['title'])
-  census_subdivision_type_names = {}
-  document = lxml.html.fromstring(requests.get('http://www12.statcan.gc.ca/census-recensement/2011/ref/dict/table-tableau/table-tableau-5-eng.cfm').content)
-  for abbr in document.xpath('//table/tbody/tr/th[1]/abbr'):
-    census_subdivision_type_names[abbr.text_content()] = re.sub(' /.+\Z', '', abbr.attrib['title'])
-
-  # Map OCD identifiers to census subdivision types.
-  types = {}
-  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-types/ca_census_divisions.csv')
+  corporations = {}
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-corporations/ca_municipal_subdivisions.csv')
   for row in reader:
-    types[row[0]] = census_division_type_names[row[1].decode('utf8')]
-  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-types/ca_census_subdivisions.csv')
-  for row in reader:
-    types[row[0]] = census_subdivision_type_names[row[1].decode('utf8')]
+    corporations[row[0]] = row[1].decode('utf8')
 
   codes = ocd_codes()
   names = ocd_names()
@@ -205,9 +191,9 @@ def definitions(base='.'):
         licence_url = config['licence_url']
         if licence_url in open_data_licenses or licence_url in some_rights_reserved_licenses:
           if not terms.get(licence_url) and not terms_re.get(licence_url):
-            print "%-50s No LICENSE.txt template for License URL %s" % (slug, licence_url)
+            print '%-50s No LICENSE.txt template for License URL %s' % (slug, licence_url)
           elif terms.get(licence_url) and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
-            print "%-50s Expected LICENSE.txt to match license-specific template" % slug
+            print '%-50s Expected LICENSE.txt to match license-specific template' % slug
         elif licence_url in all_rights_reserved_licenses:
           if not all_rights_reserved_terms_re.search(license_text):
             print '%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug
@@ -219,39 +205,39 @@ def definitions(base='.'):
     # Check for invalid keys, non-unique or empty values.
     invalid_keys = set(config.keys()) - valid_keys
     if invalid_keys:
-      print "%-50s Unrecognized key: %s" % (slug, ', '.join(invalid_keys))
+      print '%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys))
     values = [value for key, value in config.items() if key != 'metadata']
     if len(values) > len(set(values)):
-      print "%-50s Non-unique values" % slug
+      print '%-50s Non-unique values' % slug
     for key, value in config.items():
       if not value:
-        print "%-50s Empty value for %s" % (slug, key)
+        print '%-50s Empty value for %s' % (slug, key)
 
     # Check for missing required keys.
     for key in ('domain', 'last_updated', 'name_func', 'authority', 'encoding'):
       if not config.get(key):
-        print "%-50s Missing %s" % (slug, key)
+        print '%-50s Missing %s' % (slug, key)
     if not config.get('source_url') and (config.get('licence_url') or config.get('data_url')):
-      print "%-50s Missing source_url" % slug
+      print '%-50s Missing source_url' % slug
     if config.get('source_url') and not config.get('licence_url') and not config.get('data_url'):
-      print "%-50s Missing licence_url or data_url" % slug
+      print '%-50s Missing licence_url or data_url' % slug
 
     # Validate fields.
     for key in ('name', 'singular'):
       if config.get(key):
-        print "%-50s Expected %s to be missing" % (slug, key)
+        print '%-50s Expected %s to be missing' % (slug, key)
     if config.get('encoding') and config['encoding'] != 'iso-8859-1':
-      print "%-50s Expected encoding to be iso-8859-1 not %s" % (slug, config['encoding'])
+      print '%-50s Expected encoding to be iso-8859-1 not %s' % (slug, config['encoding'])
 
     if slug not in ('Census divisions', 'Census subdivisions'):
       if config.get('metadata'):
         # Check for invalid keys or empty values.
         invalid_keys = set(config['metadata'].keys()) - valid_metadata_keys
         if invalid_keys:
-          print "%-50s Unrecognized key: %s" % (slug, ', '.join(invalid_keys))
+          print '%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys))
         for key, value in config['metadata'].items():
           if not value:
-            print "%-50s Empty value for %s" % (slug, key)
+            print '%-50s Empty value for %s' % (slug, key)
 
         ocd_division = get_ocd_division(slug, config)
         geographic_code = config['metadata'].get('geographic_code')
@@ -271,26 +257,26 @@ def definitions(base='.'):
           if ocd_type == 'country':
             expected = 'Federal electoral districts'
             if slug != expected:
-              print "%-50s Expected slug to be %s" % (slug, expected)
+              print '%-50s Expected slug to be %s' % (slug, expected)
 
             if config['domain'] != name:
-              print "%-50s Expected domain to be %s not %s" % (slug, name, config['domain'])
+              print '%-50s Expected domain to be %s not %s' % (slug, name, config['domain'])
 
             expected = 'Her Majesty the Queen in Right of Canada'
             if config['authority'] != expected:
-              print "%-50s Expected authority to be %s not %s" % (slug, expected, config['authority'])
+              print '%-50s Expected authority to be %s not %s' % (slug, expected, config['authority'])
 
           elif ocd_type in ('province', 'territory'):
             expected = '%s electoral districts' % name
             if slug != expected:
-              print "%-50s Expected slug to be %s" % (slug, expected)
+              print '%-50s Expected slug to be %s' % (slug, expected)
 
             if config['domain'] != name:
-              print "%-50s Expected domain to be %s not %s" % (slug, name, config['domain'])
+              print '%-50s Expected domain to be %s not %s' % (slug, name, config['domain'])
 
             expected = 'Her Majesty the Queen in Right of %s' % name
             if config['authority'] != expected:
-              print "%-50s Expected authority to be %s not %s" % (slug, expected, config['authority'])
+              print '%-50s Expected authority to be %s not %s' % (slug, expected, config['authority'])
 
           elif ocd_type in ('cd', 'csd'):
             province_or_territory_code = ocd_type_id[:2]
@@ -301,19 +287,15 @@ def definitions(base='.'):
             else:
               expected = re.compile('\A%s (districts|divisions|wards)\Z' % name)
             if not expected.search(slug):
-              print "%-50s Expected slug to match %s" % (slug, expected.pattern)
+              print '%-50s Expected slug to match %s' % (slug, expected.pattern)
 
             expected = '%s, %s' % (name, province_or_territory_abbreviation)
             if config['domain'] != expected:
-              print "%-50s Expected domain to be %s not %s" % (slug, expected, config['domain'])
+              print '%-50s Expected domain to be %s not %s' % (slug, expected, config['domain'])
 
-            if province_or_territory_code == '24':
-              preposition = 'de'
-            else:
-              preposition = 'of'
-            expected = '%s %s %s' % (types[ocd_division], preposition, name)
+            expected = corporations[ocd_division]
             if config['authority'] != expected and config['authority'] not in authorities:
-              print "%-50s Expected authority to be %s not %s" % (slug, expected, config['authority'])
+              print '%-50s Expected authority to be %s not %s' % (slug, expected, config['authority'])
 
           elif ocd_type == 'arrondissement':
             census_subdivision_ocd_division = '/'.join(sections[:-1])
@@ -323,24 +305,20 @@ def definitions(base='.'):
 
             expected = '%s districts' % name
             if slug != expected:
-              print "%-50s Expected slug to be %s" % (slug, expected)
+              print '%-50s Expected slug to be %s' % (slug, expected)
 
             expected = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
             if config['domain'] != expected:
-              print "%-50s Expected domain to be %s not %s" % (slug, expected, config['domain'])
+              print '%-50s Expected domain to be %s not %s' % (slug, expected, config['domain'])
 
-            if province_or_territory_code == '24':
-              preposition = 'de'
-            else:
-              preposition = 'of'
-            expected = '%s %s %s' % (types[census_subdivision_ocd_division], preposition, census_subdivision_name)
+            expected = corporations[census_subdivision_ocd_division]
             if config['authority'] != expected:
-              print "%-50s Expected authority to be %s not %s" % (slug, expected, config['authority'])
+              print '%-50s Expected authority to be %s not %s' % (slug, expected, config['authority'])
 
           else:
             raise Exception('%s: Unrecognized OCD type %s' % (slug, ocd_type))
       else:
-        print "%-50s Missing metadata" % slug
+        print '%-50s Missing metadata' % slug
 
 
 # Check that the source, data and license URLs work.
@@ -591,8 +569,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
   records = OrderedDict()
 
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-subdivisions/ca_municipal_subdivisions.csv'):
-    if row[1] == "N":
-      no_municipal_subdivisions.append(row[0].split(':')[-1])
+    municipal_subdivisions[row[0].split(':')[-1]] = row[1]
 
   abbreviations = {}
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv'):
@@ -673,9 +650,12 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         'Denial notes': '',
       }
 
-      if row[0] in no_municipal_subdivisions or province_or_territory == 'BC':
-        for header in ['Shapefile?'] + request_headers + receipt_headers:
-          record[header] = 'N/A'
+      if municipal_subdivisions.get(row[0]):
+        if municipal_subdivisions[row[0]] == 'N':
+          for header in ['Shapefile?'] + request_headers + receipt_headers:
+            record[header] = 'N/A'
+        elif municipal_subdivisions[row[0]] == 'Y':
+          record['Shapefile?'] = 'Request'
       else:
         record['Shapefile?'] = ''
 
@@ -748,15 +728,16 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         # MFIPPA requests are tracked manually.
         # Additional details about license agreements and written consent are tracked manually.
         # We may have information for a bad shapefile from an in-progress request.
-        if b and \
-           (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Denial notes')) or \
-           (key == 'Scraper?'         and not a         and record['Shapefile?'] == 'N/A') or \
-           (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or \
-           (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or \
-           (key == 'Contact'          and a == 'N/A'    and record['Shapefile?'] == 'N/A') or \
-           (key == 'Received via'     and a == 'email'  and b == 'MFIPPA') or \
-           (key == 'Type of license'  and '(' in b) or \
-           (key in ('Received via', 'Type of license', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested'):
+        if b and (
+           (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Denial notes')) or
+           (key == 'Scraper?'         and not a         and record['Shapefile?'] == 'N/A') or
+           (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or
+           (key == 'Shapefile?'       and a == 'Request'and b == 'Requested') or
+           (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or
+           (key == 'Contact'          and a == 'N/A'    and record['Shapefile?'] == 'N/A') or
+           (key == 'Received via'     and a == 'email'  and b == 'MFIPPA') or
+           (key == 'Type of license'  and '(' in b) or
+           (key in ('Received via', 'Type of license', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested')):
           record[key] = b
         elif key != 'Population':  # separators
           sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
