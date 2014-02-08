@@ -264,7 +264,7 @@ def permissions(base='.'):
 def geojson(base='.', geo_json_base='./geojson'):
   codes = ocd_codes()
   names = ocd_names()
-  readme = defaultdict(list)
+  readme = defaultdict(lambda: defaultdict(list))
 
   for slug, config in registry(base).items():
     if 'fed/cd' not in config['file'] and 'fed/csd' not in config['file']:  # files are too large for GitHub
@@ -284,19 +284,21 @@ def geojson(base='.', geo_json_base='./geojson'):
 
       match = re.search('\Aocd-division/country:ca/csd:(\d+)', ocd_division)
       if match:
-        readme[names[codes[match.group(1)[:2]]]].append(item)
+        readme[names[codes[match.group(1)[:2]]]]['lower'].append(item)
       else:
-        readme[names[ocd_division]].append(item)
+        readme[names[ocd_division]]['upper'].append(item)
 
-  # @todo sort provincial boundary to top
   with open(os.path.join(geo_json_base, 'README.md'), 'w') as f:
     f.write('# Represent API: GeoJSON\n\n## Canada\n\n')
-    for slug, markdown in sorted(readme.pop('Canada')):
-      f.write(markdown)
+    items = readme.pop('Canada');
+    for part in ('upper', 'lower'):
+      for slug, markdown in sorted(items[part]):
+        f.write(markdown)
     for name, items in sorted(readme.items()):
       f.write('\n## %s\n\n' % name.encode('utf-8'))
-      for slug, markdown in sorted(items):
-        f.write(markdown)
+      for part in ('upper', 'lower'):
+        for slug, markdown in sorted(items[part]):
+          f.write(markdown)
 
 
 # Check that all `definition.py` files are valid.
