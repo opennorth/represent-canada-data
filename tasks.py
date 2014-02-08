@@ -1,7 +1,7 @@
 # coding: utf8
 
 import csv, codecs, cStringIO
-from collections import OrderedDict
+from collections import defaultdict, OrderedDict
 from datetime import datetime
 from ftplib import FTP
 from getpass import getpass
@@ -90,10 +90,19 @@ def ocd_names():
   return ocd_names_memo
 
 
-# Returns the Open Civic Data division identifier and Standard Geographical Classification code.
-def get_ocd_division(slug, config):
+corporations_memo = {}
+def corporations():
+  if not corporations_memo:
+    for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-corporations/ca_municipal_subdivisions.csv'):
+      corporations_memo[row[0]] = row[1].decode('utf8')
+  return corporations_memo
+
+
+def get_ocd_division(config):
   ocd_division = config['metadata'].get('ocd_division')
   geographic_code = config['metadata'].get('geographic_code')
+
+  # Determine ocd_division if not set.
   if ocd_division:
     if geographic_code:
       raise Exception('%s: Set ocd_division or geographic_code' % slug)
@@ -108,7 +117,68 @@ def get_ocd_division(slug, config):
         ocd_division = 'ocd-division/country:ca/csd:%s' % geographic_code
       else:
         raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
+
   return ocd_division
+
+def get_definition(slug, config):
+  ocd_division = get_ocd_division(config)
+
+  sections = ocd_division.split('/')
+  ocd_type, ocd_type_id = sections[-1].split(':')
+
+  expected_config = {
+    'encoding': 'iso-8859-1',
+  }
+
+  # Determine slug, domain and authority.
+  name = ocd_names()[ocd_division]
+  if ocd_type == 'country':
+    expected_slug = 'Federal electoral districts'
+    expected_config['domain'] = name
+    expected_config['authority'] = 'Her Majesty the Queen in Right of Canada'
+
+  elif ocd_type in ('province', 'territory'):
+    expected_slug = '%s electoral districts' % name
+    expected_config['domain'] = name
+    expected_config['authority'] = 'Her Majesty the Queen in Right of %s' % name
+
+  elif ocd_type in ('cd', 'csd'):
+    province_or_territory_code = ocd_type_id[:2]
+    province_or_territory_abbreviation = ocd_codes()[province_or_territory_code].split(':')[-1].upper()
+
+    if province_or_territory_code == '24':
+      expected_slug = re.compile('\A%s (boroughs|districts)\Z' % name)
+    else:
+      expected_slug = re.compile('\A%s (districts|divisions|wards)\Z' % name)
+    expected_config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
+    expected_config['authority'] = authorities + [corporations()[ocd_division]]
+
+  elif ocd_type == 'arrondissement':
+    census_subdivision_ocd_division = '/'.join(sections[:-1])
+    census_subdivision_name = ocd_names()[census_subdivision_ocd_division]
+
+    province_or_territory_code = census_subdivision_ocd_division.split(':')[-1][:2]
+    province_or_territory_abbreviation = ocd_codes()[province_or_territory_code].split(':')[-1].upper()
+
+    expected_slug = '%s districts' % name
+    expected_config['domain'] = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
+    expected_config['authority'] = corporations()[census_subdivision_ocd_division]
+
+  else:
+    raise Exception('%s: Unrecognized OCD type %s' % (slug, ocd_type))
+
+  return (ocd_division, expected_slug, expected_config)
+
+
+def assert_match(slug, field, actual, expected):
+  if isinstance(expected, re._pattern_type):
+    if not expected.search(actual):
+      print '%-50s Expected %s to match %s not %s' % (slug, field, expected.pattern, actual)
+  elif isinstance(expected, list):
+    if actual not in expected:
+      print '%-50s Expected %s to be %s not %s' % (slug, field, expected[-1], actual)
+  elif actual != expected:
+    print '%-50s Expected %s to be %s not %s' % (slug, field, expected, actual)
 
 
 class UnicodeWriter:
@@ -189,28 +259,50 @@ def permissions(base='.'):
         os.chmod(path, stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
 
 
+# @see http://ben.balter.com/2013/06/26/how-to-convert-shapefiles-to-geojson-for-use-on-github/
 @task
 def geojson(base='.', geo_json_base='./geojson'):
+  codes = ocd_codes()
+  names = ocd_names()
+  readme = defaultdict(list)
+
   for slug, config in registry(base).items():
-    if 'fed/csd' not in config['file'] and 'fed/cd' not in config['file']:  # files are too large for GitHub
+    if 'fed/cd' not in config['file'] and 'fed/csd' not in config['file']:  # files are too large for GitHub
       directory = dirname(config['file'])
       shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
       geo_json_path = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))) + '.geojson')
       run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
+      run('topojson -o %s %s', (geo_json_path, geo_json_path), echo=True)
+
+      ocd_division = get_ocd_division(config)
+      if os.stat(geo_json_path).st_size > 10485760:  # 10MB
+        suffix = ' (too large to preview)'
+      else:
+        suffix = ''
+
+      item = (slug, '* [%s](https://github.com/opennorth/represent-canada-data/blob/master/geojson/%s)%s\n' % (slug.encode('utf-8'), os.path.basename(geo_json_path), suffix))
+
+      match = re.search('\Aocd-division/country:ca/csd:(\d+)', ocd_division)
+      if match:
+        readme[names[codes[match.group(1)[:2]]]].append(item)
+      else:
+        readme[names[ocd_division]].append(item)
+
+  # @todo sort provincial boundary to top
+  with open(os.path.join(geo_json_base, 'README.md'), 'w') as f:
+    f.write('# Represent API: GeoJSON\n\n## Canada\n\n')
+    for slug, markdown in sorted(readme.pop('Canada')):
+      f.write(markdown)
+    for name, items in sorted(readme.items()):
+      f.write('\n## %s\n\n' % name.encode('utf-8'))
+      for slug, markdown in sorted(items):
+        f.write(markdown)
 
 
 # Check that all `definition.py` files are valid.
 @task
 def definitions(base='.'):
-  codes = ocd_codes()
-  names = ocd_names()
   ocd_divisions = set()
-
-  corporations = {}
-  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-corporations/ca_municipal_subdivisions.csv')
-  for row in reader:
-    corporations[row[0]] = row[1].decode('utf8')
-
   for slug, config in registry(base).items():
     directory = dirname(config['file'])
 
@@ -262,95 +354,26 @@ def definitions(base='.'):
       print '%-50s Expected encoding to be iso-8859-1 not %s' % (slug, config['encoding'])
 
     if slug not in ('Census divisions', 'Census subdivisions'):
-      if config.get('metadata'):
-        # Check for invalid keys or empty values.
-        invalid_keys = set(config['metadata'].keys()) - valid_metadata_keys
-        if invalid_keys:
-          print '%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys))
-        for key, value in config['metadata'].items():
-          if not value:
-            print '%-50s Empty value for %s' % (slug, key)
+      # Check for invalid keys or empty values.
+      invalid_keys = set(config['metadata'].keys()) - valid_metadata_keys
+      if invalid_keys:
+        print '%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys))
+      for key, value in config['metadata'].items():
+        if not value:
+          print '%-50s Empty value for %s' % (slug, key)
 
-        ocd_division = get_ocd_division(slug, config)
-        geographic_code = config['metadata'].get('geographic_code')
+      ocd_division, expected_slug, expected_config = get_definition(slug, config)
 
-        if ocd_division:
-          # Ensure ocd_division is unique.
-          if ocd_division in ocd_divisions:
-            raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
-          else:
-            ocd_divisions.add(ocd_division)
-
-          sections = ocd_division.split('/')
-          ocd_type, ocd_type_id = sections[-1].split(':')
-
-          # Validate slug, domain and authority.
-          name = names[ocd_division]
-          if ocd_type == 'country':
-            expected = 'Federal electoral districts'
-            if slug != expected:
-              print '%-50s Expected slug to be %s' % (slug, expected)
-
-            if config['domain'] != name:
-              print '%-50s Expected domain to be %s not %s' % (slug, name, config['domain'])
-
-            expected = 'Her Majesty the Queen in Right of Canada'
-            if config['authority'] != expected:
-              print '%-50s Expected authority to be %s not %s' % (slug, expected, config['authority'])
-
-          elif ocd_type in ('province', 'territory'):
-            expected = '%s electoral districts' % name
-            if slug != expected:
-              print '%-50s Expected slug to be %s' % (slug, expected)
-
-            if config['domain'] != name:
-              print '%-50s Expected domain to be %s not %s' % (slug, name, config['domain'])
-
-            expected = 'Her Majesty the Queen in Right of %s' % name
-            if config['authority'] != expected:
-              print '%-50s Expected authority to be %s not %s' % (slug, expected, config['authority'])
-
-          elif ocd_type in ('cd', 'csd'):
-            province_or_territory_code = ocd_type_id[:2]
-            province_or_territory_abbreviation = codes[province_or_territory_code].split(':')[-1].upper()
-
-            if province_or_territory_code == '24':
-              expected = re.compile('\A%s (boroughs|districts)\Z' % name)
-            else:
-              expected = re.compile('\A%s (districts|divisions|wards)\Z' % name)
-            if not expected.search(slug):
-              print '%-50s Expected slug to match %s' % (slug, expected.pattern)
-
-            expected = '%s, %s' % (name, province_or_territory_abbreviation)
-            if config['domain'] != expected:
-              print '%-50s Expected domain to be %s not %s' % (slug, expected, config['domain'])
-
-            expected = corporations[ocd_division]
-            if config['authority'] != expected and config['authority'] not in authorities:
-              print '%-50s Expected authority to be %s not %s' % (slug, expected, config['authority'])
-
-          elif ocd_type == 'arrondissement':
-            census_subdivision_ocd_division = '/'.join(sections[:-1])
-            census_subdivision_name = names[census_subdivision_ocd_division]
-            province_or_territory_code = census_subdivision_ocd_division.split(':')[-1][:2]
-            province_or_territory_abbreviation = codes[province_or_territory_code].split(':')[-1].upper()
-
-            expected = '%s districts' % name
-            if slug != expected:
-              print '%-50s Expected slug to be %s' % (slug, expected)
-
-            expected = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
-            if config['domain'] != expected:
-              print '%-50s Expected domain to be %s not %s' % (slug, expected, config['domain'])
-
-            expected = corporations[census_subdivision_ocd_division]
-            if config['authority'] != expected:
-              print '%-50s Expected authority to be %s not %s' % (slug, expected, config['authority'])
-
-          else:
-            raise Exception('%s: Unrecognized OCD type %s' % (slug, ocd_type))
+      # Ensure ocd_division is unique.
+      if ocd_division in ocd_divisions:
+        raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
       else:
-        print '%-50s Missing metadata' % slug
+        ocd_divisions.add(ocd_division)
+
+      # Check for unexpected values.
+      assert_match(slug, 'slug', slug, expected_slug)
+      for key, value in expected_config.items():
+        assert_match(slug, key, config[key], value)
 
 
 # Check that the source, data and license URLs work.

@@ -104,6 +104,7 @@ valid_metadata_keys = set([
   'ocd_division',
 ])
 
+# Authorities that are responsible for multiple shapefiles.
 authorities = [
   u'Elections Prince Edward Island',
   u'Regional Municipality of Peel',
