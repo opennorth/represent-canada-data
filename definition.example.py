@@ -3,7 +3,6 @@ from datetime import date
 import boundaries
 
 boundaries.register('',
-    singular='',
     domain='',
     last_updated=date(),
     name_func=boundaries.attr(''),
@@ -12,6 +11,6 @@ boundaries.register('',
     source_url='',
     licence_url='',
     data_url='',
-    notes='',
     encoding='iso-8859-1',
+    metadata={'geographic_code': ''},
 )
