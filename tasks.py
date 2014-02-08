@@ -141,6 +141,15 @@ class UnicodeWriter:
             self.writerow(row)
 
 
+@task
+def geojson(base='.', geo_json_base='./geojson'):
+  for slug, config in registry(base).items():
+    directory = dirname(config['file'])
+    shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
+    geo_json_path = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))) + '.geojson')
+    run('ogr2ogr -f "GeoJSON" "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
+
+
 # Check that all data directories contain a `LICENSE.txt`.
 @task
 def licenses(base='.'):
@@ -170,14 +179,14 @@ def permissions(base='.'):
 # Check that all `definition.py` files are valid.
 @task
 def definitions(base='.'):
+  codes = ocd_codes()
+  names = ocd_names()
+  ocd_divisions = set()
+
   corporations = {}
   reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-corporations/ca_municipal_subdivisions.csv')
   for row in reader:
     corporations[row[0]] = row[1].decode('utf8')
-
-  codes = ocd_codes()
-  names = ocd_names()
-  ocd_divisions = set()
 
   for slug, config in registry(base).items():
     directory = dirname(config['file'])
@@ -656,6 +665,8 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             record[header] = 'N/A'
         elif municipal_subdivisions[row[0]] == 'Y':
           record['Shapefile?'] = 'Request'
+        elif municipal_subdivisions[row[0]] == '?':
+          record['Shapefile?'] = ''
       else:
         record['Shapefile?'] = ''
 
