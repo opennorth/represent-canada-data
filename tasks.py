@@ -142,12 +142,27 @@ class UnicodeWriter:
 
 
 @task
-def geojson(base='.', geo_json_base='./geojson'):
-  for slug, config in registry(base).items():
-    directory = dirname(config['file'])
-    shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
-    geo_json_path = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))) + '.geojson')
-    run('ogr2ogr -f "GeoJSON" "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
+def define(identifier, shapefile):
+  # @todo write script to auto generate stub definition files based on OCDID and shapefile
+
+  print """
+  from datetime import date
+
+  import boundaries
+
+  boundaries.register('',
+      domain='',
+      last_updated=date(),
+      name_func=boundaries.attr(''),
+      id_func=boundaries.attr(''),
+      authority='',
+      source_url='',
+      licence_url='',
+      data_url='',
+      encoding='iso-8859-1',
+      metadata={'geographic_code': ''},
+  )
+  """
 
 
 # Check that all data directories contain a `LICENSE.txt`.
@@ -158,8 +173,6 @@ def licenses(base='.'):
       dirnames.remove('.git')
     if 'geojson' in dirnames:
       dirnames.remove('geojson')
-    if '.DS_Store' in filenames:
-      filenames.remove('.DS_Store')
     if filenames and 'LICENSE.txt' not in filenames:
       print '%s No LICENSE.txt' % dirpath
 
@@ -174,6 +187,16 @@ def permissions(base='.'):
       path = os.path.join(dirpath, filename)
       if os.stat(path).st_mode != 33188:  # 100644 octal
         os.chmod(path, stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
+
+
+@task
+def geojson(base='.', geo_json_base='./geojson'):
+  for slug, config in registry(base).items():
+    if 'fed/csd' not in config['file'] and 'fed/cd' not in config['file']:  # files are too large for GitHub
+      directory = dirname(config['file'])
+      shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
+      geo_json_path = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))) + '.geojson')
+      run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
 
 
 # Check that all `definition.py` files are valid.
