@@ -16,6 +16,7 @@ from urlparse import urlparse
 from zipfile import ZipFile, BadZipfile
 
 import boundaries
+from django.template.defaultfilters import slugify
 import gdata.spreadsheet.service
 from git import Repo
 from invoke import run, task
@@ -280,7 +281,8 @@ def geojson(base='.', geo_json_base='./geojson'):
       else:
         suffix = ''
 
-      item = (slug, '* [%s](https://github.com/opennorth/represent-canada-data/blob/master/geojson/%s#files)%s\n' % (slug.encode('utf-8'), os.path.basename(geo_json_path), suffix))
+      item = (slug, '* [%s](https://github.com/opennorth/represent-canada-data/blob/master/geojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' %
+        (slug.encode('utf-8'), os.path.basename(geo_json_path), slugify(slug).encode('utf-8'), suffix))
 
       match = re.search('\Aocd-division/country:ca/csd:(\d+)', ocd_division)
       if match:

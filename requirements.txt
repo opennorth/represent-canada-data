@@ -1,4 +1,5 @@
 autopep8==0.9.7
+Django>=1.5,<=1.6
 gdata==2.0.18
 GitPython
 invoke==0.7.0
