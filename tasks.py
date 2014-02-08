@@ -280,7 +280,7 @@ def geojson(base='.', geo_json_base='./geojson'):
       else:
         suffix = ''
 
-      item = (slug, '* [%s](https://github.com/opennorth/represent-canada-data/blob/master/geojson/%s)%s\n' % (slug.encode('utf-8'), os.path.basename(geo_json_path), suffix))
+      item = (slug, '* [%s](https://github.com/opennorth/represent-canada-data/blob/master/geojson/%s#files)%s\n' % (slug.encode('utf-8'), os.path.basename(geo_json_path), suffix))
 
       match = re.search('\Aocd-division/country:ca/csd:(\d+)', ocd_division)
       if match:
