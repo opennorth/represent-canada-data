@@ -156,6 +156,8 @@ def licenses(base='.'):
   for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
     if '.git' in dirnames:
       dirnames.remove('.git')
+    if 'geojson' in dirnames:
+      dirnames.remove('geojson')
     if '.DS_Store' in filenames:
       filenames.remove('.DS_Store')
     if filenames and 'LICENSE.txt' not in filenames:
@@ -168,8 +170,6 @@ def permissions(base='.'):
   for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
     if '.git' in dirnames:
       dirnames.remove('.git')
-    if '.DS_Store' in filenames:
-      filenames.remove('.DS_Store')
     for filename in filenames:
       path = os.path.join(dirpath, filename)
       if os.stat(path).st_mode != 33188:  # 100644 octal

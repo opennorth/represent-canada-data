@@ -61,6 +61,10 @@ File file permissions:
 
     invoke permissions
 
+Generate GeoJSON for inspection on GitHub:
+
+    invoke geojson
+
 Tidy Python:
 
     autopep8 -i -a -r --ignore=E111,E121,E124,E128,E501,W6 .
