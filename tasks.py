@@ -294,7 +294,8 @@ def geojson(base='.', geo_json_base='./geojson'):
       shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
       geo_json_path = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))) + '.geojson')
       run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
-      run('topojson -o %s %s', (geo_json_path, geo_json_path), echo=True)
+      # I have not been able to install topojson (hangs during install), but it may reduce file sizes.
+      # run('topojson -o %s %s', (geo_json_path, geo_json_path), echo=True)
 
       ocd_division = get_ocd_division(config)
       if os.stat(geo_json_path).st_size > 10485760:  # 10MB
