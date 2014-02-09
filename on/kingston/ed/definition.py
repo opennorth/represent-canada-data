@@ -2,7 +2,7 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Kingston districts',
+boundaries.register('Kingston wards',
     domain='Kingston, ON',
     last_updated=date(2012, 10, 25),
     name_func=boundaries.attr('ELECTORAL_'),

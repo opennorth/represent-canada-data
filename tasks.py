@@ -63,7 +63,7 @@ def csv_reader(url):
 
 
 sgc_code_to_ocdid_memo = {}
-# Maps Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
+# Maps Standard Geographical Classification codes to OCD identifiers.
 def sgc_code_to_ocdid():
   if not sgc_code_to_ocdid_memo:
     sgc_code_to_ocdid_memo['01'] = 'ocd-division/country:ca'
@@ -80,7 +80,7 @@ def sgc_code_to_ocdid():
 
 
 ocdid_to_name_memo = {}
-# Maps OCD identifiers and Standard Geographical Classification codes to names.
+# Maps OCD identifiers to names.
 def ocdid_to_name():
   if not ocdid_to_name_memo:
     filenames = [
@@ -94,6 +94,20 @@ def ocdid_to_name():
       for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename):
         ocdid_to_name_memo[row[0].decode('utf8')] = row[1].decode('utf8')
   return ocdid_to_name_memo
+
+
+ocdid_to_type_memo = {}
+# Maps OCD identifiers to types.
+def ocdid_to_type():
+  if not ocdid_to_type_memo:
+    filenames = [
+      'ca_census_divisions',
+      'ca_census_subdivisions',
+    ]
+    for filename in filenames:
+      for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-types/%s.csv' % filename):
+        ocdid_to_type_memo[row[0].decode('utf8')] = row[1].decode('utf8')
+  return ocdid_to_type_memo
 
 
 corporations_memo = {}
@@ -150,15 +164,30 @@ def get_definition(ocd_division):
     province_or_territory_sgc_code = ocd_type_id[:2]
     province_or_territory_abbreviation = sgc_code_to_ocdid()[province_or_territory_sgc_code].split(':')[-1].upper()
 
-    if province_or_territory_sgc_code == '24':
-      slug = re.compile('\A%s (boroughs|districts)\Z' % name)
+    boroughs = [
+      'ocd-division/country:ca/csd:2425213',  # Lévis
+      'ocd-division/country:ca/csd:2458227',  # Longueuil
+      'ocd-division/country:ca/csd:2466023',  # Montréal
+      'ocd-division/country:ca/csd:2423027',  # Québec
+      'ocd-division/country:ca/csd:2494068',  # Saguenay
+      'ocd-division/country:ca/csd:2443027',  # Sherbrooke
+    ]
+
+    if province_or_territory_sgc_code == '24' and ocd_division in boroughs:
+      slug = '%s boroughs' % name
+    elif province_or_territory_sgc_code == '12' and ocdid_to_type()[ocd_division] == 'RGM':
+      slug = '%s districts' % name
+    elif province_or_territory_sgc_code == '48' and ocdid_to_type()[ocd_division] == 'MD':
+      slug = '%s divisions' % name
+    elif province_or_territory_sgc_code == '24':
+      slug = '%s districts' % name
     else:
-      slug = re.compile('\A%s (districts|divisions|wards)\Z' % name)
+      slug = '%s wards' % name
     config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
     if ocd_type == 'csd':
       config['authority'] = authorities + [corporations()[ocd_division]]
     else:
-      config['authority'] = ['']
+      config['authority'] = ['']  # We have no expectation for the authority of a Census division
 
   elif ocd_type == 'arrondissement':
     census_subdivision_ocdid = '/'.join(sections[:-1])
@@ -249,9 +278,6 @@ boundaries.register(u'%(slug)s',
     name_func=boundaries.attr(''),
     id_func=boundaries.attr(''),
     authority=u'%(authority)s',
-    source_url='',
-    licence_url='',
-    data_url='',
     encoding='iso-8859-1',
     metadata={'geographic_code': '%(geographic_code)s'},
 )""" % config
