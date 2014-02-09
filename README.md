@@ -45,7 +45,7 @@ Check that all data directories contain a `LICENSE.txt`:
 
     invoke licenses
 
-File file permissions:
+Fix file permissions:
 
     invoke permissions
 
