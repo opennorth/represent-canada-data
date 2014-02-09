@@ -654,6 +654,10 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-subdivisions/ca_municipal_subdivisions.csv'):
     municipal_subdivisions[row[0].split(':')[-1]] = row[1]
 
+  urls = {}
+  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-urls/ca_census_subdivisions.csv'):
+    urls[row[0].split(':')[-1]] = row[1]
+
   abbreviations = {}
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv'):
     abbreviations[row[1]] = row[0].split(':')[-1].upper()
@@ -680,6 +684,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
       'Geographic name': row[1],
       'Province or territory': row[0].split(':')[-1].upper(),
       'Population': '',
+      'URL': '',
       'Scraper?': scraper_urls.get(ocdid_to_sgc_code_map[row[0]], ''),
       'Shapefile?': '',
       'Contact': '',
@@ -716,6 +721,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         'Geographic name': name,
         'Province or territory': province_or_territory,
         'Population': row[4],
+        'URL': urls.get(row[0], ''),
         'Scraper?': scraper_urls.get(row[0], ''),
         'Contact': '',
         'Highrise URL': '',
