@@ -45,6 +45,10 @@ Check that all data directories contain a `LICENSE.txt`:
 
     invoke licenses
 
+File file permissions:
+
+    invoke permissions
+
 Check that all `definition.py` files are valid:
 
     invoke definitions
@@ -57,9 +61,9 @@ Update any out-of-date shapefiles:
 
     invoke shapefiles
 
-File file permissions:
+Check if the data request process spreadsheet is out-of-date:
 
-    invoke permissions
+    invoke spreadsheet
 
 Generate GeoJSON for inspection on GitHub:
 

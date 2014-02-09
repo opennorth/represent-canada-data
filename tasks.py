@@ -62,33 +62,38 @@ def csv_reader(url):
   return csv.reader(StringIO(requests.get(url).content))
 
 
-ocd_codes_memo = {}
+sgc_code_to_ocdid_memo = {}
 # Maps Standard Geographical Classification codes to the OCD identifiers of provinces and territories.
-def ocd_codes():
-  if not ocd_codes_memo:
-    ocd_codes_memo['01'] = 'ocd-division/country:ca'
+def sgc_code_to_ocdid():
+  if not sgc_code_to_ocdid_memo:
+    sgc_code_to_ocdid_memo['01'] = 'ocd-division/country:ca'
     for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv'):
-      ocd_codes_memo[row[1]] = row[0]
-    for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv'):
-      ocd_codes_memo[row[0].split(':')[-1]] = row[0]
-  return ocd_codes_memo
-
-
-ocd_names_memo = {}
-# Maps OCD identifiers and Standard Geographical Classification codes to names.
-def ocd_names():
-  if not ocd_names_memo:
-    urls = [
-      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_manual.csv',
-      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv',
-      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_divisions.csv',
-      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv',
-      'https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/census_subdivision-montreal-arrondissements.csv',
+      sgc_code_to_ocdid_memo[row[1]] = row[0]
+    filenames = [
+      'ca_census_divisions',
+      'ca_census_subdivisions',
     ]
-    for url in urls:
-      for row in csv_reader(url):
-        ocd_names_memo[row[0].decode('utf8')] = row[1].decode('utf8')
-  return ocd_names_memo
+    for filename in filenames:
+      for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename):
+        sgc_code_to_ocdid_memo[row[0].split(':')[-1]] = row[0]
+  return sgc_code_to_ocdid_memo
+
+
+ocdid_to_name_memo = {}
+# Maps OCD identifiers and Standard Geographical Classification codes to names.
+def ocdid_to_name():
+  if not ocdid_to_name_memo:
+    filenames = [
+      'ca_manual',
+      'ca_provinces_and_territories',
+      'ca_census_divisions',
+      'ca_census_subdivisions',
+      'census_subdivision-montreal-arrondissements',
+    ]
+    for filename in filenames:
+      for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename):
+        ocdid_to_name_memo[row[0].decode('utf8')] = row[1].decode('utf8')
+  return ocdid_to_name_memo
 
 
 corporations_memo = {}
@@ -111,7 +116,7 @@ def get_ocd_division(config):
     if geographic_code:
       length = len(geographic_code)
       if length == 2:
-        ocd_division = ocd_codes()[geographic_code]
+        ocd_division = sgc_code_to_ocdid()[geographic_code]
       elif length == 4:
         ocd_division = 'ocd-division/country:ca/cd:%s' % geographic_code
       elif length == 7:
@@ -121,54 +126,55 @@ def get_ocd_division(config):
 
   return ocd_division
 
-def get_definition(slug, config):
-  ocd_division = get_ocd_division(config)
-
+def get_definition(ocd_division):
   sections = ocd_division.split('/')
   ocd_type, ocd_type_id = sections[-1].split(':')
 
-  expected_config = {
+  config = {
     'encoding': 'iso-8859-1',
   }
 
   # Determine slug, domain and authority.
-  name = ocd_names()[ocd_division]
+  name = ocdid_to_name()[ocd_division]
   if ocd_type == 'country':
-    expected_slug = 'Federal electoral districts'
-    expected_config['domain'] = name
-    expected_config['authority'] = 'Her Majesty the Queen in Right of Canada'
+    slug = 'Federal electoral districts'
+    config['domain'] = name
+    config['authority'] = ['Her Majesty the Queen in Right of Canada']
 
   elif ocd_type in ('province', 'territory'):
-    expected_slug = '%s electoral districts' % name
-    expected_config['domain'] = name
-    expected_config['authority'] = 'Her Majesty the Queen in Right of %s' % name
+    slug = '%s electoral districts' % name
+    config['domain'] = name
+    config['authority'] = ['Her Majesty the Queen in Right of %s' % name]
 
   elif ocd_type in ('cd', 'csd'):
-    province_or_territory_code = ocd_type_id[:2]
-    province_or_territory_abbreviation = ocd_codes()[province_or_territory_code].split(':')[-1].upper()
+    province_or_territory_sgc_code = ocd_type_id[:2]
+    province_or_territory_abbreviation = sgc_code_to_ocdid()[province_or_territory_sgc_code].split(':')[-1].upper()
 
-    if province_or_territory_code == '24':
-      expected_slug = re.compile('\A%s (boroughs|districts)\Z' % name)
+    if province_or_territory_sgc_code == '24':
+      slug = re.compile('\A%s (boroughs|districts)\Z' % name)
     else:
-      expected_slug = re.compile('\A%s (districts|divisions|wards)\Z' % name)
-    expected_config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
-    expected_config['authority'] = authorities + [corporations()[ocd_division]]
+      slug = re.compile('\A%s (districts|divisions|wards)\Z' % name)
+    config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
+    if ocd_type == 'csd':
+      config['authority'] = authorities + [corporations()[ocd_division]]
+    else:
+      config['authority'] = ['']
 
   elif ocd_type == 'arrondissement':
-    census_subdivision_ocd_division = '/'.join(sections[:-1])
-    census_subdivision_name = ocd_names()[census_subdivision_ocd_division]
+    census_subdivision_ocdid = '/'.join(sections[:-1])
+    census_subdivision_name = ocdid_to_name()[census_subdivision_ocdid]
 
-    province_or_territory_code = census_subdivision_ocd_division.split(':')[-1][:2]
-    province_or_territory_abbreviation = ocd_codes()[province_or_territory_code].split(':')[-1].upper()
+    province_or_territory_sgc_code = census_subdivision_ocdid.split(':')[-1][:2]
+    province_or_territory_abbreviation = sgc_code_to_ocdid()[province_or_territory_sgc_code].split(':')[-1].upper()
 
-    expected_slug = '%s districts' % name
-    expected_config['domain'] = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
-    expected_config['authority'] = corporations()[census_subdivision_ocd_division]
+    slug = '%s districts' % name
+    config['domain'] = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
+    config['authority'] = [corporations()[census_subdivision_ocdid]]
 
   else:
-    raise Exception('%s: Unrecognized OCD type %s' % (slug, ocd_type))
+    raise Exception('%s: Unrecognized OCD type %s' % (ocd_division, ocd_type))
 
-  return (ocd_division, expected_slug, expected_config)
+  return (slug, config)
 
 
 def assert_match(slug, field, actual, expected):
@@ -212,28 +218,43 @@ class UnicodeWriter:
             self.writerow(row)
 
 
+# @todo Guess name_func and id_func based on the shapefile.
 @task
-def define(identifier, shapefile):
-  # @todo write script to auto generate stub definition files based on OCDID and shapefile
+def define(ocd_division):
+  ocdid_to_sgc_code_map = {v:k for k,v in sgc_code_to_ocdid().items()}
 
-  print """
-  from datetime import date
+  slug, config = get_definition(ocd_division)
+  if isinstance(slug, re._pattern_type):
+    slug = re.sub('\\\[AZ]', '', slug.pattern)
 
-  import boundaries
+  config['slug'] = slug
+  config['last_updated'] = datetime.now().strftime('%Y, %-m, %-d')
+  config['authority'] = config['authority'][-1]
 
-  boundaries.register('',
-      domain='',
-      last_updated=date(),
-      name_func=boundaries.attr(''),
-      id_func=boundaries.attr(''),
-      authority='',
-      source_url='',
-      licence_url='',
-      data_url='',
-      encoding='iso-8859-1',
-      metadata={'geographic_code': ''},
-  )
-  """
+  ocd_type, ocd_type_id = ocd_division.split('/')[-1].split(':')
+  if ocd_type == 'country' and ocd_type_id == 'ca':
+    config['geographic_code'] = '01'
+  elif ocd_type in ('province', 'territory', 'cd', 'csd'):
+    config['geographic_code'] = ocdid_to_sgc_code_map[ocd_division]
+  else:
+    raise Exception('%s: Unrecognized OCD type %s' % (ocd_division, ocd_type))
+
+  print """from datetime import date
+
+import boundaries
+
+boundaries.register(u'%(slug)s',
+    domain=u'%(domain)s',
+    last_updated=date(%(last_updated)s),
+    name_func=boundaries.attr(''),
+    id_func=boundaries.attr(''),
+    authority=u'%(authority)s',
+    source_url='',
+    licence_url='',
+    data_url='',
+    encoding='iso-8859-1',
+    metadata={'geographic_code': '%(geographic_code)s'},
+)""" % config
 
 
 # Check that all data directories contain a `LICENSE.txt`.
@@ -263,8 +284,8 @@ def permissions(base='.'):
 # @see http://ben.balter.com/2013/06/26/how-to-convert-shapefiles-to-geojson-for-use-on-github/
 @task
 def geojson(base='.', geo_json_base='./geojson'):
-  codes = ocd_codes()
-  names = ocd_names()
+  sgc_code_to_ocdid_map = sgc_code_to_ocdid()
+  ocdid_to_name_map = ocdid_to_name()
   readme = defaultdict(lambda: defaultdict(list))
 
   for slug, config in registry(base).items():
@@ -286,9 +307,9 @@ def geojson(base='.', geo_json_base='./geojson'):
 
       match = re.search('\Aocd-division/country:ca/csd:(\d+)', ocd_division)
       if match:
-        readme[names[codes[match.group(1)[:2]]]]['lower'].append(item)
+        readme[ocdid_to_name_map[sgc_code_to_ocdid_map[match.group(1)[:2]]]]['lower'].append(item)
       else:
-        readme[names[ocd_division]]['upper'].append(item)
+        readme[ocdid_to_name_map[ocd_division]]['upper'].append(item)
 
   with open(os.path.join(geo_json_base, 'README.md'), 'w') as f:
     f.write('# Represent API: GeoJSON\n\n## Canada\n\n')
@@ -366,13 +387,15 @@ def definitions(base='.'):
         if not value:
           print '%-50s Empty value for %s' % (slug, key)
 
-      ocd_division, expected_slug, expected_config = get_definition(slug, config)
+      ocd_division = get_ocd_division(config)
 
       # Ensure ocd_division is unique.
       if ocd_division in ocd_divisions:
         raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
       else:
         ocd_divisions.add(ocd_division)
+
+      expected_slug, expected_config = get_definition(ocd_division)
 
       # Check for unexpected values.
       assert_match(slug, 'slug', slug, expected_slug)
@@ -623,8 +646,8 @@ def shapefiles(base='.'):
 # Generate the spreadsheet for tracking progress on data collection.
 @task
 def spreadsheet(base='.', private_base='../represent-canada-private-data'):
-  codes = ocd_codes()
-  names = ocd_names()
+  sgc_code_to_ocdid_map = sgc_code_to_ocdid()
+  ocdid_to_sgc_code_map = {v:k for k,v in sgc_code_to_ocdid_map.items()}
   records = OrderedDict()
 
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-subdivisions/ca_municipal_subdivisions.csv'):
@@ -633,10 +656,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
   abbreviations = {}
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv'):
     abbreviations[row[1]] = row[0].split(':')[-1].upper()
-
-  sgc_codes = {}
-  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv'):
-    sgc_codes[row[0]] = row[1]
 
   # Get scraper URLs.
   scraper_urls = {}
@@ -654,13 +673,13 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
 
   # Create records for provinces and territories.
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv'):
-    records[sgc_codes[row[0]]] = {
+    records[ocdid_to_sgc_code_map[row[0]]] = {
       'OCD': row[0],
-      'Geographic code': sgc_codes[row[0]],
+      'Geographic code': ocdid_to_sgc_code_map[row[0]],
       'Geographic name': row[1],
       'Province or territory': row[0].split(':')[-1].upper(),
       'Population': '',
-      'Scraper?': scraper_urls.get(sgc_codes[row[0]], ''),
+      'Scraper?': scraper_urls.get(ocdid_to_sgc_code_map[row[0]], ''),
       'Shapefile?': '',
       'Contact': '',
       'Highrise URL': '',
@@ -691,7 +710,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         raise Exception('Unrecognized name "%s"' % row[1])
 
       record = {
-        'OCD': codes[row[0]],
+        'OCD': sgc_code_to_ocdid_map[row[0]],
         'Geographic code': row[0],
         'Geographic name': name,
         'Province or territory': province_or_territory,
