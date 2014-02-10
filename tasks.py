@@ -860,6 +860,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
   for _, record in records.items():
     writer.writerow([record[header] for header in headers])
 
+
 # Update the spreadsheet for tracking progress on data collection.
 # @see https://code.google.com/p/gdata-python-client/source/browse/samples/oauth/oauth_example.py
 # @see https://code.google.com/p/gdata-python-client/source/browse/samples/spreadsheets/spreadsheetExample.py
@@ -880,6 +881,8 @@ def update_spreadsheet(filename=''):
 
   client.RevokeOAuthToken()
 
+
+# Update populations.py in the represent-canada repository.
 @task
 def populations(mode='representative_set'):
   sgc_code_to_ocdid_map = sgc_code_to_ocdid()
