@@ -879,3 +879,38 @@ def update_spreadsheet(filename=''):
   # Just use Google Spreadsheets' import feature.
 
   client.RevokeOAuthToken()
+
+@task
+def populations(mode='representative_set'):
+  sgc_code_to_ocdid_map = sgc_code_to_ocdid()
+  ocdid_to_name_map = ocdid_to_name()
+  ocdid_to_type_map = ocdid_to_type()
+
+  census_subdivision_type_names = {}
+  document = lxml.html.fromstring(requests.get('http://www12.statcan.gc.ca/census-recensement/2011/ref/dict/table-tableau/table-tableau-5-eng.cfm').content)
+  for abbr in document.xpath('//table/tbody/tr/th[1]/abbr'):
+    census_subdivision_type_names[abbr.text_content()] = re.sub(' /.+\Z', '', abbr.attrib['title'])
+
+  reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
+  reader.next()  # title
+  reader.next()  # headers
+  for row in reader:
+    if row:
+      if row[1] != 'Canada':
+        ocd_division = sgc_code_to_ocdid_map[row[0]]
+        census_subdivision_type = ocdid_to_type_map[ocd_division]
+        if census_subdivision_type in ('C', 'CV', 'CY', 'MD', 'MU', 'RGM', 'T', 'TP', 'V', 'VL'):
+          if mode == 'representative_set':
+            if row[0][:2] == '24':
+              name = 'Conseil municipal de %s' % ocdid_to_name_map[ocd_division]
+            else:
+              name_infix = census_subdivision_type_names[census_subdivision_type]
+              if name_infix in ('Municipality', 'Specialized municipality'):
+                name_infix = 'Municipal'
+              elif name_infix == 'Regional municipality':
+                name_infix = 'Regional'
+            print '  u"%s %s Council": %s,' % (ocdid_to_name_map[ocd_division], name_infix, row[4])
+          elif mode == 'boundary_set':
+            print '  u"%s": %s,' % (get_definition(ocd_division)[0], row[4])
+    else:
+      break
