@@ -340,10 +340,11 @@ def geojson(base='.', geo_json_base='./geojson'):
 
   with open(os.path.join(geo_json_base, 'README.md'), 'w') as f:
     f.write('# Represent API: GeoJSON\n\n## Canada\n\n')
-    items = readme.pop('Canada');
-    for part in ('upper', 'lower'):
-      for slug, markdown in sorted(items[part]):
-        f.write(markdown)
+    items = readme.pop('Canada', None)
+    if items:
+      for part in ('upper', 'lower'):
+        for slug, markdown in sorted(items[part]):
+          f.write(markdown)
     for name, items in sorted(readme.items()):
       f.write('\n## %s\n\n' % name.encode('utf-8'))
       for part in ('upper', 'lower'):
