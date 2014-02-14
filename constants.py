@@ -7,6 +7,7 @@ open_data_licenses = [
   'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
   'http://donnees.ville.quebec.qc.ca/licence.aspx',
   'http://opendata.peelregion.ca/terms-of-use.aspx',
+  'http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/',
   'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
   'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
   'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html',
@@ -50,6 +51,8 @@ terms = {
   # Open Government Licence.
   'http://data.gc.ca/eng/open-government-licence-canada':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://data.gc.ca/eng/open-government-licence-canada).',
+  'http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/':
+    'I. Terms of Use. Contains information provided by the City of Guelph under an open government license (http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/).',
   'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
   'http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html':

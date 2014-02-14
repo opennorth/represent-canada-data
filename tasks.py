@@ -291,6 +291,8 @@ def licenses(base='.'):
       dirnames.remove('.git')
     if 'geojson' in dirnames:
       dirnames.remove('geojson')
+    if '.DS_Store' in filenames:
+      filenames.remove('.DS_Store')
     if filenames and 'LICENSE.txt' not in filenames:
       print '%s No LICENSE.txt' % dirpath
 
@@ -319,7 +321,8 @@ def geojson(base='.', geo_json_base='./geojson'):
       directory = dirname(config['file'])
       shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
       geo_json_path = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))) + '.geojson')
-      run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
+      if not os.path.exists(geo_json_path):
+        run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
       # I have not been able to install topojson (hangs during install), but it may reduce file sizes.
       # run('topojson -o %s %s', (geo_json_path, geo_json_path), echo=True)
 
@@ -452,7 +455,7 @@ def urls(base='.'):
             if result.username:
               url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
               arguments['auth'] = (result.username, result.password)
-            response = requests.head(url, **arguments)
+            response = requests.head(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'}, **arguments)
             status_code = response.status_code
             if status_code != 200:
               print '%d %s' % (status_code, url)
@@ -463,8 +466,9 @@ def urls(base='.'):
 # Update any out-of-date shapefiles.
 @task
 def shapefiles(base='.'):
-  def process(slug, config, url, data_file_path):
+  headers = {'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'}
 
+  def process(slug, config, url, data_file_path):
     # We can only process KML, KMZ and ZIP files.
     extension = os.path.splitext(data_file_path)[1]
     if extension in ('.kml', '.kmz', '.zip'):
@@ -636,9 +640,9 @@ def shapefiles(base='.'):
         if result.username:
           url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
           arguments['auth'] = (result.username, result.password)
-        response = requests.head(url, **arguments)
+        response = requests.head(url, headers=headers, **arguments)
         if response.status_code == 405:  # if HEAD requests are not allowed
-          response = requests.get(url, **arguments)
+          response = requests.get(url, headers=headers, **arguments)
         last_modified = response.headers.get('last-modified')
 
         # Parse the timestamp as a date.
@@ -663,7 +667,7 @@ def shapefiles(base='.'):
 
           # Download new file.
           arguments['stream'] = True
-          response = requests.get(url, **arguments)
+          response = requests.get(url, headers=headers, **arguments)
           with open(data_file_path, 'wb') as f:
             for chunk in response.iter_content():
               f.write(chunk)

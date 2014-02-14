@@ -48,7 +48,7 @@
 * [Guelph wards](https://github.com/opennorth/represent-canada-data/blob/master/geojson/on_guelph_ed.geojson#files): [API](http://represent.opennorth.ca/boundaries/guelph-wards/?limit=0)
 * [Haldimand County wards](https://github.com/opennorth/represent-canada-data/blob/master/geojson/on_haldimandcounty_ed.geojson#files): [API](http://represent.opennorth.ca/boundaries/haldimand-county-wards/?limit=0)
 * [Hamilton wards](https://github.com/opennorth/represent-canada-data/blob/master/geojson/on_hamilton_ed.geojson#files): [API](http://represent.opennorth.ca/boundaries/hamilton-wards/?limit=0)
-* [Kingston districts](https://github.com/opennorth/represent-canada-data/blob/master/geojson/on_kingston_ed.geojson#files): [API](http://represent.opennorth.ca/boundaries/kingston-districts/?limit=0)
+* [Kingston wards](https://github.com/opennorth/represent-canada-data/blob/master/geojson/on_kingston_ed.geojson#files): [API](http://represent.opennorth.ca/boundaries/kingston-wards/?limit=0)
 * [Kitchener wards](https://github.com/opennorth/represent-canada-data/blob/master/geojson/on_kitchener_ed.geojson#files): [API](http://represent.opennorth.ca/boundaries/kitchener-wards/?limit=0)
 * [London wards](https://github.com/opennorth/represent-canada-data/blob/master/geojson/on_london_ed.geojson#files): [API](http://represent.opennorth.ca/boundaries/london-wards/?limit=0)
 * [Milton wards](https://github.com/opennorth/represent-canada-data/blob/master/geojson/on_milton_ed.geojson#files): [API](http://represent.opennorth.ca/boundaries/milton-wards/?limit=0)
