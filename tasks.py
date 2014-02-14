@@ -437,6 +437,8 @@ def definitions(base='.'):
 # Check that the source, data and license URLs work.
 @task
 def urls(base='.'):
+  headers = {'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'}
+
   for slug, config in registry(base).items():
     for key in ('source_url', 'licence_url', 'data_url'):
       if config.get(key):
@@ -455,10 +457,11 @@ def urls(base='.'):
             if result.username:
               url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
               arguments['auth'] = (result.username, result.password)
-            response = requests.head(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'}, **arguments)
-            status_code = response.status_code
-            if status_code != 200:
-              print '%d %s' % (status_code, url)
+            response = requests.head(url, headers=headers, **arguments)
+            if response.status_code == 405:  # if HEAD requests are not allowed
+              response = requests.get(url, headers=headers, **arguments)
+            if response.status_code != 200:
+              print '%d %s' % (response.status_code, url)
           except requests.exceptions.ConnectionError:
             print '404 %s' % url
 

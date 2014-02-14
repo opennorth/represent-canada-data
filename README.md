@@ -41,14 +41,6 @@ Load the virtual environment:
 
 #### Boundaries
 
-Check that all data directories contain a `LICENSE.txt`:
-
-    invoke licenses
-
-Fix file permissions:
-
-    invoke permissions
-
 Check that all `definition.py` files are valid:
 
     invoke definitions
@@ -57,9 +49,17 @@ Check that the source, data and license URLs work:
 
     invoke urls
 
+Check that all data directories contain a `LICENSE.txt`:
+
+    invoke licenses
+
 Update any out-of-date shapefiles:
 
     invoke shapefiles
+
+Fix file permissions:
+
+    invoke permissions
 
 Check if the data request process spreadsheet is out-of-date:
 

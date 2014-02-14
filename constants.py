@@ -23,6 +23,7 @@ open_data_licenses = [
   'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
   'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf',
   'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx',
+  'https://www.halifaxopendata.ca/terms',
 ]
 
 some_rights_reserved_licenses = [

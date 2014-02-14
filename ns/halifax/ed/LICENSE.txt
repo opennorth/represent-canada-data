@@ -1,8 +1,1 @@
-Distributed with permission from the City of Halifax.  Please direct licensing inquiries and requests to:
-
-Ken Lenihan
-GIS Technician, Enterprise Applications, Finance and Information Technology
-Halifax Regional Municipality
-Tel: 1-902-490-6846
-Fax: 1-902-490-5384
-lenihak@halifax.ca
+I. Terms of Use. This work is provided under the terms of “Halifax Regional Municipality – Terms of Use” (https://www.halifaxopendata.ca/terms).  Any use of the work other than as authorized under these terms is strictly prohibited.
