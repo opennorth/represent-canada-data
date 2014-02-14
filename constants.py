@@ -6,6 +6,7 @@ open_data_licenses = [
   'http://data.gc.ca/eng/open-government-licence-canada',
   'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
   'http://donnees.ville.quebec.qc.ca/licence.aspx',
+  'http://donnees.ville.sherbrooke.qc.ca/licence.html',
   'http://opendata.peelregion.ca/terms-of-use.aspx',
   'http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/',
   'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
@@ -65,6 +66,7 @@ terms = {
   # Text provided by license.
   'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/': "I. Termes d'utilisation. Contient des données reproduites, modifiées, traduites ou distribuées « telles quelles » avec la permission de la Ville de Montréal (http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/).",
   'http://donnees.ville.quebec.qc.ca/licence.aspx': "I. Conditions d'utilisation. Contient des données reproduites et distribuées « telles quelles » avec la permission de la Ville de Québec (http://donnees.ville.quebec.qc.ca/licence.aspx).",
+  'http://donnees.ville.sherbrooke.qc.ca/licence.html': "I. Termes d'utilisation. Contient des données reproduites et distribuées « telles quelles » avec la permission de la Ville de Sherbrooke (http://donnees.ville.sherbrooke.qc.ca/licence.html).",
   'http://opendata.peelregion.ca/terms-of-use.aspx': "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Peel's Open Data Licence - Version 1.0 (http://opendata.peelregion.ca/terms-of-use.aspx).",
   'http://www.electionspei.ca/apilicense': 'I. Terms of Use. This information is provided by Elections PEI under the Elections PEI Data License (http://www.electionspei.ca/apilicense).',
   'http://www.hamilton.ca/NR/rdonlyres/C58984A4-FE11-40B9-A231-8572EB922AAA/0/OpenDataTermsAndConditions_Final.htm': "I. Terms of Use. Contains public sector Data made available under the City of Hamilton’s Open Data Licence (http://www.hamilton.ca/NR/rdonlyres/C58984A4-FE11-40B9-A231-8572EB922AAA/0/OpenDataTermsAndConditions_Final.htm).",

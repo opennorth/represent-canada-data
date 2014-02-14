@@ -422,7 +422,7 @@ def definitions(base='.'):
 
       # Ensure ocd_division is unique.
       if ocd_division in ocd_divisions:
-        raise Exception('%s: Duplicate ocd_division %s' % (slug, ocd_division))
+        print '%-50s Duplicate ocd_division %s' % (slug, ocd_division)
       else:
         ocd_divisions.add(ocd_division)
 
