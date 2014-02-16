@@ -6,7 +6,7 @@ import boundaries
 
 def namer(f):
     import boundaries
-    n = boundaries.clean_attr('ARROND')(f)
+    n = boundaries.attr('ARROND')(f)
     return {
         u'Cote-des-Neiges--Notre-Dame-de-Grace': u'Côte-des-Neiges—Notre-Dame-de-Grâce',
         u"L'Ile-Bizard--Sainte-Genevieve": u"L'Île-Bizard—Sainte-Genevieve",
