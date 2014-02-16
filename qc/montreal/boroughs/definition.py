@@ -3,10 +3,29 @@ from datetime import date
 
 import boundaries
 
+
+def namer(f):
+    import boundaries
+    n = boundaries.clean_attr('ARROND')(f)
+    return {
+        u'Cote-des-Neiges--Notre-Dame-de-Grace': u'Côte-des-Neiges—Notre-Dame-de-Grâce',
+        u"L'Ile-Bizard--Sainte-Genevieve": u"L'Île-Bizard—Sainte-Genevieve",
+        u'Mercier-Hochelaga-Maisonneuve': u'Mercier—Hochelaga-Maisonneuve',
+        u'Montreal-Nord': u'Montréal-Nord',
+        u'Pierrefonds--Roxboro': u'Pierrefonds—Roxboro',
+        u'Plateau-Mont-Royal': u'Le Plateau-Mont-Royal',
+        u'Pointe-aux-Trembles-Rivieres-des-Prairies': u'Pointe-aux-Trembles—Rivières-des-Prairies',
+        u'Rosemont--La-Petite-Patrie': u'Rosemont—La Petite-Patrie',
+        u'St-Leonard': u'Saint-Léonard',
+        u'Sud-Ouest': u'Le Sud-Ouest',
+        u'Verdun--Ile-des-Soeurs': u'Verdun',
+        u'Villeray-Saint-Michel-Parc-Extension': u'Villeray—Saint-Michel—Parc-Extension',
+    }.get(n, n)
+
 boundaries.register(u'Montréal boroughs',
     domain=u'Montréal, QC',
     last_updated=date(2014, 2, 1),
-    name_func=boundaries.clean_attr('ARROND'),
+    name_func=namer,
     authority=u'Ville de Montréal',
     source_url='http://donnees.ville.montreal.qc.ca/dataset/polygones-arrondissements',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
