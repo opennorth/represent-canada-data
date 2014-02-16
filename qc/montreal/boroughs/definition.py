@@ -14,7 +14,7 @@ def namer(f):
         u'Montreal-Nord': u'Montréal-Nord',
         u'Pierrefonds--Roxboro': u'Pierrefonds-Roxboro',
         u'Plateau-Mont-Royal': u'Le Plateau-Mont-Royal',
-        u'Pointe-aux-Trembles-Rivieres-des-Prairies': u'Rivières-des-Prairies—Pointe-aux-Trembles',
+        u'Pointe-aux-Trembles-Rivieres-des-Prairies': u'Rivière-des-Prairies—Pointe-aux-Trembles',
         u'Rosemont--La-Petite-Patrie': u'Rosemont—La Petite-Patrie',
         u'St-Leonard': u'Saint-Léonard',
         u'Sud-Ouest': u'Le Sud-Ouest',
