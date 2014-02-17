@@ -118,30 +118,30 @@ def corporations():
   return corporations_memo
 
 
-def get_ocd_division(config):
-  ocd_division = config['metadata'].get('ocd_division')
+def get_division_id(config):
+  division_id = config['metadata'].get('division_id')
   geographic_code = config['metadata'].get('geographic_code')
 
-  # Determine ocd_division if not set.
-  if ocd_division:
+  # Determine division_id if not set.
+  if division_id:
     if geographic_code:
-      raise Exception('%s: Set ocd_division or geographic_code' % slug)
+      raise Exception('%s: Set division_id or geographic_code' % slug)
   else:
     if geographic_code:
       length = len(geographic_code)
       if length == 2:
-        ocd_division = sgc_code_to_ocdid()[geographic_code]
+        division_id = sgc_code_to_ocdid()[geographic_code]
       elif length == 4:
-        ocd_division = 'ocd-division/country:ca/cd:%s' % geographic_code
+        division_id = 'ocd-division/country:ca/cd:%s' % geographic_code
       elif length == 7:
-        ocd_division = 'ocd-division/country:ca/csd:%s' % geographic_code
+        division_id = 'ocd-division/country:ca/csd:%s' % geographic_code
       else:
         raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
 
-  return ocd_division
+  return division_id
 
-def get_definition(ocd_division):
-  sections = ocd_division.split('/')
+def get_definition(division_id):
+  sections = division_id.split('/')
   ocd_type, ocd_type_id = sections[-1].split(':')
 
   config = {
@@ -149,7 +149,7 @@ def get_definition(ocd_division):
   }
 
   # Determine slug, domain and authority.
-  name = ocdid_to_name()[ocd_division]
+  name = ocdid_to_name()[division_id]
   if ocd_type == 'country':
     slug = 'Federal electoral districts'
     config['domain'] = name
@@ -173,11 +173,11 @@ def get_definition(ocd_division):
       'ocd-division/country:ca/csd:2443027',  # Sherbrooke
     ]
 
-    if province_or_territory_sgc_code == '24' and ocd_division in boroughs:
+    if province_or_territory_sgc_code == '24' and division_id in boroughs:
       slug = '%s boroughs' % name
-    elif province_or_territory_sgc_code == '12' and ocdid_to_type()[ocd_division] == 'RGM':
+    elif province_or_territory_sgc_code == '12' and ocdid_to_type()[division_id] == 'RGM':
       slug = '%s districts' % name
-    elif province_or_territory_sgc_code == '48' and ocdid_to_type()[ocd_division] == 'MD':
+    elif province_or_territory_sgc_code == '48' and ocdid_to_type()[division_id] == 'MD':
       slug = '%s divisions' % name
     elif province_or_territory_sgc_code == '24':
       slug = '%s districts' % name
@@ -185,7 +185,7 @@ def get_definition(ocd_division):
       slug = '%s wards' % name
     config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
     if ocd_type == 'csd':
-      config['authority'] = authorities + [corporations()[ocd_division]]
+      config['authority'] = authorities + [corporations()[division_id]]
     else:
       config['authority'] = ['']  # We have no expectation for the authority of a Census division
 
@@ -201,7 +201,7 @@ def get_definition(ocd_division):
     config['authority'] = [corporations()[census_subdivision_ocdid]]
 
   else:
-    raise Exception('%s: Unrecognized OCD type %s' % (ocd_division, ocd_type))
+    raise Exception('%s: Unrecognized OCD type %s' % (division_id, ocd_type))
 
   return (slug, config)
 
@@ -249,10 +249,10 @@ class UnicodeWriter:
 
 # @todo Guess name_func and id_func based on the shapefile.
 @task
-def define(ocd_division):
+def define(division_id):
   ocdid_to_sgc_code_map = {v:k for k,v in sgc_code_to_ocdid().items()}
 
-  slug, config = get_definition(ocd_division)
+  slug, config = get_definition(division_id)
   if isinstance(slug, re._pattern_type):
     slug = re.sub('\\\[AZ]', '', slug.pattern)
 
@@ -260,13 +260,13 @@ def define(ocd_division):
   config['last_updated'] = datetime.now().strftime('%Y, %-m, %-d')
   config['authority'] = config['authority'][-1]
 
-  ocd_type, ocd_type_id = ocd_division.split('/')[-1].split(':')
+  ocd_type, ocd_type_id = division_id.split('/')[-1].split(':')
   if ocd_type == 'country' and ocd_type_id == 'ca':
     config['geographic_code'] = '01'
   elif ocd_type in ('province', 'territory', 'cd', 'csd'):
-    config['geographic_code'] = ocdid_to_sgc_code_map[ocd_division]
+    config['geographic_code'] = ocdid_to_sgc_code_map[division_id]
   else:
-    raise Exception('%s: Unrecognized OCD type %s' % (ocd_division, ocd_type))
+    raise Exception('%s: Unrecognized OCD type %s' % (division_id, ocd_type))
 
   print """from datetime import date
 
@@ -326,7 +326,7 @@ def geojson(base='.', geo_json_base='./geojson'):
       # I have not been able to install topojson (hangs during install), but it may reduce file sizes.
       # run('topojson -o %s %s', (geo_json_path, geo_json_path), echo=True)
 
-      ocd_division = get_ocd_division(config)
+      division_id = get_division_id(config)
       if os.stat(geo_json_path).st_size > 10485760:  # 10MB
         suffix = ' (too large to preview)'
       else:
@@ -335,11 +335,11 @@ def geojson(base='.', geo_json_base='./geojson'):
       item = (slug, '* [%s](https://github.com/opennorth/represent-canada-data/blob/master/geojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' %
         (slug.encode('utf-8'), os.path.basename(geo_json_path), slugify(slug).encode('utf-8'), suffix))
 
-      match = re.search('\Aocd-division/country:ca/csd:(\d+)', ocd_division)
+      match = re.search('\Aocd-division/country:ca/csd:(\d+)', division_id)
       if match:
         readme[ocdid_to_name_map[sgc_code_to_ocdid_map[match.group(1)[:2]]]]['lower'].append(item)
       else:
-        readme[ocdid_to_name_map[ocd_division]]['upper'].append(item)
+        readme[ocdid_to_name_map[division_id]]['upper'].append(item)
 
   with open(os.path.join(geo_json_base, 'README.md'), 'w') as f:
     f.write('# Represent API: GeoJSON\n\n## Canada\n\n')
@@ -358,7 +358,7 @@ def geojson(base='.', geo_json_base='./geojson'):
 # Check that all `definition.py` files are valid.
 @task
 def definitions(base='.'):
-  ocd_divisions = set()
+  division_ids = set()
   for slug, config in registry(base).items():
     directory = dirname(config['file'])
 
@@ -418,15 +418,15 @@ def definitions(base='.'):
         if not value:
           print '%-50s Empty value for %s' % (slug, key)
 
-      ocd_division = get_ocd_division(config)
+      division_id = get_division_id(config)
 
-      # Ensure ocd_division is unique.
-      if ocd_division in ocd_divisions:
-        print '%-50s Duplicate ocd_division %s' % (slug, ocd_division)
+      # Ensure division_id is unique.
+      if division_id in division_ids:
+        print '%-50s Duplicate division_id %s' % (slug, division_id)
       else:
-        ocd_divisions.add(ocd_division)
+        ocd_divisions.add(division_id)
 
-      expected_slug, expected_config = get_definition(ocd_division)
+      expected_slug, expected_config = get_definition(division_id)
 
       # Check for unexpected values.
       assert_match(slug, 'slug', slug, expected_slug)
@@ -892,36 +892,15 @@ def update_spreadsheet(filename=''):
 
 # Update populations.py in the represent-canada repository.
 @task
-def populations(mode='representative_set'):
-  sgc_code_to_ocdid_map = sgc_code_to_ocdid()
-  ocdid_to_name_map = ocdid_to_name()
-  ocdid_to_type_map = ocdid_to_type()
-
-  census_subdivision_type_names = {}
-  document = lxml.html.fromstring(requests.get('http://www12.statcan.gc.ca/census-recensement/2011/ref/dict/table-tableau/table-tableau-5-eng.cfm').content)
-  for abbr in document.xpath('//table/tbody/tr/th[1]/abbr'):
-    census_subdivision_type_names[abbr.text_content()] = re.sub(' /.+\Z', '', abbr.attrib['title'])
-
+def populations():
   reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
   reader.next()  # title
   reader.next()  # headers
   for row in reader:
     if row:
       if row[1] != 'Canada':
-        ocd_division = sgc_code_to_ocdid_map[row[0]]
-        census_subdivision_type = ocdid_to_type_map[ocd_division]
-        if census_subdivision_type in ('C', 'CV', 'CY', 'MD', 'MU', 'RGM', 'T', 'TP', 'V', 'VL'):
-          if mode == 'representative_set':
-            if row[0][:2] == '24':
-              name = 'Conseil municipal de %s' % ocdid_to_name_map[ocd_division]
-            else:
-              name_infix = census_subdivision_type_names[census_subdivision_type]
-              if name_infix in ('Municipality', 'Specialized municipality'):
-                name_infix = 'Municipal'
-              elif name_infix == 'Regional municipality':
-                name_infix = 'Regional'
-            print '  u"%s %s Council": %s,' % (ocdid_to_name_map[ocd_division], name_infix, row[4])
-          elif mode == 'boundary_set':
-            print '  u"%s": %s,' % (get_definition(ocd_division)[0], row[4])
+        division_id = 'ocd-division/country:ca/csd:%s' % row[0]
+        if ocdid_to_type()[division_id] in ('C', 'CV', 'CY', 'MD', 'MU', 'RGM', 'T', 'TP', 'V', 'VL'):
+          print '  u"%s": %s,' % (get_definition(division_id)[0], row[4])
     else:
       break
