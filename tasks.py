@@ -118,8 +118,8 @@ def corporations():
   return corporations_memo
 
 
-def get_division_id(config):
-  division_id = config['metadata'].get('division_id')
+def get_division_id(slug, config):
+  division_id = config['metadata'].get('ocd_division')
   geographic_code = config['metadata'].get('geographic_code')
 
   # Determine division_id if not set.
@@ -326,7 +326,7 @@ def geojson(base='.', geo_json_base='./geojson'):
       # I have not been able to install topojson (hangs during install), but it may reduce file sizes.
       # run('topojson -o %s %s', (geo_json_path, geo_json_path), echo=True)
 
-      division_id = get_division_id(config)
+      division_id = get_division_id(slug, config)
       if os.stat(geo_json_path).st_size > 10485760:  # 10MB
         suffix = ' (too large to preview)'
       else:
@@ -418,7 +418,7 @@ def definitions(base='.'):
         if not value:
           print '%-50s Empty value for %s' % (slug, key)
 
-      division_id = get_division_id(config)
+      division_id = get_division_id(slug, config)
 
       # Ensure division_id is unique.
       if division_id in division_ids:
