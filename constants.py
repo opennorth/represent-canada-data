@@ -20,7 +20,7 @@ open_data_licenses = [
   'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf',
   'http://www.regina.ca/residents/open-government/data/terms/',
   'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
-  'http://www.strathcona.ca/local-government/strathcona-county-elections/election-2013-open-data/#licence',
+  'https://data.strathcona.ca/licence',
   'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
   'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf',
   'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx',
@@ -59,8 +59,8 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
   'http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence - Nanaimo (http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html).',
-  'http://www.strathcona.ca/local-government/strathcona-county-elections/election-2013-open-data/#licence':
-    'I. Terms of Use. Contains information licensed under the Open Government Licence – Strathcona County (http://www.strathcona.ca/local-government/strathcona-county-elections/election-2013-open-data/#licence).',
+  'https://data.strathcona.ca/licence':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – Strathcona County (https://data.strathcona.ca/licence).',
   'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default).',
   # Text provided by license.
