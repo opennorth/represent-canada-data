@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register(u'Québec boroughs',
     domain=u'Québec, QC',
-    last_updated=date(2014, 2, 4),
+    last_updated=date(2014, 2, 28),
     name_func=lambda f: f.get('NOM').replace('?', u'—'),  # m-dash
     id_func=boundaries.attr('CODE'),
     authority=u'Ville de Québec',
