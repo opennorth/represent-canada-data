@@ -9,7 +9,7 @@ def namer(f):
 
 boundaries.register('Peterborough wards',
     domain='Peterborough, ON',
-    last_updated=date(2012, 9, 05),
+    last_updated=date(2014, 2, 28),
     name_func=namer,
     id_func=lambda f: re.sub(r'\D', '', f.get('NAME')),
     authority='City of Peterborough',
