@@ -189,7 +189,7 @@ def get_definition(division_id):
     else:
       config['authority'] = ['']  # We have no expectation for the authority of a Census division
 
-  elif ocd_type == 'arrondissement':
+  elif ocd_type == 'borough':
     census_subdivision_ocdid = '/'.join(sections[:-1])
     census_subdivision_name = ocdid_to_name()[census_subdivision_ocdid]
 
@@ -424,7 +424,7 @@ def definitions(base='.'):
       if division_id in division_ids:
         print '%-50s Duplicate division_id %s' % (slug, division_id)
       else:
-        ocd_divisions.add(division_id)
+        division_ids.add(division_id)
 
       expected_slug, expected_config = get_definition(division_id)
 

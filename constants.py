@@ -3,6 +3,7 @@
 import re
 
 open_data_licenses = [
+  'http://cms.burlington.ca/AssetFactory.aspx?did=18762',
   'http://data.gc.ca/eng/open-government-licence-canada',
   'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
   'http://donnees.ville.quebec.qc.ca/licence.aspx',
