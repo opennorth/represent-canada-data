@@ -12,6 +12,6 @@ boundaries.register(u'Lachine districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://donnees.ville.montreal.qc.ca/storage/f/2013-10-16T14%3A16%3A09.092Z/districtelect.zip',
     encoding='iso-8859-1',
-    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/arrondissement:lachine'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2466023/borough:lachine'},
     ogr2ogr=u'''-where "ARRONDISSE='Lachine'"''',
 )
