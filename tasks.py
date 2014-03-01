@@ -174,7 +174,7 @@ def get_definition(division_id):
     ]
 
     if province_or_territory_sgc_code == '24' and division_id in boroughs:
-      slug = '%s boroughs' % name
+      slug = re.compile('\A%s (boroughs|districts)\Z' % name)
     elif province_or_territory_sgc_code == '12' and ocdid_to_type()[division_id] == 'RGM':
       slug = '%s districts' % name
     elif province_or_territory_sgc_code == '48' and ocdid_to_type()[division_id] == 'MD':

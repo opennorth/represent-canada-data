@@ -6,7 +6,6 @@ open_data_licenses = [
   'http://cms.burlington.ca/AssetFactory.aspx?did=18762',
   'http://data.gc.ca/eng/open-government-licence-canada',
   'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
-  'http://donnees.ville.quebec.qc.ca/licence.aspx',
   'http://donnees.ville.sherbrooke.qc.ca/licence.html',
   'http://opendata.peelregion.ca/terms-of-use.aspx',
   'http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/',
@@ -25,6 +24,7 @@ open_data_licenses = [
   'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
   'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf',
   'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx',
+  'https://creativecommons.org/licenses/by/4.0/legalcode',
   'https://www.halifaxopendata.ca/terms',
 ]
 
@@ -36,7 +36,7 @@ some_rights_reserved_licenses = [
 
 all_rights_reserved_licenses = [
   'http://opendata-saskatoon.cloudapp.net/TermsOfUse/TermsOfUse',  # open data license pending
-  'http://www.altalis.com/agreement.html',  # per CIPPIC
+  'http://www.altalis.com/pdf/AltaLIS%20Web%20Use%20Agreement.pdf',  # per CIPPIC
   'http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',  # per CIPPIC
 ]
 
@@ -66,7 +66,6 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default).',
   # Text provided by license.
   'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/': "I. Termes d'utilisation. Contient des données reproduites, modifiées, traduites ou distribuées « telles quelles » avec la permission de la Ville de Montréal (http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/).",
-  'http://donnees.ville.quebec.qc.ca/licence.aspx': "I. Conditions d'utilisation. Contient des données reproduites et distribuées « telles quelles » avec la permission de la Ville de Québec (http://donnees.ville.quebec.qc.ca/licence.aspx).",
   'http://donnees.ville.sherbrooke.qc.ca/licence.html': "I. Termes d'utilisation. Contient des données reproduites et distribuées « telles quelles » avec la permission de la Ville de Sherbrooke (http://donnees.ville.sherbrooke.qc.ca/licence.html).",
   'http://opendata.peelregion.ca/terms-of-use.aspx': "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Peel's Open Data Licence - Version 1.0 (http://opendata.peelregion.ca/terms-of-use.aspx).",
   'http://www.electionspei.ca/apilicense': 'I. Terms of Use. This information is provided by Elections PEI under the Elections PEI Data License (http://www.electionspei.ca/apilicense).',
@@ -78,6 +77,8 @@ terms = {
 }
 
 terms_re = {
+  # Creative Commons.
+  'https://creativecommons.org/licenses/by/4.0/legalcode': re.compile("\AI\. Terms of Use\. This material is licensed under a Creative Commons Attribution 4\.0 International License\. To view a copy of this license, visit http://creativecommons\.org/licenses/by/4\.0/legalcode\. It is attributed to .+, and the original version can be found at .+\.\Z"),
   # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
   'https://www.geosask.ca/Portal/jsp/terms_popup.jsp': re.compile("\AAttribution: (Source|Adapted from): Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan, [^.]+\. The incorporation of data sourced from Her Majesty In Right Of Saskatchewan and/or Information Services Corporation of Saskatchewan, within this product shall not be construed as constituting an endorsement by Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan of such product\.\Z"),
 }
