@@ -83,16 +83,8 @@ ocdid_to_name_memo = {}
 # Maps OCD identifiers to names.
 def ocdid_to_name():
   if not ocdid_to_name_memo:
-    filenames = [
-      'ca_manual',
-      'ca_provinces_and_territories',
-      'ca_census_divisions',
-      'ca_census_subdivisions',
-      'census_subdivision-montreal-arrondissements',
-    ]
-    for filename in filenames:
-      for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename):
-        ocdid_to_name_memo[row[0].decode('utf8')] = row[1].decode('utf8')
+    for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca.csv'):
+      ocdid_to_name_memo[row[0].decode('utf8')] = row[1].decode('utf8')
   return ocdid_to_name_memo
 
 
