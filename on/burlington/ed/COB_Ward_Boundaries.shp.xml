@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20140226</CreaDate><CreaTime>14344700</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><itemProps><itemLocation><linkage Sync="TRUE">file://\\COBNAS3\S_DRIVE\Common\GISMetadata\Ward_Boundaries</linkage><protocol Sync="TRUE">Local Area Network</protocol></itemLocation></itemProps><copyHistory><copy source="C:\GISMetadata\Ward_Boundaries" dest="\\COBNAS3\S_DRIVE\Common\GISMetadata\Ward_Boundaries" date="20131210" time="13510700"/></copyHistory></DataProperties><ModDate>20131210</ModDate><ModTime>15475500</ModTime><scaleRange><minScale>150000000</minScale><maxScale>5000</maxScale></scaleRange><ArcGISProfile>ItemDescription</ArcGISProfile></Esri><dataIdInfo><idCredit>Intermediate GIS Technician - ENGINEERING DEPARTMENT</idCredit><idPurp>"COB.Ward_Boundaries" is a polygon type feature class in SDE that was used for the elections before 1997.</idPurp><idCitation><resTitle>COB.Ward_Boundaries</resTitle></idCitation><searchKeys><keyword>Ward Boundaries before 1997</keyword></searchKeys></dataIdInfo><Binary><Thumbnail><Data EsriPropertyType="PictureX">/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCACFAMgDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iii
+gAooooAKKKKACiiigApglRpGjDfMvUU2eQoAiffbp7D1qDy12hRnjkHvn1+tctfFRpSUdylG5coq
+GKYk7H4fsezVNXRCamuaJIUUUVQBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAB
+TZJBGhY5+g6n2pxIAJJwB3qoWMziQ/dH3Af51jXrKlG/UaVxgLLIWlwS5+8O3+z/AIf49ZaQgMCC
+AQeCDTATEcE5Q9D6exrw5Scnd7mo9lDDB/8A1U+KYgiOQ/N/C397/wCv/n6NpCAwwelbUK8qT02E
+1ctUVXScx4WXOOgf/H0qxXs06kai5oszasFFFFWIKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiopy4iOzOe5HUDvj3/wA+1JuyuBHK/mtsH3AfmPqfT/H8vWikTbsGzG3tilrwq1V1ZczNUrBQ
+QCMEZBoorEZFkw9cmP1P8P19qloqLaYeVyY+69x9P8Py9Ke4EtIrvCNqqXX+EZ+6f8P5fyAQwBBB
+B5BFLWlOrKm7xE1cam+I7gS5PLA/xe49DVlHV1DKcg1Wdwi5OT6AdTTYxJES4OWY5dex+n+f/rdW
+Gxbi+Wo9BSj2LtFNR1kXcp4/lTq9VO5mFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAEEsRUl4
+xnP3lHf3FMBDDI6VaqCWI5Lx9f4l/vf/AF64cThef34blRkNopFYMMjpS15WxoFFFFICMgxksoJU
+8so7e4/w/wAl4IYAggg8gilqK2/49Yf9xf5UwFkBDrIBuC5+X+o96erBlBByDS1Apcs0sYBQ9F/v
+e/8An/8AUATfMjb069x61YR1kXcv4j0qurB1DKcij5kbenXuPWuzDYn2fuy2/ImUblqimxyLIuV+
+hB6g06vXTvqjMKKKKACiiigAooooAKKKKACiiigAooooAKKKKAIZYckyR/e7js3/ANeo1YMOM+4P
+UVaqKWHcd6HDj8m9jXHicKqnvR3KjKxHRSKwbPYjgg9RSPIExkEk9gMmvIaadmaDqitv+PWH/cX+
+VSKwZQQcg1FIHjUmLoeo/u+pH+FHkArfvWMY+4Pv+/t/jUtNQKEGzG3qCDnNOoAjZCGLoPm7j+9/
+9enKwcZH4g9qdTGUht6de4/vf/XoAd8ytvT73Tnow9DU8ciyruXI7EHqD6GqnmNKdkABfuWHCfX/
+AAq1DCIUIzuZjuZj3NepgfaW1+EiViSiiiu8gKKKKACiiigAooooAKKKKACiiigAooooAKKKKAI5
+Yt/zLw46H19jVWMHexkGJP7voO2P8/yq9VMuJrjzF+4gKqf72ep+nAx+PtXDjacOXn6lRYjKUJdB
+n+8vr9PenqwddynilqAhnlbyzsGcOfU+w9ff+deVuaCsfKk+QFt3JQdvcf5/XrKrB1DKcg96REVB
+gZ56knJNMZTGxdBkHllHf3HvQBLTC7NKIYxl8ZJPRR6n/D2NI0oCqUBcscKFxzU9tCYYvmwZGO5y
+Dnn29uwrrwuH9o7y2Jk7DoYVhj2ryerMerH1NSUUV7CVtEZhRRRQAUUUUAFFFFABRRRQAUUUUAFF
+FFABRRRQAUyWVYULtnHoBkk+gpXdY0LMcAVW5d/Mcc/wj+6P8awr11Sj5jSuDPNINpCop6kMSSPT
+tinAADAGAKKK8epVnUd5M0SsFQukiuXibtkpj7x+vbj+nvmamu6xrudgB71mhiJIj5CnkdVPBH4U
+m55JDHCvI+87fdX/ABPt+o4prFZMeZDIq8bZGGOT+o/HFWbQBbOED+4DknOeOtduGw3NJ862JlLs
+EFskG4glnY5Lt1NTUUV6qSSsjMKKKKYBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQBFPD5oUj
+AdDlSemahRiwwy7XHVT2q3UU0PmYKttcdGxnj0NcuJwyqq63KjKxHRUSysEHmxyK/fCEj9M0qRfa
++XyIAfuFcb/rnt7d8enXzYYapKXLaxbkhFZ7gkQnC8fvSMg/T1/+v3qxFaxxPv8AmZz/ABOxJ/Ds
+PwxU1FerSw8KS0Wpm22RXO37O+7OPbqD2qGzkfaISmQgwXB+UegH06fh71aIDAggEHgg96AAoAAA
+A4AFaOL5uYQtFFFWAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAB
+RRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH/9k=</Data></Thumbnail></Binary><mdDateSt Sync="TRUE">20131210</mdDateSt></metadata>
