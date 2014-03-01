@@ -1,6 +1,8 @@
 # coding: utf8
 
-import csv, codecs, cStringIO
+import csv
+import codecs
+import cStringIO
 from collections import defaultdict, OrderedDict
 from datetime import datetime
 from ftplib import FTP
@@ -40,8 +42,12 @@ from constants import (
   headers,
 )
 
-# Returns the directory in which a shapefile exists.
+
 def dirname(path):
+  """
+  Returns the directory in which a shapefile exists.
+  """
+
   # GitPython can't handle paths starting with "./".
   if path.startswith('./'):
     path = path[2:]
@@ -51,20 +57,31 @@ def dirname(path):
     return os.path.dirname(path)
 
 
-# Reads `definition.py` files.
 def registry(base='.'):
+  """
+  Reads `definition.py` files.
+  """
+
   boundaries.autodiscover(base)
   return boundaries.registry
 
 
-# Reads a remote CSV file.
 def csv_reader(url):
+  """
+  Reads a remote CSV file.
+  """
+
   return csv.reader(StringIO(requests.get(url).content))
 
 
 sgc_code_to_ocdid_memo = {}
-# Maps Standard Geographical Classification codes to OCD identifiers.
+
+
 def sgc_code_to_ocdid():
+  """
+  Maps Standard Geographical Classification codes to OCD identifiers.
+  """
+
   if not sgc_code_to_ocdid_memo:
     sgc_code_to_ocdid_memo['01'] = 'ocd-division/country:ca'
     for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv'):
@@ -80,8 +97,13 @@ def sgc_code_to_ocdid():
 
 
 ocdid_to_name_memo = {}
-# Maps OCD identifiers to names.
+
+
 def ocdid_to_name():
+  """
+  Maps OCD identifiers to names.
+  """
+
   if not ocdid_to_name_memo:
     for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca.csv'):
       ocdid_to_name_memo[row[0].decode('utf8')] = row[1].decode('utf8')
@@ -89,8 +111,13 @@ def ocdid_to_name():
 
 
 ocdid_to_type_memo = {}
-# Maps OCD identifiers to types.
+
+
 def ocdid_to_type():
+  """
+  Maps OCD identifiers to types.
+  """
+
   if not ocdid_to_type_memo:
     filenames = [
       'ca_census_divisions',
@@ -103,6 +130,8 @@ def ocdid_to_type():
 
 
 corporations_memo = {}
+
+
 def corporations():
   if not corporations_memo:
     for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-corporations/ca_municipal_subdivisions.csv'):
@@ -131,6 +160,7 @@ def get_division_id(slug, config):
         raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
 
   return division_id
+
 
 def get_definition(division_id):
   sections = division_id.split('/')
@@ -210,6 +240,7 @@ def assert_match(slug, field, actual, expected):
 
 
 class UnicodeWriter:
+
     """
     A CSV writer which will write rows to CSV file "f",
     which is encoded in the given encoding.
@@ -242,7 +273,7 @@ class UnicodeWriter:
 # @todo Guess name_func and id_func based on the shapefile.
 @task
 def define(division_id):
-  ocdid_to_sgc_code_map = {v:k for k,v in sgc_code_to_ocdid().items()}
+  ocdid_to_sgc_code_map = {v: k for k, v in sgc_code_to_ocdid().items()}
 
   slug, config = get_definition(division_id)
   if isinstance(slug, re._pattern_type):
@@ -678,7 +709,7 @@ def shapefiles(base='.'):
 @task
 def spreadsheet(base='.', private_base='../represent-canada-private-data'):
   sgc_code_to_ocdid_map = sgc_code_to_ocdid()
-  ocdid_to_sgc_code_map = {v:k for k,v in sgc_code_to_ocdid_map.items()}
+  ocdid_to_sgc_code_map = {v: k for k, v in sgc_code_to_ocdid_map.items()}
   records = OrderedDict()
 
   for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-subdivisions/ca_municipal_subdivisions.csv'):
