@@ -28,5 +28,5 @@ boundaries.register(u'Dorval districts',
     data_url='http://donnees.ville.montreal.qc.ca/storage/f/2013-10-06T16:49:49.153Z/elections-2009-districts-multi-poly.zip',
     encoding='iso-8859-1',
     metadata={'geographic_code': '2466087'},
-    ogr2ogr='''-where "MONTREAL='0'" -where "NUM_ARR='1'"''',
+    ogr2ogr='''-where "MONTREAL='0' AND NUM_ARR='1'"''',
 )
