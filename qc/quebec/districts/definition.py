@@ -14,4 +14,5 @@ boundaries.register(u'Québec districts',
     data_url='http://donnees.ville.quebec.qc.ca/Handler.ashx?id=43&f=SHP',
     encoding='iso-8859-1',
     metadata={'geographic_code': '2423027'},
+    ogr2ogr='''-where "DATE_FIN='2017/11/05'"''',
 )
