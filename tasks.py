@@ -84,14 +84,18 @@ def sgc_code_to_ocdid():
 
   if not sgc_code_to_ocdid_memo:
     sgc_code_to_ocdid_memo['01'] = 'ocd-division/country:ca'
-    for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-sgc/ca_provinces_and_territories.csv'):
-      sgc_code_to_ocdid_memo[row[1]] = row[0]
+    reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
+    reader.next()
+    for row in reader:
+      sgc_code_to_ocdid_memo[row[4]] = row[0]
     filenames = [
       'ca_census_divisions',
       'ca_census_subdivisions',
     ]
     for filename in filenames:
-      for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename):
+      reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename)
+      reader.next()
+      for row in reader:
         sgc_code_to_ocdid_memo[row[0].split(':')[-1]] = row[0]
   return sgc_code_to_ocdid_memo
 
@@ -105,7 +109,9 @@ def ocdid_to_name():
   """
 
   if not ocdid_to_name_memo:
-    for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca.csv'):
+    reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca.csv')
+    reader.next()
+    for row in reader:
       ocdid_to_name_memo[row[0].decode('utf8')] = row[1].decode('utf8')
   return ocdid_to_name_memo
 
@@ -124,8 +130,10 @@ def ocdid_to_type():
       'ca_census_subdivisions',
     ]
     for filename in filenames:
-      for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-types/%s.csv' % filename):
-        ocdid_to_type_memo[row[0].decode('utf8')] = row[1].decode('utf8')
+      reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename)
+      reader.next()
+      for row in reader:
+        ocdid_to_type_memo[row[0].decode('utf8')] = row[3].decode('utf8')
   return ocdid_to_type_memo
 
 
@@ -134,8 +142,10 @@ corporations_memo = {}
 
 def corporations():
   if not corporations_memo:
-    for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-corporations/ca_municipal_subdivisions.csv'):
-      corporations_memo[row[0]] = row[1].decode('utf8')
+    reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv')
+    reader.next()
+    for row in reader:
+      corporations_memo[row[0]] = row[4].decode('utf8')
   return corporations_memo
 
 
@@ -712,16 +722,22 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
   ocdid_to_sgc_code_map = {v: k for k, v in sgc_code_to_ocdid_map.items()}
   records = OrderedDict()
 
-  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-subdivisions/ca_municipal_subdivisions.csv'):
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_municipal_subdivisions-has_children.csv')
+  reader.next()
+  for row in reader:
     municipal_subdivisions[row[0].split(':')[-1]] = row[1]
 
   urls = {}
-  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-urls/ca_census_subdivisions.csv'):
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions-url.csv')
+  reader.next()
+  for row in reader:
     urls[row[0].split(':')[-1]] = row[1]
 
   abbreviations = {}
-  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/mappings/country-ca-abbr/ca_provinces_and_territories.csv'):
-    abbreviations[row[1]] = row[0].split(':')[-1].upper()
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
+  reader.next()
+  for row in reader:
+    abbreviations[row[2]] = row[0].split(':')[-1].upper()
 
   # Get scraper URLs.
   scraper_urls = {}
@@ -738,7 +754,9 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
       sys.stderr.write('%-60s No boundary_set_url\n' % representative_set['url'])
 
   # Create records for provinces and territories.
-  for row in csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv'):
+  reader = csv_reader('https://raw.github.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
+  reader.next()
+  for row in reader:
     records[ocdid_to_sgc_code_map[row[0]]] = {
       'OCD': row[0],
       'Geographic code': ocdid_to_sgc_code_map[row[0]],
