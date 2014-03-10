@@ -13,6 +13,6 @@ boundaries.register(u'Sainte-Foy–Sillery–Cap-Rouge districts',
     licence_url='https://creativecommons.org/licenses/by/4.0/legalcode',
     data_url='http://donnees.ville.quebec.qc.ca/Handler.ashx?id=43&f=SHP',
     encoding='iso-8859-1',
-    metadata={'ocd_division': u'ocd-division/country:ca/csd:2423027/borough:sainte-foy~sillery~cap-rouge'},
+    metadata={'ocd_division': u'ocd-division/country:ca/csd:2423027/borough:3'},
     ogr2ogr='''-where "DATE_FIN='2017/11/05' AND ARROND='Sainte-FoySilleryCap-Rouge'"''',
 )
