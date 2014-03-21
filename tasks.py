@@ -357,20 +357,22 @@ def geojson(base='.', geo_json_base='./geojson'):
     if 'fed/cd' not in config['file'] and 'fed/csd' not in config['file']:  # files are too large for GitHub
       directory = dirname(config['file'])
       shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
-      geo_json_path = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))) + '.geojson')
+      basename = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))))
+      geo_json_path = basename + '.geojson'
+      topo_json_path = basename + '.topojson'
       if not os.path.exists(geo_json_path):
         run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
-      # I have not been able to install topojson (hangs during install), but it may reduce file sizes.
-      # run('topojson -o %s %s', (geo_json_path, geo_json_path), echo=True)
+      if not os.path.exists(topo_json_path):
+        run('topojson -o %s %s' % (topo_json_path, geo_json_path), echo=True)
 
       division_id = get_division_id(slug, config)
-      if os.stat(geo_json_path).st_size > 10485760:  # 10MB
+      if os.stat(topo_json_path).st_size > 10485760:  # 10MB
         suffix = ' (too large to preview)'
       else:
         suffix = ''
 
       item = (slug, '* [%s](https://github.com/opennorth/%s/blob/master/geojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' %
-        (slug.encode('utf-8'), repository, os.path.basename(geo_json_path), slugify(slug).encode('utf-8'), suffix))
+        (slug.encode('utf-8'), repository, os.path.basename(topo_json_path), slugify(slug).encode('utf-8'), suffix))
 
       match = re.search('\Aocd-division/country:ca/csd:(\d+)', division_id)
       if match:
