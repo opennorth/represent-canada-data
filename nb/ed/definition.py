@@ -9,10 +9,11 @@ boundaries.register('New Brunswick electoral districts',
     # DIST_ID
     id_func=boundaries.attr('PED_Num'),
     authority='Her Majesty the Queen in Right of New Brunswick',
-    # http://www.snb.ca/geonb1/e/DC/catalogue-E.asp
     source_url='http://www.gnb.ca/elections/10prov/10provmap-e.asp',
-    # http://geonb.snb.ca/downloads/prov_electoral_districts/geonb_2014_ped-cep_shp.zip
     data_url='http://www.gnb.ca/elections/pdf/2010PEDMaps/NB_Electoral_Districts.zip',
+    # source_url='http://www.snb.ca/geonb1/e/DC/catalogue-E.asp',
+    # data_url='http://geonb.snb.ca/downloads/prov_electoral_districts/geonb_2014_ped-cep_shp.zip',
+    # licence_url='http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
     encoding='iso-8859-1',
     metadata={'geographic_code': '13'},
 )
