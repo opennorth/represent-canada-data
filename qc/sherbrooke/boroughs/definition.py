@@ -8,7 +8,7 @@ import boundaries
 boundaries.register('Sherbrooke boroughs',
     domain='Sherbrooke, QC',
     last_updated=date(2013, 12, 16),
-    name_func=lambda f: f.get('NOM').replace('Arrondissement de ').replace(u'', u'—'), # zero-width space, m-dash
+    name_func=lambda f: f.get('NOM').replace('Arrondissement de ', '').replace(u'', u'—'), # zero-width space, m-dash
     id_func=boundaries.attr('NUMERO'),
     source_url='http://donnees.ville.sherbrooke.qc.ca/catalogue-de-donnees/fiche-du-jeu-de-donnees/jeu/arrondissements.html',
     data_url='http://donnees.ville.sherbrooke.qc.ca/fileadmin/donnees_ouvertes/Arrondissement.shp.zip',
