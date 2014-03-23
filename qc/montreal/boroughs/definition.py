@@ -22,6 +22,8 @@ def namer(f):
         u'Villeray-Saint-Michel-Parc-Extension': u'Villeray—Saint-Michel—Parc-Extension',
     }.get(n, n)
 
+# @see http://www.toponymie.gouv.qc.ca/ct/toponymie-municipale/municipalites-arrondissements/arrondissement.aspx
+# @see http://www.mamrot.gouv.qc.ca/repertoire-des-municipalites/fiche/arrondissement/?tx_mamrotrepertoire_pi1[order]=asc_nom_mun
 boundaries.register(u'Montréal boroughs',
     domain=u'Montréal, QC',
     last_updated=date(2014, 2, 1),
