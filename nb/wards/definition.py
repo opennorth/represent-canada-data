@@ -27,6 +27,7 @@ sets = {
 
 for geographic_code, (name, machine_name) in sets.items():
     boundaries.register(u'%s wards' % name,
+        file='%s.shp' % name,
         domain=u'%s, NB' % name,
         last_updated=date(2014, 3, 24),
         name_func=lambda f: 'Ward %s' % f.get('WARD_ID'),
@@ -37,9 +38,11 @@ for geographic_code, (name, machine_name) in sets.items():
         encoding='iso-8859-1',
         metadata={'geographic_code': geographic_code},
         ogr2ogr='''-where "MUN_NAME='%s'"''' % machine_name,
+        base_file='OGRGeoJSON.shp',
     )
 
 boundaries.register(u'Grand Falls wards',
+    file='Grand Falls.shp',
     domain=u'Grand Falls, NB',
     last_updated=date(2014, 3, 24),
     name_func=lambda f: 'South Ward' if f.get('OBJECTID') == '35' else 'North Ward',
@@ -49,4 +52,5 @@ boundaries.register(u'Grand Falls wards',
     encoding='iso-8859-1',
     metadata={'geographic_code': '1312019'},
     ogr2ogr='''-where "MUN_NAME='Grand Falls\Grand-Sault'"''',
+    base_file='OGRGeoJSON.shp',
 )

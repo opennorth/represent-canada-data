@@ -59,7 +59,7 @@ def dirname(path):
 
 def registry(base='.'):
   """
-  Reads `definition.py` files.
+  Reads definition.py files.
   """
 
   boundaries.autodiscover(base)
@@ -316,9 +316,11 @@ boundaries.register(u'%(slug)s',
 )""" % config
 
 
-# Check that all data directories contain a `LICENSE.txt`.
 @task
 def licenses(base='.'):
+  """
+  Check that all data directories contain a LICENSE.txt.
+  """
   for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
     if '.git' in dirnames:
       dirnames.remove('.git')
@@ -330,9 +332,11 @@ def licenses(base='.'):
       print '%s No LICENSE.txt' % dirpath
 
 
-# Fix file permissions.
 @task
 def permissions(base='.'):
+  """
+  Fix file permissions.
+  """
   for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
     if '.git' in dirnames:
       dirnames.remove('.git')
@@ -394,9 +398,11 @@ def geojson(base='.', geo_json_base='./geojson'):
           f.write(markdown)
 
 
-# Check that all `definition.py` files are valid.
 @task
 def definitions(base='.'):
+  """
+  Check that all definition.py files are valid.
+  """
   division_ids = set()
   for slug, config in registry(base).items():
     directory = dirname(config['file'])
@@ -473,9 +479,11 @@ def definitions(base='.'):
         assert_match(slug, key, config[key], value)
 
 
-# Check that the source, data and license URLs work.
 @task
 def urls(base='.'):
+  """
+  Check that the source, data and license URLs work.
+  """
   headers = {'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'}
 
   for slug, config in registry(base).items():
@@ -505,9 +513,22 @@ def urls(base='.'):
             print '404 %s' % url
 
 
-# Update any out-of-date shapefiles.
+@task
+def ogr2ogr(base='.'):
+  """
+  Run ogr2ogr tasks.
+  """
+  for slug, config in registry(base).items():
+    if config.get('ogr2ogr'):
+      directory = dirname(config['file'])
+      run('ogr2ogr -f "ESRI Shapefile" "%s" "%s/%s" %s' % (config['file'], directory, config['original_file'], config['ogr2ogr']), echo=True)
+
+
 @task
 def shapefiles(base='.'):
+  """
+  Update any out-of-date shapefiles.
+  """
   headers = {'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'}
 
   def process(slug, config, url, data_file_path):

@@ -105,6 +105,7 @@ valid_keys = set([
   # Used by this script. Not validated.
   'ogr2ogr',
   'prj',
+  'base_file',
 ])
 
 valid_metadata_keys = set([
