@@ -17,10 +17,12 @@ sets = {
     '1314025': [u'Belledune', 'Belledune'],
     '1307005': [u'Beaubassin East', 'Beaubassin East\Beaubassin-Est'],
     '1315027': [u'Bas-Caraquet', 'Bas-Caraquet'],
-    '1310032': [u'Fredericton', 'Fredericton'],
     '1302004': [u'Campobello Island', 'Campobello'],
     '1314019': [u'Kedgwick', 'Kedgwick'],
 }
+
+# Fredericton (1310032) has ward names in its data catalog.
+# It is not clear what the two wards are in Beresford (1315015).
 
 for geographic_code, (name, machine_name) in sets.items():
     boundaries.register(u'%s wards' % name,
@@ -47,5 +49,3 @@ boundaries.register(u'Grand Falls wards',
     metadata={'geographic_code': '1312019'},
     ogr2ogr='''-where "MUN_NAME='Grand Falls\Grand-Sault'"''',
 )
-
-# It is not clear what the two wards are in Beresford (1315015).
