@@ -42,7 +42,7 @@ for geographic_code, (name, machine_name) in sets.items():
 boundaries.register(u'Grand Falls wards',
     domain=u'Grand Falls, NB',
     last_updated=date(2014, 3, 24),
-    name_func=lambda f: 'South Ward' if f.get('OBJECTID') == 35 else 'North Ward',
+    name_func=lambda f: 'South Ward' if f.get('OBJECTID') == '35' else 'North Ward',
     authority='Her Majesty the Queen in Right of New Brunswick',
     source_url='http://geonb.snb.ca/ArcGIS/rest/services/ElectionsNB/GeoNB_ENB_MunicipalWards/MapServer/0',
     licence_url='http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
