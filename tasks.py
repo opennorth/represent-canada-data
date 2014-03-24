@@ -784,6 +784,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
       'OCD': row[0],
       'Geographic code': ocdid_to_sgc_code_map[row[0]],
       'Geographic name': row[1],
+      'Geographic type': '',
       'Province or territory': row[0].split(':')[-1].upper(),
       'Population': '',
       'URL': '',
@@ -822,6 +823,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         'Geographic code': row[0],
         'Geographic name': name,
         'Province or territory': province_or_territory,
+        'Geographic type': row[2].decode('iso-8859-1'),
         'Population': row[4],
         'URL': urls.get(row[0], ''),
         'Scraper?': scraper_urls.get(row[0], ''),
@@ -929,7 +931,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
            (key in ('Received via', 'Type of license', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested')):
           record[key] = b
         elif key != 'Population':  # separators
-          sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
+          sys.stderr.write(u'%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
 
   writer = UnicodeWriter(sys.stdout)
   writer.writerow(headers)

@@ -7,6 +7,7 @@ open_data_licenses = [
   'http://data.gc.ca/eng/open-government-licence-canada',
   'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
   'http://donnees.ville.sherbrooke.qc.ca/licence.html',
+  'http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
   'http://opendata.peelregion.ca/terms-of-use.aspx',
   'http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/',
   'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
@@ -145,6 +146,8 @@ municipal_subdivisions = {
   '4708004': 'N',
   '4709012': 'N',
   '4716029': 'N',
+  # YT
+  '6001009': 'N',
   # NT
   '6106023': 'N',
 }
