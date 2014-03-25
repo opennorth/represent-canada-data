@@ -3,6 +3,7 @@ from datetime import date
 
 import boundaries
 
+# Superceded by DGEQ.
 boundaries.register('Saint-Jean-sur-Richelieu districts',
     domain='Saint-Jean-sur-Richelieu, QC',
     last_updated=date(2012, 10, 31),
