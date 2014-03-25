@@ -283,13 +283,15 @@ def namer(f):
     # @note Saint-Jérôme (2475017) has names for districts.
     if f.get('CO_MUNCP') == 23027:
         return {
-            u'Montcalm-Saint-Sacrement': u'Montcalm—Saint-Sacrement',
-            u'Saint-Roch-Saint-Sauveur': u'Saint-Roch—Saint-Sauveur',
-            u'Saint-Louis-Sillery': u'Saint-Louis—Sillery',
             u'Cap-Rouge-Laurentien': u'Cap-Rouge—Laurentien',
-            u'Monts': u'Les Monts',
             u'La Chute-Montmorency-Seigneurial': u'La Chute-Montmorency—Seigneurial',
             u'Lac-Saint-Charles-Saint-Émile': u'Lac-Saint-Charles—Saint-Émile',
+            u'Montcalm-Saint-Sacrement': u'Montcalm—Saint-Sacrement',
+            u'Monts': u'Les Monts',
+            u'Plateau': u'Le Plateau',
+            u'Pointe-de-Sainte-Foy': u'La Pointe-de-Sainte-Foy',
+            u'Saint-Louis-Sillery': u'Saint-Louis—Sillery',
+            u'Saint-Roch-Saint-Sauveur': u'Saint-Roch—Saint-Sauveur',
         }.get(f.get('NM_DIS'), f.get('NM_DIS'))
     elif f.get('CO_MUNCP') == 58227:
         return re.sub(r"\A(?:d'|de |du |des )", '', f.get('NM_DIS'))
@@ -297,10 +299,10 @@ def namer(f):
         return f.get('NM_DIS').replace('/ ', '/')
     elif f.get('CO_MUNCP') == 81017:
         return {
-            u'du Plateau-Manoir-des-Trembles': u'du Plateau—Manoir-des-Trembles',
-            u'de Wright-Parc-de-la-Montagne': u'Wright—Parc-de-la-Montagne',
-            u'de Saint-Raymond-Vanier': u'de Saint-Raymond—Vanier',
             u'de Hull-Val-Tétreau': u'de Hull—Val-Tétreau',
+            u'de Saint-Raymond-Vanier': u'de Saint-Raymond—Vanier',
+            u'de Wright-Parc-de-la-Montagne': u'Wright—Parc-de-la-Montagne',
+            u'du Plateau-Manoir-des-Trembles': u'du Plateau—Manoir-des-Trembles',
         }.get(f.get('NM_DIS'), f.get('NM_DIS'))
     else:
         if f.get('NM_DIS'):
