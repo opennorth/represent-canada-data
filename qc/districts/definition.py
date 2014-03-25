@@ -280,6 +280,7 @@ sets = {
 }
 
 def namer(f):
+    import re
     # @note Saint-Jérôme (2475017) has names for districts.
     if f.get('CO_MUNCP') == '2423027':
         return {
