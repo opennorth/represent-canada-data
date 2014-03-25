@@ -205,6 +205,22 @@ def get_definition(division_id):
       'ocd-division/country:ca/csd:2443027',  # Sherbrooke
     ]
 
+    quartiers = [
+      'ocd-division/country:ca/csd:2446080',  # Cowansville
+      'ocd-division/country:ca/csd:2467025',  # Delson
+      'ocd-division/country:ca/csd:2493005',  # Desbiens
+      'ocd-division/country:ca/csd:2403005',  # Gaspé
+      'ocd-division/country:ca/csd:2402015',  # Grande-Rivière
+      'ocd-division/country:ca/csd:2469055',  # Huntingdon
+      'ocd-division/country:ca/csd:2487090',  # La Sarre
+      'ocd-division/country:ca/csd:2434120',  # Lac-Sergent
+      'ocd-division/country:ca/csd:2483065',  # Maniwaki
+      'ocd-division/country:ca/csd:2413095',  # Pohngamook
+      'ocd-division/country:ca/csd:2453050',  # Saint-Joseph-de-Sorel
+      'ocd-division/country:ca/csd:2489040',  # Senne-Terre
+      'ocd-division/country:ca/csd:2411040',  # Trois-Pistoles
+    ]
+
     if province_or_territory_sgc_code == '24' and division_id in boroughs:
       slug = re.compile('\A%s (boroughs|districts)\Z' % name)
     elif province_or_territory_sgc_code == '12' and ocdid_to_type()[division_id] == 'RGM':
@@ -212,11 +228,18 @@ def get_definition(division_id):
     elif province_or_territory_sgc_code == '48' and ocdid_to_type()[division_id] == 'MD':
       slug = '%s divisions' % name
     elif province_or_territory_sgc_code == '24':
-      slug = '%s districts' % name
+      if division_id in quartiers:
+        slug = '%s quartiers' % name
+      else:
+        slug = '%s districts' % name
     else:
       slug = '%s wards' % name
     config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
-    if ocd_type == 'csd':
+    if province_or_territory_sgc_code == '13':
+      config['authority'] = [u'Her Majesty the Queen in Right of New Brunswick']
+    elif province_or_territory_sgc_code == '24':
+      config['authority'] = [u'Directeur général des élections du Québec']
+    elif ocd_type == 'csd':
       config['authority'] = authorities + [corporations()[division_id]]
     else:
       config['authority'] = ['']  # We have no expectation for the authority of a Census division
@@ -230,7 +253,10 @@ def get_definition(division_id):
 
     slug = '%s districts' % name
     config['domain'] = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
-    config['authority'] = [corporations()[census_subdivision_ocdid]]
+    if province_or_territory_sgc_code == '24':
+      config['authority'] = [u'Directeur général des élections du Québec']
+    else:
+      config['authority'] = [corporations()[census_subdivision_ocdid]]
 
   else:
     raise Exception('%s: Unrecognized OCD type %s' % (division_id, ocd_type))
@@ -442,7 +468,7 @@ def definitions(base='.'):
     for key in ('domain', 'last_updated', 'name_func', 'authority', 'encoding'):
       if not config.get(key):
         print '%-50s Missing %s' % (slug, key)
-    if not config.get('source_url') and (config.get('licence_url') or config.get('data_url')):
+    if not config.get('source_url') and config.get('data_url'):
       print '%-50s Missing source_url' % slug
     if config.get('source_url') and not config.get('licence_url') and not config.get('data_url'):
       print '%-50s Missing licence_url or data_url' % slug
