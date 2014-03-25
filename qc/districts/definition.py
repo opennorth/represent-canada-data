@@ -301,3 +301,27 @@ for geographic_code, (name, type) in sets.items():
         ogr2ogr='''-where "CO_MUNCP='%s'"''' % geographic_code,
         base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
     )
+
+boroughs = {
+    u'ocd-division/country:ca/csd:2423027/borough:1': [u'La Cité-Limoilou', u'LACITELIMOILOU'],
+    u'ocd-division/country:ca/csd:2423027/borough:2': [u'Les Rivières', u'LESRIVIERES'],
+    u'ocd-division/country:ca/csd:2423027/borough:3': [u'Sainte-Foy–Sillery–Cap-Rouge', u'SAINTFOYSILLERYCAPROUGE'],
+    u'ocd-division/country:ca/csd:2423027/borough:4': [u'Charlesbourg', u'CHARLESBOURG'],
+    u'ocd-division/country:ca/csd:2423027/borough:5': [u'Beauport', u'BEAUPORT'],
+    u'ocd-division/country:ca/csd:2423027/borough:6': [u'La Haute-Saint-Charles', u'LAHAUTESAINTCHARLES'],
+}
+
+for ocd_division, (name, machine_name) in boroughs.items():
+    boundaries.register(u'%s districts' % name,
+        file=u'Québec-%s.shp' % name,
+        domain=u'%s, Québec, QC' % name,
+        last_updated=date(2014, 2, 28),
+        name_func=namer,
+        id_func=boundaries.attr('NO_DIS'),
+        authority=u'Directeur général des élections du Québec',
+        licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
+        encoding='iso-8859-1',
+        metadata={'ocd_division': ocd_division},
+        ogr2ogr='''-where "CO_MUNCP='23027' AND NMTRI_ARON='%s'"''' % machine_name,
+        base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
+    )
