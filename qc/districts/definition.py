@@ -281,7 +281,7 @@ sets = {
 
 def namer(f):
     # @note Saint-Jérôme (2475017) has names for districts.
-    if f.get('CO_MUNCP') == 2423027:
+    if f.get('CO_MUNCP') == 23027:
         return {
             u'Montcalm-Saint-Sacrement': u'Montcalm—Saint-Sacrement',
             u'Saint-Roch-Saint-Sauveur': u'Saint-Roch—Saint-Sauveur',
@@ -291,11 +291,11 @@ def namer(f):
             u'La Chute-Montmorency-Seigneurial': u'La Chute-Montmorency—Seigneurial',
             u'Lac-Saint-Charles-Saint-Émile': u'Lac-Saint-Charles—Saint-Émile',
         }.get(f.get('NM_DIS'), f.get('NM_DIS'))
-    elif f.get('CO_MUNCP') == 2458227:
+    elif f.get('CO_MUNCP') == 58227:
         return re.sub(r"\A(?:d'|de |du |des )", '', f.get('NM_DIS'))
-    elif f.get('CO_MUNCP') == 2466097:
+    elif f.get('CO_MUNCP') == 66097:
         return f.get('NM_DIS').replace('/ ', '/')
-    elif f.get('CO_MUNCP') == 2481017:
+    elif f.get('CO_MUNCP') == 81017:
         return {
             u'du Plateau-Manoir-des-Trembles': 'du Plateau—Manoir-des-Trembles',
             u'de Wright-Parc-de-la-Montagne': 'Wright—Parc-de-la-Montagne',
@@ -311,7 +311,7 @@ def namer(f):
             return 'District %s' % int(f.get('NO_DIS'))
 
 def ider(f):
-    if f.get('CO_MUNCP') == 2443027:
+    if f.get('CO_MUNCP') == 43027:
         return '%d%d' % (int(f.get('NO_ARON')), int(f.get('NO_DIS')))
     else:
         return int(f.get('NO_DIS'))

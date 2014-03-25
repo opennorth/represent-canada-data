@@ -17,14 +17,13 @@ sets = {
 
 def namer(f):
     import boundaries
-    if f.get('CO_MUNCP') == 2443027:
+    if f.get('CO_MUNCP') == 43027:
         return {
             u'Le Mont-Bellevue': 'Mont-Bellevue',
             u'Rock Rorest--Saint-lie--Deauville': 'Rock Forest—Saint-Élie—Deauville',
         }.get(f.get('NM_ARON'), f.get('NM_ARON'))
     else:
         return boundaries.attr('NM_ARON')(f)
-# @todo /borough (missing article, accent)
 
 for geographic_code, name in sets.items():
     boundaries.register(u'%s boroughs' % name,
