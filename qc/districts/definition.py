@@ -126,7 +126,6 @@ sets = {
     57030: [u"Otterburn Park", u"districts"],
     2005: [u"Percé", u"districts"],
     71070: [u"Pincourt", u"districts"],
-    32045: [u"Plessisville", u"districts"],
     32040: [u"Plessisville", u"districts"],
     96030: [u"Pointe-aux-Outardes", u"districts"],
     72020: [u"Pointe-Calumet", u"districts"],
@@ -320,7 +319,7 @@ def ider(f):
 
 for geographic_code, (name, type) in sets.items():
     boundaries.register(u'%s %s' % (name, type),
-        file='%s.shp' % unidecode(name),
+        file='%s-24%05d.shp' % (unidecode(name), geographic_code),
         domain=u'%s, QC' % name,
         last_updated=date(2014, 2, 28),
         name_func=namer,
@@ -332,6 +331,20 @@ for geographic_code, (name, type) in sets.items():
         ogr2ogr='''-where "CO_MUNCP='%d'"''' % geographic_code,
         base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
     )
+
+boundaries.register(u'Paroisse de Plessisville districts',
+    file='Plessisville-2432045.shp',
+    domain=u'Plessisville, QC',
+    last_updated=date(2014, 2, 28),
+    name_func=namer,
+    id_func=ider,
+    authority=u'Directeur général des élections du Québec',
+    licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
+    encoding='iso-8859-1',
+    metadata={'geographic_code': '2432045'},
+    ogr2ogr='''-where "CO_MUNCP='2432045'"''',
+    base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
+)
 
 boroughs_quebec = {
     u'ocd-division/country:ca/csd:2423027/borough:1': [u'La Cité-Limoilou', u'LACITELIMOILOU'],
