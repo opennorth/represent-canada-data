@@ -287,20 +287,20 @@ def namer(f):
     else:
         return 'District %s' % f.get('NO_DIS')
 
-# for geographic_code, (name, type) in sets.items():
-#     boundaries.register(u'%s %s' % (name, type),
-#         file='%s.shp' % name,
-#         domain=u'%s, QC' % name,
-#         last_updated=date(2014, 2, 28),
-#         name_func=namer,
-#         id_func=boundaries.attr('NO_DIS'),
-#         authority=u'Directeur général des élections du Québec',
-#         licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
-#         encoding='iso-8859-1',
-#         metadata={'geographic_code': '24%s' % geographic_code},
-#         ogr2ogr='''-where "CO_MUNCP='%s'"''' % geographic_code,
-#         base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
-#     )
+for geographic_code, (name, type) in sets.items():
+    boundaries.register(u'%s %s' % (name, type),
+        file='%s.shp' % unidecode(name),
+        domain=u'%s, QC' % name,
+        last_updated=date(2014, 2, 28),
+        name_func=namer,
+        id_func=boundaries.attr('NO_DIS'),
+        authority=u'Directeur général des élections du Québec',
+        licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
+        encoding='iso-8859-1',
+        metadata={'geographic_code': '24%s' % geographic_code},
+        ogr2ogr='''-where "CO_MUNCP='%s'"''' % geographic_code,
+        base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
+    )
 
 boroughs_quebec = {
     u'ocd-division/country:ca/csd:2423027/borough:1': [u'La Cité-Limoilou', u'LACITELIMOILOU'],

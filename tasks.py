@@ -521,7 +521,8 @@ def ogr2ogr(base='.'):
   for slug, config in registry(base).items():
     if config.get('ogr2ogr'):
       directory = dirname(config['file'])
-      run('ogr2ogr -f "ESRI Shapefile" "%s" "%s/%s" %s' % (config['file'], directory, config['base_file'], config['ogr2ogr']), echo=True)
+      if not os.path.exists(config['file']):
+        run('ogr2ogr -f "ESRI Shapefile" "%s" "%s/%s" %s' % (config['file'], directory, config['base_file'], config['ogr2ogr']), echo=True)
 
 
 @task
