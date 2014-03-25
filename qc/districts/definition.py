@@ -312,7 +312,7 @@ def namer(f):
 
 def ider(f):
     if f.get('CO_MUNCP') == 43027:
-        return '%d%d' % (int(f.get('NO_ARON')), int(f.get('NO_DIS')))
+        return '%d' % (int(f.get('NO_DIS') * 10))
     else:
         return int(f.get('NO_DIS'))
 
