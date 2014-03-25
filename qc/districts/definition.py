@@ -312,7 +312,7 @@ def namer(f):
             return u'District %s' % int(f.get('NO_DIS'))
 
 def ider(f):
-    if f.get('CO_MUNCP') == 43027:
+    if f.get('CO_MUNCP') in (43027, 66023): # Sherbrooke, Montréal
         return '%d' % (int(f.get('NO_DIS') * 10))
     else:
         return int(f.get('NO_DIS'))
