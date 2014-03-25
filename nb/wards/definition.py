@@ -4,22 +4,22 @@ from datetime import date
 import boundaries
 
 sets = {
-    '1309027': [u'Upper Miramichi', 'Upper Miramichi'],
-    '1301006': [u'Saint John', 'Saint John'],
-    '1313002': [u'Saint-André', 'Saint-Andr'],
-    '1306020': [u'Riverview', 'Riverview'],
-    '1303012': [u'Oromocto', 'Oromocto'],
-    '1307022': [u'Moncton', 'Moncton'],
-    '1307013': [u'Memramcook', 'Memramcook'],
-    '1311027': [u'Florenceville-Bristol', 'Florenceville-Bristol'],
-    '1313027': [u'Edmundston', 'Edmunston'],
-    '1307045': [u'Dieppe', 'Dieppe'],
-    '1315028': [u'Caraquet', 'Caraquet'],
-    '1314025': [u'Belledune', 'Belledune'],
-    '1307005': [u'Beaubassin East', 'Beaubassin East\Beaubassin-Est'],
-    '1315027': [u'Bas-Caraquet', 'Bas-Caraquet'],
-    '1302004': [u'Campobello Island', 'Campobello'],
-    '1314019': [u'Kedgwick', 'Kedgwick'],
+    '1309027': [u'Upper Miramichi', u'Upper Miramichi'],
+    '1301006': [u'Saint John', u'Saint John'],
+    '1313002': [u'Saint-André', u'Saint-André'],
+    '1306020': [u'Riverview', u'Riverview'],
+    '1303012': [u'Oromocto', u'Oromocto'],
+    '1307022': [u'Moncton', u'Moncton'],
+    '1307013': [u'Memramcook', u'Memramcook'],
+    '1311027': [u'Florenceville-Bristol', u'Florenceville-Bristol'],
+    '1313027': [u'Edmundston', u'Edmunston'],
+    '1307045': [u'Dieppe', u'Dieppe'],
+    '1315028': [u'Caraquet', u'Caraquet'],
+    '1314025': [u'Belledune', u'Belledune'],
+    '1307005': [u'Beaubassin East', u'Beaubassin East\Beaubassin-Est'],
+    '1315027': [u'Bas-Caraquet', u'Bas-Caraquet'],
+    '1302004': [u'Campobello Island', u'Campobello'],
+    '1314019': [u'Kedgwick', u'Kedgwick'],
 }
 
 # Fredericton (1310032) has ward names in its data catalog.
