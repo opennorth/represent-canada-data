@@ -931,7 +931,8 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
            (key == 'Type of license'  and '(' in b) or
            (key in ('Received via', 'Type of license', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested')):
           record[key] = b
-        elif key != 'Population':  # separators
+        # The spreadsheet can add contacts and URLs.
+        elif key != 'Population' and (key not in ('Contact', 'URL') or a):  # separators
           sys.stderr.write(u'%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
 
   writer = UnicodeWriter(sys.stdout)
