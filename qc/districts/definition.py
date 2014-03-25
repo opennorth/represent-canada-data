@@ -302,7 +302,7 @@ for geographic_code, (name, type) in sets.items():
         base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
     )
 
-boroughs = {
+boroughs_quebec = {
     u'ocd-division/country:ca/csd:2423027/borough:1': [u'La Cité-Limoilou', u'LACITELIMOILOU'],
     u'ocd-division/country:ca/csd:2423027/borough:2': [u'Les Rivières', u'LESRIVIERES'],
     u'ocd-division/country:ca/csd:2423027/borough:3': [u'Sainte-Foy–Sillery–Cap-Rouge', u'SAINTFOYSILLERYCAPROUGE'],
@@ -311,7 +311,7 @@ boroughs = {
     u'ocd-division/country:ca/csd:2423027/borough:6': [u'La Haute-Saint-Charles', u'LAHAUTESAINTCHARLES'],
 }
 
-for ocd_division, (name, machine_name) in boroughs.items():
+for ocd_division, (name, machine_name) in boroughs_quebec.items():
     boundaries.register(u'%s districts' % name,
         file=u'Québec-%s.shp' % name,
         domain=u'%s, Québec, QC' % name,
@@ -323,5 +323,42 @@ for ocd_division, (name, machine_name) in boroughs.items():
         encoding='iso-8859-1',
         metadata={'ocd_division': ocd_division},
         ogr2ogr='''-where "CO_MUNCP='23027' AND NMTRI_ARON='%s'"''' % machine_name,
+        base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
+    )
+
+boroughs_montreal = {
+    u'ocd-division/country:ca/csd:2466023/borough:ahuntsic-cartierville': [u"Ahuntsic-Cartierville", u'AHUNTSICCARTIERVILLE'],
+    u'ocd-division/country:ca/csd:2466023/borough:anjou': [u"Anjou", u'ANJOU'],
+    u'ocd-division/country:ca/csd:2466023/borough:côte-des-neiges~notre-dame-de-grâce': [u"Côte-des-Neiges—Notre-Dame-de-Grâce", u'COTEDESNEIGESNOTREDAMEDEGRACE'],
+    u'ocd-division/country:ca/csd:2466023/borough:lachine': [u"Lachine", u'LACHINE'],
+    u'ocd-division/country:ca/csd:2466023/borough:lasalle': [u"LaSalle", u'LASALLE'],
+    u'ocd-division/country:ca/csd:2466023/borough:le_plateau-mont-royal': [u"Le Plateau-Mont-Royal", u'LEPLATEAUMONTROYAL'],
+    u'ocd-division/country:ca/csd:2466023/borough:le_sud-ouest': [u"Le Sud-Ouest", u'LESUDOUEST'],
+    u'ocd-division/country:ca/csd:2466023/borough:l~île-bizard~sainte-geneviève': [u"L'Île-Bizard—Sainte-Geneviève", u'LILEBIZARDSAINTGENEVIEVE'],
+    u'ocd-division/country:ca/csd:2466023/borough:mercier~hochelaga-maisonneuve': [u"Mercier—Hochelaga-Maisonneuve", u'MERCIERHOCHELAGAMAISONNEUVE'],
+    u'ocd-division/country:ca/csd:2466023/borough:montréal-nord': [u"Montréal-Nord", u'MONTREALNORD'],
+    u'ocd-division/country:ca/csd:2466023/borough:outremont': [u"Outremont", u'OUTREMONT'],
+    u'ocd-division/country:ca/csd:2466023/borough:pierrefonds-roxboro': [u"Pierrefonds-Roxboro", u'PIERREFONDROXBORO'],
+    u'ocd-division/country:ca/csd:2466023/borough:rivière-des-prairies~pointe-aux-trembles': [u"Rivière-des-Prairies—Pointe-aux-Trembles", u'RIVIEREDESPRAIRIESPOINTEAUXTREMBLES'],
+    u'ocd-division/country:ca/csd:2466023/borough:rosemont~la_petite-patrie': [u"Rosemont—La Petite-Patrie", u'ROSEMONTLAPETITEPATRIE'],
+    u'ocd-division/country:ca/csd:2466023/borough:saint-laurent': [u"Saint-Laurent", u'SAINTLAURENT'],
+    u'ocd-division/country:ca/csd:2466023/borough:saint-léonard': [u"Saint-Léonard", u'SAINTLEONARD'],
+    u'ocd-division/country:ca/csd:2466023/borough:verdun': [u"Verdun", u'VERDUN'],
+    u'ocd-division/country:ca/csd:2466023/borough:ville-marie': [u"Ville-Marie", u'VILLEMARIE'],
+    u'ocd-division/country:ca/csd:2466023/borough:villeray~saint-michel~parc-extension': [u"Villeray—Saint-Michel—Parc-Extension", u'VILLERAYSAINTMICHELPARCEXTENSION'],
+}
+
+for ocd_division, (name, machine_name) in boroughs_montreal.items():
+    boundaries.register(u'%s districts' % name,
+        file=u'Montréal-%s.shp' % name,
+        domain=u'%s, Montréal, QC' % name,
+        last_updated=date(2014, 2, 28),
+        name_func=namer,
+        id_func=boundaries.attr('NO_DIS'),
+        authority=u'Directeur général des élections du Québec',
+        licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
+        encoding='iso-8859-1',
+        metadata={'ocd_division': ocd_division},
+        ogr2ogr='''-where "CO_MUNCP='66023' AND NMTRI_ARON='%s'"''' % machine_name,
         base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
     )
