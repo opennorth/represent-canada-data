@@ -2,14 +2,18 @@ import os.path
 
 from invoke import run
 
+# Creates a shapefile for each Indian reserve and Indian settlement to be merged
+# into its parent municipality's shapefile.
+# 2014-03-25 IWergifosse@dgeq.qc.ca
+
 sets = {
-    72802: u"Kanesatake",
-    89804: u"Lac-Simon",
-    90801: u"Coucoucache",
-    90802: u"Wemotaci",
-    90804: u"Obedjiwan",
-    97802: u"Uashat",
-    97804: u"Maliotenam",
+    72802: u"Kanesatake", # Oka
+    89804: u"Lac-Simon", # Val d'Or
+    90801: u"Coucoucache", # La Tuque
+    90802: u"Wemotaci", # La Tuque
+    90804: u"Obedjiwan", # La Tuque
+    97802: u"Uashat", # Sept-Îles
+    97804: u"Maliotenam", # Sept-Îles
 }
 
 for geographic_code, name in sets.items():
