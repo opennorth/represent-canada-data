@@ -283,9 +283,9 @@ def namer(f):
     if f.get('NM_DIS'):
         return f.get('NM_DIS')
     elif f.get('MODE_SUFRG') == 'Q':
-        return 'Quartier %s' % f.get('NO_DIS')
+        return 'Quartier %s' % int(f.get('NO_DIS'))
     else:
-        return 'District %s' % f.get('NO_DIS')
+        return 'District %s' % int(f.get('NO_DIS'))
 
 for geographic_code, (name, type) in sets.items():
     boundaries.register(u'%s %s' % (name, type),
