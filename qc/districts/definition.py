@@ -280,12 +280,41 @@ sets = {
 }
 
 def namer(f):
-    if f.get('NM_DIS'):
-        return f.get('NM_DIS')
-    elif f.get('MODE_SUFRG') == 'Q':
-        return 'Quartier %s' % int(f.get('NO_DIS'))
+    # @note Saint-Jérôme (2475017) has names for districts.
+    if f.get('CO_MUNCP') == '2423027':
+        return {
+            u'Montcalm-Saint-Sacrement': u'Montcalm—Saint-Sacrement',
+            u'Saint-Roch-Saint-Sauveur': u'Saint-Roch—Saint-Sauveur',
+            u'Saint-Louis-Sillery': u'Saint-Louis—Sillery',
+            u'Cap-Rouge-Laurentien': u'Cap-Rouge—Laurentien',
+            u'Monts': u'Les Monts',
+            u'La Chute-Montmorency-Seigneurial': u'La Chute-Montmorency—Seigneurial',
+            u'Lac-Saint-Charles-Saint-Émile': u'Lac-Saint-Charles—Saint-Émile',
+        }.get(f.get('NM_DIS'), f.get('NM_DIS'))
+    elif f.get('CO_MUNCP') == '2458227':
+        return re.sub(r'\A(?:d'|de |du |des )', '', f.get('NM_DIS'))
+    elif f.get('CO_MUNCP') == '2466097':
+        return f.get('NM_DIS').replace('/ ', '/')
+    elif f.get('CO_MUNCP') == '2481017':
+        return {
+            u'du Plateau-Manoir-des-Trembles': 'du Plateau—Manoir-des-Trembles',
+            u'de Wright-Parc-de-la-Montagne': 'Wright—Parc-de-la-Montagne',
+            u'de Saint-Raymond-Vanier': 'de Saint-Raymond—Vanier',
+            u'de Hull-Val-Tétreau': 'de Hull—Val-Tétreau',
+        }.get(f.get('NM_DIS'), f.get('NM_DIS'))
     else:
-        return 'District %s' % int(f.get('NO_DIS'))
+        if f.get('NM_DIS'):
+            return f.get('NM_DIS')
+        elif f.get('MODE_SUFRG') == 'Q':
+            return 'Quartier %s' % int(f.get('NO_DIS'))
+        else:
+            return 'District %s' % int(f.get('NO_DIS'))
+
+def ider(f):
+    if f.get('CO_MUNCP') == '2443027':
+        return '%d%d' % (int(f.get('NO_ARON')), int(f.get('NO_DIS')))
+    else:
+        return int(f.get('NO_DIS'))
 
 for geographic_code, (name, type) in sets.items():
     boundaries.register(u'%s %s' % (name, type),
@@ -293,7 +322,7 @@ for geographic_code, (name, type) in sets.items():
         domain=u'%s, QC' % name,
         last_updated=date(2014, 2, 28),
         name_func=namer,
-        id_func=lambda f: int(f.get('NO_DIS')),
+        id_func=ider,
         authority=u'Directeur général des élections du Québec',
         licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
         encoding='iso-8859-1',
