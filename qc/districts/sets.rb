@@ -11,8 +11,14 @@ CSV.parse(open('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids
   end
 end
 
+sets = {}
+
 DBF::Table.new('Districts Elec Mun 2014-02-28_DetU_region.dbf').each do |record|
   unless record['CO_DESIGN'] == 'RI'
-    puts %(    '#{record['CO_MUNCP']}': [u"#{names[record['CO_MUNCP']]}", u"#{record['MODE_SUFRG'] == 'Q' ? 'quartiers' : 'districts'}"],)
+    sets[record['CO_MUNCP']] = record['MODE_SUFRG']
   end
+end
+
+sets.each do |k,v|
+  puts %(    '#{k}': [u"#{names[k]}", u"#{v == 'Q' ? 'quartiers' : 'districts'}"],)
 end
