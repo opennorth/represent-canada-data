@@ -20,8 +20,6 @@ sets = {
     '1313027': [u'Edmundston', u'Edmunston'],
     '1314019': [u'Kedgwick', u'Kedgwick'],
     '1314025': [u'Belledune', u'Belledune'],
-    # It is not clear what the two wards are in Beresford.
-    # '1315015': [u'Beresford', u'Beresford'],
     '1315027': [u'Bas-Caraquet', u'Bas-Caraquet'],
     '1315028': [u'Caraquet', u'Caraquet'],
 }
@@ -41,6 +39,20 @@ for geographic_code, (name, machine_name) in sets.items():
         ogr2ogr='''-where "MUN_NAME='%s'"''' % machine_name,
         base_file='OGRGeoJSON.shp',
     )
+
+boundaries.register(u'Beresford wards',
+    file='Beresford.shp',
+    domain=u'Beresford, NB',
+    last_updated=date(2014, 3, 24),
+    name_func=lambda f: 'Ward B' if f.get('OBJECTID') == 42 else 'Ward A',
+    authority='Her Majesty the Queen in Right of New Brunswick',
+    source_url='http://geonb.snb.ca/ArcGIS/rest/services/ElectionsNB/GeoNB_ENB_MunicipalWards/MapServer/0',
+    licence_url='http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
+    encoding='iso-8859-1',
+    metadata={'geographic_code': '1315015'},
+    ogr2ogr='''-where "MUN_NAME='Beresford'"''',
+    base_file='OGRGeoJSON.shp',
+)
 
 boundaries.register(u'Grand Falls wards',
     file='Grand Falls.shp',
