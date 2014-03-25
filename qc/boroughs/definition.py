@@ -6,8 +6,9 @@ from unidecode import unidecode
 import boundaries
 
 sets = {
-    '23027': u"Québec",
-    '25213': u"Lévis",
+    # QGIS errors when merging or dissolving features.
+    # '23027': u"Québec",
+    # '25213': u"Lévis",
     '43027': u"Sherbrooke",
     '58227': u"Longueuil",
     '66023': u"Montréal",
