@@ -53,7 +53,7 @@ sets = {
     72010: [u"Deux-Montagnes", u"districts"],
     66142: [u"Dollard-Des Ormeaux", u"districts"],
     # Municipality has names. DGEQ doesn't.
-    # '66087': [u"Dorval", u"districts"],
+    # 66087: [u"Dorval", u"districts"],
     49058: [u"Drummondville", u"districts"],
     46050: [u"Dunham", u"districts"],
     31122: [u"East Broughton", u"districts"],
@@ -67,7 +67,7 @@ sets = {
     61025: [u"Joliette", u"districts"],
     72802: [u"Kanesatake", u"districts"],
     # Municipality has names. DGEQ doesn't.
-    # '66102': [u"Kirkland", u"districts"],
+    # 66102: [u"Kirkland", u"districts"],
     23057: [u"L'Ancienne-Lorette", u"districts"],
     82005: [u"L'Ange-Gardien", u"districts"],
     93065: [u"L'Ascension-de-Notre-Seigneur", u"districts"],
@@ -95,7 +95,7 @@ sets = {
     71033: [u"Les Coteaux", u"districts"],
     1023: [u"Les Îles-de-la-Madeleine", u"districts"],
     # Municipality has names. DGEQ doesn't.
-    # '25213': [u"Lévis", u"districts"],
+    # 25213: [u"Lévis", u"districts"],
     58227: [u"Longueuil", u"districts"],
     32065: [u"Lyster", u"districts"],
     87058: [u"Macamic", u"districts"],
