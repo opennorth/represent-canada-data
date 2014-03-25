@@ -1,7 +1,7 @@
 autopep8==0.9.7
 Django>=1.5,<=1.6
 gdata==2.0.18
-GitPython
+GitPython==0.3.1-beta2
 invoke==0.7.0
 lxml
 pep8==1.4.6
