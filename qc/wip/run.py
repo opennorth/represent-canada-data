@@ -1,3 +1,4 @@
+# coding: utf-8
 import os.path
 
 from invoke import run
@@ -7,11 +8,15 @@ from invoke import run
 # 2014-03-25 IWergifosse@dgeq.qc.ca
 
 sets = {
+    72032: u"Oka",
     72802: u"Kanesatake", # Oka
+    89008: u"Val-d'Or",
     89804: u"Lac-Simon", # Val d'Or
+    90012: u"La Tuque",
     90801: u"Coucoucache", # La Tuque
     90802: u"Wemotaci", # La Tuque
     90804: u"Obedjiwan", # La Tuque
+    97007: u"Sept-Îles",
     97802: u"Uashat", # Sept-Îles
     97804: u"Maliotenam", # Sept-Îles
 }
