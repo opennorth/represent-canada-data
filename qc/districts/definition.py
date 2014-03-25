@@ -65,7 +65,6 @@ sets = {
     93020: [u"Hébertville", u"districts"],
     71100: [u"Hudson", u"districts"],
     61025: [u"Joliette", u"districts"],
-    72802: [u"Kanesatake", u"districts"],
     # Municipality has names. DGEQ doesn't.
     # 66102: [u"Kirkland", u"districts"],
     23057: [u"L'Ancienne-Lorette", u"districts"],

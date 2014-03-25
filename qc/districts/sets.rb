@@ -13,12 +13,12 @@ end
 
 sets = {}
 
-DBF::Table.new('Districts Elec Mun 2014-02-28_DetU_region.dbf').each do |record|
-  unless record['CO_DESIGN'] == 'RI'
+DBF::Table.new(File.expand_path('Districts Elec Mun 2014-02-28_DetU_region.dbf', __dir__)).each do |record|
+  if %w(ÉI RI).include?(record['CO_DESIGN'].force_encoding('iso-8859-1').encode('utf-8'))
     sets[record['CO_MUNCP']] = record['MODE_SUFRG']
   end
 end
 
 sets.each do |k,v|
-  puts %(    '#{k}': [u"#{names[k]}", u"#{v == 'Q' ? 'quartiers' : 'districts'}"],)
+  puts %(    #{k}: [u"#{names[k]}", u"#{v == 'Q' ? 'quartiers' : 'districts'}"],)
 end
