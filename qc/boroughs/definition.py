@@ -21,7 +21,7 @@ for geographic_code, name in sets.items():
         domain=u'%s, QC' % name,
         last_updated=date(2014, 2, 28),
         name_func=boundaries.dashed_attr('NM_ARON'),
-        id_func=boundaries.attr('NO_ARON'),
+        id_func=lambda f: int(f.get('NO_ARON')),
         authority=u'Directeur général des élections du Québec',
         licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
         encoding='iso-8859-1',
