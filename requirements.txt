@@ -6,6 +6,7 @@ invoke==0.7.0
 lxml
 pep8==1.4.6
 requests==1.2.3
+Unidecode==0.04.14
 rfc6266
 -e git+http://github.com/rhymeswithcycle/represent-boundaries.git#egg=represent-boundaries
 -e git+http://github.com/opennorth/mycityhall-scrapers.git#egg=mycityhall-scrapers
