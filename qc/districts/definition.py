@@ -277,6 +277,7 @@ sets = {
     11040: [u"Trois-Pistoles", u"quartiers"],
 }
 
+
 def namer(f):
     # @note Saint-Jérôme (2475017) has names for districts.
     if f.get('CO_MUNCP') == 23027:
@@ -310,8 +311,9 @@ def namer(f):
         else:
             return u'District %s' % int(f.get('NO_DIS'))
 
+
 def ider(f):
-    if f.get('CO_MUNCP') in (43027, 66023): # Sherbrooke, Montréal
+    if f.get('CO_MUNCP') in (43027, 66023):  # Sherbrooke, Montréal
         return '%d' % (int(f.get('NO_DIS') * 10))
     else:
         return int(f.get('NO_DIS'))
