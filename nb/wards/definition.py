@@ -4,26 +4,27 @@ from datetime import date
 import boundaries
 
 sets = {
-    '1309027': [u'Upper Miramichi', u'Upper Miramichi'],
     '1301006': [u'Saint John', u'Saint John'],
-    '1313002': [u'Saint-André', u'Saint-André'],
-    '1306020': [u'Riverview', u'Riverview'],
-    '1303012': [u'Oromocto', u'Oromocto'],
-    '1307022': [u'Moncton', u'Moncton'],
-    '1307013': [u'Memramcook', u'Memramcook'],
-    '1311027': [u'Florenceville-Bristol', u'Florenceville-Bristol'],
-    '1313027': [u'Edmundston', u'Edmunston'],
-    '1307045': [u'Dieppe', u'Dieppe'],
-    '1315028': [u'Caraquet', u'Caraquet'],
-    '1314025': [u'Belledune', u'Belledune'],
-    '1307005': [u'Beaubassin East', u'Beaubassin East\Beaubassin-Est'],
-    '1315027': [u'Bas-Caraquet', u'Bas-Caraquet'],
     '1302004': [u'Campobello Island', u'Campobello'],
+    '1303012': [u'Oromocto', u'Oromocto'],
+    '1306020': [u'Riverview', u'Riverview'],
+    '1307005': [u'Beaubassin East', u'Beaubassin East\Beaubassin-Est'],
+    '1307013': [u'Memramcook', u'Memramcook'],
+    '1307022': [u'Moncton', u'Moncton'],
+    '1307045': [u'Dieppe', u'Dieppe'],
+    '1309027': [u'Upper Miramichi', u'Upper Miramichi'],
+    # Fredericton has ward names in its data catalog.
+    # '1310032': [u'Fredericton', u'Fredericton'],
+    '1311027': [u'Florenceville-Bristol', u'Florenceville-Bristol'],
+    '1313002': [u'Saint-André', u'Saint-André'],
+    '1313027': [u'Edmundston', u'Edmunston'],
     '1314019': [u'Kedgwick', u'Kedgwick'],
+    '1314025': [u'Belledune', u'Belledune'],
+    # It is not clear what the two wards are in Beresford.
+    # '1315015': [u'Beresford', u'Beresford'],
+    '1315027': [u'Bas-Caraquet', u'Bas-Caraquet'],
+    '1315028': [u'Caraquet', u'Caraquet'],
 }
-
-# Fredericton (1310032) has ward names in its data catalog.
-# It is not clear what the two wards are in Beresford (1315015).
 
 for geographic_code, (name, machine_name) in sets.items():
     boundaries.register(u'%s wards' % name,
