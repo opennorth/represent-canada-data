@@ -19,8 +19,8 @@ def namer(f):
     import boundaries
     if f.get('CO_MUNCP') == 43027:
         return {
-            u'Le Mont-Bellevue': 'Mont-Bellevue',
-            u'Rock Rorest--Saint-lie--Deauville': 'Rock Forest—Saint-Élie—Deauville',
+            u'Le Mont-Bellevue': u'Mont-Bellevue',
+            u'Rock Rorest--Saint-lie--Deauville': u'Rock Forest—Saint-Élie—Deauville',
         }.get(f.get('NM_ARON'), f.get('NM_ARON'))
     else:
         return boundaries.attr('NM_ARON')(f)

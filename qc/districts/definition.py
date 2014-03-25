@@ -297,18 +297,18 @@ def namer(f):
         return f.get('NM_DIS').replace('/ ', '/')
     elif f.get('CO_MUNCP') == 81017:
         return {
-            u'du Plateau-Manoir-des-Trembles': 'du Plateau—Manoir-des-Trembles',
-            u'de Wright-Parc-de-la-Montagne': 'Wright—Parc-de-la-Montagne',
-            u'de Saint-Raymond-Vanier': 'de Saint-Raymond—Vanier',
-            u'de Hull-Val-Tétreau': 'de Hull—Val-Tétreau',
+            u'du Plateau-Manoir-des-Trembles': u'du Plateau—Manoir-des-Trembles',
+            u'de Wright-Parc-de-la-Montagne': u'Wright—Parc-de-la-Montagne',
+            u'de Saint-Raymond-Vanier': u'de Saint-Raymond—Vanier',
+            u'de Hull-Val-Tétreau': u'de Hull—Val-Tétreau',
         }.get(f.get('NM_DIS'), f.get('NM_DIS'))
     else:
         if f.get('NM_DIS'):
             return f.get('NM_DIS')
         elif f.get('MODE_SUFRG') == 'Q':
-            return 'Quartier %s' % int(f.get('NO_DIS'))
+            return u'Quartier %s' % int(f.get('NO_DIS'))
         else:
-            return 'District %s' % int(f.get('NO_DIS'))
+            return u'District %s' % int(f.get('NO_DIS'))
 
 def ider(f):
     if f.get('CO_MUNCP') == 43027:
