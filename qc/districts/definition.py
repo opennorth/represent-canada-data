@@ -280,7 +280,6 @@ sets = {
 }
 
 def namer(f):
-    import re
     # @note Saint-Jérôme (2475017) has names for districts.
     if f.get('CO_MUNCP') == '2423027':
         return {
@@ -293,7 +292,7 @@ def namer(f):
             u'Lac-Saint-Charles-Saint-Émile': u'Lac-Saint-Charles—Saint-Émile',
         }.get(f.get('NM_DIS'), f.get('NM_DIS'))
     elif f.get('CO_MUNCP') == '2458227':
-        return re.sub(r'\A(?:d'|de |du |des )', '', f.get('NM_DIS'))
+        return re.sub(r"\A(?:d'|de |du |des )", '', f.get('NM_DIS'))
     elif f.get('CO_MUNCP') == '2466097':
         return f.get('NM_DIS').replace('/ ', '/')
     elif f.get('CO_MUNCP') == '2481017':
