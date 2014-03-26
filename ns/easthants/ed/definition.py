@@ -5,7 +5,7 @@ import boundaries
 boundaries.register('East Hants districts',
     domain='East Hants, NS',
     last_updated=date(2014, 3, 25),
-    name_func=boundaries.attr('District'),
+    name_func=lambda f: f.get('District').replace(' Sett.', ' Settlement'),
     id_func=boundaries.attr('Polling_No'),
     authority='Municipality of East Hants',
     encoding='iso-8859-1',
