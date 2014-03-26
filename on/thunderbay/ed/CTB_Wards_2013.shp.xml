@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>The Corporation of the City of Thunder Bay</origin>
+				<pubdate>REQUIRED: The date when the data set is published or otherwise made available for release.</pubdate>
+				<title Sync="TRUE">SDE.wards</title>
+				<geoform Sync="TRUE">vector digital data</geoform>
+				<onlink Sync="TRUE">Server=CTBGIS; Service=5151; User=DEV; Version=SDE.DEFAULT</onlink>
+				<ftname Sync="TRUE">SDE.wards</ftname></citeinfo>
+		</citation>
+		<descript>
+			<abstract>Historical, original townships based on electoral boundaries.</abstract>
+			<purpose>Created to have a visual representation of the features in a GIS environment.</purpose>
+			<langdata Sync="TRUE">en</langdata></descript>
+		<timeperd>
+			<timeinfo>
+				<sngdate>
+					<caldate>February 2011</caldate>
+				</sngdate>
+			</timeinfo>
+			<current>ground condition</current>
+		</timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>As needed</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc Sync="TRUE">-89.432796</westbc>
+				<eastbc Sync="TRUE">-89.130695</eastbc>
+				<northbc Sync="TRUE">48.521953</northbc>
+				<southbc Sync="TRUE">48.286816</southbc>
+			</bounding>
+			<lboundng><leftbc Sync="TRUE">320348.494030</leftbc><rightbc Sync="TRUE">341964.626403</rightbc><bottombc Sync="TRUE">5351014.616415</bottombc><topbc Sync="TRUE">5376527.739511</topbc></lboundng></spdom>
+		<keywords>
+			<theme>
+				<themekt>REQUIRED: Reference to a formally registered thesaurus or a similar authoritative source of theme keywords.</themekt>
+				<themekey>Ward boundaries</themekey></theme>
+		</keywords>
+		<accconst>May be distributed with permission of Development Services.  Contact the Chief Mapping Technician for details.</accconst>
+		<useconst>REQUIRED: Restrictions and legal prerequisites for using the data set after access is granted.</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>The Corporation of the City of Thunder Bay</cntorg>
+					<cntper>Chief Mapping Technician</cntper>
+				</cntorgp>
+				<cntpos>Chief Mapping Technician</cntpos>
+				<cntaddr>
+					<addrtype>Mailing and Physical address</addrtype>
+					<address>Planning Division</address>
+					<address>2nd Floor, Victoriaville Civic Centre</address>
+					<address>111 Syndicate Avenue South</address>
+					<address>P.O. Box 800</address>
+					<city>Thunder Bay</city>
+					<state>Ontario</state>
+					<postal>P7C 5K4</postal>
+					<country>Canada</country>
+				</cntaddr>
+				<cntvoice>807-625-2550</cntvoice>
+				<cntfax>807-623-2206</cntfax>
+				<hours>8:30am - 4:30 pm EST</hours>
+			</cntinfo>
+		</ptcontac>
+		<native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</native>
+		<natvform Sync="TRUE">SDE Feature Class</natvform></idinfo>
+	<dataqual>
+		<lineage>
+			<procstep>
+				<procdesc>Metadata imported.</procdesc>
+				<srcused>C:\DOCUME~1\ahadley\LOCALS~1\Temp\xml36.tmp</srcused>
+				<procdate>20110222</procdate>
+				<proctime>11011300</proctime>
+			</procstep>
+			<procstep>
+				<procdesc>Metadata imported.</procdesc>
+				<srcused>C:\DOCUME~1\ahadley\LOCALS~1\Temp\xml55.tmp</srcused>
+				<procdate>20110222</procdate>
+				<proctime>13575600</proctime>
+			</procstep>
+			<procstep>
+				<procdesc>Metadata imported.</procdesc>
+				<srcused>C:\DOCUME~1\ahadley\LOCALS~1\Temp\xml57.tmp</srcused>
+				<procdate>20110222</procdate>
+				<proctime>14025100</proctime>
+			</procstep>
+			<procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">C:\DOCUME~1\ahadley\LOCALS~1\Temp\xml63.tmp</srcused><procdate Sync="TRUE">20110222</procdate><proctime Sync="TRUE">14295400</proctime></procstep></lineage>
+	</dataqual>
+	<spdoinfo>
+		<direct Sync="TRUE">Vector</direct>
+		<ptvctinf>
+			<sdtsterm Name="SDE.wards">
+				<sdtstype Sync="TRUE">G-polygon</sdtstype>
+				<ptvctcnt Sync="TRUE">7</ptvctcnt>
+			</sdtsterm>
+			<esriterm Name="SDE.wards"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom Sync="TRUE">Polygon</efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">7</efeacnt><spindex Sync="TRUE">TRUE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm></ptvctinf>
+	</spdoinfo>
+	<spref>
+		<horizsys>
+			<planar>
+				<planci>
+					<plance Sync="TRUE">coordinate pair</plance>
+					<coordrep>
+						<absres Sync="TRUE">0.000256</absres>
+						<ordres Sync="TRUE">0.000256</ordres>
+					</coordrep>
+					<plandu Sync="TRUE">meters</plandu>
+				</planci>
+				<gridsys><gridsysn Sync="TRUE">Universal Transverse Mercator</gridsysn><utm><utmzone Sync="TRUE">16</utmzone><transmer><sfctrmer Sync="TRUE">0.999600</sfctrmer><longcm Sync="TRUE">-87.000000</longcm><latprjo Sync="TRUE">0.000000</latprjo><feast Sync="TRUE">500000.000000</feast><fnorth Sync="TRUE">0.000000</fnorth></transmer></utm></gridsys></planar>
+			<geodetic>
+				<horizdn Sync="TRUE">North American Datum of 1983</horizdn>
+				<ellips Sync="TRUE">Geodetic Reference System 80</ellips>
+				<semiaxis Sync="TRUE">6378137.000000</semiaxis>
+				<denflat Sync="TRUE">298.257222</denflat>
+			</geodetic>
+			<cordsysn><geogcsn Sync="TRUE">GCS_North_American_1983</geogcsn><projcsn Sync="TRUE">NAD_1983_UTM_Zone_16N</projcsn></cordsysn></horizsys>
+		<vertdef>
+			<altsys>
+				<altres Sync="TRUE">1.000000</altres>
+				<altenc Sync="TRUE">Explicit elevation coordinate included with horizontal coordinates</altenc>
+			</altsys>
+		</vertdef>
+	</spref>
+	<eainfo>
+		<detailed Name="SDE.wards">
+			<enttyp>
+				<enttypl Sync="TRUE">SDE.wards</enttypl>
+				<enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">7</enttypc></enttyp>
+			<attr>
+				<attrlabl>OBJECTID</attrlabl>
+				<attrdef>Internal feature number.</attrdef>
+				<attrdefs>ESRI</attrdefs>
+				<attrdomv>
+					<udom>Sequential unique whole numbers that are automatically generated.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">OBJECTID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">10</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr><attrlabl Sync="TRUE">SDE.wards.ENTITY</attrlabl><attalias Sync="TRUE">SDE.wards.ENTITY</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">14</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">LAYER</attrlabl><attalias Sync="TRUE">LAYER</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">32</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">ELEVATION</attrlabl><attalias Sync="TRUE">ELEVATION</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">18</atprecis><attscale Sync="TRUE">5</attscale></attr><attr><attrlabl Sync="TRUE">THICKNESS</attrlabl><attalias Sync="TRUE">THICKNESS</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">18</atprecis><attscale Sync="TRUE">5</attscale></attr><attr><attrlabl Sync="TRUE">COLOR</attrlabl><attalias Sync="TRUE">COLOR</attalias><attrtype Sync="TRUE">Integer</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">6</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">WARD_NAME</attrlabl><attalias Sync="TRUE">WARD_NAME</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">20</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">WARD_NO</attrlabl><attalias Sync="TRUE">WARD_NO</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">5</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr>
+				<attrlabl>Shape</attrlabl>
+				<attrdef>Feature geometry.</attrdef>
+				<attrdefs>ESRI</attrdefs>
+				<attrdomv>
+					<udom>Coordinates defining the features.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">Shape</attalias><attrtype Sync="TRUE">Geometry</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr><attrlabl Sync="TRUE">SHAPE.AREA</attrlabl><attalias Sync="TRUE">SHAPE.AREA</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr>
+				<attrlabl>SHAPE.LEN</attrlabl>
+				<attalias Sync="TRUE">SHAPE.LEN</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+		</detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>The Corporation of the City of Thunder Bay</cntorg>
+					<cntper>Janice Bonish</cntper>
+				</cntorgp>
+				<cntpos>Chief Mapping Technician</cntpos>
+				<cntvoice>807-625-2550</cntvoice>
+				<cntfax>807-623-2206</cntfax>
+				<cntemail>jbonish@thunderbay.ca</cntemail>
+				<hours>8:30 am - 4:30 pm EST</hours>
+			</cntinfo>
+		</distrib>
+		<resdesc>Downloadable Data</resdesc>
+	</distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20110222</metd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>The Corporation of the City of Thunder Bay</cntorg>
+					<cntper>April Hadley</cntper>
+				</cntorgp>
+				<cntpos>Mapping Technician</cntpos>
+				<cntaddr>
+					<addrtype>Mailing and Physical address</addrtype>
+					<address>2nd Floor, Victoriaville Civic Centre</address>
+					<address>111 Syndicate Avenue South</address>
+					<address>P.O. Box 800</address>
+					<city>Thunder Bay</city>
+					<state>Ontario</state>
+					<postal>P7C 5K4</postal>
+					<country>Canada</country>
+				</cntaddr>
+				<cntvoice>807-625-2547</cntvoice>
+				<cntfax>807-623-2206</cntfax>
+				<cntemail>ahadley@thunderbay.ca</cntemail>
+				<hours>8:30 am - 4:30 pm EST</hours>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<mettc Sync="TRUE">local time</mettc>
+		<langmeta Sync="TRUE">en</langmeta><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<Esri><CreaDate>20140304</CreaDate><CreaTime>09483600</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20110222</SyncDate><SyncTime>15272800</SyncTime><ModDate>20110222</ModDate><ModTime>15273700</ModTime><ArcGISFormat>1.0</ArcGISFormat></Esri><dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</envirDesc><dataLang><languageCode Sync="TRUE" value="en"></languageCode></dataLang><idCitation><resTitle Sync="TRUE">SDE.wards</resTitle><presForm><PresFormCd Sync="TRUE" value="005"></PresFormCd></presForm></idCitation><spatRpType><SpatRepTypCd Sync="TRUE" value="001"></SpatRepTypCd></spatRpType><dataExt><geoEle><GeoBndBox esriExtentType="native"><westBL Sync="TRUE">320348.49403</westBL><eastBL Sync="TRUE">341964.626403</eastBL><northBL Sync="TRUE">5376527.739511</northBL><southBL Sync="TRUE">5351014.616415</southBL><exTypeCode Sync="TRUE">1</exTypeCode></GeoBndBox></geoEle></dataExt><geoBox esriExtentType="decdegrees"><westBL Sync="TRUE">-89.432796</westBL><eastBL Sync="TRUE">-89.130695</eastBL><northBL Sync="TRUE">48.521953</northBL><southBL Sync="TRUE">48.286816</southBL><exTypeCode Sync="TRUE">1</exTypeCode></geoBox></dataIdInfo><mdLang><languageCode Sync="TRUE" value="en"></languageCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc><linkage Sync="TRUE">Server=CTBGIS; Service=5151; User=DEV; Version=SDE.DEFAULT</linkage><protocol Sync="TRUE">ArcSDE Connection</protocol></onLineSrc></distorTran><distorFormat><formatName Sync="TRUE">SDE Feature Class</formatName></distorFormat></distributor></distInfo><refSysInfo><RefSystem><refSysID><identCode Sync="TRUE">NAD_1983_UTM_Zone_16N</identCode></refSysID></RefSystem></refSysInfo><spatRepInfo><VectSpatRep><topLvl><TopoLevCd Sync="TRUE" value="001"></TopoLevCd></topLvl><geometObjs Name="SDE.wards"><geoObjTyp><GeoObjTypCd Sync="TRUE" value="001"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">7</geoObjCnt></geometObjs></VectSpatRep></spatRepInfo><mdDateSt Sync="TRUE">20110222</mdDateSt></metadata>
