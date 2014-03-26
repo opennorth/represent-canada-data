@@ -385,9 +385,10 @@ def geojson(base='.', geo_json_base='./geojson'):
 
   for slug, config in registry(base).items():
     if 'fed/cd' not in config['file'] and 'fed/csd' not in config['file']:  # files are too large for GitHub
+      shp_file_path = config['file']
       directory = dirname(config['file'])
-      shp_file_path = glob(os.path.join(directory, '*.shp'))[0]
-      basename = os.path.join(geo_json_base, re.sub('/', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', directory))))
+      name = directory + '_' + slugify(slug)
+      basename = os.path.join(geo_json_base, re.sub('[_/-]+', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', name))))
       geo_json_path = basename + '.geojson'
       topo_json_path = basename + '.topojson'
       if not os.path.exists(geo_json_path):
@@ -401,8 +402,16 @@ def geojson(base='.', geo_json_base='./geojson'):
       else:
         suffix = ''
 
-      item = (slug, '* [%s](https://github.com/opennorth/%s/blob/master/geojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' %
-        (slug.encode('utf-8'), repository, os.path.basename(topo_json_path), slugify(slug).encode('utf-8'), suffix))
+      item = (
+        slug,
+        u'* [%s](https://github.com/opennorth/%s/blob/master/geojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' % (
+          slug,
+          repository,
+          os.path.basename(topo_json_path),
+          slugify(slug).encode('utf-8'),
+          suffix
+        )
+      )
 
       match = re.search('\Aocd-division/country:ca/csd:(\d+)', division_id)
       if match:
@@ -421,7 +430,7 @@ def geojson(base='.', geo_json_base='./geojson'):
       f.write('\n## %s\n\n' % name.encode('utf-8'))
       for part in ('upper', 'lower'):
         for slug, markdown in sorted(items[part]):
-          f.write(markdown)
+          f.write(markdown.encode('utf-8'))
 
 
 @task
