@@ -51,7 +51,9 @@
 ## Nova Scotia
 
 * [Nova Scotia electoral districts](https://github.com/opennorth/represent-canada-data/blob/master/topojson/ns_ed_nova_scotia_electoral_districts.topojson#files): [API](http://represent.opennorth.ca/boundaries/nova-scotia-electoral-districts/?limit=0)
+* [East Hants districts](https://github.com/opennorth/represent-canada-data/blob/master/topojson/ns_easthants_ed_east_hants_districts.topojson#files): [API](http://represent.opennorth.ca/boundaries/east-hants-districts/?limit=0)
 * [Halifax districts](https://github.com/opennorth/represent-canada-data/blob/master/topojson/ns_halifax_ed_halifax_districts.topojson#files): [API](http://represent.opennorth.ca/boundaries/halifax-districts/?limit=0)
+* [Lunenburg districts](https://github.com/opennorth/represent-canada-data/blob/master/topojson/ns_lunenburg_ed_lunenburg_districts.topojson#files): [API](http://represent.opennorth.ca/boundaries/lunenburg-districts/?limit=0)
 
 ## Ontario
 
