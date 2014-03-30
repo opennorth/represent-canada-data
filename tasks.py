@@ -374,7 +374,7 @@ def permissions(base='.'):
 
 # @see http://ben.balter.com/2013/06/26/how-to-convert-shapefiles-to-geojson-for-use-on-github/
 @task
-def geojson(base='.', output_base='./topojson'):
+def topojson(base='.', output_base='./topojson'):
   sgc_code_to_ocdid_map = sgc_code_to_ocdid()
   ocdid_to_name_map = ocdid_to_name()
   readme = defaultdict(lambda: defaultdict(list))

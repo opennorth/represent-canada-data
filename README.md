@@ -59,9 +59,9 @@ Check if the data request process spreadsheet is out-of-date:
 
     invoke spreadsheet
 
-Generate GeoJSON for inspection on GitHub:
+Generate TopoJSON for inspection on GitHub:
 
-    invoke geojson
+    invoke topojson
 
 Tidy Python:
 
