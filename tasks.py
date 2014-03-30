@@ -374,7 +374,7 @@ def permissions(base='.'):
 
 # @see http://ben.balter.com/2013/06/26/how-to-convert-shapefiles-to-geojson-for-use-on-github/
 @task
-def geojson(base='.', geo_json_base='./geojson'):
+def geojson(base='.', output_base='./topojson'):
   sgc_code_to_ocdid_map = sgc_code_to_ocdid()
   ocdid_to_name_map = ocdid_to_name()
   readme = defaultdict(lambda: defaultdict(list))
@@ -388,12 +388,12 @@ def geojson(base='.', geo_json_base='./geojson'):
       shp_file_path = config['file']
       directory = dirname(config['file'])
       name = directory + '_' + slugify(slug)
-      basename = os.path.join(geo_json_base, re.sub('[_/-]+', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', name))))
-      geo_json_path = basename + '.geojson'
+      basename = os.path.join(output_base, re.sub('[_/-]+', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', name))))
       topo_json_path = basename + '.topojson'
-      if not os.path.exists(geo_json_path):
-        run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
       if not os.path.exists(topo_json_path):
+        geo_json_path = basename + '.geojson'
+        if not os.path.exists(geo_json_path):
+          run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
         run('topojson -o %s %s' % (topo_json_path, geo_json_path), echo=True)
 
       division_id = get_division_id(slug, config)
@@ -404,7 +404,7 @@ def geojson(base='.', geo_json_base='./geojson'):
 
       item = (
         slug,
-        u'* [%s](https://github.com/opennorth/%s/blob/master/geojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' % (
+        u'* [%s](https://github.com/opennorth/%s/blob/master/topojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' % (
           slug,
           repository,
           os.path.basename(topo_json_path),
@@ -419,8 +419,8 @@ def geojson(base='.', geo_json_base='./geojson'):
       else:
         readme[ocdid_to_name_map[division_id]]['upper'].append(item)
 
-  with open(os.path.join(geo_json_base, 'README.md'), 'w') as f:
-    f.write('# Represent API: GeoJSON\n\n## Canada\n\n')
+  with open(os.path.join(output_base, 'README.md'), 'w') as f:
+    f.write('# Represent API: TopoJSON\n\n## Canada\n\n')
     items = readme.pop('Canada', None)
     if items:
       for part in ('upper', 'lower'):
