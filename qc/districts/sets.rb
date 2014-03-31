@@ -6,7 +6,7 @@ require 'dbf'
 # Produces the contents of the `sets` dictionary in `definition.py`.
 
 names = {}
-CSV.parse(open('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv').read) do |id,name,name_fr,classification,organization_name|
+CSV.parse(open('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv').read.force_encoding('utf-8')) do |id,name,name_fr,classification,organization_name|
   type_id = id[/[^:]+\z/]
   if type_id[0, 2] == "24"
     names[type_id[2, 5].to_i] = name

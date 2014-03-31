@@ -93,8 +93,7 @@ sets = {
     71050: [u"Les Cèdres", u"districts"],
     71033: [u"Les Coteaux", u"districts"],
     1023: [u"Les Îles-de-la-Madeleine", u"districts"],
-    # Municipality has names. DGEQ doesn't.
-    # 25213: [u"Lévis", u"districts"],
+    25213: [u"Lévis", u"districts"],  # district names from the city's shapefile are not extant
     58227: [u"Longueuil", u"districts"],
     32065: [u"Lyster", u"districts"],
     87058: [u"Macamic", u"districts"],
@@ -279,8 +278,7 @@ sets = {
 
 
 def namer(f):
-    # @note Saint-Jérôme (2475017) has names for districts.
-    if f.get('CO_MUNCP') == 23027:
+    if f.get('CO_MUNCP') == 23027: # Québec
         return {
             u'Cap-Rouge-Laurentien': u'Cap-Rouge—Laurentien',
             u'La Chute-Montmorency-Seigneurial': u'La Chute-Montmorency—Seigneurial',
@@ -292,11 +290,11 @@ def namer(f):
             u'Saint-Louis-Sillery': u'Saint-Louis—Sillery',
             u'Saint-Roch-Saint-Sauveur': u'Saint-Roch—Saint-Sauveur',
         }.get(f.get('NM_DIS'), f.get('NM_DIS'))
-    elif f.get('CO_MUNCP') == 58227:
+    elif f.get('CO_MUNCP') == 58227: # Longueuil
         return re.sub(r"\A(?:d'|de |du |des )", '', f.get('NM_DIS'))
-    elif f.get('CO_MUNCP') == 66097:
+    elif f.get('CO_MUNCP') == 66097: # Pointe-Claire
         return f.get('NM_DIS').replace('/ ', '/')
-    elif f.get('CO_MUNCP') == 81017:
+    elif f.get('CO_MUNCP') == 81017: # Gatineau
         return {
             u'de Hull-Val-Tétreau': u'de Hull—Val-Tétreau',
             u'de Saint-Raymond-Vanier': u'de Saint-Raymond—Vanier',
@@ -343,67 +341,101 @@ boundaries.register(u'Paroisse de Plessisville districts',
     licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
     encoding='iso-8859-1',
     metadata={'geographic_code': '2432045'},
-    ogr2ogr='''-where "CO_MUNCP='2432045'"''',
+    ogr2ogr='''-where "CO_MUNCP='32045'"''',
     base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
 )
 
-boroughs_quebec = {
-    u'ocd-division/country:ca/csd:2423027/borough:1': [u'La Cité-Limoilou', u'LACITELIMOILOU'],
-    u'ocd-division/country:ca/csd:2423027/borough:2': [u'Les Rivières', u'LESRIVIERES'],
-    u'ocd-division/country:ca/csd:2423027/borough:3': [u'Sainte-Foy–Sillery–Cap-Rouge', u'SAINTFOYSILLERYCAPROUGE'],
-    u'ocd-division/country:ca/csd:2423027/borough:4': [u'Charlesbourg', u'CHARLESBOURG'],
-    u'ocd-division/country:ca/csd:2423027/borough:5': [u'Beauport', u'BEAUPORT'],
-    u'ocd-division/country:ca/csd:2423027/borough:6': [u'La Haute-Saint-Charles', u'LAHAUTESAINTCHARLES'],
-}
+municipalities_with_boroughs = [
+    {
+        'name': u'Lévis',
+        'geographic_code': 25213,
+        'boroughs': {
+            u'ocd-division/country:ca/csd:2425213/borough:1': [u'Desjardins', u'DESJARDINS'],
+            u'ocd-division/country:ca/csd:2425213/borough:2': [u'Les Chutes-de-la-Chaudière-Est', u'LESCHUTESDELACHAUDIEREEST'],
+            u'ocd-division/country:ca/csd:2425213/borough:3': [u'Les Chutes-de-la-Chaudière-Ouest', u'LESCHUTESDELACHAUDIEREOUEST'],
+        },
+    },
+    {
+        'name': u'Longueuil',
+        'geographic_code': 58227,
+        'boroughs': {
+            u'ocd-division/country:ca/csd:2458227/borough:1': [u'Le Vieux-Longueuil', u'LEVIEUXLONGUEUIL'],
+            u'ocd-division/country:ca/csd:2458227/borough:2': [u'Greenfield Park', u'GREENFIELDPARK'],
+            u'ocd-division/country:ca/csd:2458227/borough:3': [u'Saint-Hubert', u'SAINTHUBERT'],
+        },
+    },
+    {
+        'name': u'Montréal',
+        'geographic_code': 66023,
+        'boroughs': {
+            u'ocd-division/country:ca/csd:2466023/borough:ahuntsic-cartierville': [u"Ahuntsic-Cartierville", u'AHUNTSICCARTIERVILLE'],
+            u'ocd-division/country:ca/csd:2466023/borough:anjou': [u"Anjou", u'ANJOU'],
+            u'ocd-division/country:ca/csd:2466023/borough:côte-des-neiges~notre-dame-de-grâce': [u"Côte-des-Neiges—Notre-Dame-de-Grâce", u'COTEDESNEIGESNOTREDAMEDEGRACE'],
+            u'ocd-division/country:ca/csd:2466023/borough:lachine': [u"Lachine", u'LACHINE'],
+            u'ocd-division/country:ca/csd:2466023/borough:lasalle': [u"LaSalle", u'LASALLE'],
+            u'ocd-division/country:ca/csd:2466023/borough:le_plateau-mont-royal': [u"Le Plateau-Mont-Royal", u'LEPLATEAUMONTROYAL'],
+            u'ocd-division/country:ca/csd:2466023/borough:le_sud-ouest': [u"Le Sud-Ouest", u'LESUDOUEST'],
+            u'ocd-division/country:ca/csd:2466023/borough:l~île-bizard~sainte-geneviève': [u"L'Île-Bizard—Sainte-Geneviève", u'LILEBIZARDSAINTGENEVIEVE'],
+            u'ocd-division/country:ca/csd:2466023/borough:mercier~hochelaga-maisonneuve': [u"Mercier—Hochelaga-Maisonneuve", u'MERCIERHOCHELAGAMAISONNEUVE'],
+            u'ocd-division/country:ca/csd:2466023/borough:montréal-nord': [u"Montréal-Nord", u'MONTREALNORD'],
+            u'ocd-division/country:ca/csd:2466023/borough:outremont': [u"Outremont", u'OUTREMONT'],
+            u'ocd-division/country:ca/csd:2466023/borough:pierrefonds-roxboro': [u"Pierrefonds-Roxboro", u'PIERREFONDROXBORO'],
+            u'ocd-division/country:ca/csd:2466023/borough:rivière-des-prairies~pointe-aux-trembles': [u"Rivière-des-Prairies—Pointe-aux-Trembles", u'RIVIEREDESPRAIRIESPOINTEAUXTREMBLES'],
+            u'ocd-division/country:ca/csd:2466023/borough:rosemont~la_petite-patrie': [u"Rosemont—La Petite-Patrie", u'ROSEMONTLAPETITEPATRIE'],
+            u'ocd-division/country:ca/csd:2466023/borough:saint-laurent': [u"Saint-Laurent", u'SAINTLAURENT'],
+            u'ocd-division/country:ca/csd:2466023/borough:saint-léonard': [u"Saint-Léonard", u'SAINTLEONARD'],
+            u'ocd-division/country:ca/csd:2466023/borough:verdun': [u"Verdun", u'VERDUN'],
+            u'ocd-division/country:ca/csd:2466023/borough:ville-marie': [u"Ville-Marie", u'VILLEMARIE'],
+            u'ocd-division/country:ca/csd:2466023/borough:villeray~saint-michel~parc-extension': [u"Villeray—Saint-Michel—Parc-Extension", u'VILLERAYSAINTMICHELPARCEXTENSION'],
+        },
+    },
+    {
+        'name': u'Québec',
+        'geographic_code': 23027,
+        'boroughs': {
+            u'ocd-division/country:ca/csd:2423027/borough:1': [u'La Cité-Limoilou', u'LACITELIMOILOU'],
+            u'ocd-division/country:ca/csd:2423027/borough:2': [u'Les Rivières', u'LESRIVIERES'],
+            u'ocd-division/country:ca/csd:2423027/borough:3': [u'Sainte-Foy–Sillery–Cap-Rouge', u'SAINTFOYSILLERYCAPROUGE'],
+            u'ocd-division/country:ca/csd:2423027/borough:4': [u'Charlesbourg', u'CHARLESBOURG'],
+            u'ocd-division/country:ca/csd:2423027/borough:5': [u'Beauport', u'BEAUPORT'],
+            u'ocd-division/country:ca/csd:2423027/borough:6': [u'La Haute-Saint-Charles', u'LAHAUTESAINTCHARLES'],
+        },
+    },
+    {
+        'name': u'Saguenay',
+        'geographic_code': 94068,
+        'boroughs': {
+            u'ocd-division/country:ca/csd:2494068/borough:1': [u'Chicoutimi', u'CHICOUTIMI'],
+            u'ocd-division/country:ca/csd:2494068/borough:2': [u'Jonquière', u'JONQUIERE'],
+            u'ocd-division/country:ca/csd:2494068/borough:3': [u'La Baie', u'LABAIE'],
+        },
+    },
+    {
+        'name': u'Sherbrooke',
+        'geographic_code': 43027,
+        'boroughs': {
+            u'ocd-division/country:ca/csd:2443027/borough:1': [u'Brompton', u'BROMPTON'],
+            u'ocd-division/country:ca/csd:2443027/borough:2': [u'Fleurimont', u'FLEURIMONT'],
+            u'ocd-division/country:ca/csd:2443027/borough:3': [u'Lennoxville', u'LENNOXVILLE'],
+            u'ocd-division/country:ca/csd:2443027/borough:4': [u'Mont-Bellevue', u'LEMONTBELLEVUE'],
+            u'ocd-division/country:ca/csd:2443027/borough:5': [u'Rock Rorest—Saint-Élie—Deauville', u'ROCKRORESTSAINTELIEDEAUVILLE'],
+            u'ocd-division/country:ca/csd:2443027/borough:6': [u'Jacques-Cartier', u'JACQUESCARTIER'],
+        },
+    },
+]
 
-for ocd_division, (name, machine_name) in boroughs_quebec.items():
-    boundaries.register(u'%s districts' % name,
-        file=u'Quebec-%s.shp' % unidecode(name),
-        domain=u'%s, Québec, QC' % name,
-        last_updated=date(2014, 2, 28),
-        name_func=namer,
-        id_func=lambda f: int(f.get('NO_DIS')),
-        authority=u'Directeur général des élections du Québec',
-        licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
-        encoding='iso-8859-1',
-        metadata={'ocd_division': ocd_division},
-        ogr2ogr='''-where "CO_MUNCP='23027' AND NMTRI_ARON='%s'"''' % machine_name,
-        base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
-    )
-
-boroughs_montreal = {
-    u'ocd-division/country:ca/csd:2466023/borough:ahuntsic-cartierville': [u"Ahuntsic-Cartierville", u'AHUNTSICCARTIERVILLE'],
-    u'ocd-division/country:ca/csd:2466023/borough:anjou': [u"Anjou", u'ANJOU'],
-    u'ocd-division/country:ca/csd:2466023/borough:côte-des-neiges~notre-dame-de-grâce': [u"Côte-des-Neiges—Notre-Dame-de-Grâce", u'COTEDESNEIGESNOTREDAMEDEGRACE'],
-    u'ocd-division/country:ca/csd:2466023/borough:lachine': [u"Lachine", u'LACHINE'],
-    u'ocd-division/country:ca/csd:2466023/borough:lasalle': [u"LaSalle", u'LASALLE'],
-    u'ocd-division/country:ca/csd:2466023/borough:le_plateau-mont-royal': [u"Le Plateau-Mont-Royal", u'LEPLATEAUMONTROYAL'],
-    u'ocd-division/country:ca/csd:2466023/borough:le_sud-ouest': [u"Le Sud-Ouest", u'LESUDOUEST'],
-    u'ocd-division/country:ca/csd:2466023/borough:l~île-bizard~sainte-geneviève': [u"L'Île-Bizard—Sainte-Geneviève", u'LILEBIZARDSAINTGENEVIEVE'],
-    u'ocd-division/country:ca/csd:2466023/borough:mercier~hochelaga-maisonneuve': [u"Mercier—Hochelaga-Maisonneuve", u'MERCIERHOCHELAGAMAISONNEUVE'],
-    u'ocd-division/country:ca/csd:2466023/borough:montréal-nord': [u"Montréal-Nord", u'MONTREALNORD'],
-    u'ocd-division/country:ca/csd:2466023/borough:outremont': [u"Outremont", u'OUTREMONT'],
-    u'ocd-division/country:ca/csd:2466023/borough:pierrefonds-roxboro': [u"Pierrefonds-Roxboro", u'PIERREFONDROXBORO'],
-    u'ocd-division/country:ca/csd:2466023/borough:rivière-des-prairies~pointe-aux-trembles': [u"Rivière-des-Prairies—Pointe-aux-Trembles", u'RIVIEREDESPRAIRIESPOINTEAUXTREMBLES'],
-    u'ocd-division/country:ca/csd:2466023/borough:rosemont~la_petite-patrie': [u"Rosemont—La Petite-Patrie", u'ROSEMONTLAPETITEPATRIE'],
-    u'ocd-division/country:ca/csd:2466023/borough:saint-laurent': [u"Saint-Laurent", u'SAINTLAURENT'],
-    u'ocd-division/country:ca/csd:2466023/borough:saint-léonard': [u"Saint-Léonard", u'SAINTLEONARD'],
-    u'ocd-division/country:ca/csd:2466023/borough:verdun': [u"Verdun", u'VERDUN'],
-    u'ocd-division/country:ca/csd:2466023/borough:ville-marie': [u"Ville-Marie", u'VILLEMARIE'],
-    u'ocd-division/country:ca/csd:2466023/borough:villeray~saint-michel~parc-extension': [u"Villeray—Saint-Michel—Parc-Extension", u'VILLERAYSAINTMICHELPARCEXTENSION'],
-}
-
-for ocd_division, (name, machine_name) in boroughs_montreal.items():
-    boundaries.register(u'%s districts' % name,
-        file=u'Montreal-%s.shp' % unidecode(name),
-        domain=u'%s, Montréal, QC' % name,
-        last_updated=date(2014, 2, 28),
-        name_func=namer,
-        id_func=lambda f: int(f.get('NO_DIS')),
-        authority=u'Directeur général des élections du Québec',
-        licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
-        encoding='iso-8859-1',
-        metadata={'ocd_division': ocd_division},
-        ogr2ogr='''-where "CO_MUNCP='66023' AND NMTRI_ARON='%s'"''' % machine_name,
-        base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
-    )
+for municipality in municipalities_with_boroughs:
+    for ocd_division, (name, machine_name) in municipality['boroughs'].items():
+        boundaries.register(u'%s districts' % name,
+            file=u'%s-%s.shp' % (unidecode(municipality['name']), unidecode(name)),
+            domain=u'%s, %s, QC' % (name, municipality['name']),
+            last_updated=date(2014, 2, 28),
+            name_func=namer,
+            id_func=lambda f: int(f.get('NO_DIS')),
+            authority=u'Directeur général des élections du Québec',
+            licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
+            encoding='iso-8859-1',
+            metadata={'ocd_division': ocd_division},
+            ogr2ogr='''-where "CO_MUNCP='%d' AND NMTRI_ARON='%s'"''' % (municipality['geographic_code'], machine_name),
+            base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
+        )
