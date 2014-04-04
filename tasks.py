@@ -420,9 +420,10 @@ def topojson(base='.', output_base='./topojson'):
         readme[ocdid_to_name_map[division_id]]['upper'].append(item)
 
   with open(os.path.join(output_base, 'README.md'), 'w') as f:
-    f.write('# Represent API: TopoJSON\n\n## Canada\n\n')
+    f.write('# Represent API: TopoJSON\n')
     items = readme.pop('Canada', None)
     if items:
+      f.write('\n## Canada\n\n')
       for part in ('upper', 'lower'):
         for slug, markdown in sorted(items[part]):
           f.write(markdown)
