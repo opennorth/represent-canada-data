@@ -2,6 +2,7 @@ from datetime import date
 
 import boundaries
 
+# Also available from http://app.kitchener.ca/opendata/shp/wards.zip
 boundaries.register('Kitchener wards',
     domain='Kitchener, ON',
     last_updated=date(2013, 2, 20),
