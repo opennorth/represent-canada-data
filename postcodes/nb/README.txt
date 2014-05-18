@@ -1,3 +1,5 @@
 Source: Received via email from Elections New Brunswick.
 
-Concordances will change in 2014.
+Install: python manage.py loadpostcodeconcordance new-brunswick-electoral-districts gnb.ca ../represent-canada-data/postcodes/nb/out.csv
+
+Concordances will change by September, 2014.
