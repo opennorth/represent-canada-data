@@ -667,7 +667,7 @@ def shapefiles(base='.'):
           if result.count('\n') > 1:
             print('Too many layers %s' % url)
           elif re.search('3D Polygon', result):
-            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (directory, shp_file_path), echo=True)
+            run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s -nlt POLYGON' % (directory, shp_file_path), echo=True)
             for name in list(files_to_add):
               if not os.path.exists(name):
                 files_to_add.remove(name)
