@@ -21,11 +21,12 @@ open_data_licenses = [
   'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf',
   'http://www.regina.ca/residents/open-government/data/terms/',
   'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
-  'https://data.strathcona.ca/licence',
+  'http://www.welland.ca/open/OpendataTermUse.asp',
   'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
   'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf',
   'https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx',
   'https://creativecommons.org/licenses/by/4.0/legalcode',
+  'https://data.strathcona.ca/licence',
   'https://www.halifaxopendata.ca/terms',
 ]
 
@@ -73,6 +74,7 @@ terms = {
   'http://www.hamilton.ca/NR/rdonlyres/C58984A4-FE11-40B9-A231-8572EB922AAA/0/OpenDataTermsAndConditions_Final.htm': "I. Terms of Use. Contains public sector Data made available under the City of Hamilton’s Open Data Licence (http://www.hamilton.ca/NR/rdonlyres/C58984A4-FE11-40B9-A231-8572EB922AAA/0/OpenDataTermsAndConditions_Final.htm).",
   'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf': "I. Terms of Use. Contains public sector Datasets made available under the Town of Milton's Open Data License v.1 (http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf).",
   'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp': 'I. Terms of Use. Contains information provided by the Regional Municipality of Waterloo under licence (http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp).',
+  'http://www.welland.ca/open/OpendataTermUse.asp': 'I. Terms of Use. Contains public sector datasets made available under The Corporation of the City of Welland Open Data Licence v1.0 (http://www.welland.ca/open/OpendataTermUse.asp).',
   # Kent Mewhort email (2012-02-10).
   'https://mli2.gov.mb.ca/app/register/app/index.php': '© 2001 Her Majesty the Queen in Right of Manitoba, as represented by the Minister of Conservation. All rights reserved. Distributed under the terms of the Manitoba Land Initiative Terms and Conditions of Use (https://mli2.gov.mb.ca//app/register/app/index.php).',
 }

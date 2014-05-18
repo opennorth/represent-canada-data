@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<coordinateSystem>
+		<name>Universal Transverse Mercator - Zone 17 (N)</name>
+		<datum>North American 1983 (Canada)</datum>
+		<system>Transverse Mercator</system>
+		<unit>Meter</unit>
+		<majorAxis>6.378137000000000000000000e+006</majorAxis>
+		<eccentricity>8.181919084262148600000000e-002</eccentricity>
+		<centerX>0.000000000000000000000000e+000</centerX>
+		<centerY>0.000000000000000000000000e+000</centerY>
+		<centerZ>0.000000000000000000000000e+000</centerZ>
+		<rotationX>0.000000000000000000000000e+000</rotationX>
+		<rotationY>0.000000000000000000000000e+000</rotationY>
+		<rotationZ>0.000000000000000000000000e+000</rotationZ>
+		<scaleAdjustment>0.000000000000000000000000e+000</scaleAdjustment>
+		<scaleX>9.996000000000000400000000e-001</scaleX>
+		<localScaleX>1.000000000000000000000000e+000</localScaleX>
+		<scaleY>9.996000000000000400000000e-001</scaleY>
+		<localScaleY>1.000000000000000000000000e+000</localScaleY>
+		<falseEasting>5.000000000000000000000000e+005</falseEasting>
+		<localOffsetX>0.000000000000000000000000e+000</localOffsetX>
+		<falseNorthing>0.000000000000000000000000e+000</falseNorthing>
+		<localOffsetY>0.000000000000000000000000e+000</localOffsetY>
+		<centerLat>0.000000000000000000000000e+000</centerLat>
+		<centerLon>-8.100000000000000000000000e+001</centerLon>
+	</coordinateSystem>
+</data>
+

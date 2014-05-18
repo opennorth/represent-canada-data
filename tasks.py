@@ -181,7 +181,7 @@ def get_definition(division_id):
   }
 
   # Determine slug, domain and authority.
-  name = ocdid_to_name()[division_id]
+  name = ocdid_to_name().get(division_id, division_id)
   if ocd_type == 'country':
     slug = 'Federal electoral districts'
     config['domain'] = name
@@ -267,12 +267,12 @@ def get_definition(division_id):
 def assert_match(slug, field, actual, expected):
   if isinstance(expected, re._pattern_type):
     if not expected.search(actual):
-      print '%-50s Expected %s to match %s not %s' % (slug, field, expected.pattern, actual)
+      print('%-50s Expected %s to match %s not %s' % (slug, field, expected.pattern, actual))
   elif isinstance(expected, list):
     if actual not in expected:
-      print '%-50s Expected %s to be %s not %s' % (slug, field, expected[-1], actual)
+      print('%-50s Expected %s to be %s not %s' % (slug, field, expected[-1], actual))
   elif actual != expected:
-    print '%-50s Expected %s to be %s not %s' % (slug, field, expected, actual)
+    print('%-50s Expected %s to be %s not %s' % (slug, field, expected, actual))
 
 
 class UnicodeWriter:
@@ -327,7 +327,7 @@ def define(division_id):
   else:
     raise Exception('%s: Unrecognized OCD type %s' % (division_id, ocd_type))
 
-  print """from datetime import date
+  print("""from datetime import date
 
 import boundaries
 
@@ -339,7 +339,7 @@ boundaries.register(u'%(slug)s',
     authority=u'%(authority)s',
     encoding='iso-8859-1',
     metadata={'geographic_code': '%(geographic_code)s'},
-)""" % config
+)""" % config)
 
 
 @task
@@ -355,7 +355,7 @@ def licenses(base='.'):
     if '.DS_Store' in filenames:
       filenames.remove('.DS_Store')
     if filenames and 'LICENSE.txt' not in filenames:
-      print '%s No LICENSE.txt' % dirpath
+      print('%s No LICENSE.txt' % dirpath)
 
 
 @task
@@ -439,6 +439,12 @@ def definitions(base='.'):
   """
   Check that all definition.py files are valid.
   """
+  def warn(message, slug):
+    if message not in seen:
+      print('%-50s %s' % (slug, message))
+      seen.add(message)
+
+  seen = set()
   division_ids = set()
   for slug, config in registry(base).items():
     directory = dirname(config['file'])
@@ -452,58 +458,58 @@ def definitions(base='.'):
         licence_url = config['licence_url']
         if licence_url in open_data_licenses or licence_url in some_rights_reserved_licenses:
           if not terms.get(licence_url) and not terms_re.get(licence_url):
-            print '%-50s No LICENSE.txt template for License URL %s' % (slug, licence_url)
+            warn('No LICENSE.txt template for License URL %s' % licence_url, slug)
           elif terms.get(licence_url) and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
-            print '%-50s Expected LICENSE.txt to match license-specific template' % slug
+            print('%-50s Expected LICENSE.txt to match license-specific template' % slug)
         elif licence_url in all_rights_reserved_licenses:
           if not all_rights_reserved_terms_re.search(license_text):
-            print '%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug
+            print('%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug)
         else:
-          print '%-50s Unrecognized License URL %s' % (slug, licence_url)
+          print('%-50s Unrecognized License URL %s' % (slug, licence_url))
       elif not all_rights_reserved_terms_re.search(license_text):
-        print '%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug
+        print('%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug)
 
     # Check for invalid keys, non-unique or empty values.
     invalid_keys = set(config.keys()) - valid_keys
     if invalid_keys:
-      print '%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys))
+      print('%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
     values = [value for key, value in config.items() if key != 'metadata']
     if len(values) > len(set(values)):
-      print '%-50s Non-unique values' % slug
+      print('%-50s Non-unique values' % slug)
     for key, value in config.items():
       if not value:
-        print '%-50s Empty value for %s' % (slug, key)
+        print('%-50s Empty value for %s' % (slug, key))
 
     # Check for missing required keys.
     for key in ('domain', 'last_updated', 'name_func', 'authority', 'encoding'):
       if not config.get(key):
-        print '%-50s Missing %s' % (slug, key)
+        print('%-50s Missing %s' % (slug, key))
     if not config.get('source_url') and config.get('data_url'):
-      print '%-50s Missing source_url' % slug
+      print('%-50s Missing source_url' % slug)
     if config.get('source_url') and not config.get('licence_url') and not config.get('data_url'):
-      print '%-50s Missing licence_url or data_url' % slug
+      print('%-50s Missing licence_url or data_url' % slug)
 
     # Validate fields.
     for key in ('name', 'singular'):
       if config.get(key):
-        print '%-50s Expected %s to be missing' % (slug, key)
+        print('%-50s Expected %s to be missing' % (slug, key))
     if config.get('encoding') and config['encoding'] != 'iso-8859-1':
-      print '%-50s Expected encoding to be iso-8859-1 not %s' % (slug, config['encoding'])
+      print('%-50s Expected encoding to be iso-8859-1 not %s' % (slug, config['encoding']))
 
     if slug not in ('Census divisions', 'Census subdivisions'):
       # Check for invalid keys or empty values.
       invalid_keys = set(config['metadata'].keys()) - valid_metadata_keys
       if invalid_keys:
-        print '%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys))
+        print('%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
       for key, value in config['metadata'].items():
         if not value:
-          print '%-50s Empty value for %s' % (slug, key)
+          print('%-50s Empty value for %s' % (slug, key))
 
       division_id = get_division_id(slug, config)
 
       # Ensure division_id is unique.
       if division_id in division_ids:
-        print '%-50s Duplicate division_id %s' % (slug, division_id)
+        print('%-50s Duplicate division_id %s' % (slug, division_id))
       else:
         division_ids.add(division_id)
 
@@ -532,7 +538,7 @@ def urls(base='.'):
           ftp.login(result.username, result.password)
           ftp.cwd(os.path.dirname(result.path))
           if os.path.basename(result.path) not in ftp.nlst():
-            print '404 %s' % url
+            print('404 %s' % url)
           ftp.quit()
         else:
           try:
@@ -544,9 +550,9 @@ def urls(base='.'):
             if response.status_code == 405:  # if HEAD requests are not allowed
               response = requests.get(url, headers=headers, **arguments)
             if response.status_code != 200:
-              print '%d %s' % (response.status_code, url)
+              print('%d %s' % (response.status_code, url))
           except requests.exceptions.ConnectionError:
-            print '404 %s' % url
+            print('404 %s' % url)
 
 
 @task
@@ -607,7 +613,7 @@ def shapefiles(base='.'):
               files_to_add.append(os.path.join(directory, basename))
         except BadZipfile:
           error_thrown = True
-          print 'Bad ZIP file %s\n' % url
+          print('Bad ZIP file %s\n' % url)
         finally:
           os.unlink(data_file_path)
 
@@ -624,7 +630,7 @@ def shapefiles(base='.'):
                 f.write(zip_file.read(name))
         except BadZipfile:
           error_thrown = True
-          print 'Bad KMZ file %s\n' % url
+          print('Bad KMZ file %s\n' % url)
         finally:
           os.unlink(kmz_file_path)
 
@@ -634,7 +640,7 @@ def shapefiles(base='.'):
         if os.path.exists(kml_file_path):
           result = run('ogrinfo -q %s | grep -v "3D Point"' % kml_file_path, hide='out').stdout
           if result.count('\n') > 1:
-            print 'Too many layers %s' % url
+            print('Too many layers %s' % url)
           else:
             layer = re.search('\A\d+: (\S+)', result).group(1)
             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON %s' % (directory, kml_file_path, layer), echo=True)
@@ -659,7 +665,7 @@ def shapefiles(base='.'):
           # Convert any 3D shapefile into 2D.
           result = run('ogrinfo -q %s' % shp_file_path, hide='out').stdout
           if result.count('\n') > 1:
-            print 'Too many layers %s' % url
+            print('Too many layers %s' % url)
           elif re.search('3D Polygon', result):
             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON -overwrite' % (directory, shp_file_path), echo=True)
             for name in list(files_to_add):
@@ -679,7 +685,7 @@ def shapefiles(base='.'):
               f.write(requests.get(config['prj']).content)
             files_to_add.append(prj_file_path)
           else:
-            print 'No PRJ file %s' % url
+            print('No PRJ file %s' % url)
 
           # Run any additional commands on the shapefile.
           if config.get('ogr2ogr'):
@@ -703,9 +709,9 @@ def shapefiles(base='.'):
         if config.get('notes'):
           notes.append(config['notes'])
         if notes:
-          print '%s\n%s\n' % (slug, '\n'.join(notes))
+          print('%s\n%s\n' % (slug, '\n'.join(notes)))
     else:
-      print 'Unrecognized extension %s\n' % url
+      print('Unrecognized extension %s\n' % url)
 
   # Retrieve shapefiles.
   for slug, config in registry(base).items():
@@ -753,7 +759,7 @@ def shapefiles(base='.'):
         last_updated = last_updated.date()
 
         if config['last_updated'] > last_updated:
-          print '%s are more recent than the source\n' % slug
+          print('%s are more recent than the source\n' % slug)
         elif config['last_updated'] < last_updated:
           # Determine the file extension.
           if response.headers.get('content-disposition'):
@@ -935,8 +941,8 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             record['Type of license'] = 'All rights reserved'
           else:
             record['Type of license'] = 'Custom'
-        else:
-          sys.stderr.write('%-60s No geographic_code\n' % slug)
+        elif not config['metadata'].get('ocd_division'):
+          sys.stderr.write('%-60s No geographic_code or ocd_division\n' % slug)
 
   reader = csv.DictReader(StringIO(requests.get('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=25&output=csv').content))
   for row in reader:
@@ -1009,6 +1015,6 @@ def populations():
       if row[1] != 'Canada':
         division_id = 'ocd-division/country:ca/csd:%s' % row[0]
         if ocdid_to_type()[division_id] in ('C', 'CV', 'CY', 'MD', 'MU', 'RGM', 'T', 'TP', 'V', 'VL'):
-          print '  u"%s": %s,' % (get_definition(division_id)[0], row[4])
+          print('  u"%s": %s,' % (get_definition(division_id)[0], row[4]))
     else:
       break
