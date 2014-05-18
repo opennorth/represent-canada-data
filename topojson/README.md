@@ -78,6 +78,7 @@
 * [Milton wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_milton_ed_milton_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/milton-wards/?limit=0)
 * [Mississauga wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_mississauga_ed_mississauga_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/mississauga-wards/?limit=0)
 * [North Dumfries wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_northdumfries_ed_north_dumfries_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/north-dumfries-wards/?limit=0)
+* [Oakville wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_oakville_ed_oakville_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/oakville-wards/?limit=0)
 * [Ottawa wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_ottawa_ed_ottawa_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/ottawa-wards/?limit=0)
 * [Peterborough wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_peterborough_ed_peterborough_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/peterborough-wards/?limit=0)
 * [Thunder Bay wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_thunderbay_ed_thunder_bay_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/thunder-bay-wards/?limit=0)
