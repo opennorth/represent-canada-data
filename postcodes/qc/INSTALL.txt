@@ -1,5 +1,0 @@
-TMP=$LANG
-LC_CTYPE=en_CA.ISO8859-1
-cut -d ";" -f 1-2 CP_CIRC_MUN_MRC_RA_BRUT.txt | tail +2 | uniq | sed 's/;/,/' > out.csv
-python manage.py loadpostcodeconcordance quebec-electoral-districts electionsquebec.qc.ca out.csv
-LC_CTYPE=$TMP
