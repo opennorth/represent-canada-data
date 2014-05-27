@@ -291,7 +291,7 @@ def namer(f):
             u'Saint-Roch-Saint-Sauveur': u'Saint-Roch—Saint-Sauveur',
         }.get(f.get('NM_DIS'), f.get('NM_DIS'))
     elif f.get('CO_MUNCP') == 58227: # Longueuil
-        return re.sub(r"\A(?:d'|de |du |des )", '', f.get('NM_DIS'))
+        return re.sub(r"\b(?:d'|de |du |des )", '', f.get('NM_DIS'))
     elif f.get('CO_MUNCP') == 66097: # Pointe-Claire
         return f.get('NM_DIS').replace('/ ', '/')
     elif f.get('CO_MUNCP') == 81017: # Gatineau
