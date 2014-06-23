@@ -1,1 +1,2 @@
-Each directory in this repository contains a dataset. Each dataset is governed by the terms of the "LICENSE.txt" file located in each respective directory.
+Each directory in this repository contains a dataset. Each dataset is governed
+by the terms of the "LICENSE.txt" file located in each respective directory.
