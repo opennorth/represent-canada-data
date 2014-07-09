@@ -759,7 +759,7 @@ def shapefiles(base='.'):
         last_updated = last_updated.date()
 
         if config['last_updated'] > last_updated:
-          print('%s are more recent than the source\n' % slug)
+          print('%s are more recent than the source (%s > %s)\n' % (slug, config['last_updated'], last_updated))
         elif config['last_updated'] < last_updated:
           # Determine the file extension.
           if response.headers.get('content-disposition'):

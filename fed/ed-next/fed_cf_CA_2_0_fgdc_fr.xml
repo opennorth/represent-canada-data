@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<!DOCTYPE metadata [
+	<!ENTITY ge "&#8805;">
+	<!ENTITY le "&#8804;">
+	<!ENTITY nbsp "&#160;">
+	<!ENTITY radic "&#8730;">
+	<!ENTITY sup2 "&#178;">
+	<!ENTITY sigma "&#963;">
+]>
+<metadata>
+ <idinfo>
+  <citation>
+   <citeinfo>
+    <origin>Division de la géographie électorale - Elections Canada</origin>
+    <pubdate>Mars 2014</pubdate>
+    <title>CF_CA_2_0_FR</title>
+    <edition>2.0</edition>
+    <geoform>Données numériques vectorielles</geoform>
+    <pubinfo>
+     <pubplace>Ottawa</pubplace>
+     <publish>Division de la géographie électorale - Élections Canada</publish>
+    </pubinfo>
+    <onlink>http://geobase.ca/geobase/fr/data/admin/fed/description.html</onlink>
+   </citeinfo>
+  </citation>
+  <descript>
+   <abstract>Le Canada est divisé en 338 circonscriptions. Un représentant du Parlement ou député est élu pour chacune des circonscriptions. Après la diffusion des chiffres de population de chaque recensement décennal, le directeur général des élections détermine le nombre de sièges à la Chambre des communes et publie cette information dans la Gazette du Canada. Les commissions de délimitation des circonscriptions déterminent ensuite les modifications à apporter aux limites des circonscriptions. Les commissions de délimitation des circonscriptions fédérales sont des organismes indépendants qui prennent toutes les décisions concernant les limites proposées et définitives des circonscriptions fédérales.
+
+Élections Canada offre des services de soutien à la commission de délimitation des circonscriptions dans chaque province. 
+
+À la lumière des rapports de ces commissions, le directeur général des élections prépare un décret de représentation électorale faisant état des limites, du nom et de la population de chaque CF. Le décret de représentation électorale prend effet à la première dissolution du Parlement qui se produit au moins sept mois après sa proclamation. Le Décret de représentation électorale de 2013 (proclamée le 5 octobre 2013) était fondé sur les chiffres de population du recensement de 2011; le nombre de CF, établi à 308 selon le Décret de représentation électorale de 2003, est passé à 338. L'Ontario s'est accru de quinze sièges, l'Alberta et la Colombie-Britannique en ont gagné six chacun, alors que le Québec en a ajouté trois. Le nom des CF peut être modifié n'importe quand par une loi fédérale.</abstract>
+   <purpose>Fournir au public une représentation numérique des limites des 338 circonscriptions.  Ce jeu de données ne doit pas être utilisé pour la détermination des limites, habituellement définies par des documents juridiques et des plans d'arpentage officiels.</purpose>
+  </descript>
+  <timeperd>
+   <timeinfo>
+     <sngdate>
+      <caldate>2014</caldate>
+     </sngdate>
+   </timeinfo>
+   <current>Mars 2014</current>
+  </timeperd>
+  <status>
+   <progress>Complet</progress>
+   <update>Au besoin</update>
+  </status>
+  <spdom>
+   <bounding>
+    <westbc>-141</westbc>
+    <eastbc>-53.7</eastbc>
+    <northbc>83.3</northbc>
+    <southbc>42.4</southbc>
+   </bounding>
+  </spdom>
+  <keywords>
+   <theme>
+     <themekt>GCMD</themekt>
+     <themekey>sciences de la Terre &gt; aspects humains &gt; limites &gt; divisions politiques</themekey>
+   </theme>
+   <place>
+     <placekt>CEONET</placekt>
+     <placekey>Canada</placekey>
+   </place>
+  </keywords>
+  <accconst>L'utilisation des données de GéoBase est assujettie à la Licence du gouvernement ouvert - Canada.</accconst>
+  <useconst>L'utilisation des données de GéoBase est assujettie à la Licence du gouvernement ouvert - Canada.</useconst>
+  <ptcontac>
+   <cntinfo>
+     <cntorgp>
+      <cntorg>Élections Canada</cntorg>
+      <cntper>Division de la géographie électorale</cntper>
+     </cntorgp>
+    <cntaddr>
+     <addrtype>Adresse physique et postale</addrtype>
+     <address>257 rue Slater</address>
+     <city>Ottawa</city>
+     <state>Ontario</state>
+     <postal>K1A0M6</postal>
+     <country>Canada</country>
+    </cntaddr>
+    <cntvoice>1-800-463-6868</cntvoice>
+    <cntfax>613-954-8584</cntfax>
+    <cntemail>geoservices@elections.ca</cntemail>
+   </cntinfo>
+  </ptcontac>
+  <datacred>Division de la géographie électorale - Élections Canada</datacred>
+ </idinfo>
+ <dataqual>
+  <attracc>
+   <attraccr>Les valeurs de domaine attribuées aux champs des éléments du jeu de données CF sont validées au moyen des valeurs de domaine définies dans le Catalogue d'entités des circonscriptions électorales fédérales.</attraccr>
+  </attracc>
+  <logic>La délimitation des circonscriptions a été créée à partir du réseau routier de la Base nationale de données géographiques (BNDG). La représentation des circonscriptions numériques respecte la définition des limites officielles, telle qu'établie par les commissions de délimitation des circonscriptions fédérales de 2013, telle que modifiée.
+
+L'ensemble de données des CF fournit la couverture nationale de tout le pays. Il n'y a aucune lacune ou chevauchement entre chacun des polygones CF présents dans chacun des jeux de données.
+
+Le modèle conceptuel des données CF est présenté dans le document Circonscription Fédérale : Modèle Conceptuel des Données accessible sur le portail GéoBase (www.geobase.ca).</logic>
+  <complete>Le jeu de données CF comprend une couverture nationale complète pour tout le Canada; ceci comprend les 10 provinces et les 3 territoires septentrionaux. Tous les polygones sont reliés à une table de correspondance.</complete>
+  <posacc>
+   <horizpa>
+    <horizpar>La précision de localisation externe absolue s'entend du degré de correspondance entre la localisation des traits dans une base de données géographiques et leur véritable localisation. Il s'agit de la différence entre les distances séparant deux points connus sur une carte et les distances réelles entre ces deux mêmes points, telles qu'établies par des méthodes d'arpentage conventionnelles.
+
+La précision de localisation externe absolue des entités spatiales composant le jeu de données d'une CF dépend de la précision absolue des différents ensembles de traits ayant servi à créer les limites de la circonscription. On forme les CF par dissolution spatiale des sections de vote de chaque circonscription. Les réalités géographiques qui servent à représenter les limites d'une section de vote comprennent les constructions humaines comme les routes, les chemins de fer ou les lignes à haute tension, ainsi que les réalités naturelles comme les lacs, les littoraux et les cours d'eau. De plus, beaucoup de ces limites sont définies par des divisions administratives (villes, comtés, cantons).
+
+De l'information additionnelle sur la précision de localisation des jeux de données numériques des CF et les éléments utilisés pour la création des limites des circonscriptions est disponible à l'adresse suivante : http://dsp-psd.pwgsc.gc.ca/collection_2009/statcan/92-500-G/92-500-g2009001-f-ra.pdf.
+
+Les caractéristiques de base qui définissent une section de vote proviennent de multiples sources de données, y compris des cartes numériques ou de format papier fondées sur des données originales dont l'échelle va de 1:10 000 à 1:1 000 000. Certaines de ces sources de données ont des niveaux connus de précision de localisation, mais d'autres non. Les processus de maintenance et de mise à jour ont augmenté le niveau d'imprécision dans les jeux de données. 
+
+Dans ce contexte, il est impossible d'attribuer exactement un degré de précision de localisation au jeu de données. Tout ce qu'on peut en dire, c'est que pour la plupart des zones urbaines et bâties, les données à l'échelle 1:50 000 (précision de ±10 mètres) ont servi de données de référence; dans les zones rurales du Sud du Canada, ce sont les données à l'échelle 1:250 000 (précision de ±300 mètres) et dans les zones nordiques du pays, ce sont les données à l'échelle 1:1 000 000 (précision de ±2 100 à ±4 300 mètres).
+
+Il existe également des éléments numériques provenant du réseau routier de la BNDG (Base nationale de données géographiques) dont la précision de localisation ne peut être établie. Ces arcs ont été numérisés à partir de cartes papier. Bien que l'information sur les attributs des arcs et la position de ceux ci par rapport à d'autres traits soit très précise, il est impossible d'estimer la précision de localisation absolue de ces CF, les éléments dérivés du réseau routier ne pouvant pas être quantifiés avec précision.</horizpar>
+   </horizpa>
+  </posacc>
+  <lineage>
+   <srcinfo>
+    <srcscale>1:50,000, 1:250,000, 1:1,000,000</srcscale>
+    <typesrc>online</typesrc>
+    <srccitea>EGD</srccitea>
+    <srccontr>Le jeu de données des CF est formé par dissolution spatiale des limites des sections de vote de chaque circonscription principale. Les éléments sous-jacents qui composent la section proviennent des différents traits de base, notamment le réseau routier, le réseau hydrographique et les autres constructions humaines comme les chemins de fer, les lignes à haute tension et les frontières municipales. La précision des limites individuelles qui font partie du jeu de données de la circonscription est donc liée à la précision des couches de base dont elles sont dérivées.</srccontr>
+   </srcinfo>
+   <procstep>
+    <procdesc>Le jeu de données des CF est formé par dissolution spatiale des limites des sections de vote de chaque circonscription principale. Les éléments sous-jacents qui composent la section proviennent des différents traits de base, notamment le réseau routier, le réseau hydrographique et les autres constructions humaines comme les chemins de fer, les lignes à haute tension et les frontières municipales. La précision des limites individuelles qui font partie du jeu de données de la circonscription est donc liée à la précision des couches de base dont elles sont dérivées.
+
+Les caractéristiques de base qui définissent une section de vote proviennent de multiples sources de données, y compris des cartes numériques ou de format papier fondées sur des données originales dont l'échelle va de 1:10 000 à 1:1 000 000. Certaines de ces sources de données ont des niveaux connus de précision de localisation, mais d'autres non. Les processus de maintenance et de mise à jour ont augmenté le niveau d'imprécision dans les jeux de données.
+ 
+Dans ce contexte, il est impossible d'attribuer exactement un degré de précision de localisation au jeu de données. Tout ce qu'on peut en dire, c'est que pour la plupart des zones urbaines et bâties, les données à l'échelle 1:50 000 (précision de ±10 mètres) ont servi de données de référence; dans les zones rurales du Sud du Canada, ce sont les données à l'échelle 1:250 000 (précision de ±300 mètres) et dans les zones nordiques du pays, ce sont les données à l'échelle 1:1 000 000 (précision de ±2 100 à ±4 300 mètres).
+
+Il existe également des éléments numériques provenant du réseau routier de la BNDG (Base nationale de données géographiques) dont la précision de localisation ne peut être établie. Ces arcs ont été numérisés à partir de cartes papier. Bien que l'information sur les attributs des arcs et la position de ceux ci par rapport à d'autres traits soit très précise, il est impossible d'estimer la précision de localisation absolue de ces CF, les éléments dérivés du réseau routier ne pouvant pas être quantifiés avec précision.</procdesc>
+   </procstep>
+  </lineage>
+ </dataqual>
+ <spdoinfo>
+   <direct>Vecteur</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>G-polygon</sdtstype>
+        <ptvctcnt>338</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+ </spdoinfo>
+ <spref>
+  <horizsys>
+    <planar>
+      <mapproj>
+       <mapprojn>Lambert conforme conique</mapprojn>
+        <lambertc>
+         <stdparll>49.000000</stdparll>
+         <stdparll>77.000000</stdparll>
+         <longcm>-91.866667</longcm>
+         <latprjo>63.390675</latprjo>
+         <feast>6200000.000000</feast>
+         <fnorth>3000000.000000</fnorth>
+        </lambertc>
+      </mapproj>
+     <planci>
+      <plance>Paire de coordonnées</plance>
+       <coordrep>
+        <absres>0.002857 </absres>
+        <ordres>0.002857 </ordres>
+       </coordrep>
+      <plandu>mètres</plandu>
+     </planci>
+    </planar>
+   <geodetic>
+    <horizdn>Système de référence nord-américain de 1983</horizdn>
+   </geodetic>
+  </horizsys>
+  <vertdef>
+   <altsys>
+    <altres>1.000000</altres>
+    <altenc>Élévation fournie explicitement avec les coordonnées.</altenc>
+   </altsys>
+  </vertdef>
+ </spref>
+ <distinfo>
+   <distrib>
+    <cntinfo>
+      <cntorgp>
+       <cntorg>Soutien technique GéoBase</cntorg>
+       <cntper>Gouvernement du Canada, Ressources naturelles Canada, Secteur des sciences de la Terre, Géomatique Canada, Centre d'information topographique</cntper>
+      </cntorgp>
+     <cntaddr>
+      <addrtype>Adresse postale et civique</addrtype>
+      <address>2144, rue King Ouest, bureau 010</address>
+      <city>Sherbrooke</city>
+      <state>Québec</state>
+      <postal>J1J2E8</postal>
+      <country>Canada</country>
+     </cntaddr>
+     <cntvoice>+01-819-564-4857 / 1-800-661-2638 (Canada et États-Unis)</cntvoice>
+     <cntfax>+01-819-564-5698</cntfax>
+     <cntemail>supportGeobase@NRCan.gc.ca</cntemail>
+     <hours>8h30 à 12h00 et 13h00 à 16h30 HNE</hours>
+    </cntinfo>
+   </distrib>
+   <stdorder>
+     <digform>
+      <digtinfo>
+       <formname>Shapefiles d'ESRI</formname>
+      </digtinfo>
+      <digtopt>
+        <onlinopt>
+         <computer>
+           <networka>
+            <networkr>http://www.geobase.ca</networkr>
+           </networka>
+         </computer>
+        </onlinopt>
+      </digtopt>
+     </digform>
+     <digform>
+      <digtinfo>
+       <formname>GML (Langage de balisage géographique)</formname>
+      </digtinfo>
+      <digtopt>
+        <onlinopt>
+         <computer>
+           <networka>
+            <networkr>http://www.geobase.ca</networkr>
+           </networka>
+         </computer>
+        </onlinopt>
+      </digtopt>
+     </digform>
+     <digform>
+      <digtinfo>
+       <formname>KML (Keyhole Markup Language)</formname>
+      </digtinfo>
+      <digtopt>
+        <onlinopt>
+         <computer>
+           <networka>
+            <networkr>http://www.geobase.ca</networkr>
+           </networka>
+         </computer>
+        </onlinopt>
+      </digtopt>
+     </digform>
+    <fees>Gratuit-Free</fees>
+   </stdorder>
+ </distinfo>
+ <metainfo>
+  <metd>2014-03-09</metd>
+  <metc>
+   <cntinfo>
+     <cntorgp>
+      <cntorg>Élections Canada</cntorg>
+      <cntper>Division de la géographie électorale</cntper>
+     </cntorgp>
+    <cntaddr>
+     <addrtype>Adresse physique et postale</addrtype>
+     <address>257 rue Slater</address>
+     <city>Ottawa</city>
+     <state>Ontario</state>
+     <postal>K1A0M6</postal>
+     <country>Canada</country>
+    </cntaddr>
+    <cntvoice>+01-800-463-6868</cntvoice>
+    <cntfax>+01-613-954-8584</cntfax>
+    <cntemail>geoservices@elections.ca</cntemail>
+    <hours>8:00 - 16:00</hours>
+   </cntinfo>
+  </metc>
+  <metstdn>FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+  <metstdv>FGDC-STD-001-1998</metstdv>
+ </metainfo>
+</metadata>

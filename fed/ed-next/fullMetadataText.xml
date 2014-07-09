@@ -1,0 +1,1357 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!--
+Author: Natural Resources Canada, Earth Science Sector, Data Management and Dissemination Branch
+Last Revision Date: 2007-01-18
+
+Based on content located at http://geology.usgs.gov/tools/metadata/tools/doc/names.html
+-->
+<translationTable>
+	<translation name="absres">
+		<text lang="en">Abscissa Resolution</text>
+		<text lang="fr">Résolution en abscisse</text>
+	</translation>
+	<translation name="abstract">
+		<text lang="en">Abstract</text>
+		<text lang="fr">Résumé</text>
+	</translation>
+	<translation name="accconst">
+		<text lang="en">Access Constraints</text>
+		<text lang="fr">Contraintes d'accès</text>
+	</translation>
+	<translation name="accsinst">
+		<text lang="en">Access Instructions</text>
+		<text lang="fr">Instructions d'accès</text>
+	</translation>
+	<translation name="address">
+		<text lang="en">Address</text>
+		<text lang="fr">Adresse</text>
+	</translation>
+	<translation name="addrtype">
+		<text lang="en">Address Type</text>
+		<text lang="fr">Type d'adresse</text>
+	</translation>
+	<translation name="albers">
+		<text lang="en">Albers Conical Equal Area</text>
+		<text lang="fr">Conique équivalente d'Albers</text>
+	</translation>
+	<translation name="altdatum">
+		<text lang="en">Altitude Datum Name</text>
+		<text lang="fr">Nom du plan de référence altimétrique</text>
+	</translation>
+	<translation name="altenc">
+		<text lang="en">Altitude Encoding Method</text>
+		<text lang="fr">Méthode de codage de l'altitude</text>
+	</translation>
+	<translation name="altres">
+		<text lang="en">Altitude Resolution</text>
+		<text lang="fr">Résolution en altitude</text>
+	</translation>
+	<translation name="altsys">
+		<text lang="en">Altitude System Definition</text>
+		<text lang="fr">Définition du système altimétrique</text>
+	</translation>
+	<translation name="altunits">
+		<text lang="en">Altitude Distance Units</text>
+		<text lang="fr">Unités de distance de l'altitude</text>
+	</translation>
+	<translation name="arcsys">
+		<text lang="en">ARC Coordinate System</text>
+		<text lang="fr">Système de coordonnées ARC</text>
+	</translation>
+	<translation name="arczone">
+		<text lang="en">ARC System Zone Identifier</text>
+		<text lang="fr">Identifiant de zone du système ARC</text>
+	</translation>
+	<translation name="attr">
+		<text lang="en">Attribute</text>
+		<text lang="fr">Attribut</text>
+	</translation>
+	<translation name="attracc">
+		<text lang="en">Attribute Accuracy</text>
+		<text lang="fr">Précision d'attribut</text>
+	</translation>
+	<translation name="attracce">
+		<text lang="en">Attribute Accuracy Explanation</text>
+		<text lang="fr">Explication de la précision d'attribut</text>
+	</translation>
+	<translation name="attraccr">
+		<text lang="en">Attribute Accuracy Report</text>
+		<text lang="fr">Rapport sur la précision d'attribut</text>
+	</translation>
+	<translation name="attraccv">
+		<text lang="en">Attribute Accuracy Value</text>
+		<text lang="fr">Valeur de la précision d'attribut</text>
+	</translation>
+	<translation name="attrdef">
+		<text lang="en">Attribute Definition</text>
+		<text lang="fr">Définition de l'attribut</text>
+	</translation>
+	<translation name="attrdefs">
+		<text lang="en">Attribute Definition Source</text>
+		<text lang="fr">Source de définition de l'attribut</text>
+	</translation>
+	<translation name="attrdomv">
+		<text lang="en">Attribute Domain Values</text>
+		<text lang="fr">Valeurs du domaine de l'attribut</text>
+	</translation>
+	<translation name="attrlabl">
+		<text lang="en">Attribute Label</text>
+		<text lang="fr">Annotation d'attribut</text>
+	</translation>
+	<translation name="attrmfrq">
+		<text lang="en">Attribute Measurement Frequency</text>
+		<text lang="fr">Fréquence de mesure de l'attribut</text>
+	</translation>
+	<translation name="attrmres">
+		<text lang="en">Attribute Measurement Resolution</text>
+		<text lang="fr">Résolution de la mesure d'attribut</text>
+	</translation>
+	<translation name="attrunit">
+		<text lang="en">Attribute Units of Measurement</text>
+		<text lang="fr">Unités de mesure de l'attribut</text>
+	</translation>
+	<translation name="attrva">
+		<text lang="en">Attribute Value Accuracy</text>
+		<text lang="fr">Précision des valeurs d'attribut</text>
+	</translation>
+	<translation name="attrvae">
+		<text lang="en">Attribute Value Accuracy Explanation</text>
+		<text lang="fr">Explication de la précision des valeurs d'attribut</text>
+	</translation>
+	<translation name="attrvai">
+		<text lang="en">Attribute Value Accuracy Information</text>
+		<text lang="fr">Information sur la précision des valeurs d'attribut</text>
+	</translation>
+	<translation name="availabl">
+		<text lang="en">Available Time Period</text>
+		<text lang="fr">Période de temps de disponibilité</text>
+	</translation>
+	<translation name="azimangl">
+		<text lang="en">Azimuthal Angle</text>
+		<text lang="fr">Angle azimutal</text>
+	</translation>
+	<translation name="azimequi">
+		<text lang="en">Azimuthal Equidistant</text>
+		<text lang="fr">Azimutale équidistante</text>
+	</translation>
+	<translation name="azimptl">
+		<text lang="en">Azimuth Measure Point Longitude</text>
+		<text lang="fr">Longitude du point de mesure de l'azimut</text>
+	</translation>
+	<translation name="bearrefd">
+		<text lang="en">Bearing Reference Direction</text>
+		<text lang="fr">Direction de référence pour les angles de relèvement</text>
+	</translation>
+	<translation name="bearrefm">
+		<text lang="en">Bearing Reference Meridian</text>
+		<text lang="fr">Méridien de référence pour les angles de relèvement</text>
+	</translation>
+	<translation name="bearres">
+		<text lang="en">Bearing Resolution</text>
+		<text lang="fr">Résolution en angle de relèvement</text>
+	</translation>
+	<translation name="bearunit">
+		<text lang="en">Bearing Units</text>
+		<text lang="fr">Unités d'angle de relèvement</text>
+	</translation>
+	<translation name="begdate">
+		<text lang="en">Beginning Date</text>
+		<text lang="fr">Date de début</text>
+	</translation>
+	<translation name="begdatea">
+		<text lang="en">Beginning Date of Attribute Values</text>
+		<text lang="fr">Date de début des valeurs d'attribut</text>
+	</translation>
+	<translation name="begtime">
+		<text lang="en">Beginning Time</text>
+		<text lang="fr">Temps de début</text>
+	</translation>
+	<translation name="bounding">
+		<text lang="en">Bounding Coordinates</text>
+		<text lang="fr">Coordonnées de délimitation</text>
+	</translation>
+	<translation name="browse">
+		<text lang="en">Browse Graphic</text>
+		<text lang="fr">Aperçu graphique</text>
+	</translation>
+	<translation name="browsed">
+		<text lang="en">Browse Graphic File Description</text>
+		<text lang="fr">Description de l'aperçu graphique</text>
+	</translation>
+	<translation name="browsen">
+		<text lang="en">Browse Graphic File Name</text>
+		<text lang="fr">Nom d'aperçu graphique</text>
+	</translation>
+	<translation name="browset">
+		<text lang="en">Browse Graphic File Type</text>
+		<text lang="fr">Type d'aperçu graphique</text>
+	</translation>
+	<translation name="caldate">
+		<text lang="en">Calendar Date</text>
+		<text lang="fr">Date du calendrier</text>
+	</translation>
+	<translation name="citation">
+		<text lang="en">Citation</text>
+		<text lang="fr">Citation</text>
+	</translation>
+	<translation name="citeinfo">
+		<text lang="en">Citation Information</text>
+		<text lang="fr">Information de citation</text>
+	</translation>
+	<translation name="city">
+		<text lang="en">City</text>
+		<text lang="fr">Ville</text>
+	</translation>
+	<translation name="cloud">
+		<text lang="en">Cloud Cover</text>
+		<text lang="fr">Couverture nuageuse</text>
+	</translation>
+	<translation name="cntaddr">
+		<text lang="en">Contact Address</text>
+		<text lang="fr">Adresse du contact</text>
+	</translation>
+	<translation name="cntemail">
+		<text lang="en">Contact Electronic Mail Address</text>
+		<text lang="fr">Courriel du contact</text>
+	</translation>
+	<translation name="cntfax">
+		<text lang="en">Contact Facsimile Telephone</text>
+		<text lang="fr">Télécopieur du contact</text>
+	</translation>
+	<translation name="cntinfo">
+		<text lang="en">Contact Information</text>
+		<text lang="fr">Information sur le contact</text>
+	</translation>
+	<translation name="cntinst">
+		<text lang="en">Contact Instructions</text>
+		<text lang="fr">Instructions sur le contact</text>
+	</translation>
+	<translation name="cntorg">
+		<text lang="en">Contact Organization</text>
+		<text lang="fr">Organisation contact</text>
+	</translation>
+	<translation name="cntorgp">
+		<text lang="en">Contact Organization Primary</text>
+		<text lang="fr">Organisation contact primaire</text>
+	</translation>
+	<translation name="cntper">
+		<text lang="en">Contact Person</text>
+		<text lang="fr">Personne contact</text>
+	</translation>
+	<translation name="cntperp">
+		<text lang="en">Contact Person Primary</text>
+		<text lang="fr">Personne contact primaire</text>
+	</translation>
+	<translation name="cntpos">
+		<text lang="en">Contact Position</text>
+		<text lang="fr">Position du contact</text>
+	</translation>
+	<translation name="cnttdd">
+		<text lang="en">Contact TDD/TTY Telephone</text>
+		<text lang="fr">Numéro de téléphone ATME du contact</text>
+	</translation>
+	<translation name="cntvoice">
+		<text lang="en">Contact Voice Telephone</text>
+		<text lang="fr">Numéro de téléphone du contact</text>
+	</translation>
+	<translation name="codesetd">
+		<text lang="en">Codeset Domain</text>
+		<text lang="fr">Domaine de l'ensemble de code</text>
+	</translation>
+	<translation name="codesetn">
+		<text lang="en">Codeset Name</text>
+		<text lang="fr">Nom du domaine de l'ensemble de code</text>
+	</translation>
+	<translation name="codesets">
+		<text lang="en">Codeset Source</text>
+		<text lang="fr">Source de l'ensemble de code</text>
+	</translation>
+	<translation name="colcount">
+		<text lang="en">Column Count</text>
+		<text lang="fr">Dénombrement des colonnes</text>
+	</translation>
+	<translation name="compat">
+		<text lang="en">Compatibility Information</text>
+		<text lang="fr">Information sur la compatibilité</text>
+	</translation>
+	<translation name="complete">
+		<text lang="en">Completeness Report</text>
+		<text lang="fr">Rapport de complétude</text>
+	</translation>
+	<translation name="compress">
+		<text lang="en">Compression Support</text>
+		<text lang="fr">Support de compression</text>
+	</translation>
+	<translation name="computer">
+		<text lang="en">Computer Contact Information</text>
+		<text lang="fr">Information sur l'ordinateur du contact</text>
+	</translation>
+	<translation name="coordrep">
+		<text lang="en">Coordinate Representation</text>
+		<text lang="fr">Représentation par coordonnées</text>
+	</translation>
+	<translation name="country">
+		<text lang="en">Country</text>
+		<text lang="fr">Pays</text>
+	</translation>
+	<translation name="crossref">
+		<text lang="en">Cross Reference</text>
+		<text lang="fr">Renvoi</text>
+	</translation>
+	<translation name="current">
+		<text lang="en">Currentness Reference</text>
+		<text lang="fr">Référence à l'actualité</text>
+	</translation>
+	<translation name="custom">
+		<text lang="en">Custom Order Process</text>
+		<text lang="fr">Processus de commande spéciale</text>
+	</translation>
+	<translation name="datacred">
+		<text lang="en">Data Set Credit</text>
+		<text lang="fr">Crédit pour l'ensemble des données</text>
+	</translation>
+	<translation name="dataqual">
+		<text lang="en">Data Quality Information</text>
+		<text lang="fr">Information sur la qualité des données</text>
+	</translation>
+	<translation name="denflat">
+		<text lang="en">Denominator of Flattening Ratio</text>
+		<text lang="fr">Dénominateur du rapport d'aplatissement</text>
+	</translation>
+	<translation name="depthdn">
+		<text lang="en">Depth Datum Name</text>
+		<text lang="fr">Nom du plan de référence des profondeurs</text>
+	</translation>
+	<translation name="depthdu">
+		<text lang="en">Depth Distance Units</text>
+		<text lang="fr">Unités de distance en profondeur</text>
+	</translation>
+	<translation name="depthem">
+		<text lang="en">Depth Encoding Method</text>
+		<text lang="fr">Méthode de codage de la profondeur</text>
+	</translation>
+	<translation name="depthres">
+		<text lang="en">Depth Resolution</text>
+		<text lang="fr">Résolution en profondeur</text>
+	</translation>
+	<translation name="depthsys">
+		<text lang="en">Depth System Definition</text>
+		<text lang="fr">Définition du système de la profondeur</text>
+	</translation>
+	<translation name="descript">
+		<text lang="en">Description</text>
+		<text lang="fr">Description</text>
+	</translation>
+	<translation name="detailed">
+		<text lang="en">Detailed Description</text>
+		<text lang="fr">Description détaillée</text>
+	</translation>
+	<translation name="dialfile">
+		<text lang="en">Dialup File Name</text>
+		<text lang="fr">Nom du fichier d'accès commuté</text>
+	</translation>
+	<translation name="dialinst">
+		<text lang="en">Dialup Instructions</text>
+		<text lang="fr">Instructions d'accès commuté</text>
+	</translation>
+	<translation name="dialtel">
+		<text lang="en">Dialup Telephone</text>
+		<text lang="fr">Numéro de téléphone d'accès commuté</text>
+	</translation>
+	<translation name="digform">
+		<text lang="en">Digital Form</text>
+		<text lang="fr">Forme numérique</text>
+	</translation>
+	<translation name="digtinfo">
+		<text lang="en">Digital Transfer Information</text>
+		<text lang="fr">Information de transfert numérique</text>
+	</translation>
+	<translation name="digtopt">
+		<text lang="en">Digital Transfer Option</text>
+		<text lang="fr">Option de transfert numérique</text>
+	</translation>
+	<translation name="direct">
+		<text lang="en">Direct Spatial Reference Method</text>
+		<text lang="fr">Méthode de référence spatiale directe</text>
+	</translation>
+	<translation name="distbrep">
+		<text lang="en">Distance and Bearing Representation</text>
+		<text lang="fr">Représentation par distance et par angle de relèvement</text>
+	</translation>
+	<translation name="distinfo">
+		<text lang="en">Distribution Information</text>
+		<text lang="fr">Information de distribution</text>
+	</translation>
+	<translation name="distliab">
+		<text lang="en">Distribution Liability</text>
+		<text lang="fr">Responsabilité de distribution</text>
+	</translation>
+	<translation name="distres">
+		<text lang="en">Distance Resolution</text>
+		<text lang="fr">Résolution en distance</text>
+	</translation>
+	<translation name="distrib">
+		<text lang="en">Distributor</text>
+		<text lang="fr">Distributeur</text>
+	</translation>
+	<translation name="dsgpoly">
+		<text lang="en">Data Set G-Polygon</text>
+		<text lang="fr">Polygone-G de l'ensemble de données</text>
+	</translation>
+	<translation name="dsgpolyo">
+		<text lang="en">Data Set G-Polygon Outer G-Ring</text>
+		<text lang="fr">Cercle-G d'exclusion du polygone-G de l'ensemble de données</text>
+	</translation>
+	<translation name="dsgpolyx">
+		<text lang="en">Data Set G-Polygon Exclusion G-Ring</text>
+		<text lang="fr">Cercle-G extérieur du polygone-G de l'ensemble de données</text>
+	</translation>
+	<translation name="eadetcit">
+		<text lang="en">Entity and Attribute Detail Citation</text>
+		<text lang="fr">Citation détaillée sur l'entité et l'attribut</text>
+	</translation>
+	<translation name="eainfo">
+		<text lang="en">Entity and Attribute Information</text>
+		<text lang="fr">Information sur l'entité et l'attribut</text>
+	</translation>
+	<translation name="eaover">
+		<text lang="en">Entity and Attribute Overview</text>
+		<text lang="fr">Sommaire des entités et des attributs</text>
+	</translation>
+	<translation name="eastbc">
+		<text lang="en">East Bounding Coordinate</text>
+		<text lang="fr">Coordonnée de délimitation Est</text>
+	</translation>
+	<translation name="edition">
+		<text lang="en">Edition</text>
+		<text lang="fr">Édition</text>
+	</translation>
+	<translation name="edom">
+		<text lang="en">Enumerated Domain</text>
+		<text lang="fr">Domaine d'énumérations</text>
+	</translation>
+	<translation name="edomv">
+		<text lang="en">Enumerated Domain Value</text>
+		<text lang="fr">Valeur du domaine d'énumérations</text>
+	</translation>
+	<translation name="edomvd">
+		<text lang="en">Enumerated Domain Value Definition</text>
+		<text lang="fr">Définition du domaine d'énumérations</text>
+	</translation>
+	<translation name="edomvds">
+		<text lang="en">Enumerated Domain Value Definition Source</text>
+		<text lang="fr">Source de définition du domaine d'énumérations</text>
+	</translation>
+	<translation name="ellips">
+		<text lang="en">Ellipsoid Name</text>
+		<text lang="fr">Nom de l'ellipsoïde</text>
+	</translation>
+	<translation name="enddate">
+		<text lang="en">Ending Date</text>
+		<text lang="fr">Date de fin</text>
+	</translation>
+	<translation name="enddatea">
+		<text lang="en">Ending Date of Attribute Values</text>
+		<text lang="fr">Date de fin des valeurs d'attribut</text>
+	</translation>
+	<translation name="endtime">
+		<text lang="en">Ending Time</text>
+		<text lang="fr">Temps de fin</text>
+	</translation>
+	<translation name="enttyp">
+		<text lang="en">Entity Type</text>
+		<text lang="fr">Type d'entité</text>
+	</translation>
+	<translation name="enttypd">
+		<text lang="en">Entity Type Definition</text>
+		<text lang="fr">Définition de type d'entité</text>
+	</translation>
+	<translation name="enttypds">
+		<text lang="en">Entity Type Definition Source</text>
+		<text lang="fr">Source de la définition de type d'entité</text>
+	</translation>
+	<translation name="enttypl">
+		<text lang="en">Entity Type Label</text>
+		<text lang="fr">Annotation du type d'entité</text>
+	</translation>
+	<translation name="equicon">
+		<text lang="en">Equidistant Conic</text>
+		<text lang="fr">Conique équidistante</text>
+	</translation>
+	<translation name="equirect">
+		<text lang="en">Equirectangular</text>
+		<text lang="fr">Équirectangulaire</text>
+	</translation>
+	<translation name="extent">
+		<text lang="en">Extent</text>
+		<text lang="fr">Étendue</text>
+	</translation>
+	<translation name="feast">
+		<text lang="en">False Easting</text>
+		<text lang="fr">Abscisse fictive</text>
+	</translation>
+	<translation name="fees">
+		<text lang="en">Fees</text>
+		<text lang="fr">Frais</text>
+	</translation>
+	<translation name="filedec">
+		<text lang="en">File Decompression Technique</text>
+		<text lang="fr">Technique de décompression des fichiers</text>
+	</translation>
+	<translation name="fnorth">
+		<text lang="en">False Northing</text>
+		<text lang="fr">Ordonnée fictive</text>
+	</translation>
+	<translation name="formcont">
+		<text lang="en">Format Information Content</text>
+		<text lang="fr">Contenu informationnel du format</text>
+	</translation>
+	<translation name="formname">
+		<text lang="en">Format Name</text>
+		<text lang="fr">Nom du format</text>
+	</translation>
+	<translation name="formspec">
+		<text lang="en">Format Specification</text>
+		<text lang="fr">Spécification de la version du format</text>
+	</translation>
+	<translation name="formverd">
+		<text lang="en">Format Version Date</text>
+		<text lang="fr">Date de version du format</text>
+	</translation>
+	<translation name="formvern">
+		<text lang="en">Format Version Number</text>
+		<text lang="fr">Numéro de version de format</text>
+	</translation>
+	<translation name="geodetic">
+		<text lang="en">Geodetic Model</text>
+		<text lang="fr">Modèle géodésique</text>
+	</translation>
+	<translation name="geoform">
+		<text lang="en">Geospatial Data Presentation Form</text>
+		<text lang="fr">Forme de présentation de données géospatiales</text>
+	</translation>
+	<translation name="geograph">
+		<text lang="en">Geographic</text>
+		<text lang="fr">Géographique</text>
+	</translation>
+	<translation name="geogunit">
+		<text lang="en">Geographic Coordinate Units</text>
+		<text lang="fr">Unités des coordonnées géographiques</text>
+	</translation>
+	<translation name="gnomonic">
+		<text lang="en">Gnomonic</text>
+		<text lang="fr">Gnomonique</text>
+	</translation>
+	<translation name="gridsys">
+		<text lang="en">Grid Coordinate System</text>
+		<text lang="fr">Système de coordonnées cartésiennes orthogonales</text>
+	</translation>
+	<translation name="gridsysn">
+		<text lang="en">Grid Coordinate System Name</text>
+		<text lang="fr">Nom du système de coordonnées cartésiennes orthogonales</text>
+	</translation>
+	<translation name="gring">
+		<text lang="en">G-Ring</text>
+		<text lang="fr">Cercle-G</text>
+	</translation>
+	<translation name="gringlat">
+		<text lang="en">G-Ring Latitude</text>
+		<text lang="fr">Latitude du cercle-G</text>
+	</translation>
+	<translation name="gringlon">
+		<text lang="en">G-Ring Longitude</text>
+		<text lang="fr">Longitude du cercle-G</text>
+	</translation>
+	<translation name="grngpoin">
+		<text lang="en">G-Ring Point</text>
+		<text lang="fr">Point du cercle-G</text>
+	</translation>
+	<translation name="gvnsp">
+		<text lang="en">General Vertical Near-sided Projection</text>
+		<text lang="fr">Perspective verticale générale proximale</text>
+	</translation>
+	<translation name="heightpt">
+		<text lang="en">Height of Perspective Point Above Surface</text>
+		<text lang="fr">Hauteur du point de perspective au-dessus de la surface</text>
+	</translation>
+	<translation name="highbps">
+		<text lang="en">Highest BPS</text>
+		<text lang="fr">Débit maximal en BPS</text>
+	</translation>
+	<translation name="horizdn">
+		<text lang="en">Horizontal Datum Name</text>
+		<text lang="fr">Nom du système de référence</text>
+	</translation>
+	<translation name="horizpa">
+		<text lang="en">Horizontal Positional Accuracy</text>
+		<text lang="fr">Précision d'alignement horizontal</text>
+	</translation>
+	<translation name="horizpae">
+		<text lang="en">Horizontal Positional Accuracy Explanation</text>
+		<text lang="fr">Explication de la précision d'alignement horizontal</text>
+	</translation>
+	<translation name="horizpar">
+		<text lang="en">Horizontal Positional Accuracy Report</text>
+		<text lang="fr">Rapport sur la précision d'alignement horizontal</text>
+	</translation>
+	<translation name="horizpav">
+		<text lang="en">Horizontal Positional Accuracy Value</text>
+		<text lang="fr">Valeur de précision d'alignement horizontal</text>
+	</translation>
+	<translation name="horizsys">
+		<text lang="en">Horizontal Coordinate System Definition</text>
+		<text lang="fr">Définition du système de coordonnées horizontales</text>
+	</translation>
+	<translation name="hours">
+		<text lang="en">Hours of Service</text>
+		<text lang="fr">Heures de service</text>
+	</translation>
+	<translation name="idinfo">
+		<text lang="en">Identification Information</text>
+		<text lang="fr">Information d'identification</text>
+	</translation>
+	<translation name="indspref">
+		<text lang="en">Indirect Spatial Reference</text>
+		<text lang="fr">Référence spatiale indirecte</text>
+	</translation>
+	<translation name="issue">
+		<text lang="en">Issue Identification</text>
+		<text lang="fr">Identification du numéro</text>
+	</translation>
+	<translation name="keywords">
+		<text lang="en">Keywords</text>
+		<text lang="fr">Mots-clés</text>
+	</translation>
+	<translation name="lamberta">
+		<text lang="en">Lambert Azimuthal Equal Area</text>
+		<text lang="fr">Azimutale équivalente de Lambert</text>
+	</translation>
+	<translation name="lambertc">
+		<text lang="en">Lambert Conformal Conic</text>
+		<text lang="fr">Conique conforme de Lambert</text>
+	</translation>
+	<translation name="landsat">
+		<text lang="en">Landsat Number</text>
+		<text lang="fr">Numéro du satellite Landsat</text>
+	</translation>
+	<translation name="latprjc">
+		<text lang="en">Latitude of Projection Center</text>
+		<text lang="fr">Latitude du centre de la projection</text>
+	</translation>
+	<translation name="latprjo">
+		<text lang="en">Latitude of Projection Origin</text>
+		<text lang="fr">Latitude de l'origine de la projection</text>
+	</translation>
+	<translation name="latres">
+		<text lang="en">Latitude Resolution</text>
+		<text lang="fr">Résolution en latitude</text>
+	</translation>
+	<translation name="lineage">
+		<text lang="en">Lineage</text>
+		<text lang="fr">Lignage</text>
+	</translation>
+	<translation name="local">
+		<text lang="en">Local</text>
+		<text lang="fr">Système local de coordonnées</text>
+	</translation>
+	<translation name="localdes">
+		<text lang="en">Local Description</text>
+		<text lang="fr">Description du système local de coordonnées</text>
+	</translation>
+	<translation name="localgeo">
+		<text lang="en">Local Georeference Information</text>
+		<text lang="fr">Information géoréférencée du système local</text>
+	</translation>
+	<translation name="localp">
+		<text lang="en">Local Planar</text>
+		<text lang="fr">Système local de coordonnées planes</text>
+	</translation>
+	<translation name="localpd">
+		<text lang="en">Local Planar Description</text>
+		<text lang="fr">Description du système local de coordonnées planes</text>
+	</translation>
+	<translation name="localpgi">
+		<text lang="en">Local Planar Georeference Information</text>
+		<text lang="fr">Information géoréférencée sur le système local de coordonnées planes</text>
+	</translation>
+	<translation name="logic">
+		<text lang="en">Logical Consistency Report</text>
+		<text lang="fr">Rapport de cohérence logique</text>
+	</translation>
+	<translation name="longcm">
+		<text lang="en">Longitude of Central Meridian</text>
+		<text lang="fr">Longitude du méridien central</text>
+	</translation>
+	<translation name="longpc">
+		<text lang="en">Longitude of Projection Center</text>
+		<text lang="fr">Longitude du centre de la projection</text>
+	</translation>
+	<translation name="longres">
+		<text lang="en">Longitude Resolution</text>
+		<text lang="fr">Résolution en longitude</text>
+	</translation>
+	<translation name="lowbps">
+		<text lang="en">Lowest BPS</text>
+		<text lang="fr">Débit minimal en BPS</text>
+	</translation>
+	<translation name="lworkcit">
+		<text lang="en">Larger Work Citation</text>
+		<text lang="fr"/>
+	</translation>
+	<translation name="mapproj">
+		<text lang="en">Map Projection</text>
+		<text lang="fr">Projection cartographique</text>
+	</translation>
+	<translation name="mapprojn">
+		<text lang="en">Map Projection Name</text>
+		<text lang="fr">Nom de la projection cartographique</text>
+	</translation>
+	<translation name="mdattim">
+		<text lang="en">Multiple Dates/Times</text>
+		<text lang="fr">Dates/heures multiples</text>
+	</translation>
+	<translation name="mercator">
+		<text lang="en">Mercator</text>
+		<text lang="fr">Mercator</text>
+	</translation>
+	<translation name="metac">
+		<text lang="en">Metadata Access Constraints</text>
+		<text lang="fr">Contraintes d'accès aux métadonnées</text>
+	</translation>
+	<translation name="metadata">
+		<text lang="en">Metadata</text>
+		<text lang="fr">Métadonnées</text>
+	</translation>
+	<translation name="metainfo">
+		<text lang="en">Metadata Reference Information</text>
+		<text lang="fr">Information de référence sur les métadonnées</text>
+	</translation>
+	<translation name="metc">
+		<text lang="en">Metadata Contact</text>
+		<text lang="fr">Contact pour les métadonnées</text>
+	</translation>
+	<translation name="metd">
+		<text lang="en">Metadata Date</text>
+		<text lang="fr">Date des métadonnées</text>
+	</translation>
+	<translation name="metfrd">
+		<text lang="en">Metadata Future Review Date</text>
+		<text lang="fr">Date de la prochaine révision des métadonnées</text>
+	</translation>
+	<translation name="metrd">
+		<text lang="en">Metadata Review Date</text>
+		<text lang="fr">Date de révision des métadonnées</text>
+	</translation>
+	<translation name="metsc">
+		<text lang="en">Metadata Security Classification</text>
+		<text lang="fr">Classification de sécurité des métadonnées</text>
+	</translation>
+	<translation name="metscs">
+		<text lang="en">Metadata Security Classification System</text>
+		<text lang="fr">Système de classification de la sécurité des métadonnées</text>
+	</translation>
+	<translation name="metshd">
+		<text lang="en">Metadata Security Handling Description</text>
+		<text lang="fr">Description des consignes de sécurité pour les métadonnées</text>
+	</translation>
+	<translation name="metsi">
+		<text lang="en">Metadata Security Information</text>
+		<text lang="fr">Information sur la sécurité des métadonnées</text>
+	</translation>
+	<translation name="metstdn">
+		<text lang="en">Metadata Standard Name</text>
+		<text lang="fr">Nom des normes utilisées pour les métadonnées</text>
+	</translation>
+	<translation name="metstdv">
+		<text lang="en">Metadata Standard Version</text>
+		<text lang="fr">Version des normes des métadonnées</text>
+	</translation>
+	<translation name="mettc">
+		<text lang="en">Metadata Time Convention</text>
+		<text lang="fr">Convention de temps pour les métadonnées</text>
+	</translation>
+	<translation name="metuc">
+		<text lang="en">Metadata Use Constraints</text>
+		<text lang="fr">Contraintes d'utilisation des métadonnées</text>
+	</translation>
+	<translation name="miller">
+		<text lang="en">Miller Cylindrical</text>
+		<text lang="fr">Cylindrique de Miller</text>
+	</translation>
+	<translation name="modsak">
+		<text lang="en">Modified Stereographic for Alaska</text>
+		<text lang="fr">Stéréographique modifiée pour l'Alaska</text>
+	</translation>
+	<translation name="native">
+		<text lang="en">Native Data Set Environment</text>
+		<text lang="fr">Environnement natif de l'ensemble de données</text>
+	</translation>
+	<translation name="networka">
+		<text lang="en">Network Address</text>
+		<text lang="fr">Adresse réseau</text>
+	</translation>
+	<translation name="networkr">
+		<text lang="en">Network Resource Name</text>
+		<text lang="fr">Nom de la ressource réseau</text>
+	</translation>
+	<translation name="nondig">
+		<text lang="en">Non-digital Form</text>
+		<text lang="fr">Forme non numérique</text>
+	</translation>
+	<translation name="northbc">
+		<text lang="en">North Bounding Coordinate</text>
+		<text lang="fr">Coordonnée de délimitation Nord</text>
+	</translation>
+	<translation name="numdata">
+		<text lang="en">Number DataBits</text>
+		<text lang="fr">Nombre de bits de données</text>
+	</translation>
+	<translation name="numstop">
+		<text lang="en">Number StopBits</text>
+		<text lang="fr">Nombre de bits d'arrêt</text>
+	</translation>
+	<translation name="obqlazim">
+		<text lang="en">Oblique Line Azimuth</text>
+		<text lang="fr">Azimut de ligne oblique</text>
+	</translation>
+	<translation name="obqllat">
+		<text lang="en">Oblique Line Latitude</text>
+		<text lang="fr">Latitude de définition de l'oblique</text>
+	</translation>
+	<translation name="obqllong">
+		<text lang="en">Oblique Line Longitude</text>
+		<text lang="fr">Longitude de définition de l'oblique</text>
+	</translation>
+	<translation name="obqlpt">
+		<text lang="en">Oblique Line Point</text>
+		<text lang="fr">Point de l'oblique</text>
+	</translation>
+	<translation name="obqmerc">
+		<text lang="en">Oblique Mercator</text>
+		<text lang="fr">Mercator oblique</text>
+	</translation>
+	<translation name="offmedia">
+		<text lang="en">Offline Media</text>
+		<text lang="fr">Média hors ligne</text>
+	</translation>
+	<translation name="offoptn">
+		<text lang="en">Offline Option</text>
+		<text lang="fr">Option hors ligne</text>
+	</translation>
+	<translation name="oncomp">
+		<text lang="en">Online Computer and Operating System</text>
+		<text lang="fr">Ordinateur en ligne et système d'exploitation</text>
+	</translation>
+	<translation name="onlink">
+		<text lang="en">Online Linkage</text>
+		<text lang="fr">Lien en direct</text>
+	</translation>
+	<translation name="onlinopt">
+		<text lang="en">Online Option</text>
+		<text lang="fr">Option en ligne</text>
+	</translation>
+	<translation name="ordering">
+		<text lang="en">Ordering Instructions</text>
+		<text lang="fr">Instructions pour commander</text>
+	</translation>
+	<translation name="ordres">
+		<text lang="en">Ordinate Resolution</text>
+		<text lang="fr">Résolution en ordonnée</text>
+	</translation>
+	<translation name="origin">
+		<text lang="en">Originator</text>
+		<text lang="fr">Créateur</text>
+	</translation>
+	<translation name="orthogr">
+		<text lang="en">Orthographic</text>
+		<text lang="fr">Orthographique</text>
+	</translation>
+	<translation name="othercit">
+		<text lang="en">Other Citation Details</text>
+		<text lang="fr">Autres détails de citation</text>
+	</translation>
+	<translation name="othergrd">
+		<text lang="en">Other Grid System's Definition</text>
+		<text lang="fr">Autre définition de systèmes de quadrillage</text>
+	</translation>
+	<translation name="otherprj">
+		<text lang="en">Other Projection's Definition</text>
+		<text lang="fr">Définition d'autre projection</text>
+	</translation>
+	<translation name="overview">
+		<text lang="en">Overview Description</text>
+		<text lang="fr">Description sommaire</text>
+	</translation>
+	<translation name="parity">
+		<text lang="en">Parity</text>
+		<text lang="fr">Parité</text>
+	</translation>
+	<translation name="pathnum">
+		<text lang="en">Path Number</text>
+		<text lang="fr">Numéro de trajectoire</text>
+	</translation>
+	<translation name="place">
+		<text lang="en">Place</text>
+		<text lang="fr">Lieu</text>
+	</translation>
+	<translation name="placekey">
+		<text lang="en">Place Keyword</text>
+		<text lang="fr">Mot-clé de lieu</text>
+	</translation>
+	<translation name="placekt">
+		<text lang="en">Place Keyword Thesaurus</text>
+		<text lang="fr">Thésaurus de mots-clés de lieu</text>
+	</translation>
+	<translation name="planar">
+		<text lang="en">Planar</text>
+		<text lang="fr">Planaire</text>
+	</translation>
+	<translation name="plance">
+		<text lang="en">Planar Coordinate Encoding Method</text>
+		<text lang="fr">Méthode de codage des coordonnées planes</text>
+	</translation>
+	<translation name="planci">
+		<text lang="en">Planar Coordinate Information</text>
+		<text lang="fr">Information sur les coordonnées planes</text>
+	</translation>
+	<translation name="plandu">
+		<text lang="en">Planar Distance Units</text>
+		<text lang="fr">Unités de distance en coordonnées planes</text>
+	</translation>
+	<translation name="polarst">
+		<text lang="en">Polar Stereographic</text>
+		<text lang="fr">Stéréographique polaire</text>
+	</translation>
+	<translation name="polycon">
+		<text lang="en">Polyconic</text>
+		<text lang="fr">Polyconique</text>
+	</translation>
+	<translation name="posacc">
+		<text lang="en">Positional Accuracy</text>
+		<text lang="fr">Précision d'alignement</text>
+	</translation>
+	<translation name="postal">
+		<text lang="en">Postal Code</text>
+		<text lang="fr">Code postal</text>
+	</translation>
+	<translation name="proccont">
+		<text lang="en">Process Contact</text>
+		<text lang="fr">Contact du processus</text>
+	</translation>
+	<translation name="procdate">
+		<text lang="en">Process Date</text>
+		<text lang="fr">Date du processus</text>
+	</translation>
+	<translation name="procdesc">
+		<text lang="en">Process Description</text>
+		<text lang="fr">Description du processus</text>
+	</translation>
+	<translation name="procstep">
+		<text lang="en">Process Step</text>
+		<text lang="fr">Étape du processus</text>
+	</translation>
+	<translation name="proctime">
+		<text lang="en">Process Time</text>
+		<text lang="fr">Temps du processus</text>
+	</translation>
+	<translation name="progress">
+		<text lang="en">Progress</text>
+		<text lang="fr">Progrès</text>
+	</translation>
+	<translation name="ptcontac">
+		<text lang="en">Point of Contact</text>
+		<text lang="fr">Point de Contact</text>
+	</translation>
+	<translation name="ptvctcnt">
+		<text lang="en">Point and Vector Object Count</text>
+		<text lang="fr">Dénombrement d'objets ponctuels et vectoriels</text>
+	</translation>
+	<translation name="ptvctinf">
+		<text lang="en">Point and Vector Object Information</text>
+		<text lang="fr">Information sur l'objet ponctuel et vectoriel</text>
+	</translation>
+	<translation name="pubdate">
+		<text lang="en">Publication Date</text>
+		<text lang="fr">Date de publication</text>
+	</translation>
+	<translation name="pubinfo">
+		<text lang="en">Publication Information</text>
+		<text lang="fr">Information de publication</text>
+	</translation>
+	<translation name="publish">
+		<text lang="en">Publisher</text>
+		<text lang="fr">Éditeur</text>
+	</translation>
+	<translation name="pubplace">
+		<text lang="en">Publication Place</text>
+		<text lang="fr">Lieu de publication</text>
+	</translation>
+	<translation name="pubtime">
+		<text lang="en">Publication Time</text>
+		<text lang="fr">Temps de publication</text>
+	</translation>
+	<translation name="purpose">
+		<text lang="en">Purpose</text>
+		<text lang="fr">But</text>
+	</translation>
+	<translation name="qattracc">
+		<text lang="en">Quantitative Attribute Accuracy Assessment</text>
+		<text lang="fr">Évaluation quantitative de la précision d'attribut</text>
+	</translation>
+	<translation name="qhorizpa">
+		<text lang="en">Quantitative Horizontal Positional Accuracy Assessment</text>
+		<text lang="fr">Évaluation quantitative de la précision d'alignement horizontal</text>
+	</translation>
+	<translation name="qvertpa">
+		<text lang="en">Quantitative Vertical Positional Accuracy Assessment</text>
+		<text lang="fr">Évaluation quantitative de la précision d'alignement vertical</text>
+	</translation>
+	<translation name="rastinfo">
+		<text lang="en">Raster Object Information</text>
+		<text lang="fr">Information sur les objets matriciels</text>
+	</translation>
+	<translation name="rasttype">
+		<text lang="en">Raster Object Type</text>
+		<text lang="fr">Type d'objet matriciel</text>
+	</translation>
+	<translation name="rdom">
+		<text lang="en">Range Domain</text>
+		<text lang="fr">Domaine des limites</text>
+	</translation>
+	<translation name="rdommax">
+		<text lang="en">Range Domain Maximum</text>
+		<text lang="fr">Maximum du domaine de limites</text>
+	</translation>
+	<translation name="rdommin">
+		<text lang="en">Range Domain Minimum</text>
+		<text lang="fr">Minimum du domaine de limites</text>
+	</translation>
+	<translation name="reccap">
+		<text lang="en">Recording Capacity</text>
+		<text lang="fr">Capacité d'enregistrement</text>
+	</translation>
+	<translation name="recden">
+		<text lang="en">Recording Density</text>
+		<text lang="fr">Densité d'enregistrement</text>
+	</translation>
+	<translation name="recdenu">
+		<text lang="en">Recording Density Units</text>
+		<text lang="fr">Unités de densité d'enregistrement</text>
+	</translation>
+	<translation name="recfmt">
+		<text lang="en">Recording Format</text>
+		<text lang="fr">Format d'enregistrement</text>
+	</translation>
+	<translation name="resdesc">
+		<text lang="en">Resource Description</text>
+		<text lang="fr">Description de la ressource</text>
+	</translation>
+	<translation name="rngdates">
+		<text lang="en">Range of Dates/Times</text>
+		<text lang="fr">Plusieurs dates et temps</text>
+	</translation>
+	<translation name="robinson">
+		<text lang="en">Robinson</text>
+		<text lang="fr">Robinson</text>
+	</translation>
+	<translation name="rowcount">
+		<text lang="en">Row Count</text>
+		<text lang="fr">Dénombrement des rangées</text>
+	</translation>
+	<translation name="sdtsterm">
+		<text lang="en">SDTS Terms Description</text>
+		<text lang="fr">Type d'objet vectoriel et ponctuel SDTS</text>
+	</translation>
+	<translation name="sdtstype">
+		<text lang="en">SDTS Point and Vector Object Type</text>
+		<text lang="fr">Description des termes SDTS</text>
+	</translation>
+	<translation name="secclass">
+		<text lang="en">Security Classification</text>
+		<text lang="fr">Sécurité de la classification</text>
+	</translation>
+	<translation name="sechandl">
+		<text lang="en">Security Handling Description</text>
+		<text lang="fr">Description des consignes de sécurité</text>
+	</translation>
+	<translation name="secinfo">
+		<text lang="en">Security Information</text>
+		<text lang="fr">Information sur la sécurité</text>
+	</translation>
+	<translation name="secsys">
+		<text lang="en">Security Classification System</text>
+		<text lang="fr">Système de sécurité de la classification</text>
+	</translation>
+	<translation name="semiaxis">
+		<text lang="en">Semi-major Axis</text>
+		<text lang="fr">Demi-grand axe</text>
+	</translation>
+	<translation name="serinfo">
+		<text lang="en">Series Information</text>
+		<text lang="fr">Information sur la série</text>
+	</translation>
+	<translation name="sername">
+		<text lang="en">Series Name</text>
+		<text lang="fr">Nom de la série</text>
+	</translation>
+	<translation name="sfctrlin">
+		<text lang="en">Scale Factor at Center Line</text>
+		<text lang="fr">Facteur d'échelle à la ligne centrale</text>
+	</translation>
+	<translation name="sfctrmer">
+		<text lang="en">Scale Factor at Central Meridian</text>
+		<text lang="fr">Facteur d'échelle au méridien central</text>
+	</translation>
+	<translation name="sfequat">
+		<text lang="en">Scale Factor at Equator</text>
+		<text lang="fr">Facteur d'échelle à l'équateur</text>
+	</translation>
+	<translation name="sfprjorg">
+		<text lang="en">Scale Factor at Projection Origin</text>
+		<text lang="fr">Facteur d'échelle à l'origine de la projection</text>
+	</translation>
+	<translation name="sinusoid">
+		<text lang="en">Sinusoidal</text>
+		<text lang="fr">Sinusoïdale</text>
+	</translation>
+	<translation name="sngdate">
+		<text lang="en">Single Date/Time</text>
+		<text lang="fr">Date/temps unique</text>
+	</translation>
+	<translation name="southbc">
+		<text lang="en">South Bounding Coordinate</text>
+		<text lang="fr">Coordonnée de délimitation Sud</text>
+	</translation>
+	<translation name="spaceobq">
+		<text lang="en">Space Oblique Mercator (Landsat)</text>
+		<text lang="fr">Mercator oblique spatiale (Landsat)</text>
+	</translation>
+	<translation name="spcs">
+		<text lang="en">State Plane Coordinate System</text>
+		<text lang="fr">Système de coordonnées planes d'État (SCPE) (State Plane Coordinate System - SPCS)</text>
+	</translation>
+	<translation name="spcszone">
+		<text lang="en">SPCS Zone Identifier</text>
+		<text lang="fr">Identifiant de zone SPCE</text>
+	</translation>
+	<translation name="spdoinfo">
+		<text lang="en">Spatial Data Organization Information</text>
+		<text lang="fr">Information sur l'organisation des données spatiales</text>
+	</translation>
+	<translation name="spdom">
+		<text lang="en">Spatial Domain</text>
+		<text lang="fr">Domaine spatial</text>
+	</translation>
+	<translation name="spref">
+		<text lang="en">Spatial Reference Information</text>
+		<text lang="fr">Information de référence spatiale</text>
+	</translation>
+	<translation name="srccite">
+		<text lang="en">Source Citation</text>
+		<text lang="fr">Citation de la source</text>
+	</translation>
+	<translation name="srccitea">
+		<text lang="en">Source Citation Abbreviation</text>
+		<text lang="fr">Citation abrégée de la source</text>
+	</translation>
+	<translation name="srccontr">
+		<text lang="en">Source Contribution</text>
+		<text lang="fr">Contribution de la source</text>
+	</translation>
+	<translation name="srccurr">
+		<text lang="en">Source Currentness Reference</text>
+		<text lang="fr">Référence à l'actualité de la source</text>
+	</translation>
+	<translation name="srcinfo">
+		<text lang="en">Source Information</text>
+		<text lang="fr">Information sur la source</text>
+	</translation>
+	<translation name="srcprod">
+		<text lang="en">Source Produced Citation Abbreviation</text>
+		<text lang="fr">Citation abrégée produite par la source</text>
+	</translation>
+	<translation name="srcscale">
+		<text lang="en">Source Scale Denominator</text>
+		<text lang="fr">Dénominateur de l'échelle de la source</text>
+	</translation>
+	<translation name="srctime">
+		<text lang="en">Source Time Period of Content</text>
+		<text lang="fr">Période de temps du contenu de la source</text>
+	</translation>
+	<translation name="srcused">
+		<text lang="en">Source Used Citation Abbreviation</text>
+		<text lang="fr">Citation abrégée utilisée par la source</text>
+	</translation>
+	<translation name="state">
+		<text lang="en">State or Province</text>
+		<text lang="fr">État ou province</text>
+	</translation>
+	<translation name="status">
+		<text lang="en">Status</text>
+		<text lang="fr">État</text>
+	</translation>
+	<translation name="stdorder">
+		<text lang="en">Standard Order Process</text>
+		<text lang="fr">Processus de commande standard</text>
+	</translation>
+	<translation name="stdparll">
+		<text lang="en">Standard Parallel</text>
+		<text lang="fr">Parallèle standard</text>
+	</translation>
+	<translation name="stereo">
+		<text lang="en">Stereographic</text>
+		<text lang="fr">Stéréographique</text>
+	</translation>
+	<translation name="stratkey">
+		<text lang="en">Stratum Keyword</text>
+		<text lang="fr">Mot-clé de strate</text>
+	</translation>
+	<translation name="stratkt">
+		<text lang="en">Stratum Keyword Thesaurus</text>
+		<text lang="fr">Thésaurus de mots-clés de strate</text>
+	</translation>
+	<translation name="stratum">
+		<text lang="en">Stratum</text>
+		<text lang="fr">Strate</text>
+	</translation>
+	<translation name="supplinf">
+		<text lang="en">Supplemental Information</text>
+		<text lang="fr">Information supplémentaire</text>
+	</translation>
+	<translation name="svlong">
+		<text lang="en">Straight Vertical Longitude from Pole</text>
+		<text lang="fr">Longitude rectiligne verticale à partir du pôle</text>
+	</translation>
+	<translation name="techpreq">
+		<text lang="en">Technical Prerequisites</text>
+		<text lang="fr">Exigences techniques</text>
+	</translation>
+	<translation name="tempkey">
+		<text lang="en">Temporal Keyword</text>
+		<text lang="fr">Mot-clé temporel</text>
+	</translation>
+	<translation name="tempkeyt">
+		<text lang="en">Temporal Keyword Thesaurus</text>
+		<text lang="fr">Thésaurus de mots-clés temporels</text>
+	</translation>
+	<translation name="temporal">
+		<text lang="en">Temporal</text>
+		<text lang="fr">Temporel</text>
+	</translation>
+	<translation name="theme">
+		<text lang="en">Theme</text>
+		<text lang="fr">Thème</text>
+	</translation>
+	<translation name="themekey">
+		<text lang="en">Theme Keyword</text>
+		<text lang="fr">Mot-clé du thème</text>
+	</translation>
+	<translation name="themekt">
+		<text lang="en">Theme Keyword Thesaurus</text>
+		<text lang="fr">Thésaurus de mots-clés du thème</text>
+	</translation>
+	<translation name="time">
+		<text lang="en">Time of Day</text>
+		<text lang="fr">Temps du jour</text>
+	</translation>
+	<translation name="timeinfo">
+		<text lang="en">Time Period Information</text>
+		<text lang="fr">Information sur la période de temps</text>
+	</translation>
+	<translation name="timeperd">
+		<text lang="en">Time Period of Content</text>
+		<text lang="fr">Période de temps du contenu</text>
+	</translation>
+	<translation name="title">
+		<text lang="en">Title</text>
+		<text lang="fr">Titre</text>
+	</translation>
+	<translation name="transize">
+		<text lang="en">Transfer Size</text>
+		<text lang="fr">Taille du transfert</text>
+	</translation>
+	<translation name="transmer">
+		<text lang="en">Transverse Mercator</text>
+		<text lang="fr">Mercator transverse</text>
+	</translation>
+	<translation name="turnarnd">
+		<text lang="en">Turnaround</text>
+		<text lang="fr">Temps de réponse</text>
+	</translation>
+	<translation name="typesrc">
+		<text lang="en">Type of Source Media</text>
+		<text lang="fr">Type de média de la source</text>
+	</translation>
+	<translation name="udom">
+		<text lang="en">Unrepresentable Domain</text>
+		<text lang="fr">Domaine non représentable</text>
+	</translation>
+	<translation name="update">
+		<text lang="en">Maintenance and Update Frequency</text>
+		<text lang="fr">Fréquence de mise à jour et d'actualisation</text>
+	</translation>
+	<translation name="ups">
+		<text lang="en">Universal Polar Stereographic</text>
+		<text lang="fr">Stéréographique polaire universel (SPU)</text>
+	</translation>
+	<translation name="upszone">
+		<text lang="en">UPS Zone Identifier</text>
+		<text lang="fr">Identifiant de zone SPU</text>
+	</translation>
+	<translation name="useconst">
+		<text lang="en">Use Constraints</text>
+		<text lang="fr">Contraintes d'utilisation</text>
+	</translation>
+	<translation name="utm">
+		<text lang="en">Universal Transverse Mercator</text>
+		<text lang="fr">Universelle transverse de Mercator (UTM)</text>
+	</translation>
+	<translation name="utmzone">
+		<text lang="en">UTM Zone Number</text>
+		<text lang="fr">Numéro de zone UTM</text>
+	</translation>
+	<translation name="vdgrin">
+		<text lang="en">van der Grinten</text>
+		<text lang="fr">van der Grinten</text>
+	</translation>
+	<translation name="vertacc">
+		<text lang="en">Vertical Positional Accuracy</text>
+		<text lang="fr">Précision d'alignement vertical</text>
+	</translation>
+	<translation name="vertacce">
+		<text lang="en">Vertical Positional Accuracy Explanation</text>
+		<text lang="fr">Explication de la précision d'alignement vertical</text>
+	</translation>
+	<translation name="vertaccr">
+		<text lang="en">Vertical Positional Accuracy Report</text>
+		<text lang="fr">Rapport sur la précision d'alignement vertical</text>
+	</translation>
+	<translation name="vertaccv">
+		<text lang="en">Vertical Positional Accuracy Value</text>
+		<text lang="fr">Valeur de la précision d'alignement vertical</text>
+	</translation>
+	<translation name="vertdef">
+		<text lang="en">Vertical Coordinate System Definition</text>
+		<text lang="fr">Définition du système de coordonnées verticales</text>
+	</translation>
+	<translation name="vpflevel">
+		<text lang="en">VPF Topology Level</text>
+		<text lang="fr">Niveau topologique VPF</text>
+	</translation>
+	<translation name="vpfterm">
+		<text lang="en">VPF Terms Description</text>
+		<text lang="fr">Description des termes VPF</text>
+	</translation>
+	<translation name="vpftype">
+		<text lang="en">VPF Point and Vector Object Type</text>
+		<text lang="fr">Type d'objet ponctuel et vectoriel VPF</text>
+	</translation>
+	<translation name="vrtcount">
+		<text lang="en">Vertical Count</text>
+		<text lang="fr">Dénombrement vertical</text>
+	</translation>
+	<translation name="westbc">
+		<text lang="en">West Bounding Coordinate</text>
+		<text lang="fr">Coordonnée de délimitation Ouest</text>
+	</translation>
+</translationTable>
