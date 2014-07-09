@@ -3,6 +3,7 @@ from datetime import date
 import boundaries
 
 boundaries.register('Federal electoral districts (next election)',
+    singular='Federal electoral district',
     domain='Canada',
     last_updated=date(2014, 5, 12),
     name_func=boundaries.clean_attr('ENNAME'),
