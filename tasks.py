@@ -445,6 +445,14 @@ def definitions(base='.'):
       print('%-50s %s' % (slug, message))
       seen.add(message)
 
+  borough_division_ids = (
+    'ocd-division/country:ca/csd:2458227', # Longueuil
+    'ocd-division/country:ca/csd:2466023', # Montréal
+    'ocd-division/country:ca/csd:2423027', # Québec
+    'ocd-division/country:ca/csd:2494068', # Saguenay
+    'ocd-division/country:ca/csd:2443027', # Sherbrooke
+  )
+
   seen = set()
   division_ids = set()
   for slug, config in registry(base).items():
@@ -509,7 +517,7 @@ def definitions(base='.'):
       division_id = get_division_id(slug, config)
 
       # Ensure division_id is unique.
-      if division_id in division_ids:
+      if division_id in division_ids and division_id not in borough_division_ids:
         print('%-50s Duplicate division_id %s' % (slug, division_id))
       else:
         division_ids.add(division_id)
