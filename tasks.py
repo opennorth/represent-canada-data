@@ -11,6 +11,7 @@ from glob import glob
 import os
 import os.path
 import re
+import socket
 import stat
 import sys
 from StringIO import StringIO
@@ -368,7 +369,7 @@ def permissions(base='.'):
       dirnames.remove('.git')
     for filename in filenames:
       path = os.path.join(dirpath, filename)
-      if os.stat(path).st_mode != 33188:  # 100644 octal
+      if filename not in 'update.sh' and os.stat(path).st_mode != 33188:  # 100644 octal
         os.chmod(path, stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
 
 
@@ -553,6 +554,12 @@ def urls(base='.'):
               print('%d %s' % (response.status_code, url))
           except requests.exceptions.ConnectionError:
             print('404 %s' % url)
+          except socket.error:
+            errno, errstr = sys.exc_info()[:2]
+            if errno == socket.timeout:
+              print('Timeout %s' % url)
+            else:
+              print('%s %s' % (errstr, url))
 
 
 @task
