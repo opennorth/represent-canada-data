@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register('Windsor wards',
     domain='Windsor, ON',
-    last_updated=date(2012, 2, 5),
+    last_updated=date(2014, 7, 31),
     name_func=boundaries.clean_attr('WARD'),
     id_func=lambda f: re.sub(r'\D', '', f.get('WARD')),
     authority='City of Windsor',
