@@ -6,8 +6,7 @@ import boundaries
 
 def namer(f):
     import boundaries
-    n = boundaries.clean_attr('ENNAME')(f).replace(u'\xc2—', u'—')  # Inexplicably,
-    # there is a non-breaking space before em-dashes.
+    n = boundaries.clean_attr('ENNAME')(f).replace(u'\x97', u'—')
 
     # @see http://www.parl.gc.ca/HousePublications/Publication.aspx?Language=E&Mode=1&DocId=6684609&File=4
     mappings = {
@@ -60,6 +59,6 @@ boundaries.register('Federal electoral districts (next election)',
     source_url='http://www.geobase.ca/geobase/en/search.do?produit=fed&language=en',
     licence_url='http://data.gc.ca/eng/open-government-licence-canada',
     data_url='http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_eng/fed_cf_CA_2_0_shp_en.zip',
-    encoding='windows-1252',
+    encoding='utf-8',
     metadata={'geographic_code': '01'},
 )
