@@ -3,6 +3,7 @@
 ## Canada
 
 * [Federal electoral districts](https://github.com/opennorth/represent-canada-data/blob/master/topojson/fed_ed_federal_electoral_districts.topojson#files): [API](http://represent.opennorth.ca/boundaries/federal-electoral-districts/?limit=0)
+* [Federal electoral districts (next election)](https://github.com/opennorth/represent-canada-data/blob/master/topojson/fed_ed_next_federal_electoral_districts_next_election.topojson#files): [API](http://represent.opennorth.ca/boundaries/federal-electoral-districts-next-election/?limit=0)
 
 ## Alberta
 
@@ -19,6 +20,7 @@
 ## Manitoba
 
 * [Manitoba electoral districts](https://github.com/opennorth/represent-canada-data/blob/master/topojson/mb_ed_manitoba_electoral_districts.topojson#files): [API](http://represent.opennorth.ca/boundaries/manitoba-electoral-districts/?limit=0)
+* [Winnipeg wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/mb_winnipeg_ed_winnipeg_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/winnipeg-wards/?limit=0)
 
 ## New Brunswick
 
@@ -67,6 +69,7 @@
 * [Burlington wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_burlington_ed_burlington_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/burlington-wards/?limit=0)
 * [Caledon wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_caledon_ed_caledon_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/caledon-wards/?limit=0)
 * [Cambridge wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_cambridge_ed_cambridge_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/cambridge-wards/?limit=0)
+* [Chatham-Kent wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_chathamkent_ed_chatham_kent_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/chatham-kent-wards/?limit=0)
 * [Clarington wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_clarington_ed_clarington_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/clarington-wards/?limit=0)
 * [Greater Sudbury wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_greatersudbury_ed_greater_sudbury_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/greater-sudbury-wards/?limit=0)
 * [Guelph wards](https://github.com/opennorth/represent-canada-data/blob/master/topojson/on_guelph_ed_guelph_wards.topojson#files): [API](http://represent.opennorth.ca/boundaries/guelph-wards/?limit=0)
