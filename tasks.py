@@ -233,6 +233,8 @@ def get_definition(division_id):
         slug = '%s quartiers' % name
       else:
         slug = '%s districts' % name
+    elif name in ('East Hants', 'Lunenburg'):  # exceptions
+      slug = '%s districts' % name
     else:
       slug = '%s wards' % name
     config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
@@ -502,8 +504,6 @@ def definitions(base='.'):
     for key in ('name', 'singular'):
       if config.get(key):
         print('%-50s Expected %s to be missing' % (slug, key))
-    if config.get('encoding') and config['encoding'] != 'iso-8859-1':
-      print('%-50s Expected encoding to be iso-8859-1 not %s' % (slug, config['encoding']))
 
     if slug not in ('Census divisions', 'Census subdivisions'):
       # Check for invalid keys or empty values.
