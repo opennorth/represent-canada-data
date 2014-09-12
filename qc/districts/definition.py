@@ -278,7 +278,7 @@ sets = {
 
 
 def namer(f):
-    if f.get('CO_MUNCP') == 23027: # Québec
+    if f.get('CO_MUNCP') == 23027:  # Québec
         return {
             u'Cap-Rouge-Laurentien': u'Cap-Rouge—Laurentien',
             u'La Chute-Montmorency-Seigneurial': u'La Chute-Montmorency—Seigneurial',
@@ -290,11 +290,11 @@ def namer(f):
             u'Saint-Louis-Sillery': u'Saint-Louis—Sillery',
             u'Saint-Roch-Saint-Sauveur': u'Saint-Roch—Saint-Sauveur',
         }.get(f.get('NM_DIS'), f.get('NM_DIS'))
-    elif f.get('CO_MUNCP') == 58227: # Longueuil
+    elif f.get('CO_MUNCP') == 58227:  # Longueuil
         return re.sub(r"\b(?:d'|de |du |des )", '', f.get('NM_DIS'))
-    elif f.get('CO_MUNCP') == 66097: # Pointe-Claire
+    elif f.get('CO_MUNCP') == 66097:  # Pointe-Claire
         return f.get('NM_DIS').replace('/ ', '/')
-    elif f.get('CO_MUNCP') == 81017: # Gatineau
+    elif f.get('CO_MUNCP') == 81017:  # Gatineau
         return {
             u'de Hull-Val-Tétreau': u'de Hull—Val-Tétreau',
             u'de Saint-Raymond-Vanier': u'de Saint-Raymond—Vanier',

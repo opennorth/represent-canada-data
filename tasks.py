@@ -448,11 +448,11 @@ def definitions(base='.'):
       seen.add(message)
 
   borough_division_ids = (
-    'ocd-division/country:ca/csd:2458227', # Longueuil
-    'ocd-division/country:ca/csd:2466023', # Montréal
-    'ocd-division/country:ca/csd:2423027', # Québec
-    'ocd-division/country:ca/csd:2494068', # Saguenay
-    'ocd-division/country:ca/csd:2443027', # Sherbrooke
+    'ocd-division/country:ca/csd:2458227',  # Longueuil
+    'ocd-division/country:ca/csd:2466023',  # Montréal
+    'ocd-division/country:ca/csd:2423027',  # Québec
+    'ocd-division/country:ca/csd:2494068',  # Saguenay
+    'ocd-division/country:ca/csd:2443027',  # Sherbrooke
   )
 
   seen = set()
