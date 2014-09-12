@@ -1,0 +1,7 @@
+GeoNB License
+
+The use of the data accompanied by this file is governed by the GeoNB License.  The complete GeoNB License agreement can be viewed at - http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf
+
+GeoNB Licence
+
+L'utilisation des données accompagnées de ce fichier est régi par la licence GeoNB. Le contrat de licence complète GeoNB peut être consulté à - http://geonb.snb.ca/downloads/documents/geonb_license_f.pdf
