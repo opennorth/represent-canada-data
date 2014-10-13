@@ -1,13 +1,11 @@
-autopep8==0.9.7
-csvkit==0.7.3
-Django>=1.5,<=1.6
-gdata==2.0.18
-GitPython==0.3.1-beta2
-invoke==0.7.0
-lxml
-pep8==1.4.6
-requests==1.2.3
-Unidecode==0.04.14
-rfc6266
--e git+http://github.com/rhymeswithcycle/represent-boundaries.git#egg=represent-boundaries
--e git+http://github.com/opennorth/mycityhall-scrapers.git#egg=mycityhall-scrapers
+# Tasks
+Django==1.7
+GitPython==0.3.2-RC1
+invoke==0.9.0
+represent-boundaries==0.5.1
+requests==2.4.3
+rfc6266==0.0.4
+
+# Tidy Python
+autopep8==1.0.4
+pep8==1.5.7

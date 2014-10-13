@@ -1,4 +1,5 @@
 # coding: utf8
+from __future__ import unicode_literals
 
 import csv
 import codecs
@@ -20,10 +21,8 @@ from zipfile import ZipFile, BadZipfile
 
 import boundaries
 from django.template.defaultfilters import slugify
-import gdata.spreadsheet.service
 from git import Repo
 from invoke import run, task
-import lxml.html
 import requests
 from rfc6266 import parse_headers
 
@@ -239,9 +238,9 @@ def get_definition(division_id):
       slug = '%s wards' % name
     config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
     if province_or_territory_sgc_code == '13':
-      config['authority'] = [u'Her Majesty the Queen in Right of New Brunswick']
+      config['authority'] = ['Her Majesty the Queen in Right of New Brunswick']
     elif province_or_territory_sgc_code == '24':
-      config['authority'] = [u'Directeur général des élections du Québec']
+      config['authority'] = ['Directeur général des élections du Québec']
     elif ocd_type == 'csd':
       config['authority'] = authorities + [corporations()[division_id]]
     else:
@@ -257,7 +256,7 @@ def get_definition(division_id):
     slug = '%s districts' % name
     config['domain'] = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
     if province_or_territory_sgc_code == '24':
-      config['authority'] = [u'Directeur général des élections du Québec']
+      config['authority'] = ['Directeur général des élections du Québec']
     else:
       config['authority'] = [corporations()[census_subdivision_ocdid]]
 
@@ -330,16 +329,18 @@ def define(division_id):
   else:
     raise Exception('%s: Unrecognized OCD type %s' % (division_id, ocd_type))
 
-  print("""from datetime import date
+  print("""from __future__ import unicode_literals
+
+from datetime import date
 
 import boundaries
 
-boundaries.register(u'%(slug)s',
-    domain=u'%(domain)s',
+boundaries.register('%(slug)s',
+    domain='%(domain)s',
     last_updated=date(%(last_updated)s),
     name_func=boundaries.attr(''),
     id_func=boundaries.attr(''),
-    authority=u'%(authority)s',
+    authority='%(authority)s',
     encoding='iso-8859-1',
     metadata={'geographic_code': '%(geographic_code)s'},
 )""" % config)
@@ -407,7 +408,7 @@ def topojson(base='.', output_base='./topojson'):
 
       item = (
         slug,
-        u'* [%s](https://github.com/opennorth/%s/blob/master/topojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' % (
+        '* [%s](https://github.com/opennorth/%s/blob/master/topojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' % (
           slug,
           repository,
           os.path.basename(topo_json_path),
@@ -990,33 +991,12 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
           record[key] = b
         # The spreadsheet can add contacts and URLs.
         elif key != 'Population' and (key not in ('Contact', 'URL') or a):  # separators
-          sys.stderr.write(u'%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
+          sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
 
   writer = UnicodeWriter(sys.stdout)
   writer.writerow(headers)
   for _, record in records.items():
     writer.writerow([record[header] for header in headers])
-
-
-# Update the spreadsheet for tracking progress on data collection.
-# @see https://code.google.com/p/gdata-python-client/source/browse/samples/oauth/oauth_example.py
-# @see https://code.google.com/p/gdata-python-client/source/browse/samples/spreadsheets/spreadsheetExample.py
-@task
-def update_spreadsheet(filename=''):
-  client = gdata.spreadsheet.service.SpreadsheetsService()
-  client.SetOAuthInputParameters(gdata.auth.OAuthSignatureMethod.HMAC_SHA1, 'opennorth.ca', consumer_secret=getpass('OAuth consumer secret: '))
-  client.SetOAuthToken(client.FetchOAuthRequestToken())
-  raw_input('Press a key after authenticating at %s' % client.GenerateOAuthAuthorizationURL())
-  client.UpgradeToOAuthAccessToken()
-
-  feed = client.GetListFeed('tjIuPkmkThEtLsTwbHgRj3g', 'oci')
-  for entry in feed.entry[1:]:
-    client.DeleteRow(entry)
-
-  # Deleting a row at a time is incredibly slow. I didn't get to inserting rows.
-  # Just use Google Spreadsheets' import feature.
-
-  client.RevokeOAuthToken()
 
 
 # Update populations.py in the represent-canada repository.
@@ -1030,6 +1010,6 @@ def populations():
       if row[1] != 'Canada':
         division_id = 'ocd-division/country:ca/csd:%s' % row[0]
         if ocdid_to_type()[division_id] in ('C', 'CV', 'CY', 'MD', 'MU', 'RGM', 'T', 'TP', 'V', 'VL'):
-          print('  u"%s": %s,' % (get_definition(division_id)[0], row[4]))
+          print('  "%s": %s,' % (get_definition(division_id)[0], row[4]))
     else:
       break
