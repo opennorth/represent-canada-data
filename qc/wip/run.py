@@ -1,4 +1,6 @@
 # coding: utf-8
+from __future__ import unicode_literals
+
 import os.path
 
 from invoke import run
@@ -9,17 +11,17 @@ from unidecode import unidecode
 # 2014-03-25 IWergifosse@dgeq.qc.ca
 
 sets = {
-    72032: u"Oka",
-    72802: u"Kanesatake",  # Oka
-    89008: u"Val-d'Or",
-    89804: u"Lac-Simon",  # Val d'Or
-    90012: u"La Tuque",
-    90801: u"Coucoucache",  # La Tuque
-    90802: u"Wemotaci",  # La Tuque
-    90804: u"Obedjiwan",  # La Tuque
-    97007: u"Sept-Îles",
-    97802: u"Uashat",  # Sept-Îles
-    97804: u"Maliotenam",  # Sept-Îles
+    72032: "Oka",
+    72802: "Kanesatake",  # Oka
+    89008: "Val-d'Or",
+    89804: "Lac-Simon",  # Val d'Or
+    90012: "La Tuque",
+    90801: "Coucoucache",  # La Tuque
+    90802: "Wemotaci",  # La Tuque
+    90804: "Obedjiwan",  # La Tuque
+    97007: "Sept-Îles",
+    97802: "Uashat",  # Sept-Îles
+    97804: "Maliotenam",  # Sept-Îles
 }
 
 for geographic_code, name in sets.items():

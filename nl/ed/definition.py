@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from datetime import date
 
 import boundaries
@@ -7,7 +9,7 @@ def namer(f):
     import boundaries
     n = boundaries.clean_attr('ELEC_DISTR')(f)
     if n == 'Ths Isles of Notre Dame':
-        return u'The Isles of Notre Dame'
+        return 'The Isles of Notre Dame'
     return n
 
 boundaries.register('Newfoundland and Labrador electoral districts',

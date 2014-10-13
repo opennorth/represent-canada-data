@@ -1,33 +1,35 @@
 # coding: utf-8
+from __future__ import unicode_literals
+
 from datetime import date
 
 import boundaries
 
 sets = {
-    '1301006': [u'Saint John', u'Saint John'],
-    '1302004': [u'Campobello Island', u'Campobello'],
-    '1303012': [u'Oromocto', u'Oromocto'],
-    '1306020': [u'Riverview', u'Riverview'],
-    '1307005': [u'Beaubassin East', u'Beaubassin East\Beaubassin-Est'],
-    '1307013': [u'Memramcook', u'Memramcook'],
-    '1307022': [u'Moncton', u'Moncton'],
-    '1307045': [u'Dieppe', u'Dieppe'],
-    '1309027': [u'Upper Miramichi', u'Upper Miramichi'],
+    '1301006': ['Saint John', 'Saint John'],
+    '1302004': ['Campobello Island', 'Campobello'],
+    '1303012': ['Oromocto', 'Oromocto'],
+    '1306020': ['Riverview', 'Riverview'],
+    '1307005': ['Beaubassin East', 'Beaubassin East\Beaubassin-Est'],
+    '1307013': ['Memramcook', 'Memramcook'],
+    '1307022': ['Moncton', 'Moncton'],
+    '1307045': ['Dieppe', 'Dieppe'],
+    '1309027': ['Upper Miramichi', 'Upper Miramichi'],
     # Fredericton has ward names in its data catalog.
-    # '1310032': [u'Fredericton', u'Fredericton'],
-    '1311027': [u'Florenceville-Bristol', u'Florenceville-Bristol'],
-    '1313002': [u'Saint-André', u'Saint-André'],
-    '1313027': [u'Edmundston', u'Edmunston'],
-    '1314019': [u'Kedgwick', u'Kedgwick'],
-    '1314025': [u'Belledune', u'Belledune'],
-    '1315027': [u'Bas-Caraquet', u'Bas-Caraquet'],
-    '1315028': [u'Caraquet', u'Caraquet'],
+    # '1310032': ['Fredericton', 'Fredericton'],
+    '1311027': ['Florenceville-Bristol', 'Florenceville-Bristol'],
+    '1313002': ['Saint-André', 'Saint-André'],
+    '1313027': ['Edmundston', 'Edmunston'],
+    '1314019': ['Kedgwick', 'Kedgwick'],
+    '1314025': ['Belledune', 'Belledune'],
+    '1315027': ['Bas-Caraquet', 'Bas-Caraquet'],
+    '1315028': ['Caraquet', 'Caraquet'],
 }
 
 for geographic_code, (name, machine_name) in sets.items():
-    boundaries.register(u'%s wards' % name,
+    boundaries.register('%s wards' % name,
         file='%s.shp' % name,
-        domain=u'%s, NB' % name,
+        domain='%s, NB' % name,
         last_updated=date(2014, 3, 24),
         name_func=lambda f: 'Ward %s' % f.get('WARD_ID'),
         id_func=boundaries.attr('WARD_ID'),
@@ -40,9 +42,9 @@ for geographic_code, (name, machine_name) in sets.items():
         base_file='OGRGeoJSON.shp',
     )
 
-boundaries.register(u'Beresford wards',
+boundaries.register('Beresford wards',
     file='Beresford.shp',
-    domain=u'Beresford, NB',
+    domain='Beresford, NB',
     last_updated=date(2014, 3, 24),
     name_func=lambda f: 'Ward B' if f.get('OBJECTID') == 52 else 'Ward A',
     authority='Her Majesty the Queen in Right of New Brunswick',
@@ -54,9 +56,9 @@ boundaries.register(u'Beresford wards',
     base_file='OGRGeoJSON.shp',
 )
 
-boundaries.register(u'Grand Falls wards',
+boundaries.register('Grand Falls wards',
     file='Grand Falls.shp',
-    domain=u'Grand Falls, NB',
+    domain='Grand Falls, NB',
     last_updated=date(2014, 3, 24),
     name_func=lambda f: 'South Ward' if f.get('OBJECTID') == 35 else 'North Ward',
     authority='Her Majesty the Queen in Right of New Brunswick',

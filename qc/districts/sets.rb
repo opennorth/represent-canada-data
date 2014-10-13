@@ -22,5 +22,5 @@ DBF::Table.new(File.expand_path('Districts Elec Mun 2014-02-28_DetU_region.dbf',
 end
 
 sets.each do |k,v|
-  puts %(    #{k}: [u"#{names[k]}", u"#{v == 'Q' ? 'quartiers' : 'districts'}"],)
+  puts %(    #{k}: ["#{names[k]}", "#{v == 'Q' ? 'quartiers' : 'districts'}"],)
 end

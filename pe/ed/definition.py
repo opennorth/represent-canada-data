@@ -1,4 +1,6 @@
 # coding: utf8
+from __future__ import unicode_literals
+
 from datetime import date
 
 import boundaries
@@ -8,9 +10,9 @@ def namer(f):
     import boundaries
     n = boundaries.clean_attr('Descriptio')(f)
     if n.lower().startswith('tracadie'):
-        return u'Tracadie—Hillsborough Park'
+        return 'Tracadie—Hillsborough Park'
     elif n.lower().startswith('oleary'):
-        return u"O'Leary—Inverness"
+        return "O'Leary—Inverness"
     return n
 
 boundaries.register('Prince Edward Island electoral districts',

@@ -1,4 +1,6 @@
 # coding: utf-8
+from __future__ import unicode_literals
+
 from datetime import date
 
 import boundaries
@@ -6,7 +8,7 @@ import boundaries
 
 def namer(f):
     import boundaries
-    n = boundaries.clean_attr('ENNAME')(f).replace(u'\x97', u'—')
+    n = boundaries.clean_attr('ENNAME')(f).replace('\x97', '—')
 
     # @see http://www.parl.gc.ca/HousePublications/Publication.aspx?Language=E&Mode=1&DocId=6684609&File=4
     mappings = {

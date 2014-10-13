@@ -1,4 +1,6 @@
 # coding: utf-8
+from __future__ import unicode_literals
+
 from datetime import date
 
 import boundaries
@@ -10,20 +12,20 @@ def ider(f):
     """
     import boundaries
     return {
-        u'Désiré-Girouard': '1',
-        u'La Présentation': '2',
-        u'Fénelon': '3',
-        u'Pine Beach': '4',
-        u'Strathmore': '5',
-        u'Surrey': '6',
+        'Désiré-Girouard': '1',
+        'La Présentation': '2',
+        'Fénelon': '3',
+        'Pine Beach': '4',
+        'Strathmore': '5',
+        'Surrey': '6',
     }[boundaries.attr('NOM_DISTRI')(f)]
 
-boundaries.register(u'Dorval districts',
-    domain=u'Dorval, QC',
+boundaries.register('Dorval districts',
+    domain='Dorval, QC',
     last_updated=date(2013, 10, 6),
     name_func=boundaries.attr('NOM_DISTRI'),
     id_func=ider,
-    authority=u'Ville de Montréal',
+    authority='Ville de Montréal',
     source_url='http://donnees.ville.montreal.qc.ca/dataset/elections-2009-districts-electoraux',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://donnees.ville.montreal.qc.ca/storage/f/2013-10-06T16:49:49.153Z/elections-2009-districts-multi-poly.zip',

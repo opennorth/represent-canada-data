@@ -1,4 +1,5 @@
 # coding: utf8
+from __future__ import unicode_literals
 
 import re
 
@@ -130,10 +131,10 @@ valid_metadata_keys = set([
 
 # Authorities that are responsible for multiple shapefiles.
 authorities = [
-  u'Elections Prince Edward Island',
-  u'Regional Municipality of Peel',
-  u'Regional Municipality of Waterloo',
-  u'Ville de Montréal',
+  'Elections Prince Edward Island',
+  'Regional Municipality of Peel',
+  'Regional Municipality of Waterloo',
+  'Ville de Montréal',
 ]
 
 municipal_subdivisions = {

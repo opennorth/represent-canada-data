@@ -1,13 +1,15 @@
 # coding: utf-8
+from __future__ import unicode_literals
+
 from datetime import date
 
 import boundaries
 
-boundaries.register(u'Kirkland districts',
-    domain=u'Kirkland, QC',
+boundaries.register('Kirkland districts',
+    domain='Kirkland, QC',
     last_updated=date(2013, 10, 6),
     name_func=boundaries.clean_attr('NOM_DISTRI'),
-    authority=u'Ville de Montréal',
+    authority='Ville de Montréal',
     source_url='http://donnees.ville.montreal.qc.ca/dataset/elections-2009-districts-electoraux',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://donnees.ville.montreal.qc.ca/storage/f/2013-10-06T16:49:49.153Z/elections-2009-districts-multi-poly.zip',
