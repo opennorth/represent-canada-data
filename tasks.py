@@ -2,8 +2,6 @@
 from __future__ import unicode_literals
 
 import csv
-import codecs
-import cStringIO
 from collections import defaultdict, OrderedDict
 from datetime import datetime
 from ftplib import FTP
@@ -274,37 +272,6 @@ def assert_match(slug, field, actual, expected):
       print('%-50s Expected %s to be %s not %s' % (slug, field, expected[-1], actual))
   elif actual != expected:
     print('%-50s Expected %s to be %s not %s' % (slug, field, expected, actual))
-
-
-class UnicodeWriter:
-
-    """
-    A CSV writer which will write rows to CSV file "f",
-    which is encoded in the given encoding.
-    """
-
-    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
-        # Redirect output to a queue
-        self.queue = cStringIO.StringIO()
-        self.writer = csv.writer(self.queue, dialect=dialect, **kwds)
-        self.stream = f
-        self.encoder = codecs.getincrementalencoder(encoding)()
-
-    def writerow(self, row):
-        self.writer.writerow([s.encode("utf-8") for s in row])
-        # Fetch UTF-8 output from the queue ...
-        data = self.queue.getvalue()
-        data = data.decode("utf-8")
-        # ... and reencode it into the target encoding
-        data = self.encoder.encode(data)
-        # write to the target stream
-        self.stream.write(data)
-        # empty queue
-        self.queue.truncate(0)
-
-    def writerows(self, rows):
-        for row in rows:
-            self.writerow(row)
 
 
 # @todo Guess name_func and id_func based on the shapefile.
@@ -992,7 +959,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         elif key != 'Population' and (key not in ('Contact', 'URL') or a):  # separators
           sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
 
-  writer = UnicodeWriter(sys.stdout)
+  writer = csv.writer(sys.stdout)
   writer.writerow(headers)
   for _, record in records.items():
     writer.writerow([record[header] for header in headers])
