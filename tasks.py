@@ -7,7 +7,6 @@ import cStringIO
 from collections import defaultdict, OrderedDict
 from datetime import datetime
 from ftplib import FTP
-from getpass import getpass
 from glob import glob
 import os
 import os.path
