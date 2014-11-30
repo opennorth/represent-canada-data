@@ -14,6 +14,6 @@ boundaries.register('Quebec electoral districts',
     source_url='http://electionsquebec.qc.ca/francais/provincial/carte-electorale/geometrie-des-circonscriptions-provinciales-du-quebec-2014.php',
     licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
     data_url='http://electionsquebec.qc.ca/documents/zip/circonscriptions-electorales-2011-shapefile-v2.zip',
-    encoding='iso-8859-1',
+    encoding='windows-1252',
     metadata={'geographic_code': '24'},
 )
