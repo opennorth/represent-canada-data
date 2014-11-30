@@ -6,9 +6,9 @@ import boundaries
 
 boundaries.register('Welland wards',
     domain='Welland, ON',
-    last_updated=date(2014, 7, 1),
-    name_func=lambda f: 'Ward %s' % f.get('WARD'),
-    id_func=boundaries.attr('WARD'),
+    last_updated=date(2014, 10, 9),
+    name_func=lambda f: 'Ward %s' % f.get('Ward'),
+    id_func=boundaries.attr('Ward'),
     authority='City of Welland',
     source_url='http://www.welland.ca/open/OpendataResp.asp?utitle=Ward%20Boundaries',
     licence_url='http://www.welland.ca/open/OpendataTermUse.asp',
