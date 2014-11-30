@@ -12,7 +12,7 @@ boundaries.register('Census divisions',
     slug_func=boundaries.attr('CDUID'),
     authority='Her Majesty the Queen in Right of Canada',
     source_url='http://data.gc.ca/data/en/dataset/515dbfa9-9069-4877-8fe8-177edaa4ca76',
-    licence_url='http://data.gc.ca/eng/open-government-licence-canada',
+    licence_url='http://open.canada.ca/en/open-government-licence-canada',
     data_url='http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gcd_000a11a_e.zip',
     encoding='iso-8859-1',
 )
