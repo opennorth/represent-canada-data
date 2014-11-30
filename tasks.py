@@ -62,11 +62,13 @@ def registry(base='.'):
     return boundaries.registry
 
 
-def csv_reader(url):
+def csv_reader(url, encoding='utf-8'):
     """
     Reads a remote CSV file.
     """
-    return csv.reader(StringIO(requests.get(url).text))
+    response = requests.get(url)
+    response.encoding = encoding
+    return csv.reader(StringIO(response.text))
 
 
 sgc_code_to_ocdid_memo = {}
@@ -819,12 +821,12 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         }
 
     # Create records for census subdivisions.
-    reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
+    reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV', 'ISO-8859-1')
     next(reader)  # title
     next(reader)  # headers
     for row in reader:
         if row:
-            result = re.search('\A(.+) \((.+)\)\Z', row[1].decode('iso-8859-1'))
+            result = re.search('\A(.+) \((.+)\)\Z', row[1])
             if result:
                 name = result.group(1)
                 province_or_territory = abbreviations[result.group(2)]
@@ -839,7 +841,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                 'Geographic code': row[0],
                 'Geographic name': name,
                 'Province or territory': province_or_territory,
-                'Geographic type': row[2].decode('iso-8859-1'),
+                'Geographic type': row[2],
                 'Population': row[4],
                 'URL': urls.get(row[0], ''),
                 'Scraper?': scraper_urls.get(row[0], ''),
@@ -916,8 +918,12 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                         record['Type of license'] = 'Custom'
                 elif not config['metadata'].get('ocd_division'):
                     sys.stderr.write('%-60s No geographic_code or ocd_division\n' % slug)
+            else:
+                sys.stderr.write('%-60s No metadata\n' % slug)
 
-    reader = csv.DictReader(StringIO(requests.get('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=25&output=csv').text))
+    response = requests.get('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=25&output=csv')
+    response.encoding = 'utf-8'
+    reader = csv.DictReader(StringIO(response.text))
     for row in reader:
         geographic_code = row['Geographic code']
         record = records[geographic_code]
