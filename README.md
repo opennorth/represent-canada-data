@@ -63,10 +63,6 @@ Generate TopoJSON for inspection on GitHub:
 
     invoke topojson
 
-Tidy Python:
-
-    autopep8 -i -a -r --ignore=E111,E121,E124,E128,E501,W6 .
-
 ## Contact
 
 Please use [GitHub Issues](http://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
