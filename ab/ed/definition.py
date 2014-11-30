@@ -6,13 +6,13 @@ import boundaries
 
 boundaries.register('Alberta electoral districts',
     domain='Alberta',
-    last_updated=date(2011, 11, 25),
+    last_updated=date(2012, 6, 4),
     name_func=boundaries.clean_attr('EDNAME'),
     id_func=boundaries.attr('EDNUMBER'),
     authority='Her Majesty the Queen in Right of Alberta',
-    source_url='http://www.altalis.com/products/base/alberta_boundary_data.html',
+    source_url='http://www.altalis.com/products/base/20k_base_features.html',
     licence_url='http://www.altalis.com/pdf/AltaLIS%20Web%20Use%20Agreement.pdf',
-    data_url='http://www.altalis.com/Samples/Provincial%20Electoral%20Divisions.zip',
+    data_url='http://data.altalis.com/AltalisDataDownload/Download/525711F29A214C1AB5ED8F5578A983C3',
     encoding='iso-8859-1',
     metadata={'geographic_code': '48'},
 )
