@@ -1,0 +1,1896 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gmd:MD_Metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:essm="http://www.cits.rncan.gc.ca/ess/essMetadataTools/essXsd/essm" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://nap.geogratis.gc.ca/metadata/tools/schemas/metadata/can-cgsb-171.100-2009-a/gmd/gmd.xsd">
+  <gmd:fileIdentifier>
+    <gco:CharacterString>56124851-71fc-4f94-8df2-40f59cd1dd46</gco:CharacterString>
+  </gmd:fileIdentifier>
+  <gmd:language>
+    <gco:CharacterString>eng; CAN</gco:CharacterString>
+  </gmd:language>
+  <gmd:characterSet>
+    <gmd:MD_CharacterSetCode codeListValue="RI_458" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_95">utf8; utf8</gmd:MD_CharacterSetCode>
+  </gmd:characterSet>
+  <gmd:parentIdentifier>
+    <gco:CharacterString>9a5ea875-2aed-4b3f-a893-3a3ab0f74d7b</gco:CharacterString>
+  </gmd:parentIdentifier>
+  <gmd:hierarchyLevel>
+    <gmd:MD_ScopeCode codeListValue="RI_622" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_108">dataset; jeuDonnées</gmd:MD_ScopeCode>
+  </gmd:hierarchyLevel>
+  <gmd:contact>
+    <gmd:CI_ResponsibleParty>
+      <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+        <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+        <gmd:PT_FreeText>
+          <gmd:textGroup>
+            <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Elections Canada</gmd:LocalisedCharacterString>
+          </gmd:textGroup>
+        </gmd:PT_FreeText>
+      </gmd:organisationName>
+      <gmd:contactInfo>
+        <gmd:CI_Contact>
+          <gmd:address>
+            <gmd:CI_Address>
+              <gmd:electronicMailAddress>
+                <gco:CharacterString>geo.services@elections.ca</gco:CharacterString>
+              </gmd:electronicMailAddress>
+            </gmd:CI_Address>
+          </gmd:address>
+        </gmd:CI_Contact>
+      </gmd:contactInfo>
+      <gmd:role>
+        <gmd:CI_RoleCode codeListValue="RI_410" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">owner; propriétaire</gmd:CI_RoleCode>
+      </gmd:role>
+    </gmd:CI_ResponsibleParty>
+  </gmd:contact>
+  <gmd:contact>
+    <gmd:CI_ResponsibleParty>
+      <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+        <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+        <gmd:PT_FreeText>
+          <gmd:textGroup>
+            <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Élections Canada</gmd:LocalisedCharacterString>
+          </gmd:textGroup>
+        </gmd:PT_FreeText>
+      </gmd:organisationName>
+      <gmd:contactInfo>
+        <gmd:CI_Contact>
+          <gmd:phone>
+            <gmd:CI_Telephone>
+              <gmd:voice xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>voice; 1 (800) 267 7360</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">voix; 1 (800) 267 7360</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:voice>
+              <gmd:facsimile>
+                <gco:CharacterString>(819) 939 1675</gco:CharacterString>
+              </gmd:facsimile>
+            </gmd:CI_Telephone>
+          </gmd:phone>
+          <gmd:address>
+            <gmd:CI_Address>
+              <gmd:deliveryPoint xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>physical; 30; Victoria Street</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">physique; 30; rue Victoria</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:deliveryPoint>
+              <gmd:city>
+                <gco:CharacterString>Gatineau</gco:CharacterString>
+              </gmd:city>
+              <gmd:administrativeArea>
+                <gco:CharacterString>Québec</gco:CharacterString>
+              </gmd:administrativeArea>
+              <gmd:postalCode>
+                <gco:CharacterString>K1A 0M6</gco:CharacterString>
+              </gmd:postalCode>
+              <gmd:country>
+                <gco:CharacterString>CANADA</gco:CharacterString>
+              </gmd:country>
+              <gmd:electronicMailAddress>
+                <gco:CharacterString>geo.services@elections.ca</gco:CharacterString>
+              </gmd:electronicMailAddress>
+            </gmd:CI_Address>
+          </gmd:address>
+          <gmd:onlineResource>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>www.geogratis.gc.ca</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onlineResource>
+          <gmd:hoursOfService>
+            <gco:CharacterString>8:30/12:00; 13:00/16:30</gco:CharacterString>
+          </gmd:hoursOfService>
+        </gmd:CI_Contact>
+      </gmd:contactInfo>
+      <gmd:role>
+        <gmd:CI_RoleCode codeListValue="RI_414" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">pointOfContact; contact</gmd:CI_RoleCode>
+      </gmd:role>
+    </gmd:CI_ResponsibleParty>
+  </gmd:contact>
+  <gmd:dateStamp>
+    <gco:Date>2014-06-19</gco:Date>
+  </gmd:dateStamp>
+  <gmd:metadataStandardName xsi:type="gmd:PT_FreeText_PropertyType">
+    <gco:CharacterString>North American Profile of ISO 19115:2003 – Geographic information – Metadata (NAP-Metadata)</gco:CharacterString>
+    <gmd:PT_FreeText>
+      <gmd:textGroup>
+        <gmd:LocalisedCharacterString locale="#FR">Profil nord-américain de la norme ISO 19115:2003 – Information géographique – Métadonnées (NAP-Metadata)</gmd:LocalisedCharacterString>
+      </gmd:textGroup>
+    </gmd:PT_FreeText>
+  </gmd:metadataStandardName>
+  <gmd:metadataStandardVersion>
+    <gco:CharacterString>CAN/CGSB-171.100-2009</gco:CharacterString>
+  </gmd:metadataStandardVersion>
+  <gmd:dataSetURI xsi:type="gmd:PT_FreeText_PropertyType">
+    <gco:CharacterString>http://geogratis.gc.ca/api/en/nrcan-rncan/ess-sst/56124851-71fc-4f94-8df2-40f59cd1dd46</gco:CharacterString>
+    <gmd:PT_FreeText>
+      <gmd:textGroup>
+        <gmd:LocalisedCharacterString locale="#FR">http://geogratis.gc.ca/api/fr/nrcan-rncan/ess-sst/56124851-71fc-4f94-8df2-40f59cd1dd46</gmd:LocalisedCharacterString>
+      </gmd:textGroup>
+    </gmd:PT_FreeText>
+  </gmd:dataSetURI>
+  <gmd:locale>
+    <gmd:PT_Locale id="FR">
+      <gmd:languageCode>
+        <gmd:LanguageCode codeListValue="fra" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_116">French; Français</gmd:LanguageCode>
+      </gmd:languageCode>
+      <gmd:country>
+        <gmd:Country codeListValue="CAN" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_117">Canada; Canada</gmd:Country>
+      </gmd:country>
+      <gmd:characterEncoding>
+        <gmd:MD_CharacterSetCode codeListValue="RI_458" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_95">utf8; utf8</gmd:MD_CharacterSetCode>
+      </gmd:characterEncoding>
+    </gmd:PT_Locale>
+  </gmd:locale>
+  <gmd:spatialRepresentationInfo>
+    <gmd:MD_VectorSpatialRepresentation>
+      <gmd:geometricObjects>
+        <gmd:MD_GeometricObjects>
+          <gmd:geometricObjectType>
+            <gmd:MD_GeometricObjectTypeCode codeListValue="RI_299" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_99">polygon; polygone</gmd:MD_GeometricObjectTypeCode>
+          </gmd:geometricObjectType>
+          <gmd:geometricObjectCount>
+            <gco:Integer>338</gco:Integer>
+          </gmd:geometricObjectCount>
+        </gmd:MD_GeometricObjects>
+      </gmd:geometricObjects>
+    </gmd:MD_VectorSpatialRepresentation>
+  </gmd:spatialRepresentationInfo>
+  <gmd:referenceSystemInfo>
+    <gmd:MD_ReferenceSystem>
+      <gmd:referenceSystemIdentifier>
+        <gmd:RS_Identifier>
+          <gmd:authority>
+            <gmd:CI_Citation>
+              <gmd:title>
+                <gco:CharacterString>EPSG Geodetic Parameter Registry</gco:CharacterString>
+              </gmd:title>
+              <gmd:date>
+                <gmd:CI_Date>
+                  <gmd:date>
+                    <gco:Date>2009-06-07</gco:Date>
+                  </gmd:date>
+                  <gmd:dateType>
+                    <gmd:CI_DateTypeCode codeListValue="RI_368" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">revision; révision</gmd:CI_DateTypeCode>
+                  </gmd:dateType>
+                </gmd:CI_Date>
+              </gmd:date>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:organisationName>
+                    <gco:CharacterString>OGP Geomatics Committee</gco:CharacterString>
+                  </gmd:organisationName>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeListValue="RI_409" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">custodian; conservateur</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+            </gmd:CI_Citation>
+          </gmd:authority>
+          <gmd:code>
+            <gco:CharacterString>EPSG::3348</gco:CharacterString>
+          </gmd:code>
+          <gmd:codeSpace>
+            <gco:CharacterString>http://www.epsg-registry.org/</gco:CharacterString>
+          </gmd:codeSpace>
+          <gmd:version>
+            <gco:CharacterString>7.1.1</gco:CharacterString>
+          </gmd:version>
+        </gmd:RS_Identifier>
+      </gmd:referenceSystemIdentifier>
+    </gmd:MD_ReferenceSystem>
+  </gmd:referenceSystemInfo>
+  <gmd:identificationInfo>
+    <gmd:MD_DataIdentification>
+      <gmd:citation>
+        <gmd:CI_Citation>
+          <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Geobase - Federal Electoral Districts - Canada 2013</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Géobase - Circonscriptions fédérales - Canada 2013</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:title>
+          <gmd:alternateTitle xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>FED</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">CF</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:alternateTitle>
+          <gmd:date>
+            <gmd:CI_Date>
+              <gmd:date>
+                <gco:Date>2014-06</gco:Date>
+              </gmd:date>
+              <gmd:dateType>
+                <gmd:CI_DateTypeCode codeListValue="RI_367" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">publication; publication</gmd:CI_DateTypeCode>
+              </gmd:dateType>
+            </gmd:CI_Date>
+          </gmd:date>
+          <gmd:edition>
+            <gco:CharacterString>2.1</gco:CharacterString>
+          </gmd:edition>
+          <gmd:citedResponsibleParty>
+            <gmd:CI_ResponsibleParty>
+              <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Élections Canada</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:organisationName>
+              <gmd:contactInfo>
+                <gmd:CI_Contact>
+                  <gmd:address>
+                    <gmd:CI_Address>
+                      <gmd:city>
+                        <gco:CharacterString>Gatineau</gco:CharacterString>
+                      </gmd:city>
+                      <gmd:administrativeArea>
+                        <gco:CharacterString>Québec</gco:CharacterString>
+                      </gmd:administrativeArea>
+                      <gmd:country>
+                        <gco:CharacterString>CANADA</gco:CharacterString>
+                      </gmd:country>
+                      <gmd:electronicMailAddress>
+                        <gco:CharacterString>geo.services@elections.ca</gco:CharacterString>
+                      </gmd:electronicMailAddress>
+                    </gmd:CI_Address>
+                  </gmd:address>
+                </gmd:CI_Contact>
+              </gmd:contactInfo>
+              <gmd:role>
+                <gmd:CI_RoleCode codeListValue="RI_417" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">publisher; éditeur</gmd:CI_RoleCode>
+              </gmd:role>
+            </gmd:CI_ResponsibleParty>
+          </gmd:citedResponsibleParty>
+          <gmd:citedResponsibleParty>
+            <gmd:CI_ResponsibleParty>
+              <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Élections Canada</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:organisationName>
+              <gmd:role>
+                <gmd:CI_RoleCode codeListValue="RI_413" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">originator; auteur</gmd:CI_RoleCode>
+              </gmd:role>
+            </gmd:CI_ResponsibleParty>
+          </gmd:citedResponsibleParty>
+          <gmd:presentationForm>
+            <gmd:CI_PresentationFormCode codeListValue="RI_391" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_89">mapDigital; carteNumérique</gmd:CI_PresentationFormCode>
+          </gmd:presentationForm>
+          <gmd:series>
+            <gmd:CI_Series>
+              <gmd:name xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>GeoBase - Federal Electoral Districts</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">GéoBase - Circonscriptions fédérales</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:name>
+              <gmd:issueIdentification>
+                <gco:CharacterString>CA_2_1</gco:CharacterString>
+              </gmd:issueIdentification>
+            </gmd:CI_Series>
+          </gmd:series>
+        </gmd:CI_Citation>
+      </gmd:citation>
+      <gmd:abstract xsi:type="gmd:PT_FreeText_PropertyType">
+        <gco:CharacterString>Canada is divided into 338 electoral districts. A representative or member of Parliament is elected for each electoral district.
+          Following the release of population counts from each decennial census, the Chief Electoral Officer determines the number of seats in the House of Commons and publishes the information in the Canada Gazette. Electoral boundaries commissions then determine the adjustments to the constituency boundaries. The federal electoral boundaries commissions are independent bodies that make all decisions regarding the proposed and final federal electoral boundaries.
+          Elections Canada provides support services to the boundaries commission in each province.
+          Based on reports from these commissions, the Chief Electoral Officer prepares a representation order that describes the boundaries and specifies the name and the population of each FED. The representation order is in force on the first dissolution of Parliament that occurs at least seven months after its proclamation. The 2013 Representation Order (proclaimed on October 5, 2013) was based on 2011 Census population counts, and increased the number of FEDs to 338, up from 308 from the previous 2003 Representation Order. Ontario received fifteen additional seats, Alberta and British Columbia each gained six seats while Quebec added three seats. On June 19, 2014, the Riding Name Change Act, 2014 (Bill C-37) received Royal Assent changing the names of 31 FEDs. The names of FEDs may change at any time through an Act of Parliament.</gco:CharacterString>
+        <gmd:PT_FreeText>
+          <gmd:textGroup>
+            <gmd:LocalisedCharacterString locale="#FR">Le Canada est divisé en 338 circonscriptions. Un représentant du Parlement ou député est élu pour chacune des circonscriptions.
+              Après la diffusion des chiffres de population de chaque recensement décennal, le directeur général des élections détermine le nombre de sièges à la Chambre des communes et publie cette information dans la Gazette du Canada. Les commissions de délimitation des circonscriptions déterminent ensuite les modifications à apporter aux limites des circonscriptions. Les commissions de délimitation des circonscriptions fédérales sont des organismes indépendants qui prennent toutes les décisions concernant les limites proposées et définitives des circonscriptions fédérales.
+              Élections Canada offre des services de soutien à la commission de délimitation des circonscriptions dans chaque province.
+              À la lumière des rapports de ces commissions, le directeur général des élections prépare un décret de représentation électorale faisant état des limites, du nom et de la population de chaque CF. Le décret de représentation électorale prend effet à la première dissolution du Parlement qui se produit au moins sept mois après sa proclamation. Le décret de représentation électorale de 2013 (proclamée le 5 octobre 2013) était fondée sur les chiffres de population du recensement de 2011; le nombre de CF, établi à 308 selon le décret de représentation électorale de 2003, est passé à 338. L’Ontario s’est accru de quinze sièges, l’Alberta et la Colombie-Britannique en ont gagné six chacun, alors que le Québec en a ajouté trois. Le 19 juin 2014, la Loi de 2014 sur les changements de noms de circonscriptions (Projet de loi C-37) a reçu la sanction royale modifiant les noms de 31 CF. Le nom des CF peut être modifié n’importe quand par une loi fédérale.</gmd:LocalisedCharacterString>
+          </gmd:textGroup>
+        </gmd:PT_FreeText>
+      </gmd:abstract>
+      <gmd:purpose xsi:type="gmd:PT_FreeText_PropertyType">
+        <gco:CharacterString>To provide the public with a digital representation of the 338 electoral district boundaries.
+          This dataset is not to be used for defining or delineating boundaries that would normally be described by legal documents and/or legal survey plans.</gco:CharacterString>
+        <gmd:PT_FreeText>
+          <gmd:textGroup>
+            <gmd:LocalisedCharacterString locale="#FR">Fournir au public une représentation numérique des limites des 338 circonscriptions.
+              Ce jeu de données ne doit pas être utilisé pour la détermination des limites, habituellement définies par des documents juridiques et des plans d’arpentage officiels.</gmd:LocalisedCharacterString>
+          </gmd:textGroup>
+        </gmd:PT_FreeText>
+      </gmd:purpose>
+      <gmd:status>
+        <gmd:MD_ProgressCode codeListValue="RI_593" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_106">completed; complété</gmd:MD_ProgressCode>
+      </gmd:status>
+      <gmd:pointOfContact>
+        <gmd:CI_ResponsibleParty>
+          <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Élections Canada</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:organisationName>
+          <gmd:contactInfo>
+            <gmd:CI_Contact>
+              <gmd:phone>
+                <gmd:CI_Telephone>
+                  <gmd:voice xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>voice; 1 (800) 267 7360</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">voix; 1 (800) 267 7360</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:voice>
+                  <gmd:facsimile>
+                    <gco:CharacterString>(819) 939 1675</gco:CharacterString>
+                  </gmd:facsimile>
+                </gmd:CI_Telephone>
+              </gmd:phone>
+              <gmd:address>
+                <gmd:CI_Address>
+                  <gmd:deliveryPoint xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>physical; 30; Victoria Street</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">physique; 30; rue Victoria</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:deliveryPoint>
+                  <gmd:city>
+                    <gco:CharacterString>Gatineau</gco:CharacterString>
+                  </gmd:city>
+                  <gmd:administrativeArea>
+                    <gco:CharacterString>Québec</gco:CharacterString>
+                  </gmd:administrativeArea>
+                  <gmd:postalCode>
+                    <gco:CharacterString>K1A 0M6</gco:CharacterString>
+                  </gmd:postalCode>
+                  <gmd:country>
+                    <gco:CharacterString>CANADA</gco:CharacterString>
+                  </gmd:country>
+                  <gmd:electronicMailAddress>
+                    <gco:CharacterString>geo.services@elections.ca</gco:CharacterString>
+                  </gmd:electronicMailAddress>
+                </gmd:CI_Address>
+              </gmd:address>
+              <gmd:onlineResource>
+                <gmd:CI_OnlineResource>
+                  <gmd:linkage>
+                    <gmd:URL>www.geogratis.gc.ca</gmd:URL>
+                  </gmd:linkage>
+                  <gmd:protocol>
+                    <gco:CharacterString>HTTP</gco:CharacterString>
+                  </gmd:protocol>
+                  <gmd:function>
+                    <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+                  </gmd:function>
+                </gmd:CI_OnlineResource>
+              </gmd:onlineResource>
+              <gmd:hoursOfService>
+                <gco:CharacterString>8:30/12:00; 13:00/16:30</gco:CharacterString>
+              </gmd:hoursOfService>
+            </gmd:CI_Contact>
+          </gmd:contactInfo>
+          <gmd:role>
+            <gmd:CI_RoleCode codeListValue="RI_414" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">pointOfContact; contact</gmd:CI_RoleCode>
+          </gmd:role>
+        </gmd:CI_ResponsibleParty>
+      </gmd:pointOfContact>
+      <gmd:resourceMaintenance>
+        <gmd:MD_MaintenanceInformation>
+          <gmd:maintenanceAndUpdateFrequency>
+            <gmd:MD_MaintenanceFrequencyCode codeListValue="RI_540" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_102">asNeeded; auBesoin</gmd:MD_MaintenanceFrequencyCode>
+          </gmd:maintenanceAndUpdateFrequency>
+          <gmd:updateScope>
+            <gmd:MD_ScopeCode codeListValue="RI_622" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_108">dataset; jeuDonnées</gmd:MD_ScopeCode>
+          </gmd:updateScope>
+        </gmd:MD_MaintenanceInformation>
+      </gmd:resourceMaintenance>
+      <gmd:descriptiveKeywords>
+        <gmd:MD_Keywords>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>GeoBase</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">GéoBase</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Federal Electoral Districts</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Circonscriptions fédérales</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>FED</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">CF</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:type>
+            <gmd:MD_KeywordTypeCode codeListValue="RI_529" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_101">product; produit</gmd:MD_KeywordTypeCode>
+          </gmd:type>
+        </gmd:MD_Keywords>
+      </gmd:descriptiveKeywords>
+      <gmd:descriptiveKeywords>
+        <gmd:MD_Keywords>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Earth Sciences</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Sciences de la Terre</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:type>
+            <gmd:MD_KeywordTypeCode codeListValue="RI_524" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_101">discipline; discipline</gmd:MD_KeywordTypeCode>
+          </gmd:type>
+        </gmd:MD_Keywords>
+      </gmd:descriptiveKeywords>
+      <gmd:descriptiveKeywords>
+        <gmd:MD_Keywords>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Earth sciences</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Sciences de la terre</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Cartography</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Cartographie</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Geography</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Géographie</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Geographic data</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Données géographiques</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Geographic information systems</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Système d'information géographique</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Geomatics</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Géomatique</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:type>
+            <gmd:MD_KeywordTypeCode codeListValue="RI_528" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_101">theme; thème</gmd:MD_KeywordTypeCode>
+          </gmd:type>
+          <gmd:thesaurusName>
+            <gmd:CI_Citation>
+              <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Government of Canada Core Subject Thesaurus</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Thésaurus des sujets de base du gouvernement du Canada</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:title>
+              <gmd:date>
+                <gmd:CI_Date>
+                  <gmd:date>
+                    <gco:Date>2011-05-16</gco:Date>
+                  </gmd:date>
+                  <gmd:dateType>
+                    <gmd:CI_DateTypeCode codeListValue="RI_367" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">publication; publication</gmd:CI_DateTypeCode>
+                  </gmd:dateType>
+                </gmd:CI_Date>
+              </gmd:date>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>Library and Archives Canada</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">Bibliothèque et Archives Canada</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:organisationName>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeListValue="RI_409" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">custodian; conservateur</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+            </gmd:CI_Citation>
+          </gmd:thesaurusName>
+        </gmd:MD_Keywords>
+      </gmd:descriptiveKeywords>
+      <gmd:descriptiveKeywords>
+        <gmd:MD_Keywords>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>HUMAN DIMENSIONS &gt; BOUNDARIES &gt; POLITICAL DIVISIONS</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">aspects humains &gt; limites &gt; divisions politiques</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:keyword xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>HUMAN DIMENSIONS &gt; ENVIRONMENTAL GOVERNANCE/MANAGEMENT &gt; LAND MANAGEMENT</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">aspects humains &gt; gestion environnementale &gt; Gestion du territoire</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:keyword>
+          <gmd:type>
+            <gmd:MD_KeywordTypeCode codeListValue="RI_528" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_101">theme; thème</gmd:MD_KeywordTypeCode>
+          </gmd:type>
+          <gmd:thesaurusName>
+            <gmd:CI_Citation>
+              <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The Global Change Master Directory (GCMD)</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Traduction française des thèmes du Global Change Master Directory</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:title>
+              <gmd:alternateTitle>
+                <gco:CharacterString>GCMD</gco:CharacterString>
+              </gmd:alternateTitle>
+              <gmd:date>
+                <gmd:CI_Date>
+                  <gmd:date>
+                    <gco:Date>2009-05</gco:Date>
+                  </gmd:date>
+                  <gmd:dateType>
+                    <gmd:CI_DateTypeCode codeListValue="RI_367" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">publication; publication</gmd:CI_DateTypeCode>
+                  </gmd:dateType>
+                </gmd:CI_Date>
+              </gmd:date>
+              <gmd:edition>
+                <gco:CharacterString>9.8.1</gco:CharacterString>
+              </gmd:edition>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:organisationName>
+                    <gco:CharacterString>NASA/Goddard Space Flight Center</gco:CharacterString>
+                  </gmd:organisationName>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeListValue="RI_409" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">custodian; conservateur</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+            </gmd:CI_Citation>
+          </gmd:thesaurusName>
+        </gmd:MD_Keywords>
+      </gmd:descriptiveKeywords>
+      <gmd:descriptiveKeywords>
+        <gmd:MD_Keywords>
+          <gmd:keyword>
+            <gco:CharacterString>Canada</gco:CharacterString>
+          </gmd:keyword>
+          <gmd:keyword>
+            <gco:CharacterString>CEONET</gco:CharacterString>
+          </gmd:keyword>
+          <gmd:type>
+            <gmd:MD_KeywordTypeCode codeListValue="RI_525" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_101">place; endroit</gmd:MD_KeywordTypeCode>
+          </gmd:type>
+          <gmd:thesaurusName>
+            <gmd:CI_Citation>
+              <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Canadian Geographical Names Data Base (CGNDB)</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Base de données toponymiques du Canada (BDTC)</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:title>
+              <gmd:alternateTitle>
+                <gco:CharacterString>CGNDB</gco:CharacterString>
+              </gmd:alternateTitle>
+              <gmd:date>
+                <gmd:CI_Date>
+                  <gmd:date></gmd:date>
+                  <gmd:dateType></gmd:dateType>
+                </gmd:CI_Date>
+              </gmd:date>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>Government of Canada, Natural Resources Canada, Earth Sciences Sector</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">Gouvernement du Canada, Ressources naturelles Canada, Secteur des sciences de la Terre</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:organisationName>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeListValue="RI_409" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">custodian; conservateur</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+            </gmd:CI_Citation>
+          </gmd:thesaurusName>
+        </gmd:MD_Keywords>
+      </gmd:descriptiveKeywords>
+      <gmd:descriptiveKeywords>
+        <gmd:MD_Keywords>
+          <gmd:keyword>
+            <gco:CharacterString>Canada</gco:CharacterString>
+          </gmd:keyword>
+          <gmd:keyword>
+            <gco:CharacterString>CA</gco:CharacterString>
+          </gmd:keyword>
+          <gmd:type>
+            <gmd:MD_KeywordTypeCode codeListValue="RI_525" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_101">place; endroit</gmd:MD_KeywordTypeCode>
+          </gmd:type>
+          <gmd:thesaurusName>
+            <gmd:CI_Citation>
+              <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>None</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Aucun</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:title>
+              <gmd:date>
+                <gmd:CI_Date>
+                  <gmd:date></gmd:date>
+                  <gmd:dateType>
+                    <gmd:CI_DateTypeCode codeListValue="RI_369" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">notAvailable; nonDisponible</gmd:CI_DateTypeCode>
+                  </gmd:dateType>
+                </gmd:CI_Date>
+              </gmd:date>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>Government of Canada, Natural Resources Canada, Earth Sciences Sector</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">Gouvernement du Canada, Ressources naturelles Canada, Secteur des sciences de la Terre</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:organisationName>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeListValue="RI_409" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">custodian; conservateur</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+            </gmd:CI_Citation>
+          </gmd:thesaurusName>
+        </gmd:MD_Keywords>
+      </gmd:descriptiveKeywords>
+      <gmd:resourceConstraints>
+        <gmd:MD_LegalConstraints>
+          <gmd:useConstraints>
+            <gmd:MD_RestrictionCode codeListValue="RI_602" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_107">copyright; droitAuteur</gmd:MD_RestrictionCode>
+          </gmd:useConstraints>
+          <gmd:otherConstraints xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>© Department of Natural Resources Canada. All rights reserved.</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">© Le ministère des Ressources naturelles Canada. Tous droits réservés</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:otherConstraints>
+        </gmd:MD_LegalConstraints>
+      </gmd:resourceConstraints>
+      <gmd:resourceConstraints>
+        <gmd:MD_LegalConstraints>
+          <gmd:useConstraints>
+            <gmd:MD_RestrictionCode codeListValue="RI_606" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_107">license; licence</gmd:MD_RestrictionCode>
+          </gmd:useConstraints>
+          <gmd:otherConstraints xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Open Government Licence - Canada (http://data.gc.ca/eng/open-government-licence-canada)</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Licence du gouvernement ouvert - Canada (http://donnees.gc.ca/fra/licence-du-gouvernement-ouvert-canada)</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:otherConstraints>
+        </gmd:MD_LegalConstraints>
+      </gmd:resourceConstraints>
+      <gmd:spatialRepresentationType>
+        <gmd:MD_SpatialRepresentationTypeCode codeListValue="RI_635" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_109">vector; vecteur</gmd:MD_SpatialRepresentationTypeCode>
+      </gmd:spatialRepresentationType>
+      <gmd:language>
+        <gco:CharacterString>eng; CAN</gco:CharacterString>
+      </gmd:language>
+      <gmd:language>
+        <gco:CharacterString>fra; CAN</gco:CharacterString>
+      </gmd:language>
+      <gmd:characterSet>
+        <gmd:MD_CharacterSetCode codeListValue="RI_458" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_95">utf8; utf8</gmd:MD_CharacterSetCode>
+      </gmd:characterSet>
+      <gmd:topicCategory>
+        <gmd:MD_TopicCategoryCode>boundaries</gmd:MD_TopicCategoryCode>
+      </gmd:topicCategory>
+      <gmd:extent>
+        <gmd:EX_Extent>
+          <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>ground condition</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">condition au sol</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:description>
+          <gmd:geographicElement>
+            <gmd:EX_GeographicBoundingBox>
+              <gmd:extentTypeCode>
+                <gco:Boolean>1</gco:Boolean>
+              </gmd:extentTypeCode>
+              <gmd:westBoundLongitude>
+                <gco:Decimal>-141</gco:Decimal>
+              </gmd:westBoundLongitude>
+              <gmd:eastBoundLongitude>
+                <gco:Decimal>-53.7</gco:Decimal>
+              </gmd:eastBoundLongitude>
+              <gmd:southBoundLatitude>
+                <gco:Decimal>42.4</gco:Decimal>
+              </gmd:southBoundLatitude>
+              <gmd:northBoundLatitude>
+                <gco:Decimal>83.3</gco:Decimal>
+              </gmd:northBoundLatitude>
+            </gmd:EX_GeographicBoundingBox>
+          </gmd:geographicElement>
+          <gmd:temporalElement>
+            <gmd:EX_TemporalExtent>
+              <gmd:extent>
+                <gml:TimePeriod gml:id="tp1">
+                  <gml:begin>
+                    <gml:TimeInstant gml:id="ti1">
+                      <gml:timePosition>2013-10-05</gml:timePosition>
+                    </gml:TimeInstant>
+                  </gml:begin>
+                  <gml:end>
+                    <gml:TimeInstant gml:id="ti2">
+                      <gml:timePosition></gml:timePosition>
+                    </gml:TimeInstant>
+                  </gml:end>
+                </gml:TimePeriod>
+              </gmd:extent>
+            </gmd:EX_TemporalExtent>
+          </gmd:temporalElement>
+        </gmd:EX_Extent>
+      </gmd:extent>
+    </gmd:MD_DataIdentification>
+  </gmd:identificationInfo>
+  <gmd:distributionInfo>
+    <gmd:MD_Distribution>
+      <gmd:distributionFormat>
+        <gmd:MD_Format>
+          <gmd:name>
+            <gco:CharacterString>GML – Geography Markup Language</gco:CharacterString>
+          </gmd:name>
+          <gmd:version>
+            <gco:CharacterString>2.1</gco:CharacterString>
+          </gmd:version>
+          <gmd:specification>
+            <gco:CharacterString>Geography Markup Language – GML – 2.1.2, OpenGIS® Implementation Specifications, 17 September 2002, OGC Document Number 02-069 (http://portal.opengeospatial.org/files/?artifact_id=11339)</gco:CharacterString>
+          </gmd:specification>
+        </gmd:MD_Format>
+      </gmd:distributionFormat>
+      <gmd:distributionFormat>
+        <gmd:MD_Format>
+          <gmd:name>
+            <gco:CharacterString>KML – Keyhole Markup Language</gco:CharacterString>
+          </gmd:name>
+          <gmd:version>
+            <gco:CharacterString>2.1</gco:CharacterString>
+          </gmd:version>
+          <gmd:specification>
+            <gco:CharacterString>Open Geospatial Consortium Inc., KML 2.1 Reference – An OGC Best Practice, Version 0.0.9, 2007-05-02, Reference number of this OGC® project document: OGC 07-039r1 (www.opengeospatial.org/standards/bp).</gco:CharacterString>
+          </gmd:specification>
+        </gmd:MD_Format>
+      </gmd:distributionFormat>
+      <gmd:distributionFormat>
+        <gmd:MD_Format>
+          <gmd:name>
+            <gco:CharacterString>Shapefile - ESRI™</gco:CharacterString>
+          </gmd:name>
+          <gmd:version>
+            <gco:CharacterString>01 (juillet 1998)</gco:CharacterString>
+          </gmd:version>
+          <gmd:specification>
+            <gco:CharacterString>ESRI Shapefile Technical Description, an ESRI White Paper, July 1998 (http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf)</gco:CharacterString>
+          </gmd:specification>
+        </gmd:MD_Format>
+      </gmd:distributionFormat>
+      <gmd:distributor>
+        <gmd:MD_Distributor>
+          <gmd:distributorContact>
+            <gmd:CI_ResponsibleParty>
+              <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Government of Canada; Natural Resources Canada; Earth Sciences Sector; Canada Centre for Mapping and Earth Observation</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Gouvernement du Canada; Ressources naturelles Canada; Secteur des sciences de la Terre; Centre canadien de cartographie et d'observation de la Terre</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:organisationName>
+              <gmd:positionName xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Customer Support Group</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Équipe de soutien aux usagers</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:positionName>
+              <gmd:contactInfo>
+                <gmd:CI_Contact>
+                  <gmd:phone>
+                    <gmd:CI_Telephone>
+                      <gmd:voice xsi:type="gmd:PT_FreeText_PropertyType">
+                        <gco:CharacterString>voice; 1 (819) 564 5600</gco:CharacterString>
+                        <gmd:PT_FreeText>
+                          <gmd:textGroup>
+                            <gmd:LocalisedCharacterString locale="#FR">voix; 1 (819) 564 5600</gmd:LocalisedCharacterString>
+                          </gmd:textGroup>
+                        </gmd:PT_FreeText>
+                      </gmd:voice>
+                      <gmd:voice xsi:type="gmd:PT_FreeText_PropertyType">
+                        <gco:CharacterString>voice; 1 (800) 661 2638</gco:CharacterString>
+                        <gmd:PT_FreeText>
+                          <gmd:textGroup>
+                            <gmd:LocalisedCharacterString locale="#FR">voix; 1 (800) 661 2638</gmd:LocalisedCharacterString>
+                          </gmd:textGroup>
+                        </gmd:PT_FreeText>
+                      </gmd:voice>
+                      <gmd:facsimile>
+                        <gco:CharacterString>1 (819) 564 5698</gco:CharacterString>
+                      </gmd:facsimile>
+                    </gmd:CI_Telephone>
+                  </gmd:phone>
+                  <gmd:address>
+                    <gmd:CI_Address>
+                      <gmd:deliveryPoint xsi:type="gmd:PT_FreeText_PropertyType">
+                        <gco:CharacterString>physical; 2144; King Street West; ; 010</gco:CharacterString>
+                        <gmd:PT_FreeText>
+                          <gmd:textGroup>
+                            <gmd:LocalisedCharacterString locale="#FR">physique; 2144; rue King Ouest; ; 010</gmd:LocalisedCharacterString>
+                          </gmd:textGroup>
+                        </gmd:PT_FreeText>
+                      </gmd:deliveryPoint>
+                      <gmd:city>
+                        <gco:CharacterString>Sherbrooke</gco:CharacterString>
+                      </gmd:city>
+                      <gmd:administrativeArea>
+                        <gco:CharacterString>Québec</gco:CharacterString>
+                      </gmd:administrativeArea>
+                      <gmd:postalCode>
+                        <gco:CharacterString>J1J 2E8</gco:CharacterString>
+                      </gmd:postalCode>
+                      <gmd:country>
+                        <gco:CharacterString>CANADA</gco:CharacterString>
+                      </gmd:country>
+                      <gmd:electronicMailAddress xsi:type="gmd:PT_FreeText_PropertyType">
+                        <gco:CharacterString>geoginfo@NRCan.gc.ca</gco:CharacterString>
+                        <gmd:PT_FreeText>
+                          <gmd:textGroup>
+                            <gmd:LocalisedCharacterString locale="#FR">geoginfo@RNCan.gc.ca</gmd:LocalisedCharacterString>
+                          </gmd:textGroup>
+                        </gmd:PT_FreeText>
+                      </gmd:electronicMailAddress>
+                    </gmd:CI_Address>
+                  </gmd:address>
+                  <gmd:hoursOfService>
+                    <gco:CharacterString>8:30/12:00; 13:00/16:30</gco:CharacterString>
+                  </gmd:hoursOfService>
+                </gmd:CI_Contact>
+              </gmd:contactInfo>
+              <gmd:role>
+                <gmd:CI_RoleCode codeListValue="RI_412" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">distributor; distributeur</gmd:CI_RoleCode>
+              </gmd:role>
+            </gmd:CI_ResponsibleParty>
+          </gmd:distributorContact>
+          <gmd:distributionOrderProcess>
+            <gmd:MD_StandardOrderProcess>
+              <gmd:fees xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Free for download</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Gratuit pour les télécharger</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:fees>
+            </gmd:MD_StandardOrderProcess>
+          </gmd:distributionOrderProcess>
+        </gmd:MD_Distributor>
+      </gmd:distributor>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>6.939</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_eng/FED_CA_2_1_shape_ENG.zip</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>SHP</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download english file in SHAPE through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier SHAPE anglais via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>6.938</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_fra/CF_CA_2_1_shape_FR.zip</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>SHP</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download french file in SHAPE through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier SHAPE français via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>7.471</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/gml_eng/FED_CA_2_1_gml_ENG.zip</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>GML</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download english file in GML through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier GML anglais via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>7.469</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/gml_fra/CF_CA_2_1_gml_FR.zip</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>GML</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download french file in GML through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier GML français via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>29.405</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/kml_eng/FED_CA_2_1_ENG.kml</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>KML</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download english file in KML through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier KML anglais via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>29.405</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/kml_fra/CF_CA_2_0_kml_fr.kmz</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>KML</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download french file in KML through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier KML français via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>0.164</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>PDF</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download file  Federal Electoral Districts - Data Product Specifications  through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier  Federal Electoral Districts - Data Product Specifications  via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>0.151</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://geobase.ca/doc/specs/pdf/CF_FR_Spécifications_produit_2 1-f.pdf</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>PDF</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download file  Circonscriptions fédérales - Spécifications de produit through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier  Circonscriptions fédérales - Spécifications de produit via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>0.047</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://geobase.ca/doc/specs/pdf/FED_EN_FeatureCatalogue_2 1-e.pdf</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>PDF</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download file  Federal Electoral Districts - Feature Catalogue through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier  Federal Electoral Districts - Feature Catalogue via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>0.034</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://geobase.ca/doc/specs/pdf/CF_FR_Catalogue_entités_2 1-f.pdf</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>PDF</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download file  Circonscriptions fédérales - Catalogue d'entités through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier  Circonscriptions fédérales - Catalogue d'entités via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>0.059</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://geobase.ca/doc/specs/pdf/FED_EN_ProductDistributionFormats_2 1-e.pdf</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>PDF</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download file  Federal Electoral Districts - Product Distribution Formats through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier  Federal Electoral Districts - Product Distribution Formats via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+      <gmd:transferOptions>
+        <gmd:MD_DigitalTransferOptions>
+          <gmd:transferSize>
+            <gco:Real>0.055</gco:Real>
+          </gmd:transferSize>
+          <gmd:onLine>
+            <gmd:CI_OnlineResource>
+              <gmd:linkage>
+                <gmd:URL>http://geobase.ca/doc/specs/pdf/CF_FR_Formats_distribution_produit_2 1-f.pdf</gmd:URL>
+              </gmd:linkage>
+              <gmd:protocol>
+                <gco:CharacterString>HTTP</gco:CharacterString>
+              </gmd:protocol>
+              <gmd:name>
+                <gco:CharacterString>PDF</gco:CharacterString>
+              </gmd:name>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Download file  Circonscriptions fédérales - Formats de distribution du produit through HTTP</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Téléchargez le fichier  Circonscriptions fédérales - Formats de distribution du produit via HTTP</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:function>
+                <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+              </gmd:function>
+            </gmd:CI_OnlineResource>
+          </gmd:onLine>
+        </gmd:MD_DigitalTransferOptions>
+      </gmd:transferOptions>
+    </gmd:MD_Distribution>
+  </gmd:distributionInfo>
+  <gmd:dataQualityInfo>
+    <gmd:DQ_DataQuality>
+      <gmd:scope>
+        <gmd:DQ_Scope>
+          <gmd:level>
+            <gmd:MD_ScopeCode codeListValue="RI_622" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_108">dataset; jeuDonnées</gmd:MD_ScopeCode>
+          </gmd:level>
+        </gmd:DQ_Scope>
+      </gmd:scope>
+      <gmd:report>
+        <gmd:DQ_CompletenessCommission>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>A manual verification of the FED dataset has not identified any errors of commission.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Une vérification manuelle des données des CF n’a identifié aucune erreur de commission.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_CompletenessCommission>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_CompletenessOmission>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>A manual verification of the FED dataset has not identified any errors of omission.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Une vérification manuelle des données des CF n’a identifié aucune erreur d’omission.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_CompletenessOmission>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_ConceptualConsistency>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The delineation of the FED boundaries was created in reference to the National Geographic Database (NGD) road network and the NGD reference base layers. The representation of the digital electoral districts abides by the official boundary definition as established by the 2013 federal electoral boundaries commissions.
+                  The FED dataset provides for complete national coverage of the entire country. There are no gaps or overlays between any of the FED polygon features present in any of the datasets.
+                  The conceptual model of the FED data is presented in the document Federal Electoral Districts: Conceptual Data Model accessible on the GeoBase portal (www.geobase.ca).</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">La délimitation des circonscriptions a été créée à partir du réseau routier de la Base nationale de données géographiques (BNDG). La représentation des circonscriptions numériques respecte la définition des limites officielles, telle qu’établie par les commissions de délimitation des circonscriptions fédérales de 2013.
+                      Il y a intégrité pour l’ensemble des données des CF pour la couverture nationale de tout le pays. Il n’y a aucune lacune ou chevauchement entre chacun des polygones CF présents dans chacun des jeux de données.
+                      Le modèle conceptuel des données CF est présenté dans le document Circonscription Fédérale : Modèle Conceptuel des Données accessible sur le portail GéoBase (www.geobase.ca).</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_ConceptualConsistency>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_DomainConsistency>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The domain values assigned to the item fields of the FED dataset are validated against those domain values described in the Federal Electoral Districts Feature Catalogue.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Les valeurs de domaine attribuées aux champs des éléments du jeu de données CF sont validées au moyen des valeurs de domaine définies dans le Catalogue d’entités des circonscriptions électorales fédérales.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_DomainConsistency>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_FormatConsistency>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_ProductDistributionFormats_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The FED data formats conform to the distribution formats described in the document Federal Electoral Districts: Product Distribution Formats accessible on the GeoBase portal (www.geobase.ca).</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Les formats des données CF se conforment aux formats de distribution décrits dans le document intitulé Circonscriptions électorales fédérales : Formats de distribution du produit, disponible sur le portail GéoBase (www.geobase.ca).</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_FormatConsistency>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_TopologicalConsistency>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The topological consistency of the FED data is validated as part of the maintenance update process by means of spatial integrity constraints on the FED data to detect and correct overlaps, gaps and intersections within a polygon feature.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">On valide la cohérence topologique des données des CF dans le cadre du processus d’actualisation en leur appliquant des contraintes d’intégrité spatiale, afin de repérer et de corriger les chevauchements, les lacunes et les intersections au sein d’un polygone.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_TopologicalConsistency>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_AbsoluteExternalPositionalAccuracy>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The absolute external positional accuracy describes the degree to which the position of features in a geographic database reflects their true position on the ground. It is the difference in the distances measured between two known points on a map and the true distances between the same two points, as established by conventional surveying methods.
+                  The absolute positional accuracy of the spatial entities comprising the FED dataset is dependent on the absolute accuracy of the different feature sets used in the creation of the FED boundaries. Federal electoral districts are derived from human-made features such as roads, railways, power lines and other natural features such as lakes, shorelines and rivers. In addition, many boundary elements follow survey lines, such as those defining the limits for a town, county or township.
+                  Additional information on the positional accuracy of the FED digital dataset and the data features used in the creation of the electoral district boundaries can be found at http://www.statcan.gc.ca/pub/92-500-g/92-500-g2010001-eng.pdf.
+                  The base features that define a FED are derived from multiple data sources, including both digital and paper maps based on 1:10 000 to 1:1 000 000 scale source data. Some of these data sources have known levels of positional accuracy while others do not. Ongoing maintenance and update processes have introduced additional levels of spatial inaccuracies into the datasets.
+                  In this context, it is impossible to accurately ascribe a level of positional accuracy to the dataset. All that can be stated about the data is that for most urban and built-up areas, data were sourced from 1:50 000 data (accuracy ±10 metres); rural areas in southern parts of Canada were sourced using data from 1:250 000 data (accuracy ±300 metres); and the northern areas of Canada used data from 1:1 000 000 (accuracy ±2100 to ±4300 metres).
+                  There are also digital elements sourced from the NGD road network whose positional accuracy cannot be described. These arc elements were digitized on screen from paper maps, and although accurate in their attribute information and their relative position in relation to other map features, the absolute positional accuracy of these FED road network-derived elements cannot be accurately quantified.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">La précision de localisation externe absolue s’entend du degré de correspondance entre la localisation des traits dans une base de données géographiques et leur véritable localisation. Il s’agit de la différence entre les distances séparant deux points connus sur une carte et les distances réelles entre ces deux mêmes points, telles qu’établies par des méthodes d’arpentage conventionnelles.
+                        La précision de localisation externe absolue des entités spatiales composant le jeu de données d’une CF dépend de la précision absolue des différents ensembles de traits ayant servi à créer les limites de la circonscription. On forme les CF à partir de constructions humaines comme les routes, les chemins de fer ou les lignes à haute tension, ainsi que les réalités naturelles comme les lacs, les littoraux et les cours d’eau. De plus, beaucoup de ces limites sont définies par des divisions administratives (villes, comtés, cantons).
+                        De l’information additionnelle sur la précision de localisation des jeux de données numériques des CF et les éléments utilisés pour la création des limites des circonscriptions est disponible à l’adresse suivante : http://www.statcan.gc.ca/pub/92-500-g/92-500-g2010001-fra.pdf.
+                        Les caractéristiques de base qui définissent une CF proviennent de multiples sources de données, y compris des cartes numériques ou de format papier fondées sur des données originales dont l’échelle va de 1:10 000 à 1:1 000 000. Certaines de ces sources de données ont des niveaux connus de précision de localisation, mais d’autres non. Les processus de maintenance et de mise à jour ont augmenté le niveau d’imprécision dans les jeux de données.
+                        Dans ce contexte, il est impossible d’attribuer exactement un degré de précision de localisation au jeu de données. Tout ce qu’on peut en dire, c’est que pour la plupart des zones urbaines et bâties, les données à l’échelle 1:50 000 (précision de ±10 mètres) ont servi de données de référence; dans les zones rurales du Sud du Canada, ce sont les données à l’échelle 1:250 000 (précision de ±300 mètres) et dans les zones nordiques du pays, ce sont les données à l’échelle 1:1 000 000 (précision de ±2 100 à ±4 300 mètres).
+                        Il existe également des éléments numériques provenant du réseau routier de la BNDG (Base nationale de données géographiques) dont la précision de localisation ne peut être établie. Ces arcs ont été numérisés à partir de cartes papier. Bien que l’information sur les attributs des arcs et la position de ceux-ci par rapport à d’autres traits soit très précise, il est impossible d’estimer la précision de localisation absolue de ces CF, les éléments dérivés du réseau routier ne pouvant pas être quantifiés avec précision.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_AbsoluteExternalPositionalAccuracy>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_RelativeInternalPositionalAccuracy>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>Relative positional accuracy describes the degree to which the position of features in a geographic database reflects their true ground relationships. For the Electoral Geographic Database, relative positional accuracy is important. A FED boundary must appear in the proper position relative to a road feature or other physical features like lakes and shorelines.
+                  During the build phase of the NGD, the dataset was thoroughly tested for relative positional accuracy of all federal electoral districts and any underlying base-layer features.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Par précision de localisation relative, on entend le degré de correspondance entre la localisation des traits dans une base de données géographiques et leur véritable localisation. Dans le cas de la Base nationale de données géographiques, la précision de localisation relative est importante. La limite d’une CF doit figurer au bon endroit par rapport aux autres rues et traits physiques comme les lacs et les littoraux.
+                      Au cours de l'étape de l'élaboration de la BNDG, l'ensemble de données a fait l'objet d'une vérification rigoureuse du point de vue de la précision de localisation relative des CF et de toutes les couches sous-jacentes.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_RelativeInternalPositionalAccuracy>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_ThematicClassificationCorrectness>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The classification of features in the FED dataset is verified manually by Elections Canada and through established quality assurance (QA) processes. Database rules of integrity are used to ensure the accuracy and correctness of the data.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">La classification des éléments pour le jeu de données de CF est vérifiée manuellement par Élections Canada en suivant des processus de contrôle de qualité établis. Les règlements d’intégrité des bases de données sont utilisés afin d’assurer la précision et l’exactitude des données.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_ThematicClassificationCorrectness>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_NonQuantitativeAttributeAccuracy>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The accuracy of non-quantitative attributes attached to features in the FED dataset is verified manually by Elections Canada and through established QA processes. Database rules of integrity ensure the accuracy and correctness of the data.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">L’exactitude des attributs non quantitatifs liés aux éléments du jeu de données de CF est vérifiée manuellement par Élections Canada en suivant des processus de contrôle de qualité établis. Les règlements d’intégrité des bases de données sont utilisés afin d’assurer la précision et l’exactitude des données.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_NonQuantitativeAttributeAccuracy>
+      </gmd:report>
+      <gmd:report>
+        <gmd:DQ_QuantitativeAttributeAccuracy>
+          <gmd:result>
+            <gmd:DQ_ConformanceResult>
+              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The accuracy of quantitative attributes attached to features in the FED dataset is verified manually by Elections Canada and through established QA processes. Database rules of integrity ensure the accuracy and correctness of the data.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">L’exactitude des attributs quantitatifs liés aux éléments du jeu de données de CF est vérifiée manuellement par Élections Canada en suivant des processus de contrôle de qualité établis. Les règlements d’intégrité des bases de données sont utilisés afin d’assurer la précision et l’exactitude des données.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:explanation>
+              <gmd:pass>
+                <gco:Boolean>true</gco:Boolean>
+              </gmd:pass>
+            </gmd:DQ_ConformanceResult>
+          </gmd:result>
+        </gmd:DQ_QuantitativeAttributeAccuracy>
+      </gmd:report>
+      <gmd:lineage>
+        <gmd:LI_Lineage>
+          <gmd:processStep>
+            <gmd:LI_ProcessStep>
+              <gmd:description xsi:type="gmd:PT_FreeText_PropertyType">
+                <gco:CharacterString>The FED dataset is derived from various base-layer features, including the road network, hydrographic features and other human-made features such as railways, power transmission lines and municipal limits. The accuracy of individual boundary features found in the electoral district dataset is therefore associated with the accuracy of the base-layer elements from which they were derived.</gco:CharacterString>
+                <gmd:PT_FreeText>
+                  <gmd:textGroup>
+                    <gmd:LocalisedCharacterString locale="#FR">Le jeu de données des CF est formé à partir de différents traits de base, notamment le réseau routier, le réseau hydrographique et les autres constructions humaines comme les chemins de fer, les lignes à haute tension et les frontières municipales. La précision des limites individuelles qui font partie du jeu de données de la circonscription est donc liée à la précision des couches de base dont elles sont dérivées.</gmd:LocalisedCharacterString>
+                  </gmd:textGroup>
+                </gmd:PT_FreeText>
+              </gmd:description>
+              <gmd:dateTime>
+                <gco:DateTime>2013-10-05T00:00:00</gco:DateTime>
+              </gmd:dateTime>
+            </gmd:LI_ProcessStep>
+          </gmd:processStep>
+          <gmd:source>
+            <gmd:LI_Source>
+              <gmd:scaleDenominator>
+                <gmd:MD_RepresentativeFraction>
+                  <gmd:denominator>
+                    <gco:Integer>50000</gco:Integer>
+                  </gmd:denominator>
+                </gmd:MD_RepresentativeFraction>
+              </gmd:scaleDenominator>
+              <gmd:sourceCitation>
+                <gmd:CI_Citation>
+                  <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>Electoral Geography Database</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">Base de données géographiques électorales</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:title>
+                  <gmd:alternateTitle xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>EGD</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">BDGE</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:alternateTitle>
+                  <gmd:date>
+                    <gmd:CI_Date>
+                      <gmd:date>
+                        <gco:Date>2014-06</gco:Date>
+                      </gmd:date>
+                      <gmd:dateType>
+                        <gmd:CI_DateTypeCode codeListValue="RI_367" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">publication; publication</gmd:CI_DateTypeCode>
+                      </gmd:dateType>
+                    </gmd:CI_Date>
+                  </gmd:date>
+                  <gmd:citedResponsibleParty>
+                    <gmd:CI_ResponsibleParty>
+                      <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                        <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+                        <gmd:PT_FreeText>
+                          <gmd:textGroup>
+                            <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Élections Canada</gmd:LocalisedCharacterString>
+                          </gmd:textGroup>
+                        </gmd:PT_FreeText>
+                      </gmd:organisationName>
+                      <gmd:role>
+                        <gmd:CI_RoleCode codeListValue="RI_410" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">owner; propriétaire</gmd:CI_RoleCode>
+                      </gmd:role>
+                    </gmd:CI_ResponsibleParty>
+                  </gmd:citedResponsibleParty>
+                  <gmd:presentationForm>
+                    <gmd:CI_PresentationFormCode codeListValue="RI_568" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_104">onLine; enLigne</gmd:CI_PresentationFormCode>
+                  </gmd:presentationForm>
+                </gmd:CI_Citation>
+              </gmd:sourceCitation>
+            </gmd:LI_Source>
+          </gmd:source>
+          <gmd:source>
+            <gmd:LI_Source>
+              <gmd:scaleDenominator>
+                <gmd:MD_RepresentativeFraction>
+                  <gmd:denominator>
+                    <gco:Integer>250000</gco:Integer>
+                  </gmd:denominator>
+                </gmd:MD_RepresentativeFraction>
+              </gmd:scaleDenominator>
+              <gmd:sourceCitation>
+                <gmd:CI_Citation>
+                  <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>Electoral Geography Database</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">Base de données géographiques électorales</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:title>
+                  <gmd:alternateTitle xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>EGD</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">BDGE</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:alternateTitle>
+                  <gmd:date>
+                    <gmd:CI_Date>
+                      <gmd:date>
+                        <gco:Date>2014-06</gco:Date>
+                      </gmd:date>
+                      <gmd:dateType>
+                        <gmd:CI_DateTypeCode codeListValue="RI_367" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">publication; publication</gmd:CI_DateTypeCode>
+                      </gmd:dateType>
+                    </gmd:CI_Date>
+                  </gmd:date>
+                  <gmd:citedResponsibleParty>
+                    <gmd:CI_ResponsibleParty>
+                      <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                        <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+                        <gmd:PT_FreeText>
+                          <gmd:textGroup>
+                            <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Élections Canada</gmd:LocalisedCharacterString>
+                          </gmd:textGroup>
+                        </gmd:PT_FreeText>
+                      </gmd:organisationName>
+                      <gmd:role>
+                        <gmd:CI_RoleCode codeListValue="RI_410" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">owner; propriétaire</gmd:CI_RoleCode>
+                      </gmd:role>
+                    </gmd:CI_ResponsibleParty>
+                  </gmd:citedResponsibleParty>
+                  <gmd:presentationForm>
+                    <gmd:CI_PresentationFormCode codeListValue="RI_568" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_104">onLine; enLigne</gmd:CI_PresentationFormCode>
+                  </gmd:presentationForm>
+                </gmd:CI_Citation>
+              </gmd:sourceCitation>
+            </gmd:LI_Source>
+          </gmd:source>
+          <gmd:source>
+            <gmd:LI_Source>
+              <gmd:scaleDenominator>
+                <gmd:MD_RepresentativeFraction>
+                  <gmd:denominator>
+                    <gco:Integer>1000000</gco:Integer>
+                  </gmd:denominator>
+                </gmd:MD_RepresentativeFraction>
+              </gmd:scaleDenominator>
+              <gmd:sourceCitation>
+                <gmd:CI_Citation>
+                  <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>Electoral Geography Database</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">Base de données géographiques électorales</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:title>
+                  <gmd:alternateTitle xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>EGD</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">BDGE</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:alternateTitle>
+                  <gmd:date>
+                    <gmd:CI_Date>
+                      <gmd:date>
+                        <gco:Date>2014-06</gco:Date>
+                      </gmd:date>
+                      <gmd:dateType>
+                        <gmd:CI_DateTypeCode codeListValue="RI_367" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">publication; publication</gmd:CI_DateTypeCode>
+                      </gmd:dateType>
+                    </gmd:CI_Date>
+                  </gmd:date>
+                  <gmd:citedResponsibleParty>
+                    <gmd:CI_ResponsibleParty>
+                      <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+                        <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+                        <gmd:PT_FreeText>
+                          <gmd:textGroup>
+                            <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Élections Canada</gmd:LocalisedCharacterString>
+                          </gmd:textGroup>
+                        </gmd:PT_FreeText>
+                      </gmd:organisationName>
+                      <gmd:role>
+                        <gmd:CI_RoleCode codeListValue="RI_410" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">owner; propriétaire</gmd:CI_RoleCode>
+                      </gmd:role>
+                    </gmd:CI_ResponsibleParty>
+                  </gmd:citedResponsibleParty>
+                  <gmd:presentationForm>
+                    <gmd:CI_PresentationFormCode codeListValue="RI_568" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_104">onLine; enLigne</gmd:CI_PresentationFormCode>
+                  </gmd:presentationForm>
+                </gmd:CI_Citation>
+              </gmd:sourceCitation>
+            </gmd:LI_Source>
+          </gmd:source>
+        </gmd:LI_Lineage>
+      </gmd:lineage>
+    </gmd:DQ_DataQuality>
+  </gmd:dataQualityInfo>
+  <gmd:metadataConstraints>
+    <gmd:MD_LegalConstraints>
+      <gmd:accessConstraints>
+        <gmd:MD_RestrictionCode codeListValue="RI_609" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_107">otherRestrictions; autresRestrictions</gmd:MD_RestrictionCode>
+      </gmd:accessConstraints>
+      <gmd:otherConstraints xsi:type="gmd:PT_FreeText_PropertyType">
+        <gco:CharacterString>None</gco:CharacterString>
+        <gmd:PT_FreeText>
+          <gmd:textGroup>
+            <gmd:LocalisedCharacterString locale="#FR">Aucune</gmd:LocalisedCharacterString>
+          </gmd:textGroup>
+        </gmd:PT_FreeText>
+      </gmd:otherConstraints>
+    </gmd:MD_LegalConstraints>
+  </gmd:metadataConstraints>
+  <gmd:metadataConstraints>
+    <gmd:MD_LegalConstraints>
+      <gmd:useConstraints>
+        <gmd:MD_RestrictionCode codeListValue="RI_610" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_107">licenseUnrestricted; licenceSansRestriction</gmd:MD_RestrictionCode>
+      </gmd:useConstraints>
+      <gmd:otherConstraints xsi:type="gmd:PT_FreeText_PropertyType">
+        <gco:CharacterString>Open Government Licence - Canada (http://data.gc.ca/eng/open-government-licence-canada)</gco:CharacterString>
+        <gmd:PT_FreeText>
+          <gmd:textGroup>
+            <gmd:LocalisedCharacterString locale="#FR">Licence du gouvernement ouvert - Canada (http://donnees.gc.ca/fra/licence-du-gouvernement-ouvert-canada)</gmd:LocalisedCharacterString>
+          </gmd:textGroup>
+        </gmd:PT_FreeText>
+      </gmd:otherConstraints>
+    </gmd:MD_LegalConstraints>
+  </gmd:metadataConstraints>
+  <gmd:metadataMaintenance>
+    <gmd:MD_MaintenanceInformation>
+      <gmd:maintenanceAndUpdateFrequency>
+        <gmd:MD_MaintenanceFrequencyCode codeListValue="RI_540" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_102">asNeeded; auBesoin</gmd:MD_MaintenanceFrequencyCode>
+      </gmd:maintenanceAndUpdateFrequency>
+      <gmd:contact>
+        <gmd:CI_ResponsibleParty>
+          <gmd:organisationName xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Electoral Geography Division - Elections Canada</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Division de la géographie électorale - Élections Canada</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:organisationName>
+          <gmd:contactInfo>
+            <gmd:CI_Contact>
+              <gmd:phone>
+                <gmd:CI_Telephone>
+                  <gmd:voice xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>voice; 1 (800) 267 7360</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">voix; 1 (800) 267 7360</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:voice>
+                  <gmd:facsimile>
+                    <gco:CharacterString>1 (819) 939 1675</gco:CharacterString>
+                  </gmd:facsimile>
+                </gmd:CI_Telephone>
+              </gmd:phone>
+              <gmd:address>
+                <gmd:CI_Address>
+                  <gmd:deliveryPoint xsi:type="gmd:PT_FreeText_PropertyType">
+                    <gco:CharacterString>physical; 30; Victoria Street</gco:CharacterString>
+                    <gmd:PT_FreeText>
+                      <gmd:textGroup>
+                        <gmd:LocalisedCharacterString locale="#FR">physique; 30; rue Victoria</gmd:LocalisedCharacterString>
+                      </gmd:textGroup>
+                    </gmd:PT_FreeText>
+                  </gmd:deliveryPoint>
+                  <gmd:city>
+                    <gco:CharacterString>Gatineau</gco:CharacterString>
+                  </gmd:city>
+                  <gmd:administrativeArea>
+                    <gco:CharacterString>Québec</gco:CharacterString>
+                  </gmd:administrativeArea>
+                  <gmd:postalCode>
+                    <gco:CharacterString>K1A 0M6</gco:CharacterString>
+                  </gmd:postalCode>
+                  <gmd:country>
+                    <gco:CharacterString>CANADA</gco:CharacterString>
+                  </gmd:country>
+                  <gmd:electronicMailAddress>
+                    <gco:CharacterString>geo.services@elections.ca</gco:CharacterString>
+                  </gmd:electronicMailAddress>
+                </gmd:CI_Address>
+              </gmd:address>
+              <gmd:onlineResource>
+                <gmd:CI_OnlineResource>
+                  <gmd:linkage>
+                    <gmd:URL>www.geogratis.gc.ca</gmd:URL>
+                  </gmd:linkage>
+                  <gmd:protocol>
+                    <gco:CharacterString>HTTP</gco:CharacterString>
+                  </gmd:protocol>
+                  <gmd:function>
+                    <gmd:CI_OnLineFunctionCode codeListValue="RI_376" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_88">information; information</gmd:CI_OnLineFunctionCode>
+                  </gmd:function>
+                </gmd:CI_OnlineResource>
+              </gmd:onlineResource>
+              <gmd:hoursOfService>
+                <gco:CharacterString>8:30/12:00; 13:00/16:30</gco:CharacterString>
+              </gmd:hoursOfService>
+            </gmd:CI_Contact>
+          </gmd:contactInfo>
+          <gmd:role>
+            <gmd:CI_RoleCode codeListValue="RI_414" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_90">pointOfContact; contact</gmd:CI_RoleCode>
+          </gmd:role>
+        </gmd:CI_ResponsibleParty>
+      </gmd:contact>
+    </gmd:MD_MaintenanceInformation>
+  </gmd:metadataMaintenance>
+</gmd:MD_Metadata>
