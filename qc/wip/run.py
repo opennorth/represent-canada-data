@@ -25,6 +25,6 @@ sets = {
 }
 
 for geographic_code, name in sets.items():
-  file = 'qc/wip/%s-24%s.shp' % (unidecode(name), geographic_code)
-  if not os.path.exists(file):
-    run('''ogr2ogr -f "ESRI Shapefile" "%s" "qc/districts/Districts Elec Mun 2014-02-28_DetU_region.shp" -where "CO_MUNCP='%s'"''' % (file, geographic_code), echo=True)
+    file = 'qc/wip/%s-24%s.shp' % (unidecode(name), geographic_code)
+    if not os.path.exists(file):
+        run('''ogr2ogr -f "ESRI Shapefile" "%s" "qc/districts/Districts Elec Mun 2014-02-28_DetU_region.shp" -where "CO_MUNCP='%s'"''' % (file, geographic_code), echo=True)
