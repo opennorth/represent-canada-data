@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Strathcona County wards',
     domain='Strathcona County, AB',
-    last_updated=date(2014, 2, 28),
+    last_updated=date(2014, 11, 29),
     name_func=lambda f: 'Ward %d' % f.get('Ward'),
     id_func=lambda f: '%d' % f.get('Ward'),
     authority='Strathcona County',
