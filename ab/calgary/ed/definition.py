@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Calgary wards',
     domain='Calgary, AB',
-    last_updated=date(2011, 11, 23),
+    last_updated=date(2014, 11, 29),
     name_func=boundaries.clean_attr('LABEL'),
     id_func=boundaries.attr('WARD_NUM'),
     authority='City of Calgary',
