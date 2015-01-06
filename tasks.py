@@ -780,20 +780,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     for row in reader:
         abbreviations[row[2]] = row[0].split(':')[-1].upper()
 
-    # Get scraper URLs.
-    scraper_urls = {}
-    for representative_set in requests.get('http://represent.opennorth.ca/representative-sets/?limit=0').json()['objects']:
-        boundary_set_url = representative_set['related']['boundary_set_url']
-        if boundary_set_url:
-            if boundary_set_url != '/boundary-sets/census-subdivisions/':
-                boundary_set = requests.get('http://represent.opennorth.ca%s' % boundary_set_url).json()
-                if boundary_set.get('extra') and boundary_set['extra'].get('geographic_code'):
-                    scraper_urls[boundary_set['extra']['geographic_code']] = representative_set['data_about_url'] or representative_set['data_url']
-                else:
-                    sys.stderr.write('%-60s No extra\n' % boundary_set_url)
-        else:
-            sys.stderr.write('%-60s No boundary_set_url\n' % representative_set['url'])
-
     # Create records for provinces and territories.
     reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
     next(reader)
@@ -806,7 +792,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             'Province or territory': row[0].split(':')[-1].upper(),
             'Population': '',
             'URL': '',
-            'Scraper?': scraper_urls.get(ocdid_to_sgc_code_map[row[0]], ''),
             'Shapefile?': '',
             'Contact': '',
             'Request notes': '',
@@ -844,7 +829,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                 'Geographic type': row[2],
                 'Population': row[4],
                 'URL': urls.get(row[0], ''),
-                'Scraper?': scraper_urls.get(row[0], ''),
                 'Contact': '',
                 'Request notes': '',
                 'Received via': '',
@@ -943,7 +927,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                 # We may have information for a bad shapefile from an in-progress request.
                 if b and (
                    (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Denial notes')) or
-                   (key == 'Scraper?'         and not a         and record['Shapefile?'] == 'N/A') or
                    (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or
                    (key == 'Shapefile?'       and a == 'Request'and b == 'Requested') or
                    (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or

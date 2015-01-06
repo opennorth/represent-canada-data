@@ -194,6 +194,5 @@ headers = [
     'Province or territory',
     'Population',
     'URL',
-    'Scraper?',
     'Shapefile?',
 ] + request_headers + receipt_headers
