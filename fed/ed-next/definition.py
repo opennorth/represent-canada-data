@@ -61,6 +61,7 @@ boundaries.register('Federal electoral districts (next election)',
     source_url='http://www.geobase.ca/geobase/en/search.do?produit=fed&language=en',
     licence_url='http://open.canada.ca/en/open-government-licence-canada',
     data_url='http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_eng/fed_cf_CA_2_1_shp_en.zip',
-    encoding='utf-8',
+    encoding='iso-8859-1',
     metadata={'geographic_code': '01'},
+    notes='Merge 46010 into one feature.',
 )
