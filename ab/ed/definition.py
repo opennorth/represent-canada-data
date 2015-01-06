@@ -12,7 +12,7 @@ boundaries.register('Alberta electoral districts',
     authority='Her Majesty the Queen in Right of Alberta',
     source_url='http://www.altalis.com/products/base/20k_base_features.html',
     licence_url='http://data.alberta.ca/licence',
-    # The data_url contains multiple shapefiles.
+    # The data_url contains multiple shapefiles, and the URL expires.
     # data_url='http://data.altalis.com/AltalisDataDownload/Download/525711F29A214C1AB5ED8F5578A983C3',
     encoding='iso-8859-1',
     metadata={'geographic_code': '48'},
