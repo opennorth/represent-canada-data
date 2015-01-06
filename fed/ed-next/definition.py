@@ -63,5 +63,5 @@ boundaries.register('Federal electoral districts (next election)',
     data_url='http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_eng/fed_cf_CA_2_1_shp_en.zip',
     encoding='iso-8859-1',
     metadata={'geographic_code': '01'},
-    notes='Merge 46010 into one feature.',
+    notes='Merge electoral districts with multiple features into single features.',
 )
