@@ -24,7 +24,7 @@ def namer(f):
         return {
             'Le Mont-Bellevue': 'Mont-Bellevue',
             'Rock Rorest--Saint-lie--Deauville': 'Rock Forest—Saint-Élie—Deauville',
-        }.get(f.get('NM_ARON'), f.clean_attr('NM_ARON'))
+        }.get(f.get('NM_ARON'), boundaries.clean_attr('NM_ARON')(f))
     else:
         return boundaries.clean_attr('NM_ARON')(f)
 
