@@ -6,9 +6,9 @@ import boundaries
 
 boundaries.register('Winnipeg wards',
     domain='Winnipeg, MB',
-    last_updated=date(2015, 1, 5),
+    last_updated=date(2015, 1, 27),
     name_func=boundaries.attr('Name'),
-    id_func=boundaries.attr('Number'),
+    id_func=lambda f: int(f.get('Number')),
     authority='City of Winnipeg',
     source_url='https://data.winnipeg.ca/Council-Services/Electoral-Ward/ede3-teb8',
     licence_url='https://data.winnipeg.ca/open-data-licence',
