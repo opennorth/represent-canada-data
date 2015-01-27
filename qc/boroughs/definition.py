@@ -24,9 +24,9 @@ def namer(f):
         return {
             'Le Mont-Bellevue': 'Mont-Bellevue',
             'Rock Rorest--Saint-lie--Deauville': 'Rock Forest—Saint-Élie—Deauville',
-        }.get(f.get('NM_ARON'), f.get('NM_ARON'))
+        }.get(f.get('NM_ARON'), f.clean_attr('NM_ARON'))
     else:
-        return boundaries.attr('NM_ARON')(f)
+        return boundaries.clean_attr('NM_ARON')(f)
 
 for geographic_code, name in sets.items():
     boundaries.register('%s boroughs' % name,
