@@ -314,7 +314,7 @@ def namer(f):
 
 def ider(f):
     if f.get('CO_MUNCP') in (43027, 66023):  # Sherbrooke, Montréal
-        return '%d' % (int(f.get('NO_DIS') * 10))
+        return f.get('NO_DIS')
     else:
         return int(f.get('NO_DIS'))
 
@@ -433,7 +433,7 @@ for municipality in municipalities_with_boroughs:
             domain='%s, %s, QC' % (name, municipality['name']),
             last_updated=date(2014, 2, 28),
             name_func=namer,
-            id_func=lambda f: int(f.get('NO_DIS')),
+            id_func=ider,
             authority='Directeur général des élections du Québec',
             licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
             encoding='iso-8859-1',
