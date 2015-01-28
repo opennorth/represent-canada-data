@@ -23,6 +23,7 @@ def namer(f):
     if f.get('CO_MUNCP') == 43027:
         return {
             'Le Mont-Bellevue': 'Mont-Bellevue',
+            'Pierrefond-Roxboro': 'Pierrefonds-Roxboro',
             'Rock Rorest--Saint-lie--Deauville': 'Rock Forest—Saint-Élie—Deauville',
         }.get(f.get('NM_ARON'), boundaries.clean_attr('NM_ARON')(f))
     else:
