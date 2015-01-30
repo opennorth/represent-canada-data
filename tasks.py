@@ -373,7 +373,7 @@ def topojson(base='.', output_base='./topojson'):
 
             item = (
                 slug,
-                '* [%s](https://github.com/opennorth/%s/blob/master/topojson/%s#files): [API](http://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' % (
+                '* [%s](https://github.com/opennorth/%s/blob/master/topojson/%s#files): [API](https://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' % (
                     slug,
                     repository,
                     os.path.basename(topo_json_path),
