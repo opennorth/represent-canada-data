@@ -2,11 +2,11 @@
 
 [Represent](https://represent.opennorth.ca/) is the open database of Canadian elected officials and electoral districts. It provides a [REST API](https://represent.opennorth.ca/api/) to boundary, representative, and postcode resources.
 
-This repository stores the digital boundary files for the database. The [represent-canada](http://github.com/opennorth/represent-canada) repository is what's running at [represent.opennorth.ca](https://represent.opennorth.ca/).
+This repository stores the digital boundary files for the database. The [represent-canada](https://github.com/opennorth/represent-canada) repository is what's running at [represent.opennorth.ca](https://represent.opennorth.ca/).
 
 ## License
 
-Open North has permission to redistribute all datasets in this repository. Please read the [overall license](http://github.com/opennorth/represent-canada-data/tree/master/LICENSE.txt) and the `LICENSE.txt` file in each directory to know your rights. In some cases, you will not have permission to redistribute the dataset.
+Open North has permission to redistribute all datasets in this repository. Please read the [overall license](https://github.com/opennorth/represent-canada-data/tree/master/LICENSE.txt) and the `LICENSE.txt` file in each directory to know your rights. In some cases, you will not have permission to redistribute the dataset.
 
 ## Data Quality
 
@@ -65,8 +65,8 @@ Generate TopoJSON for inspection on GitHub:
 
 ## Contact
 
-Please use [GitHub Issues](http://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
+Please use [GitHub Issues](https://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
 
 ## Acknowledgements
 
-We would like to express our gratitude to [Kent Mewhort](http://www.openissues.ca/) at the [Canadian Internet Policy and Public Interest Clinic (CIPPIC)](http://www.cippic.ca/), whose [legal research](http://www.cippic.ca/en/open-licensing) ([PDF](http://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf)) made it possible for this repository to be made public.
+We would like to express our gratitude to [Kent Mewhort](http://www.openissues.ca/) at the [Canadian Internet Policy and Public Interest Clinic (CIPPIC)](https://cippic.ca/), whose [legal research](https://cippic.ca/en/open_governance) ([PDF](https://cippic.ca/en/publications/how_to_redistribute_open_data)) made it possible for this repository to be made public.

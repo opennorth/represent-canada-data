@@ -806,7 +806,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         }
 
     # Create records for census subdivisions.
-    reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV', 'ISO-8859-1')
+    reader = csv_reader('https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV', 'ISO-8859-1')
     next(reader)  # title
     next(reader)  # headers
     for row in reader:
@@ -948,7 +948,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
 # Update populations.py in the represent-canada repository.
 @task
 def populations():
-    reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
+    reader = csv_reader('https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
     next(reader)  # title
     next(reader)  # headers
     for row in reader:
