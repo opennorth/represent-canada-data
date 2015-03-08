@@ -298,12 +298,15 @@ def namer(f):
         return re.sub(r"\b(?:d'|de |du |des )", '', name)
     elif code == 66023:  # Montréal
         return {
+            "Champlain-L'Île-des-Soeurs": "Champlain—L'Île-des-Soeurs",
             "d'Ahuntsic": 'Ahuntsic',
-            'Ouest (Pierrefonds-Roxboro)': 'Cap-Saint-Jacques',
             'de Bordeaux-Cartierville': 'Bordeaux-Cartierville',
             'de Saint-Sulpice': 'Saint-Sulpice',
             'du Sault-au-Récollet': 'Sault-au-Récollet',
             'Est (Pierrefonds-Roxboro)': 'Bois-de-Liesse',
+            'Maisonneuve-Longue-Pointe': 'Maisonneuve—Longue-Pointe',
+            'Ouest (Pierrefonds-Roxboro)': 'Cap-Saint-Jacques',
+            'Saint-Paul-Émard': 'Saint-Paul—Émard',
             'St-Henri-Petite-Bourgogne-Pte-St-Charles': 'Saint-Henri—Petite-Bourgogne—Pointe-Saint-Charles',
             'Étienne-Desmarteaux': 'Étienne-Desmarteau',
         }.get(name, name)
