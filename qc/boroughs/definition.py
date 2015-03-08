@@ -27,6 +27,8 @@ def namer(f):
         }.get(f.get('NM_ARON'), boundaries.clean_attr('NM_ARON')(f))
     elif f.get('CO_MUNCP') == 66023:
         return {
+            'Le Plateau-Mont-Royal': 'Plateau-Mont-Royal',
+            'Le Sud-Ouest': 'Sud-Ouest',
             'Pierrefond-Roxboro': 'Pierrefonds-Roxboro',
             'Rosemont--La-Petite-Patrie': 'Rosemont—La Petite-Patrie',
         }.get(f.get('NM_ARON'), boundaries.clean_attr('NM_ARON')(f))

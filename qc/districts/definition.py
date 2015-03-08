@@ -280,7 +280,9 @@ sets = {
 
 
 def namer(f):
-    if f.get('CO_MUNCP') == 23027:  # Québec
+    code = f.get('CO_MUNCP')
+    name = f.get('NM_DIS')
+    if code == 23027:  # Québec
         return {
             'Cap-Rouge-Laurentien': 'Cap-Rouge—Laurentien',
             'La Chute-Montmorency-Seigneurial': 'La Chute-Montmorency—Seigneurial',
@@ -291,21 +293,32 @@ def namer(f):
             'Pointe-de-Sainte-Foy': 'La Pointe-de-Sainte-Foy',
             'Saint-Louis-Sillery': 'Saint-Louis—Sillery',
             'Saint-Roch-Saint-Sauveur': 'Saint-Roch—Saint-Sauveur',
-        }.get(f.get('NM_DIS'), f.get('NM_DIS'))
-    elif f.get('CO_MUNCP') == 58227:  # Longueuil
-        return re.sub(r"\b(?:d'|de |du |des )", '', f.get('NM_DIS'))
-    elif f.get('CO_MUNCP') == 66097:  # Pointe-Claire
-        return f.get('NM_DIS').replace('/ ', '/')
-    elif f.get('CO_MUNCP') == 81017:  # Gatineau
+        }.get(name, name)
+    elif code == 58227:  # Longueuil
+        return re.sub(r"\b(?:d'|de |du |des )", '', name)
+    elif code == 66023:  # Montréal
+        return {
+            "d'Ahuntsic": 'Ahuntsic',
+            'Ouest (Pierrefonds-Roxboro)': 'Cap-Saint-Jacques',
+            'de Bordeaux-Cartierville': 'Bordeaux-Cartierville',
+            'de Saint-Sulpice': 'Saint-Sulpice',
+            'du Sault-au-Récollet': 'Sault-au-Récollet',
+            'Est (Pierrefonds-Roxboro)': 'Bois-de-Liesse',
+            'St-Henri-Petite-Bourgogne-Pte-St-Charles': 'Saint-Henri—Petite-Bourgogne—Pointe-Saint-Charles',
+            'Étienne-Desmarteaux': 'Étienne-Desmarteau',
+        }.get(name, name)
+    elif code == 66097:  # Pointe-Claire
+        return name.replace('/ ', '/')
+    elif code == 81017:  # Gatineau
         return {
             'de Hull-Val-Tétreau': 'de Hull—Val-Tétreau',
             'de Saint-Raymond-Vanier': 'de Saint-Raymond—Vanier',
             'de Wright-Parc-de-la-Montagne': 'Wright—Parc-de-la-Montagne',
             'du Plateau-Manoir-des-Trembles': 'du Plateau—Manoir-des-Trembles',
-        }.get(f.get('NM_DIS'), f.get('NM_DIS'))
+        }.get(name, name)
     else:
-        if f.get('NM_DIS'):
-            return f.get('NM_DIS')
+        if name:
+            return name
         elif f.get('MODE_SUFRG') == 'Q':
             return 'Quartier %s' % int(f.get('NO_DIS'))
         else:
