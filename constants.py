@@ -35,8 +35,8 @@ open_data_licenses = [
 ]
 
 some_rights_reserved_licenses = [
+    'http://mli2.gov.mb.ca/app/register/app/index.php',  # no commercial redistribution
     'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',  # per CIPPIC
-    'https://mli2.gov.mb.ca/app/register/app/index.php',  # no commercial redistribution
     'https://www.geosask.ca/Portal/jsp/terms_popup.jsp',  # per CIPPIC
 ]
 
@@ -93,7 +93,7 @@ terms = {
     'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp': 'I. Terms of Use. Contains information provided by the Regional Municipality of Waterloo under licence (http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp).',
     'http://www.welland.ca/open/OpendataTermUse.asp': 'I. Terms of Use. Contains public sector datasets made available under The Corporation of the City of Welland Open Data Licence v1.0 (http://www.welland.ca/open/OpendataTermUse.asp).',
     # Kent Mewhort email (2012-02-10).
-    'https://mli2.gov.mb.ca/app/register/app/index.php': '© 2001 Her Majesty the Queen in Right of Manitoba, as represented by the Minister of Conservation. All rights reserved. Distributed under the terms of the Manitoba Land Initiative Terms and Conditions of Use (https://mli2.gov.mb.ca//app/register/app/index.php).',
+    'http://mli2.gov.mb.ca/app/register/app/index.php': '© 2001 Her Majesty the Queen in Right of Manitoba, as represented by the Minister of Conservation. All rights reserved. Distributed under the terms of the Manitoba Land Initiative Terms and Conditions of Use (http://mli2.gov.mb.ca//app/register/app/index.php).',
 }
 
 terms_re = {
