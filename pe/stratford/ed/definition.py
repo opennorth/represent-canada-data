@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
-from datetime import date
 import re
+from datetime import date
 
 import boundaries
 
