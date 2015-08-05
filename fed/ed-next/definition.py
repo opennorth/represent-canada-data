@@ -11,7 +11,7 @@ def namer(f):
     n = boundaries.clean_attr('ENNAME')(f).replace('\x97', '—').replace("\u0092", "'")  # m-dash
 
     mappings = {
-        'Gaspsie--Les les-de-la-Madeleine': 'Gaspésie—Les Îles-de-la-Madeleine',
+        'Gaspsie—Les les-de-la-Madeleine': 'Gaspésie—Les Îles-de-la-Madeleine',
     }
 
     return mappings.get(n, n)
