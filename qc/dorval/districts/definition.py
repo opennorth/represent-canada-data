@@ -10,6 +10,7 @@ def ider(f):
     """
     http://www.ville.dorval.qc.ca/en/downloads/pdf/Map_Electoral_Districts.pdf
     """
+    import boundaries
     return {
         'Désiré-Girouard': '1',
         'La Présentation': '2',

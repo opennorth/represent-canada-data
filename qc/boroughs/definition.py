@@ -19,6 +19,7 @@ sets = {
 
 
 def namer(f):
+    import boundaries
     if f.get('CO_MUNCP') == 43027:
         return {
             'Le Mont-Bellevue': 'Mont-Bellevue',
