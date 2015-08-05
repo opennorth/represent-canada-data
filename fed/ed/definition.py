@@ -7,7 +7,6 @@ import boundaries
 
 
 def namer(f):
-    import boundaries
     n = boundaries.clean_attr('FEDENAME')(f)
 
     # @see http://www.parl.gc.ca/HousePublications/Publication.aspx?Language=E&Mode=1&DocId=6684609&File=4

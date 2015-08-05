@@ -6,7 +6,6 @@ import boundaries
 
 
 def namer(f):
-    import boundaries
     n = boundaries.clean_attr('ELEC_DISTR')(f)
     if n == 'Ths Isles of Notre Dame':
         return 'The Isles of Notre Dame'

@@ -7,7 +7,6 @@ import boundaries
 
 
 def namer(f):
-    import boundaries
     n = boundaries.clean_attr('Descriptio')(f)
     if n.lower().startswith('tracadie'):
         return 'Tracadie—Hillsborough Park'
