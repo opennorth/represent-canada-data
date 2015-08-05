@@ -7,6 +7,7 @@ import boundaries
 
 
 def namer(f):
+    import boundaries
     return boundaries.clean_attr('ENNAME')(f).replace('\x97', '—').replace(' dOr', " d'Or")  # Beauport--Côte-de-Beaupré--Île dOrléans--Charlevoix
 
 boundaries.register('Federal electoral districts (next election)',
