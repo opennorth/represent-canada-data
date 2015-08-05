@@ -45,10 +45,7 @@ def namer(f):
         # "Vancouver Island North—Comox—Powell River": "North Island—Powell River",
     }
 
-    for key, value in mappings.items():
-        if n == key:
-            return value
-    return n
+    return mappings.get(n, n)
 
 boundaries.register('Federal electoral districts',
     domain='Canada',
