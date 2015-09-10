@@ -943,19 +943,3 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     writer.writerow(headers)
     for _, record in records.items():
         writer.writerow([record[header] for header in headers])
-
-
-# Update populations.py in the represent-canada repository.
-@task
-def populations():
-    reader = csv_reader('https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV')
-    next(reader)  # title
-    next(reader)  # headers
-    for row in reader:
-        if row:
-            if row[1] != 'Canada':
-                division_id = 'ocd-division/country:ca/csd:%s' % row[0]
-                if ocdid_to_type()[division_id] in ('C', 'CV', 'CY', 'MD', 'MU', 'RGM', 'T', 'TP', 'V', 'VL'):
-                    print('  "%s": %s,' % (get_definition(division_id)[0], row[4]))
-        else:
-            break
