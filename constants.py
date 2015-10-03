@@ -44,7 +44,7 @@ some_rights_reserved_licenses = [
 
 all_rights_reserved_licenses = [
     'http://opendata-saskatoon.cloudapp.net/TermsOfUse/TermsOfUse',  # open data license pending
-    'http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/LimitedUseDataProductLicenceAgreement.htm',  # per CIPPIC
+    'http://www.elections.on.ca/en/voting-in-ontario/electoral-districts/electoral-districts--maps--shapefiles-and-street-index-guide/limited-use-data-product-licence-agreement.html',  # per CIPPIC
 ]
 
 all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+?.  Please direct licensing inquiries and requests to:\n\n(.+)', re.MULTILINE | re.DOTALL)
