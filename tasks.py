@@ -2,22 +2,22 @@
 from __future__ import unicode_literals
 
 import csv
-from collections import defaultdict, OrderedDict
-from datetime import datetime
-from ftplib import FTP
-from glob import glob
 import os
 import os.path
 import re
 import socket
 import stat
 import sys
-from urllib.parse import urlparse
+from collections import defaultdict, OrderedDict
+from datetime import datetime
+from ftplib import FTP
+from glob import glob
 from zipfile import ZipFile, BadZipfile
 
 import boundaries
 import requests
 from django.template.defaultfilters import slugify
+from django.utils.six.moves.urllib.parse import urlparse
 from six import StringIO
 from invoke import run, task
 from rfc6266 import parse_headers
