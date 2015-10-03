@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Wellesley wards',
     domain='Wellesley, ON',
-    last_updated=date(2013, 2, 20),
+    last_updated=date(2015, 1, 6),
     name_func=boundaries.attr('WardName'),
     id_func=boundaries.attr('WardNumber'),
     authority='Regional Municipality of Waterloo',
@@ -16,4 +16,5 @@ boundaries.register('Wellesley wards',
     encoding='iso-8859-1',
     metadata={'geographic_code': '3530027'},
     ogr2ogr='''-where "Municipali='Wellesley'"''',
+    skip_crc32=True,
 )
