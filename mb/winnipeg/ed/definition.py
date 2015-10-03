@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Winnipeg wards',
     domain='Winnipeg, MB',
-    last_updated=date(2015, 1, 27),
+    last_updated=date(2015, 10, 3),
     name_func=boundaries.attr('Name'),
     id_func=lambda f: int(f.get('Number')),
     authority='City of Winnipeg',
