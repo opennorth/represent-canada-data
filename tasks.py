@@ -568,7 +568,7 @@ def shapefiles(base='.'):
 
             # Remove old files.
             for basename in os.listdir(directory):
-                if basename not in ('.DS_Store', 'definition.py', 'LICENSE.txt', 'data.kml', 'data.kmz', 'data.zip'):
+                if basename not in ('.DS_Store', '__pycache__', 'definition.py', 'LICENSE.txt', 'data.kml', 'data.kmz', 'data.zip'):
                     os.unlink(os.path.join(directory, basename))
 
             files_to_add = []
