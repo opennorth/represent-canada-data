@@ -6,9 +6,8 @@ import boundaries
 
 boundaries.register('Saskatoon wards',
     domain='Saskatoon, SK',
-    last_updated=date(2013, 4, 10),
-    name_func=lambda f: 'Ward %s' % f.get('Name'),
-    id_func=boundaries.attr('Name'),
+    last_updated=date(2015, 5, 22),
+    name_func=boundaries.clean_attr('Name'),
     authority='City of Saskatoon',
     source_url='http://opendata-saskatoon.cloudapp.net/DataBrowser/SaskatoonOpenDataCatalogueBeta/CurrentWardBoundaries',
     data_url='https://saskatoonopendatastorage.blob.core.windows.net/converteddata/kml.CurrentWardBoundaries.zip',
