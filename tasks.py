@@ -586,12 +586,15 @@ def shapefiles(base='.'):
                         else:
                             basename = os.path.basename(name)  # assumes no collisions across hierarchy
                         with open(os.path.join(directory, basename), 'wb') as f:
-                            f.write(zip_file.read(name))
+                            with zip_file.open(name, 'r') as fp:
+                                if config.get('skip_crc32'):
+                                    fp._expected_crc = None
+                                f.write(fp.read())
                         if extension not in ('.kml', '.kmz'):
                             files_to_add.append(os.path.join(directory, basename))
-                except BadZipfile:
+                except BadZipfile as e:
                     error_thrown = True
-                    print('Bad ZIP file %s\n' % url)
+                    print('Bad ZIP file %s %s\n' % (e, url))
                 finally:
                     os.unlink(data_file_path)
 

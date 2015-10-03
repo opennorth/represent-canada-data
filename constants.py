@@ -129,6 +129,7 @@ valid_keys = set([
     # Used by this script. Not validated.
     'ogr2ogr',
     'prj',
+    'skip_crc32',
     'base_file',
 ])
 
