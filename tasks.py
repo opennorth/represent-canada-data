@@ -786,7 +786,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     for row in reader:
         records[ocdid_to_sgc_code_map[row[0]]] = {
             'OCD': row[0],
-            'Geographic code': ocdid_to_sgc_code_map[row[0]],
             'Geographic name': row[1],
             'Geographic type': '',
             'Province or territory': row[0].split(':')[-1].upper(),
@@ -800,9 +799,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             'Next boundary': '',
             'Permission to distribute': '',
             'Highrise URL': '',
-            'Type of license': '',
-            'License URL': '',
-            'Denial notes': '',
+            'Response notes': '',
         }
 
     # Create records for census subdivisions.
@@ -823,7 +820,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
 
             record = {
                 'OCD': sgc_code_to_ocdid_map[row[0]],
-                'Geographic code': row[0],
                 'Geographic name': name,
                 'Province or territory': province_or_territory,
                 'Geographic type': row[2],
@@ -836,9 +832,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                 'Next boundary': '',
                 'Permission to distribute': '',
                 'Highrise URL': '',
-                'Type of license': '',
-                'License URL': '',
-                'Denial notes': '',
+                'Response notes': '',
             }
 
             if municipal_subdivisions.get(row[0]):
@@ -872,7 +866,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                     record = records[geographic_code]
                     record['Shapefile?'] = 'Y'
                     record['Permission to distribute'] = permission_to_distribute
-                    record['License URL'] = config.get('licence_url', '')
 
                     if config.get('last_updated'):
                         record['Last boundary'] = config['last_updated'].strftime('%-m/%-d/%Y')
@@ -886,30 +879,17 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                             record['Contact'] = match.group(1)
                         record['Received via'] = 'email'
 
-                    if config.get('licence_url'):
-                        licence_url = config['licence_url']
-                        if licence_url in open_data_licenses:
-                            record['Type of license'] = 'Open'
-                        elif licence_url in some_rights_reserved_licenses:
-                            record['Type of license'] = 'Most rights reserved'
-                        elif licence_url in all_rights_reserved_licenses:
-                            record['Type of license'] = 'All rights reserved'
-                        else:
-                            raise Exception(licence_url)
-                    elif all_rights_reserved_terms_re.search(license_text):
-                        record['Type of license'] = 'All rights reserved'
-                    else:
-                        record['Type of license'] = 'Custom'
                 elif not config['metadata'].get('ocd_division'):
                     sys.stderr.write('%-60s No geographic_code or ocd_division\n' % slug)
             else:
                 sys.stderr.write('%-60s No metadata\n' % slug)
 
-    response = requests.get('https://docs.google.com/spreadsheet/pub?key=0AtzgYYy0ZABtdGpJdVBrbWtUaEV0THNUd2JIZ1JqM2c&single=true&gid=25&output=csv')
+    response = requests.get('https://docs.google.com/spreadsheets/d/1ihCIDc9EtvxF7kzPg3Yk6e928DN7JzaycH92IBYr0QU/pub?gid=25&single=true&output=csv')
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
     for row in reader:
-        geographic_code = row['Geographic code']
+        print(repr(row))
+        geographic_code = ocdid_to_sgc_code_map[row['OCD']]
         record = records[geographic_code]
 
         for key in row:
@@ -917,23 +897,21 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             b = row[key]
 
             if a != b:
-                # Columns that are always tracked manually.
-                # Scrapers for municipalities without wards are tracked manually.
-                # In-progress requests are tracked manually.
-                # Contacts for in-progress requests and private data are tracked manually.
-                # We may have a contact to confirm the nonexistence of municipal subdivisions.
-                # MFIPPA requests are tracked manually.
-                # Additional details about license agreements and written consent are tracked manually.
-                # We may have information for a bad shapefile from an in-progress request.
                 if b and (
-                   (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Denial notes')) or
+                    # Columns that are always tracked manually.
+                   (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Response notes')) or
+                   # Scrapers for municipalities without wards are tracked manually.
                    (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or
+                   # In-progress requests are tracked manually.
                    (key == 'Shapefile?'       and a == 'Request'and b == 'Requested') or
+                   # Contacts for in-progress requests and private data are tracked manually.
                    (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or
+                   # We may have a contact to confirm the nonexistence of municipal subdivisions.
                    (key == 'Contact'          and a == 'N/A'    and record['Shapefile?'] == 'N/A') or
+                   # MFIPPA requests are tracked manually.
                    (key == 'Received via'     and a == 'email'  and b == 'MFIPPA') or
-                   (key == 'Type of license'  and '(' in b) or
-                   (key in ('Received via', 'Type of license', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested')):
+                   # We may have information for a bad shapefile from an in-progress request.
+                   (key in ('Received via', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested')):
                     record[key] = b
                 # The spreadsheet can add contacts and URLs.
                 elif key != 'Population' and (key not in ('Contact', 'URL') or a):  # separators

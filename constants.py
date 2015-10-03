@@ -186,14 +186,11 @@ receipt_headers = [
     'Last boundary',
     'Next boundary',
     'Permission to distribute',
-    'Type of license',
-    'License URL',
-    'Denial notes',
+    'Response notes',
 ]
 
 headers = [
     'OCD',
-    'Geographic code',
     'Geographic name',
     'Province or territory',
     'Population',
