@@ -10,7 +10,6 @@ def ider(f):
     """
     http://www.ville.dorval.qc.ca/en/downloads/pdf/Map_Electoral_Districts.pdf
     """
-    import boundaries
     return {
         'Désiré-Girouard': '1',
         'La Présentation': '2',
@@ -18,7 +17,7 @@ def ider(f):
         'Pine Beach': '4',
         'Strathmore': '5',
         'Surrey': '6',
-    }[boundaries.attr('NOM_DISTRI')(f)]
+    }[f.get('NOM_DISTRI')]
 
 boundaries.register('Dorval districts',
     domain='Dorval, QC',

@@ -7,8 +7,7 @@ import boundaries
 
 
 def namer(f):
-    import boundaries
-    n = boundaries.attr('NAME')(f)
+    n = f.get('NAME')
     if n == "Kellys Cove":
         return "Kelly's Cove"
     return n
