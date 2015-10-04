@@ -280,6 +280,7 @@ sets = {
 
 
 def namer(f):
+    import boundaries
     code = f.get('CO_MUNCP')
     name = f.get('NM_DIS')
     if code == 23027:  # Québec
@@ -321,7 +322,7 @@ def namer(f):
         }.get(name, name)
     else:
         if name:
-            return name
+            return boundaries.clean_attr('NM_DIS')(f)
         elif f.get('MODE_SUFRG') == 'Q':
             return 'Quartier %s' % int(f.get('NO_DIS'))
         else:
