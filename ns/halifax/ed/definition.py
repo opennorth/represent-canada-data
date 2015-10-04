@@ -7,7 +7,7 @@ import boundaries
 boundaries.register('Halifax districts',
     domain='Halifax, NS',
     last_updated=date(2014, 11, 30),
-    name_func=boundaries.attr('DISTNAME'),
+    name_func=boundaries.clean_attr('DISTNAME'),
     id_func=boundaries.attr('DIST_ID'),
     authority='Halifax Regional Municipality',
     source_url='http://catalogue.hrm.opendata.arcgis.com/datasets/b2c71fb0d90f41488fae2ad2c8278f6d_0',
