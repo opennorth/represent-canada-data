@@ -446,7 +446,7 @@ municipalities_with_boroughs = [
 for municipality in municipalities_with_boroughs:
     for division_id, (name, machine_name) in municipality['boroughs'].items():
         boundaries.register('%s districts' % name,
-            file='%s-%s.shp' % (unidecode(municipality['name']), unidecode(name).replace('--', '-')),
+            file='%s-%s.shp' % (unidecode(municipality['name']), unidecode(name)),
             domain='%s, %s, QC' % (name, municipality['name']),
             last_updated=date(2014, 2, 28),
             name_func=namer,
