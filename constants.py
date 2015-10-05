@@ -123,7 +123,7 @@ valid_keys = set([
     'source_url',
     'licence_url',
     'data_url',
-    'metadata',
+    'extra',
     'notes',
     'encoding',
     # Used by this script. Not validated.
@@ -133,9 +133,8 @@ valid_keys = set([
     'base_file',
 ])
 
-valid_metadata_keys = set([
-    'geographic_code',
-    'ocd_division',
+valid_extra_keys = set([
+    'division_id',
 ])
 
 # Authorities that are responsible for multiple shapefiles.

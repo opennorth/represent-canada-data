@@ -30,7 +30,7 @@ from constants import (
     terms,
     terms_re,
     valid_keys,
-    valid_metadata_keys,
+    valid_extra_keys,
     authorities,
     municipal_subdivisions,
     request_headers,
@@ -146,29 +146,6 @@ def corporations():
     return corporations_memo
 
 
-def get_division_id(slug, config):
-    division_id = config['metadata'].get('ocd_division')
-    geographic_code = config['metadata'].get('geographic_code')
-
-    # Determine division_id if not set.
-    if division_id:
-        if geographic_code:
-            raise Exception('%s: Set division_id or geographic_code' % slug)
-    else:
-        if geographic_code:
-            length = len(geographic_code)
-            if length == 2:
-                division_id = sgc_code_to_ocdid()[geographic_code]
-            elif length == 4:
-                division_id = 'ocd-division/country:ca/cd:%s' % geographic_code
-            elif length == 7:
-                division_id = 'ocd-division/country:ca/csd:%s' % geographic_code
-            else:
-                raise Exception('%s: Unrecognized geographic code %s' % (slug, geographic_code))
-
-    return division_id
-
-
 def get_definition(division_id):
     sections = division_id.split('/')
     ocd_type, ocd_type_id = sections[-1].split(':')
@@ -178,7 +155,10 @@ def get_definition(division_id):
     }
 
     # Determine slug, domain and authority.
-    name = ocdid_to_name().get(division_id, division_id)
+    name = ocdid_to_name().get(division_id)
+    if not name:
+        print('%-50s unknown name: check slug and domain manually' % division_id)
+
     if ocd_type == 'country':
         slug = 'Federal electoral districts'
         config['domain'] = name
@@ -250,8 +230,13 @@ def get_definition(division_id):
         province_or_territory_sgc_code = census_subdivision_ocdid.split(':')[-1][:2]
         province_or_territory_abbreviation = sgc_code_to_ocdid()[province_or_territory_sgc_code].split(':')[-1].upper()
 
-        slug = '%s districts' % name
-        config['domain'] = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
+        if name:
+            slug = '%s districts' % name
+            config['domain'] = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
+        else:
+            slug = None
+            config['domain'] = None
+
         if province_or_territory_sgc_code == '24':
             config['authority'] = ['Directeur général des élections du Québec']
         else:
@@ -270,15 +255,13 @@ def assert_match(slug, field, actual, expected):
     elif isinstance(expected, list):
         if actual not in expected:
             print('%-50s Expected %s to be %s not %s' % (slug, field, expected[-1], actual))
-    elif actual != expected:
+    elif actual != expected and expected is not None:
         print('%-50s Expected %s to be %s not %s' % (slug, field, expected, actual))
 
 
 # @todo Guess name_func and id_func based on the shapefile.
 @task
 def define(division_id):
-    ocdid_to_sgc_code_map = {v: k for k, v in sgc_code_to_ocdid().items()}
-
     slug, config = get_definition(division_id)
     if isinstance(slug, re._pattern_type):
         slug = re.sub('\\\[AZ]', '', slug.pattern)
@@ -286,14 +269,7 @@ def define(division_id):
     config['slug'] = slug
     config['last_updated'] = datetime.now().strftime('%Y, %-m, %-d')
     config['authority'] = config['authority'][-1]
-
-    ocd_type, ocd_type_id = division_id.split('/')[-1].split(':')
-    if ocd_type == 'country' and ocd_type_id == 'ca':
-        config['geographic_code'] = '01'
-    elif ocd_type in ('province', 'territory', 'cd', 'csd'):
-        config['geographic_code'] = ocdid_to_sgc_code_map[division_id]
-    else:
-        raise Exception('%s: Unrecognized OCD type %s' % (division_id, ocd_type))
+    config['division_id'] = division_id
 
     print("""from __future__ import unicode_literals
 
@@ -308,7 +284,7 @@ boundaries.register('%(slug)s',
         id_func=boundaries.attr(''),
         authority='%(authority)s',
         encoding='iso-8859-1',
-        metadata={'geographic_code': '%(geographic_code)s'},
+        extra={'division_id': '%(division_id)s'},
 )""" % config)
 
 
@@ -365,7 +341,7 @@ def topojson(base='.', output_base='./topojson'):
                     run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
                 run('topojson -o %s %s' % (topo_json_path, geo_json_path), echo=True)
 
-            division_id = get_division_id(slug, config)
+            division_id = config['extra']['division_id']
             if os.stat(topo_json_path).st_size > 10485760:  # 10MB
                 suffix = ' (too large to preview)'
             else:
@@ -431,12 +407,12 @@ def definitions(base='.'):
         if os.path.exists(license_path):
             with open(license_path) as f:
                 license_text = f.read().rstrip('\n')
-            if config.get('licence_url'):
+            if 'licence_url' in config:
                 licence_url = config['licence_url']
                 if licence_url in open_data_licenses or licence_url in some_rights_reserved_licenses:
-                    if not terms.get(licence_url) and not terms_re.get(licence_url):
+                    if licence_url not in terms and not terms_re.get(licence_url):
                         warn('No LICENSE.txt template for License URL %s' % licence_url, slug)
-                    elif terms.get(licence_url) and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
+                    elif licence_url in terms and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
                         print('%-50s Expected LICENSE.txt to match license-specific template' % slug)
                 elif licence_url in all_rights_reserved_licenses:
                     if not all_rights_reserved_terms_re.search(license_text):
@@ -450,7 +426,7 @@ def definitions(base='.'):
         invalid_keys = set(config.keys()) - valid_keys
         if invalid_keys:
             print('%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
-        values = [value for key, value in config.items() if key != 'metadata']
+        values = [value for key, value in config.items() if key != 'extra']
         if len(values) > len(set(values)):
             print('%-50s Non-unique values' % slug)
         for key, value in config.items():
@@ -459,28 +435,28 @@ def definitions(base='.'):
 
         # Check for missing required keys.
         for key in ('domain', 'last_updated', 'name_func', 'authority', 'encoding'):
-            if not config.get(key):
+            if key not in config:
                 print('%-50s Missing %s' % (slug, key))
-        if not config.get('source_url') and config.get('data_url'):
+        if 'source_url' not in config and 'data_url' in config:
             print('%-50s Missing source_url' % slug)
-        if config.get('source_url') and not config.get('licence_url') and not config.get('data_url'):
+        if 'source_url' in config and 'licence_url' not in config and 'data_url' not in config:
             print('%-50s Missing licence_url or data_url' % slug)
 
         # Validate fields.
         for key in ('name', 'singular'):
-            if config.get(key):
+            if key in config:
                 print('%-50s Expected %s to be missing' % (slug, key))
 
         if slug not in ('Census divisions', 'Census subdivisions'):
             # Check for invalid keys or empty values.
-            invalid_keys = set(config['metadata'].keys()) - valid_metadata_keys
+            invalid_keys = set(config['extra'].keys()) - valid_extra_keys
             if invalid_keys:
                 print('%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
-            for key, value in config['metadata'].items():
+            for key, value in config['extra'].items():
                 if not value:
                     print('%-50s Empty value for %s' % (slug, key))
 
-            division_id = get_division_id(slug, config)
+            division_id = config['extra']['division_id']
 
             # Ensure division_id is unique.
             if division_id in division_ids and division_id not in borough_division_ids:
@@ -505,7 +481,7 @@ def urls(base='.'):
 
     for slug, config in registry(base).items():
         for key in ('source_url', 'licence_url', 'data_url'):
-            if config.get(key):
+            if key in config:
                 url = config[key]
                 result = urlparse(url)
                 if result.scheme == 'ftp':
@@ -542,7 +518,7 @@ def ogr2ogr(base='.'):
     Run ogr2ogr tasks.
     """
     for slug, config in registry(base).items():
-        if config.get('ogr2ogr'):
+        if 'ogr2ogr' in config:
             directory = dirname(config['file'])
             if not os.path.exists(config['file']):
                 run('ogr2ogr -f "ESRI Shapefile" "%s" "%s/%s" %s' % (config['file'], directory, config['base_file'], config['ogr2ogr']), echo=True)
@@ -587,7 +563,7 @@ def shapefiles(base='.'):
                             basename = os.path.basename(name)  # assumes no collisions across hierarchy
                         with open(os.path.join(directory, basename), 'wb') as f:
                             with zip_file.open(name, 'r') as fp:
-                                if config.get('skip_crc32'):
+                                if 'skip_crc32' in config:
                                     fp._expected_crc = None
                                 f.write(fp.read())
                         if extension not in ('.kml', '.kmz'):
@@ -661,7 +637,7 @@ def shapefiles(base='.'):
                         if 'Double_Stereographic' in prj:
                             with open(prj_file_path, 'w') as f:
                                 f.write(prj.replace('Double_Stereographic', 'Oblique_Stereographic'))
-                    elif config.get('prj'):
+                    elif 'prj' in config:
                         with open(prj_file_path, 'w') as f:
                             f.write(requests.get(config['prj']).text)
                         files_to_add.append(prj_file_path)
@@ -669,7 +645,7 @@ def shapefiles(base='.'):
                         print('No PRJ file %s' % url)
 
                     # Run any additional commands on the shapefile.
-                    if config.get('ogr2ogr'):
+                    if 'ogr2ogr' in config:
                         run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (directory, shp_file_path, config['ogr2ogr']), echo=True)
                         for name in list(files_to_add):
                             if not os.path.exists(name):
@@ -684,7 +660,7 @@ def shapefiles(base='.'):
 
                 # Print notes.
                 notes = []
-                if config.get('notes'):
+                if 'notes' in config:
                     notes.append(config['notes'])
                 if notes:
                     print('%s\n%s\n' % (slug, '\n'.join(notes)))
@@ -693,7 +669,7 @@ def shapefiles(base='.'):
 
     # Retrieve shapefiles.
     for slug, config in registry(base).items():
-        if config.get('data_url'):
+        if 'data_url' in config:
             url = config['data_url']
             result = urlparse(url)
 
@@ -740,7 +716,7 @@ def shapefiles(base='.'):
                     print('%s are more recent than the source (%s > %s)\n' % (slug, config['last_updated'], last_updated))
                 elif config['last_updated'] < last_updated:
                     # Determine the file extension.
-                    if response.headers.get('content-disposition'):
+                    if 'content-disposition' in response.headers:
                         filename = parse_headers(response.headers['content-disposition']).filename_unsafe
                     else:
                         filename = url
@@ -763,7 +739,6 @@ def shapefiles(base='.'):
 @task
 def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     sgc_code_to_ocdid_map = sgc_code_to_ocdid()
-    ocdid_to_sgc_code_map = {v: k for k, v in sgc_code_to_ocdid_map.items()}
     records = OrderedDict()
 
     reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_municipal_subdivisions-has_children.csv')
@@ -787,7 +762,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
     next(reader)
     for row in reader:
-        records[ocdid_to_sgc_code_map[row[0]]] = {
+        records[row[0]] = {
             'OCD': row[0],
             'Geographic name': row[1],
             'Geographic type': '',
@@ -821,8 +796,10 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             else:
                 raise Exception('Unrecognized name "%s"' % row[1])
 
+            division_id = sgc_code_to_ocdid_map[row[0]]
+
             record = {
-                'OCD': sgc_code_to_ocdid_map[row[0]],
+                'OCD': division_id,
                 'Geographic name': name,
                 'Province or territory': province_or_territory,
                 'Geographic type': row[2],
@@ -838,7 +815,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                 'Response notes': '',
             }
 
-            if municipal_subdivisions.get(row[0]):
+            if row[0] in municipal_subdivisions:
                 if municipal_subdivisions[row[0]] == 'N':
                     for header in ['Shapefile?'] + request_headers + receipt_headers:
                         record[header] = 'N/A'
@@ -849,7 +826,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             else:
                 record['Shapefile?'] = ''
 
-            records[row[0]] = record
+            records[division_id] = record
         else:
             break
 
@@ -857,23 +834,23 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     for directory, permission_to_distribute in [(base, 'Y'), (private_base, 'N')]:
         boundaries.registry = {}
         for slug, config in registry(directory).items():
-            if config.get('metadata'):
-                geographic_code = config['metadata'].get('geographic_code')
-                if geographic_code:
+            if 'extra' in config:
+                division_id = config['extra']['division_id']
+                if division_id in records:
                     license_path = os.path.join(dirname(config['file']), 'LICENSE.txt')
                     license_text = ''
                     if os.path.exists(license_path):
                         with open(license_path) as f:
                             license_text = f.read().rstrip('\n')
 
-                    record = records[geographic_code]
+                    record = records[division_id]
                     record['Shapefile?'] = 'Y'
                     record['Permission to distribute'] = permission_to_distribute
 
-                    if config.get('last_updated'):
+                    if 'last_updated' in config:
                         record['Last boundary'] = config['last_updated'].strftime('%-m/%-d/%Y')
 
-                    if config.get('source_url'):
+                    if 'source_url' in config:
                         record['Contact'] = 'N/A'
                         record['Received via'] = 'online'
                     else:
@@ -881,19 +858,17 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                         if match:
                             record['Contact'] = match.group(1)
                         record['Received via'] = 'email'
-
-                elif not config['metadata'].get('ocd_division'):
-                    sys.stderr.write('%-60s No geographic_code or ocd_division\n' % slug)
+                # The spreadsheet doesn't track borough boundaries.
+                elif '/borough:' not in division_id:
+                    sys.stderr.write('%-25s no record\n' % division_id)
             else:
-                sys.stderr.write('%-60s No metadata\n' % slug)
+                sys.stderr.write('%-25s no extra\n' % slug)
 
     response = requests.get('https://docs.google.com/spreadsheets/d/1ihCIDc9EtvxF7kzPg3Yk6e928DN7JzaycH92IBYr0QU/pub?gid=25&single=true&output=csv')
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
     for row in reader:
-        print(repr(row))
-        geographic_code = ocdid_to_sgc_code_map[row['OCD']]
-        record = records[geographic_code]
+        record = records[row['OCD']]
 
         for key in row:
             a = record[key]
@@ -918,7 +893,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                     record[key] = b
                 # The spreadsheet can add contacts and URLs.
                 elif key != 'Population' and (key not in ('Contact', 'URL') or a):  # separators
-                    sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, geographic_code, a, b))
+                    sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, row['OCD'], a, b))
 
     writer = csv.writer(sys.stdout)
     writer.writerow(headers)
