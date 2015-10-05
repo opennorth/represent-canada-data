@@ -15,5 +15,5 @@ boundaries.register('Charlottetown wards',
     data_url='http://www.electionspei.ca/municipal/details/gis/shp/charlottetown_wards.zip',
     licence_url='http://www.electionspei.ca/apilicense',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '1102075'},
+    extra={'division_id': 'ocd-division/country:ca/csd:1102075'},
 )

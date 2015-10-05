@@ -17,5 +17,5 @@ boundaries.register('Québec boroughs',
     licence_url='https://creativecommons.org/licenses/by/4.0/legalcode',
     data_url='http://donnees.ville.quebec.qc.ca/Handler.ashx?id=2&f=SHP',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '2423027'},
+    extra={'division_id': 'ocd-division/country:ca/csd:2423027'},
 )

@@ -15,5 +15,5 @@ boundaries.register('Windsor wards',
     licence_url='http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
     data_url='http://www.citywindsor.ca/opendata/Lists/OpenData/Attachments/9/2014_Municipal_Ward_Boundaries_UTM83.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3537039'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3537039'},
 )

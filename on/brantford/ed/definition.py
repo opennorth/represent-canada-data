@@ -11,5 +11,5 @@ boundaries.register('Brantford wards',
     id_func=boundaries.attr('WARD'),
     authority='City of Brantford',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3529006'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3529006'},
 )

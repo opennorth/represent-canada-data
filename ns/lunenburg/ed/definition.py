@@ -12,5 +12,5 @@ boundaries.register('Lunenburg districts',
     id_func=boundaries.attr('Dletter'),
     authority='Municipality of the District of Lunenburg',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '1206001'},
+    extra={'division_id': 'ocd-division/country:ca/csd:1206001'},
 )

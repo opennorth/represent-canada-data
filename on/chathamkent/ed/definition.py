@@ -14,5 +14,5 @@ boundaries.register('Chatham-Kent wards',
     licence_url='https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data',
     data_url='http://www.chatham-kent.ca/sp_training/OpenData/Documents/Wards.shp.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3536020'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3536020'},
 )

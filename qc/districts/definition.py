@@ -345,7 +345,7 @@ for geographic_code, (name, type) in sets.items():
         authority='Directeur général des élections du Québec',
         licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
         encoding='iso-8859-1',
-        metadata={'geographic_code': '24%05d' % geographic_code},
+        extra={'division_id': 'ocd-division/country:ca/csd:24%05d' % geographic_code},
         ogr2ogr='''-where "CO_MUNCP='%d'"''' % geographic_code,
         base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
     )
@@ -359,7 +359,7 @@ boundaries.register('Paroisse de Plessisville districts',
     authority='Directeur général des élections du Québec',
     licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '2432045'},
+    extra={'division_id': 'ocd-division/country:ca/csd:2432045'},
     ogr2ogr='''-where "CO_MUNCP='32045'"''',
     base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
 )
@@ -444,7 +444,7 @@ municipalities_with_boroughs = [
 ]
 
 for municipality in municipalities_with_boroughs:
-    for ocd_division, (name, machine_name) in municipality['boroughs'].items():
+    for division_id, (name, machine_name) in municipality['boroughs'].items():
         boundaries.register('%s districts' % name,
             file='%s-%s.shp' % (unidecode(municipality['name']), unidecode(name).replace('--', '-')),
             domain='%s, %s, QC' % (name, municipality['name']),
@@ -454,7 +454,7 @@ for municipality in municipalities_with_boroughs:
             authority='Directeur général des élections du Québec',
             licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
             encoding='iso-8859-1',
-            metadata={'ocd_division': ocd_division},
+            extra={'division_id': division_id},
             ogr2ogr='''-where "CO_MUNCP='%d' AND NMTRI_ARON='%s'"''' % (municipality['geographic_code'], machine_name),
             base_file='Districts Elec Mun 2014-02-28_DetU_region.shp',
         )

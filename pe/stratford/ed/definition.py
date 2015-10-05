@@ -22,5 +22,5 @@ boundaries.register('Stratford wards',
     data_url='http://www.electionspei.ca/municipal/details/gis/shp/stratford_wards.zip',
     licence_url='http://www.electionspei.ca/apilicense',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '1102080'},
+    extra={'division_id': 'ocd-division/country:ca/csd:1102080'},
 )

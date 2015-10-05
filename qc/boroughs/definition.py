@@ -45,5 +45,5 @@ for geographic_code, name in sets.items():
         authority='Directeur général des élections du Québec',
         licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
         encoding='iso-8859-1',
-        metadata={'geographic_code': '24%05d' % geographic_code},
+        extra={'division_id': 'ocd-division/country:ca/csd:24%05d' % geographic_code},
     )

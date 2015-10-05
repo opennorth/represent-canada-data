@@ -17,5 +17,5 @@ boundaries.register('Peterborough wards',
     id_func=lambda f: re.sub(r'\D', '', f.get('NAME')),
     authority='City of Peterborough',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3515014'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3515014'},
 )

@@ -14,5 +14,5 @@ boundaries.register('Burlington wards',
     licence_url='http://cms.burlington.ca/AssetFactory.aspx?did=18762',
     data_url='http://cms.burlington.ca/AssetFactory.aspx?did=30505',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3524002'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3524002'},
 )

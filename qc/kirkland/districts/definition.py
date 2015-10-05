@@ -14,6 +14,6 @@ boundaries.register('Kirkland districts',
     licence_url='http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     data_url='http://donnees.ville.montreal.qc.ca/storage/f/2013-10-06T16:49:49.153Z/elections-2009-districts-multi-poly.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '2466102'},
+    extra={'division_id': 'ocd-division/country:ca/csd:2466102'},
     ogr2ogr='''-where "MONTREAL='0' AND NUM_ARR='3'"''',
 )

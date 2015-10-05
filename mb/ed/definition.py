@@ -13,5 +13,5 @@ boundaries.register('Manitoba electoral districts',
     licence_url='http://mli2.gov.mb.ca/app/register/app/index.php',
     data_url='http://represent:weakpass@mli2.gov.mb.ca/adminbnd/shp_zip_files/bdy_mb_electoral_divisions_shp.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '46'},
+    extra={'division_id': 'ocd-division/country:ca/province:mb'},
 )

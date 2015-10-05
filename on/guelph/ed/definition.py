@@ -14,5 +14,5 @@ boundaries.register('Guelph wards',
     data_url='http://openguelph.wpengine.com/wp-content/uploads/2014/02/wards.zip',
     licence_url='http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3523008'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3523008'},
 )

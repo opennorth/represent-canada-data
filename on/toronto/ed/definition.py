@@ -15,5 +15,5 @@ boundaries.register('Toronto wards',
     licence_url='http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
     data_url='http://www1.toronto.ca/City_Of_Toronto/Information_Technology/Open_Data/Data_Sets/Assets/Files/wards_may2010_wgs84.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3520005'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3520005'},
 )

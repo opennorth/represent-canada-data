@@ -20,5 +20,5 @@ boundaries.register('Newfoundland and Labrador electoral districts',
     source_url='http://www.elections.gov.nl.ca/elections/ElectoralBoundaries/index.html',
     data_url='http://www.elections.gov.nl.ca/elections/ElectoralBoundaries/Distibution_2011.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '10'},
+    extra={'division_id': 'ocd-division/country:ca/province:nl'},
 )

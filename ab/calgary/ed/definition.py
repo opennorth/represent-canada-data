@@ -14,5 +14,5 @@ boundaries.register('Calgary wards',
     licence_url='https://data.calgary.ca/OpenData/Pages/TermsofUse.aspx',
     data_url='https://data.calgary.ca/_layouts/OpenData/DownloadDataset.ashx?Format=SHP&DatasetId=PDC0-99999-99999-00009-P(CITYonlineDefault)&VariantId=3(CITYonlineDefault)',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '4806016'},
+    extra={'division_id': 'ocd-division/country:ca/csd:4806016'},
 )

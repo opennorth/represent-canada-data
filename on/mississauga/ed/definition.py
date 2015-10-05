@@ -14,5 +14,5 @@ boundaries.register('Mississauga wards',
     licence_url='http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf',
     data_url='http://www5.mississauga.ca/research_catalogue/G_5_Municipal_Wards.kmz',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3521005'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3521005'},
 )

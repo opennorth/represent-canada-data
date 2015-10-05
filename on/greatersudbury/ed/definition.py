@@ -15,5 +15,5 @@ boundaries.register('Greater Sudbury wards',
     data_url='http://data.sudbury.opendata.arcgis.com/datasets/2fd80bad151b42cea9a6ee103d0dbc3d_0.zip',
     is_valid_func=lambda f: f.get('WardNumber'),
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3553005'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3553005'},
 )

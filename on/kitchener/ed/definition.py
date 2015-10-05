@@ -15,7 +15,7 @@ boundaries.register('Kitchener wards',
     licence_url='http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
     data_url='http://www.regionofwaterloo.ca/opendatadownloads/WardBoundaries.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3530013'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3530013'},
     ogr2ogr='''-where "Municipali='Kitchener'"''',
     skip_crc32=True,
 )

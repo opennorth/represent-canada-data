@@ -15,5 +15,5 @@ boundaries.register('Alberta electoral districts',
     # The data_url contains multiple shapefiles, and the URL expires.
     # data_url='http://data.altalis.com/AltalisDataDownload/Download/525711F29A214C1AB5ED8F5578A983C3',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '48'},
+    extra={'division_id': 'ocd-division/country:ca/province:ab'},
 )

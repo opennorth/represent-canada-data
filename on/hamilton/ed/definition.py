@@ -14,5 +14,5 @@ boundaries.register('Hamilton wards',
     licence_url='http://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data',
     data_url='http://opendata.hamilton.ca/SHP/Wards.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3525005'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3525005'},
 )

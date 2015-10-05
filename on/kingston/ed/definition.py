@@ -15,5 +15,5 @@ boundaries.register('Kingston wards',
     # licence_url='http://www.cityofkingston.ca/documents/10180/144997/GIS+-+Data+License+Agreement+Template.pdf/45503bd1-500f-4cfd-af6f-f34221ce78c3',
     authority='City of Kingston',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3510010'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3510010'},
 )

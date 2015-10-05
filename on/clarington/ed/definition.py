@@ -12,5 +12,5 @@ boundaries.register('Clarington wards',
     id_func=lambda f: re.sub(r'\D', '', f.get('WARD')),
     authority='Municipality of Clarington',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3518017'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3518017'},
 )

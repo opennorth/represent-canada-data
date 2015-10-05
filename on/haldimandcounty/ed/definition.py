@@ -12,5 +12,5 @@ boundaries.register('Haldimand County wards',
     id_func=lambda f: re.sub(r'\D', '', f.get('Ward')),
     authority='Corporation of Haldimand County',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3528018'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3528018'},
 )

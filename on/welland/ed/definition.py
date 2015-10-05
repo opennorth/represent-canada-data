@@ -14,6 +14,6 @@ boundaries.register('Welland wards',
     licence_url='http://www.welland.ca/open/OpendataTermUse.asp',
     data_url='http://www.welland.ca/open/Datasheets/Welland_ward_boundaries.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3526032'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3526032'},
     prj='http://spatialreference.org/ref/epsg/26917/prj/',
 )

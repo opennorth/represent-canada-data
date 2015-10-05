@@ -16,5 +16,5 @@ boundaries.register('Summerside wards',
     data_url='http://www.electionspei.ca/municipal/details/gis/shp/summerside_wards.zip',
     licence_url='http://www.electionspei.ca/apilicense',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '1103025'},
+    extra={'division_id': 'ocd-division/country:ca/csd:1103025'},
 )

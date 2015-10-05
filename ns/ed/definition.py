@@ -14,5 +14,5 @@ boundaries.register('Nova Scotia electoral districts',
     source_url='http://electionsnovascotia.ca/content/maps-and-boundary-files',
     data_url='http://electionsnovascotia.ca/sites/default/files/NS_EDBoundaries2012.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '12'},
+    extra={'division_id': 'ocd-division/country:ca/province:ns'},
 )

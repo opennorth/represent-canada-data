@@ -11,5 +11,5 @@ boundaries.register('Northwest Territories electoral districts',
     id_func=lambda f: int(f.get('EDNWTF_ID')),
     authority='Her Majesty the Queen in Right of Northwest Territories',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '61'},
+    extra={'division_id': 'ocd-division/country:ca/territory:nt'},
 )

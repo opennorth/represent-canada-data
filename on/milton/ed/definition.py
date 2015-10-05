@@ -15,5 +15,5 @@ boundaries.register('Milton wards',
     licence_url='http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf',
     data_url='http://icreateopendata.public.esolutionsgroup.ca/home/ServeFile/1a3d6722-a3a9-4591-abc8-ac55c060a65a?FileType=6',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3524009'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3524009'},
 )

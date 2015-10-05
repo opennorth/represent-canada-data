@@ -14,7 +14,7 @@ boundaries.register('Waterloo wards',
     licence_url='http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
     data_url='http://www.regionofwaterloo.ca/opendatadownloads/WardBoundaries.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3530016'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3530016'},
     ogr2ogr='''-where "Municipali='Waterloo'"''',
     skip_crc32=True,
 )

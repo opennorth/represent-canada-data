@@ -58,5 +58,5 @@ boundaries.register('Federal electoral districts',
     licence_url='http://open.canada.ca/en/open-government-licence-canada',
     data_url='http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gfed000a11a_e.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '01'},
+    extra={'division_id': 'ocd-division/country:ca'},
 )

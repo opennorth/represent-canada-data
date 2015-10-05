@@ -15,5 +15,5 @@ boundaries.register('Edmonton wards',
     licence_url='http://www.edmonton.ca/city_government/documents/Web-version2.1-OpenDataAgreement.pdf',
     data_url='https://data.edmonton.ca/api/geospatial/yhng-294h?method=export&format=Shapefile',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '4811061'},
+    extra={'division_id': 'ocd-division/country:ca/csd:4811061'},
 )

@@ -11,5 +11,5 @@ boundaries.register('East Hants districts',
     id_func=boundaries.attr('Polling_No'),
     authority='Municipality of East Hants',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '1208008'},
+    extra={'division_id': 'ocd-division/country:ca/csd:1208008'},
 )

@@ -32,5 +32,5 @@ boundaries.register('Saskatoon wards',
     data_url='https://saskatoonopendatastorage.blob.core.windows.net/converteddata/kml.CurrentWardBoundaries.zip',
     licence_url='http://opendata-saskatoon.cloudapp.net/TermsOfUse/TermsOfUse',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '4711066'},
+    extra={'division_id': 'ocd-division/country:ca/csd:4711066'},
 )

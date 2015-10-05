@@ -11,5 +11,5 @@ boundaries.register('Ajax wards',
     id_func=boundaries.attr('WARD'),
     authority='Town of Ajax',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3518005'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3518005'},
 )

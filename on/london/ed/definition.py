@@ -14,6 +14,6 @@ boundaries.register('London wards',
     licence_url='http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx',
     data_url='http://apps.london.ca/OpenData/ShapeFiles_Zipped/2010_electoral_wards.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3539036'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3539036'},
     prj='http://spatialreference.org/ref/epsg/26917/prj/',
 )

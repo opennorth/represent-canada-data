@@ -14,5 +14,5 @@ boundaries.register('Halifax districts',
     data_url='http://catalogue.hrm.opendata.arcgis.com/datasets/b2c71fb0d90f41488fae2ad2c8278f6d_0.zip',
     licence_url='http://www.halifax.ca/opendata/OD_TermsOfUse.php',
     encoding='utf-8',
-    metadata={'geographic_code': '1209034'},
+    extra={'division_id': 'ocd-division/country:ca/csd:1209034'},
 )

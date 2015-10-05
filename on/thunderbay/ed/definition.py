@@ -11,5 +11,5 @@ boundaries.register('Thunder Bay wards',
     id_func=lambda f: f.get('WARD_NO').replace('00', ''),
     authority='City of Thunder Bay',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '3558004'},
+    extra={'division_id': 'ocd-division/country:ca/csd:3558004'},
 )

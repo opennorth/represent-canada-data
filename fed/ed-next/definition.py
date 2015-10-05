@@ -28,6 +28,6 @@ boundaries.register('Federal electoral districts (next election)',
     licence_url='http://open.canada.ca/en/open-government-licence-canada',
     data_url='http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_eng/fed_cf_CA_2_1_shp_en.zip',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '01'},
+    extra={'division_id': 'ocd-division/country:ca'},
     notes='Merge electoral districts with multiple features into single features.',
 )

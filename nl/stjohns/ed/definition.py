@@ -12,6 +12,6 @@ boundaries.register("St. John's wards",
     authority="City of St. John's",
     encoding='iso-8859-1',
     is_valid_func=lambda f: int(f.get('WARD')) != 0,
-    metadata={'geographic_code': '1001519'},
+    extra={'division_id': 'ocd-division/country:ca/csd:1001519'},
     ogr2ogr='''-where "WARD<>'0'"''',
 )

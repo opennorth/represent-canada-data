@@ -14,5 +14,5 @@ boundaries.register('Strathcona County wards',
     licence_url='https://data.strathcona.ca/licence',
     data_url='https://data.strathcona.ca/api/geospatial/r8k6-yyk6?method=export&format=Shapefile',
     encoding='iso-8859-1',
-    metadata={'geographic_code': '4811052'},
+    extra={'division_id': 'ocd-division/country:ca/csd:4811052'},
 )
