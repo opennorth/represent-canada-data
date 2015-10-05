@@ -1,5 +1,5 @@
 # Definitions
-represent-boundaries==0.7.2
+represent-boundaries==0.7.3
 Unidecode==0.04.16
 
 # Tasks
