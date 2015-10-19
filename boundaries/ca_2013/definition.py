@@ -16,8 +16,7 @@ def namer(f):
 
     return mappings.get(n, n)
 
-boundaries.register('Federal electoral districts (next election)',
-    singular='Federal electoral district',
+boundaries.register('Federal electoral districts',
     domain='Canada',
     last_updated=date(2014, 9, 23),
     name_func=namer,
