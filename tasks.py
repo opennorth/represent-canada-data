@@ -157,7 +157,7 @@ def get_definition(division_id):
     # Determine slug, domain and authority.
     name = ocdid_to_name().get(division_id)
     if not name:
-        print('%-50s unknown name: check slug and domain manually' % division_id)
+        print('%-55s unknown name: check slug and domain manually' % division_id)
 
     if ocd_type == 'country':
         slug = 'Federal electoral districts'
@@ -251,12 +251,12 @@ def get_definition(division_id):
 def assert_match(slug, field, actual, expected):
     if isinstance(expected, re._pattern_type):
         if not expected.search(actual):
-            print('%-50s Expected %s to match %s not %s' % (slug, field, expected.pattern, actual))
+            print('%-55s Expected %s to match %s not %s' % (slug, field, expected.pattern, actual))
     elif isinstance(expected, list):
         if actual not in expected:
-            print('%-50s Expected %s to be %s not %s' % (slug, field, expected[-1], actual))
+            print('%-55s Expected %s to be %s not %s' % (slug, field, expected[-1], actual))
     elif actual != expected and expected is not None:
-        print('%-50s Expected %s to be %s not %s' % (slug, field, expected, actual))
+        print('%-55s Expected %s to be %s not %s' % (slug, field, expected, actual))
 
 
 # @todo Guess name_func and id_func based on the shapefile.
@@ -294,7 +294,7 @@ def licenses(base='.'):
     Check that all data directories contain a LICENSE.txt.
     """
     for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
-        for dirname in ('.git', '__pycache__', 'geojson', 'topojson', 'wip'):
+        for dirname in ('.git', '__pycache__', 'geojson', 'topojson', 'ca_qc_wip'):
             if dirname in dirnames:
                 dirnames.remove(dirname)
         if '.DS_Store' in filenames:
@@ -386,7 +386,7 @@ def definitions(base='.'):
     """
     def warn(message, slug):
         if message not in seen:
-            print('%-50s %s' % (slug, message))
+            print('%-55s %s' % (slug, message))
             seen.add(message)
 
     borough_division_ids = (
@@ -413,54 +413,54 @@ def definitions(base='.'):
                     if licence_url not in terms and not terms_re.get(licence_url):
                         warn('No LICENSE.txt template for License URL %s' % licence_url, slug)
                     elif licence_url in terms and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
-                        print('%-50s Expected LICENSE.txt to match license-specific template' % slug)
+                        print('%-55s Expected LICENSE.txt to match license-specific template' % slug)
                 elif licence_url in all_rights_reserved_licenses:
                     if not all_rights_reserved_terms_re.search(license_text):
-                        print('%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug)
+                        print('%-55s Expected LICENSE.txt to match "all rights reserved" template' % slug)
                 else:
-                    print('%-50s Unrecognized License URL %s' % (slug, licence_url))
+                    print('%-55s Unrecognized License URL %s' % (slug, licence_url))
             elif not all_rights_reserved_terms_re.search(license_text):
-                print('%-50s Expected LICENSE.txt to match "all rights reserved" template' % slug)
+                print('%-55s Expected LICENSE.txt to match "all rights reserved" template' % slug)
 
         # Check for invalid keys, non-unique or empty values.
         invalid_keys = set(config.keys()) - valid_keys
         if invalid_keys:
-            print('%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
+            print('%-55s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
         values = [value for key, value in config.items() if key != 'extra']
         if len(values) > len(set(values)):
-            print('%-50s Non-unique values' % slug)
+            print('%-55s Non-unique values' % slug)
         for key, value in config.items():
             if not value:
-                print('%-50s Empty value for %s' % (slug, key))
+                print('%-55s Empty value for %s' % (slug, key))
 
         # Check for missing required keys.
         for key in ('domain', 'last_updated', 'name_func', 'authority', 'encoding'):
             if key not in config:
-                print('%-50s Missing %s' % (slug, key))
+                print('%-55s Missing %s' % (slug, key))
         if 'source_url' not in config and 'data_url' in config:
-            print('%-50s Missing source_url' % slug)
+            print('%-55s Missing source_url' % slug)
         if 'source_url' in config and 'licence_url' not in config and 'data_url' not in config:
-            print('%-50s Missing licence_url or data_url' % slug)
+            print('%-55s Missing licence_url or data_url' % slug)
 
         # Validate fields.
         for key in ('name', 'singular'):
             if key in config:
-                print('%-50s Expected %s to be missing' % (slug, key))
+                print('%-55s Expected %s to be missing' % (slug, key))
 
         if slug not in ('Census divisions', 'Census subdivisions'):
             # Check for invalid keys or empty values.
             invalid_keys = set(config['extra'].keys()) - valid_extra_keys
             if invalid_keys:
-                print('%-50s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
+                print('%-55s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
             for key, value in config['extra'].items():
                 if not value:
-                    print('%-50s Empty value for %s' % (slug, key))
+                    print('%-55s Empty value for %s' % (slug, key))
 
             division_id = config['extra']['division_id']
 
             # Ensure division_id is unique.
             if division_id in division_ids and division_id not in borough_division_ids:
-                print('%-50s Duplicate division_id %s' % (slug, division_id))
+                print('%-55s Duplicate division_id %s' % (slug, division_id))
             else:
                 division_ids.add(division_id)
 
