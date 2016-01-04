@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Halifax districts',
     domain='Halifax, NS',
-    last_updated=date(2014, 11, 30),
+    last_updated=date(2016, 1, 4),
     name_func=boundaries.clean_attr('DISTNAME'),
     id_func=boundaries.attr('DIST_ID'),
     authority='Halifax Regional Municipality',
