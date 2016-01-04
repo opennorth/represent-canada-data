@@ -7,7 +7,7 @@ import boundaries
 
 boundaries.register('Milton wards',
     domain='Milton, ON',
-    last_updated=date(2015, 1, 27),
+    last_updated=date(2016, 1, 4),
     name_func=lambda f: 'Ward %s' % re.search('WARD (\d+)', f.get('Descriptio')).group(1),
     id_func=lambda f: re.search('WARD (\d+)', f.get('Descriptio')).group(1),
     authority='Town of Milton',
