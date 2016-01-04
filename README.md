@@ -59,10 +59,6 @@ Check if the data request process spreadsheet is out-of-date:
 
     invoke spreadsheet
 
-Generate TopoJSON for inspection on GitHub:
-
-    invoke topojson
-
 ## Contact
 
 Please use [GitHub Issues](https://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
