@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Welland wards',
     domain='Welland, ON',
-    last_updated=date(2015, 9, 17),
+    last_updated=date(2015, 12, 1),
     name_func=lambda f: 'Ward %s' % f.get('Ward'),
     id_func=boundaries.attr('Ward'),
     authority='City of Welland',

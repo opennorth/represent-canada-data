@@ -22,5 +22,5 @@ EPSG: 2953
 2014-08-25
 
 **LICENCE**
-GeoNB Licence
-http://geonb.snb.ca/downloads/documents/geonb_license_f.pdf
+Licence des données ouvertes de GeoNB
+http://geonb.snb.ca/documents/license/geonb-odl_fr.pdf

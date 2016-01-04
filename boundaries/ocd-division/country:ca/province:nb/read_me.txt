@@ -22,5 +22,5 @@ Elections NB
 2014-08-25
 
 **LICENSE**
-GeoNB License
-http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf
+GeoNB Open Data Licence
+http://geonb.snb.ca/documents/license/geonb-odl_en.pdf
