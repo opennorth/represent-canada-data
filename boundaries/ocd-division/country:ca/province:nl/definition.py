@@ -14,7 +14,7 @@ def namer(f):
 
 boundaries.register('Newfoundland and Labrador electoral districts',
     domain='Newfoundland and Labrador',
-    last_updated=date(2012, 9, 27),
+    last_updated=date(2016, 1, 7),
     name_func=namer,
     authority='Her Majesty the Queen in Right of Newfoundland and Labrador',
     source_url='http://www.elections.gov.nl.ca/elections/ElectoralBoundaries/index.html',
