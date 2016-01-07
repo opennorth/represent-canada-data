@@ -7,10 +7,7 @@ import boundaries
 
 def namer(f):
     import boundaries
-    n = boundaries.clean_attr('ELEC_DISTR')(f)
-    if n == 'Ths Isles of Notre Dame':
-        return 'The Isles of Notre Dame'
-    return n
+    return boundaries.clean_attr('DIST_NAME')(f) or boundaries.clean_attr('Elec_Distr')(f)
 
 boundaries.register('Newfoundland and Labrador electoral districts',
     domain='Newfoundland and Labrador',
