@@ -8,7 +8,7 @@ import boundaries
 boundaries.register('Toronto wards',
     domain='Toronto, ON',
     last_updated=date(2012, 10, 24),
-    name_func=boundaries.dashed_attr('NAME'),
+    name_func=boundaries.attr('NAME'),
     id_func=lambda f: re.sub('\A0', '', f.get('SCODE_NAME')),
     authority='City of Toronto',
     source_url='http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=b1533f0aacaaa210VgnVCM1000006cd60f89RCRD&vgnextchannel=1a66e03bb8d1e310VgnVCM10000071d60f89RCRD',
