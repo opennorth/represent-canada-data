@@ -25,13 +25,14 @@ open_data_licenses = [
     'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf',
     'http://www.regina.ca/residents/open-government/open-government-licence/',
     'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
-    'http://www.welland.ca/open/OpendataTermUse.asp',
     'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
     'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf',
     'https://creativecommons.org/licenses/by/4.0/legalcode',
     'https://data.calgary.ca/OpenData/Pages/TermsofUse.aspx',
     'https://data.strathcona.ca/licence',
     'https://data.winnipeg.ca/open-data-licence',
+    'https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland',
+    'https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines',
     'https://open.alberta.ca/licence',
     'https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data',
 ]
@@ -83,6 +84,8 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Winnipeg (https://data.winnipeg.ca/open-data-licence).',
     'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default).',
+    'https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence — City of Welland (https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines':
     'I. Terms of Use. Contains information licensed under the Open Government Licence — The Corporation of the City of St. Catharines (https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines).',
     'https://open.alberta.ca/licence':
