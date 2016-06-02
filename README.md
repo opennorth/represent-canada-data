@@ -51,6 +51,10 @@ Update any out-of-date shapefiles:
 
     invoke shapefiles
 
+Or update a specific shapefile:
+
+    invoke shapefiles --base=boundaries/ocd-division/country:ca/province:qc
+
 Fix file permissions:
 
     invoke permissions

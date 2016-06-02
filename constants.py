@@ -5,7 +5,6 @@ import re
 
 open_data_licenses = [
     'http://cms.burlington.ca/AssetFactory.aspx?did=18762',
-    'http://data.alberta.ca/licence',
     'http://open.canada.ca/en/open-government-licence-canada',
     'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     'http://donnees.ville.sherbrooke.qc.ca/licence.html',
@@ -33,6 +32,7 @@ open_data_licenses = [
     'https://data.calgary.ca/OpenData/Pages/TermsofUse.aspx',
     'https://data.strathcona.ca/licence',
     'https://data.winnipeg.ca/open-data-licence',
+    'https://open.alberta.ca/licence',
     'https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data',
 ]
 
@@ -63,8 +63,6 @@ terms = {
     'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp': 'I. Terms of Use. This work is provided under the terms of "City of Fredericton - Terms of Use" (http://fredericton.icreate2.esolutionsgroup.ca/cityfredericton/en/citygovernment/TermsOfUse.asp).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx': 'I. Terms of Use. This work is provided under the terms of “Open Data London – Terms of Use” (http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     # Open Government Licence.
-    'http://data.alberta.ca/licence':
-    'I. Terms of Use. Contains information licensed under the Open Government Licence – Alberta (http://data.alberta.ca/licence).',
     'http://open.canada.ca/en/open-government-licence-canada':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://open.canada.ca/en/open-government-licence-canada).',
     'http://oakville.ca/data/open_data_licence.html':
@@ -85,6 +83,10 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Winnipeg (https://data.winnipeg.ca/open-data-licence).',
     'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default).',
+    'https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence — The Corporation of the City of St. Catharines (https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines).',
+    'https://open.alberta.ca/licence':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – Alberta (https://open.alberta.ca/licence).',
     # Text provided by license.
     'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/': "I. Termes d'utilisation. Contient des données reproduites, modifiées, traduites ou distribuées « telles quelles » avec la permission de la Ville de Montréal (http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/).",
     'http://donnees.ville.sherbrooke.qc.ca/licence.html': "I. Termes d'utilisation. Contient des données reproduites et distribuées « telles quelles » avec la permission de la Ville de Sherbrooke (http://donnees.ville.sherbrooke.qc.ca/licence.html).",
