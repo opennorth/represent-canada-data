@@ -6,14 +6,13 @@ import boundaries
 
 boundaries.register('Alberta electoral districts',
     domain='Alberta',
-    last_updated=date(2012, 6, 4),
-    name_func=boundaries.clean_attr('EDNAME'),
-    id_func=boundaries.attr('EDNUMBER'),
+    last_updated=date(2016, 1, 6),
+    name_func=boundaries.attr('EDName2010'),
+    id_func=boundaries.attr('EDNum2010'),
     authority='Her Majesty the Queen in Right of Alberta',
-    source_url='http://www.altalis.com/products/base/20k_base_features.html',
-    licence_url='http://data.alberta.ca/licence',
-    # The data_url contains multiple shapefiles, and the URL expires.
-    # data_url='http://data.altalis.com/AltalisDataDownload/Download/525711F29A214C1AB5ED8F5578A983C3',
+    source_url='https://open.alberta.ca/opendata/electoral-division',
+    licence_url='http://open.alberta.ca/licence',
+    data_url='http://www.elections.ab.ca/wp-content/uploads/EDs_Act2010_FINAL.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/province:ab'},
 )
