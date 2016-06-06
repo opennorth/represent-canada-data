@@ -32,6 +32,7 @@ open_data_licenses = [
     'https://data.strathcona.ca/licence',
     'https://data.winnipeg.ca/open-data-licence',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland',
+    'https://niagaraopendata.ca/pages/open-government-license-2-0-grimsby',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines',
     'https://open.alberta.ca/licence',
     'https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data',
@@ -86,6 +87,8 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland':
     'I. Terms of Use. Contains information licensed under the Open Government Licence — City of Welland (https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland).',
+    'https://niagaraopendata.ca/pages/open-government-license-2-0-grimsby':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence — Town of Grimsby (https://niagaraopendata.ca/pages/open-government-license-2-0-grimsby).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines':
     'I. Terms of Use. Contains information licensed under the Open Government Licence — The Corporation of the City of St. Catharines (https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines).',
     'https://open.alberta.ca/licence':
@@ -99,7 +102,6 @@ terms = {
     'http://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data': "I. Terms of Use. Contains public sector Data made available under the City of Hamilton’s Open Data Licence (http://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data).",
     'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf': "I. Terms of Use. Contains public sector Datasets made available under the Town of Milton's Open Data License v.1 (http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf).",
     'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp': 'I. Terms of Use. Contains information provided by the Regional Municipality of Waterloo under licence (http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp).',
-    'http://www.welland.ca/open/OpendataTermUse.asp': 'I. Terms of Use. Contains public sector datasets made available under The Corporation of the City of Welland Open Data Licence v1.0 (http://www.welland.ca/open/OpendataTermUse.asp).',
     'https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data': 'I. Terms of Use. Contains information licensed under the Open Government Licence – The Corporation of the Municipality of Chatham-Kent (https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data).',
     # Kent Mewhort email (2012-02-10).
     'http://mli2.gov.mb.ca/app/register/app/index.php': '© 2001 Her Majesty the Queen in Right of Manitoba, as represented by the Minister of Conservation. All rights reserved. Distributed under the terms of the Manitoba Land Initiative Terms and Conditions of Use (http://mli2.gov.mb.ca//app/register/app/index.php).',
