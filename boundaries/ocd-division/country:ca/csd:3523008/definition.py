@@ -11,6 +11,7 @@ boundaries.register('Guelph wards',
     id_func=boundaries.attr('WARD'),
     authority='City of Guelph',
     source_url='http://data.open.guelph.ca/dataset/guelph-wards',
+    # Shapefile was available and is now requested, because KML stores attributes as SimpleData.
     data_url='http://data.open.guelph.ca/datafiles/gis/Wards.kml',
     licence_url='http://data.open.guelph.ca/pages/open-government-licence',
     encoding='iso-8859-1',
