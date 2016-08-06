@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Regina wards',
     domain='Regina, SK',
-    last_updated=date(2014, 11, 25),
+    last_updated=date(2016, 8, 6),
     name_func=lambda f: 'Ward %s' % f.get('WARD'),
     id_func=boundaries.attr('WARD'),
     authority='City of Regina',

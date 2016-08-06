@@ -1,1 +1,0 @@
-http://10.1.0.48:9797/geo_r8k6-yyk6/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=geo_r8k6-yyk6-1&outputFormat=SHAPE-ZIP&srsName=EPSG:4326

@@ -7,7 +7,7 @@ import boundaries
 
 boundaries.register('Nova Scotia electoral districts',
     domain='Nova Scotia',
-    last_updated=date(2013, 8, 6),
+    last_updated=date(2016, 7, 28),
     name_func=boundaries.dashed_attr('DISTRICT'),
     id_func=lambda f: re.sub(r'^0+', '', f.get('DIST_NO')),
     authority='Her Majesty the Queen in Right of Nova Scotia',
