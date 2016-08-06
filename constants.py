@@ -23,6 +23,7 @@ open_data_licenses = [
     'http://www.halifax.ca/opendata/OD_TermsOfUse.php',
     'http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx',
     'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf',
+    'http://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf',
     'http://www.regina.ca/residents/open-government/open-government-licence/',
     'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp',
     'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default',
@@ -34,6 +35,7 @@ open_data_licenses = [
     'https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-grimsby',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines',
+    'https://niagaraopendata.ca/pages/open-government-license-2-0-town-of-lincoln',
     'https://open.alberta.ca/licence',
     'https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data',
 ]
@@ -77,6 +79,8 @@ terms = {
     'I. Terms of Use. Contains information licenced under the Open Government Licence - Halifax (http://www.halifax.ca/opendata/OD_TermsOfUse.php).',
     'http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence - Nanaimo (http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html).',
+    'http://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence - Town of Newmarket (http://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf).',
     'http://www.regina.ca/residents/open-government/open-government-licence/':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Regina (http://www.regina.ca/residents/open-government/open-government-licence/).',
     'https://data.strathcona.ca/licence':
@@ -91,6 +95,8 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence — Town of Grimsby (https://niagaraopendata.ca/pages/open-government-license-2-0-grimsby).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines':
     'I. Terms of Use. Contains information licensed under the Open Government Licence — The Corporation of the City of St. Catharines (https://niagaraopendata.ca/pages/open-government-license-2-0-the-corporation-of-the-city-of-st-catharines).',
+    'https://niagaraopendata.ca/pages/open-government-license-2-0-town-of-lincoln':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence — The Corporation of the Town of Lincoln (https://niagaraopendata.ca/pages/open-government-license-2-0-town-of-lincoln).',
     'https://open.alberta.ca/licence':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Alberta (https://open.alberta.ca/licence).',
     # Text provided by license.
