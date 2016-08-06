@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<gmd:MD_Metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:essm="http://www.cits.rncan.gc.ca/ess/essMetadataTools/essXsd/essm" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://nap.geogratis.gc.ca/metadata/tools/schemas/metadata/can-cgsb-171.100-2009-a/gmd/gmd.xsd">
+<?xml version='1.0' encoding='utf-8'?>
+<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:essm="http://www.cits.rncan.gc.ca/ess/essMetadataTools/essXsd/essm" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://nap.geogratis.gc.ca/metadata/tools/schemas/metadata/can-cgsb-171.100-2009-a/gmd/gmd.xsd">
   <gmd:fileIdentifier>
     <gco:CharacterString>56124851-71fc-4f94-8df2-40f59cd1dd46</gco:CharacterString>
   </gmd:fileIdentifier>
@@ -119,8 +119,7 @@
     </gmd:CI_ResponsibleParty>
   </gmd:contact>
   <gmd:dateStamp>
-    <gco:Date>2014-06-19</gco:Date>
-  </gmd:dateStamp>
+    <gco:DateTime>2016-04-28T09:20:47</gco:DateTime></gmd:dateStamp>
   <gmd:metadataStandardName xsi:type="gmd:PT_FreeText_PropertyType">
     <gco:CharacterString>North American Profile of ISO 19115:2003 – Geographic information – Metadata (NAP-Metadata)</gco:CharacterString>
     <gmd:PT_FreeText>
@@ -216,10 +215,10 @@
       <gmd:citation>
         <gmd:CI_Citation>
           <gmd:title xsi:type="gmd:PT_FreeText_PropertyType">
-            <gco:CharacterString>Geobase - Federal Electoral Districts - Canada 2013</gco:CharacterString>
+            <gco:CharacterString>Federal Electoral Districts - Canada 2013</gco:CharacterString>
             <gmd:PT_FreeText>
               <gmd:textGroup>
-                <gmd:LocalisedCharacterString locale="#FR">Géobase - Circonscriptions fédérales - Canada 2013</gmd:LocalisedCharacterString>
+                <gmd:LocalisedCharacterString locale="#FR">Circonscriptions fédérales - Canada 2013</gmd:LocalisedCharacterString>
               </gmd:textGroup>
             </gmd:PT_FreeText>
           </gmd:title>
@@ -653,8 +652,8 @@
               </gmd:alternateTitle>
               <gmd:date>
                 <gmd:CI_Date>
-                  <gmd:date></gmd:date>
-                  <gmd:dateType></gmd:dateType>
+                  <gmd:date/>
+                  <gmd:dateType/>
                 </gmd:CI_Date>
               </gmd:date>
               <gmd:citedResponsibleParty>
@@ -699,7 +698,7 @@
               </gmd:title>
               <gmd:date>
                 <gmd:CI_Date>
-                  <gmd:date></gmd:date>
+                  <gmd:date/>
                   <gmd:dateType>
                     <gmd:CI_DateTypeCode codeListValue="RI_369" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_87">notAvailable; nonDisponible</gmd:CI_DateTypeCode>
                   </gmd:dateType>
@@ -726,32 +725,32 @@
       </gmd:descriptiveKeywords>
       <gmd:resourceConstraints>
         <gmd:MD_LegalConstraints>
-          <gmd:useConstraints>
-            <gmd:MD_RestrictionCode codeListValue="RI_602" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_107">copyright; droitAuteur</gmd:MD_RestrictionCode>
-          </gmd:useConstraints>
-          <gmd:otherConstraints xsi:type="gmd:PT_FreeText_PropertyType">
+          <gmd:useLimitation xsi:type="gmd:PT_FreeText_PropertyType">
             <gco:CharacterString>© Department of Natural Resources Canada. All rights reserved.</gco:CharacterString>
             <gmd:PT_FreeText>
               <gmd:textGroup>
                 <gmd:LocalisedCharacterString locale="#FR">© Le ministère des Ressources naturelles Canada. Tous droits réservés</gmd:LocalisedCharacterString>
               </gmd:textGroup>
             </gmd:PT_FreeText>
-          </gmd:otherConstraints>
+          </gmd:useLimitation>
+          <gmd:useConstraints>
+            <gmd:MD_RestrictionCode codeListValue="RI_602" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_107">copyright; droitAuteur</gmd:MD_RestrictionCode>
+          </gmd:useConstraints>
         </gmd:MD_LegalConstraints>
       </gmd:resourceConstraints>
       <gmd:resourceConstraints>
         <gmd:MD_LegalConstraints>
+          <gmd:useLimitation xsi:type="gmd:PT_FreeText_PropertyType">
+            <gco:CharacterString>Open Government Licence - Canada (http://open.canada.ca/en/open-government-licence-canada)</gco:CharacterString>
+            <gmd:PT_FreeText>
+              <gmd:textGroup>
+                <gmd:LocalisedCharacterString locale="#FR">Licence du gouvernement ouvert - Canada (http://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada)</gmd:LocalisedCharacterString>
+              </gmd:textGroup>
+            </gmd:PT_FreeText>
+          </gmd:useLimitation>
           <gmd:useConstraints>
             <gmd:MD_RestrictionCode codeListValue="RI_606" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_107">license; licence</gmd:MD_RestrictionCode>
           </gmd:useConstraints>
-          <gmd:otherConstraints xsi:type="gmd:PT_FreeText_PropertyType">
-            <gco:CharacterString>Open Government Licence - Canada (http://data.gc.ca/eng/open-government-licence-canada)</gco:CharacterString>
-            <gmd:PT_FreeText>
-              <gmd:textGroup>
-                <gmd:LocalisedCharacterString locale="#FR">Licence du gouvernement ouvert - Canada (http://donnees.gc.ca/fra/licence-du-gouvernement-ouvert-canada)</gmd:LocalisedCharacterString>
-              </gmd:textGroup>
-            </gmd:PT_FreeText>
-          </gmd:otherConstraints>
         </gmd:MD_LegalConstraints>
       </gmd:resourceConstraints>
       <gmd:spatialRepresentationType>
@@ -809,7 +808,7 @@
                   </gml:begin>
                   <gml:end>
                     <gml:TimeInstant gml:id="ti2">
-                      <gml:timePosition></gml:timePosition>
+                      <gml:timePosition/>
                     </gml:TimeInstant>
                   </gml:end>
                 </gml:TimePeriod>
@@ -908,31 +907,20 @@
                   </gmd:phone>
                   <gmd:address>
                     <gmd:CI_Address>
-                      <gmd:deliveryPoint xsi:type="gmd:PT_FreeText_PropertyType">
-                        <gco:CharacterString>physical; 2144; King Street West; ; 010</gco:CharacterString>
-                        <gmd:PT_FreeText>
-                          <gmd:textGroup>
-                            <gmd:LocalisedCharacterString locale="#FR">physique; 2144; rue King Ouest; ; 010</gmd:LocalisedCharacterString>
-                          </gmd:textGroup>
-                        </gmd:PT_FreeText>
-                      </gmd:deliveryPoint>
                       <gmd:city>
                         <gco:CharacterString>Sherbrooke</gco:CharacterString>
                       </gmd:city>
                       <gmd:administrativeArea>
                         <gco:CharacterString>Québec</gco:CharacterString>
                       </gmd:administrativeArea>
-                      <gmd:postalCode>
-                        <gco:CharacterString>J1J 2E8</gco:CharacterString>
-                      </gmd:postalCode>
                       <gmd:country>
                         <gco:CharacterString>CANADA</gco:CharacterString>
                       </gmd:country>
                       <gmd:electronicMailAddress xsi:type="gmd:PT_FreeText_PropertyType">
-                        <gco:CharacterString>geoginfo@NRCan.gc.ca</gco:CharacterString>
+                        <gco:CharacterString>NRCan.geogratis-geogratis.RNCan@canada.ca</gco:CharacterString>
                         <gmd:PT_FreeText>
                           <gmd:textGroup>
-                            <gmd:LocalisedCharacterString locale="#FR">geoginfo@RNCan.gc.ca</gmd:LocalisedCharacterString>
+                            <gmd:LocalisedCharacterString locale="#FR">NRCan.geogratis-geogratis.RNCan@canada.ca</gmd:LocalisedCharacterString>
                           </gmd:textGroup>
                         </gmd:PT_FreeText>
                       </gmd:electronicMailAddress>
@@ -970,7 +958,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_eng/FED_CA_2_1_shape_ENG.zip</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/shp_eng/fed_cf_CA_2_1_shp_en.zip</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1001,7 +989,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_fra/CF_CA_2_1_shape_FR.zip</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/shp_fra/fed_cf_CA_2_1_shp_fr.zip</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1032,7 +1020,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/gml_eng/FED_CA_2_1_gml_ENG.zip</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/gml_eng/fed_cf_CA_2_1_gml_en.zip</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1063,7 +1051,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/gml_fra/CF_CA_2_1_gml_FR.zip</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/gml_fra/fed_cf_CA_2_1_gml_fr.zip</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1094,7 +1082,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/kml_eng/FED_CA_2_1_ENG.kml</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/kml_eng/fed_cf_CA_2_1_kml_en.kmz</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1125,7 +1113,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/kml_fra/CF_CA_2_0_kml_fr.kmz</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/kml_fra/fed_cf_CA_2_1_kml_fr.kmz</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1156,7 +1144,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1187,7 +1175,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://geobase.ca/doc/specs/pdf/CF_FR_Spécifications_produit_2 1-f.pdf</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_cf_fr_Specifications_2_1.pdf</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1218,7 +1206,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://geobase.ca/doc/specs/pdf/FED_EN_FeatureCatalogue_2 1-e.pdf</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Catalogue_2_1.pdf</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1249,7 +1237,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://geobase.ca/doc/specs/pdf/CF_FR_Catalogue_entités_2 1-f.pdf</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_cf_fr_Catalogue_2_1</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1280,7 +1268,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://geobase.ca/doc/specs/pdf/FED_EN_ProductDistributionFormats_2 1-e.pdf</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Distribution_Formats_2_1.pdf</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1311,7 +1299,7 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>http://geobase.ca/doc/specs/pdf/CF_FR_Formats_distribution_produit_2 1-f.pdf</gmd:URL>
+                <gmd:URL>http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_cf_fr_Formats_Distribution_2_1.pdf</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>HTTP</gco:CharacterString>
@@ -1349,7 +1337,7 @@
         <gmd:DQ_CompletenessCommission>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>A manual verification of the FED dataset has not identified any errors of commission.</gco:CharacterString>
                 <gmd:PT_FreeText>
@@ -1369,7 +1357,7 @@
         <gmd:DQ_CompletenessOmission>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>A manual verification of the FED dataset has not identified any errors of omission.</gco:CharacterString>
                 <gmd:PT_FreeText>
@@ -1389,16 +1377,16 @@
         <gmd:DQ_ConceptualConsistency>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>The delineation of the FED boundaries was created in reference to the National Geographic Database (NGD) road network and the NGD reference base layers. The representation of the digital electoral districts abides by the official boundary definition as established by the 2013 federal electoral boundaries commissions.
                   The FED dataset provides for complete national coverage of the entire country. There are no gaps or overlays between any of the FED polygon features present in any of the datasets.
-                  The conceptual model of the FED data is presented in the document Federal Electoral Districts: Conceptual Data Model accessible on the GeoBase portal (www.geobase.ca).</gco:CharacterString>
+                  The conceptual model of the FED data is presented in the document Federal Electoral Districts: Conceptual Data Model.</gco:CharacterString>
                 <gmd:PT_FreeText>
                   <gmd:textGroup>
                     <gmd:LocalisedCharacterString locale="#FR">La délimitation des circonscriptions a été créée à partir du réseau routier de la Base nationale de données géographiques (BNDG). La représentation des circonscriptions numériques respecte la définition des limites officielles, telle qu’établie par les commissions de délimitation des circonscriptions fédérales de 2013.
                       Il y a intégrité pour l’ensemble des données des CF pour la couverture nationale de tout le pays. Il n’y a aucune lacune ou chevauchement entre chacun des polygones CF présents dans chacun des jeux de données.
-                      Le modèle conceptuel des données CF est présenté dans le document Circonscription Fédérale : Modèle Conceptuel des Données accessible sur le portail GéoBase (www.geobase.ca).</gmd:LocalisedCharacterString>
+                      Le modèle conceptuel des données CF est présenté dans le document Circonscription Fédérale : Modèle Conceptuel des Données.</gmd:LocalisedCharacterString>
                   </gmd:textGroup>
                 </gmd:PT_FreeText>
               </gmd:explanation>
@@ -1413,7 +1401,7 @@
         <gmd:DQ_DomainConsistency>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>The domain values assigned to the item fields of the FED dataset are validated against those domain values described in the Federal Electoral Districts Feature Catalogue.</gco:CharacterString>
                 <gmd:PT_FreeText>
@@ -1433,12 +1421,12 @@
         <gmd:DQ_FormatConsistency>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_ProductDistributionFormats_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Distribution_Formats_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
-                <gco:CharacterString>The FED data formats conform to the distribution formats described in the document Federal Electoral Districts: Product Distribution Formats accessible on the GeoBase portal (www.geobase.ca).</gco:CharacterString>
+                <gco:CharacterString>The FED data formats conform to the distribution formats described in the document Federal Electoral Districts: Product Distribution Formats.</gco:CharacterString>
                 <gmd:PT_FreeText>
                   <gmd:textGroup>
-                    <gmd:LocalisedCharacterString locale="#FR">Les formats des données CF se conforment aux formats de distribution décrits dans le document intitulé Circonscriptions électorales fédérales : Formats de distribution du produit, disponible sur le portail GéoBase (www.geobase.ca).</gmd:LocalisedCharacterString>
+                    <gmd:LocalisedCharacterString locale="#FR">Les formats des données CF se conforment aux formats de distribution décrits dans le document intitulé Circonscriptions électorales fédérales : Formats de distribution du produit.</gmd:LocalisedCharacterString>
                   </gmd:textGroup>
                 </gmd:PT_FreeText>
               </gmd:explanation>
@@ -1453,7 +1441,7 @@
         <gmd:DQ_TopologicalConsistency>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>The topological consistency of the FED data is validated as part of the maintenance update process by means of spatial integrity constraints on the FED data to detect and correct overlaps, gaps and intersections within a polygon feature.</gco:CharacterString>
                 <gmd:PT_FreeText>
@@ -1473,7 +1461,7 @@
         <gmd:DQ_AbsoluteExternalPositionalAccuracy>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>The absolute external positional accuracy describes the degree to which the position of features in a geographic database reflects their true position on the ground. It is the difference in the distances measured between two known points on a map and the true distances between the same two points, as established by conventional surveying methods.
                   The absolute positional accuracy of the spatial entities comprising the FED dataset is dependent on the absolute accuracy of the different feature sets used in the creation of the FED boundaries. Federal electoral districts are derived from human-made features such as roads, railways, power lines and other natural features such as lakes, shorelines and rivers. In addition, many boundary elements follow survey lines, such as those defining the limits for a town, county or township.
@@ -1503,7 +1491,7 @@
         <gmd:DQ_RelativeInternalPositionalAccuracy>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>Relative positional accuracy describes the degree to which the position of features in a geographic database reflects their true ground relationships. For the Electoral Geographic Database, relative positional accuracy is important. A FED boundary must appear in the proper position relative to a road feature or other physical features like lakes and shorelines.
                   During the build phase of the NGD, the dataset was thoroughly tested for relative positional accuracy of all federal electoral districts and any underlying base-layer features.</gco:CharacterString>
@@ -1525,7 +1513,7 @@
         <gmd:DQ_ThematicClassificationCorrectness>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>The classification of features in the FED dataset is verified manually by Elections Canada and through established quality assurance (QA) processes. Database rules of integrity are used to ensure the accuracy and correctness of the data.</gco:CharacterString>
                 <gmd:PT_FreeText>
@@ -1545,7 +1533,7 @@
         <gmd:DQ_NonQuantitativeAttributeAccuracy>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>The accuracy of non-quantitative attributes attached to features in the FED dataset is verified manually by Elections Canada and through established QA processes. Database rules of integrity ensure the accuracy and correctness of the data.</gco:CharacterString>
                 <gmd:PT_FreeText>
@@ -1565,7 +1553,7 @@
         <gmd:DQ_QuantitativeAttributeAccuracy>
           <gmd:result>
             <gmd:DQ_ConformanceResult>
-              <gmd:specification xlink:href="http://geobase.ca/doc/specs/pdf/FED_EN_DataProductSpecifications_2 1-e.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"></gmd:specification>
+              <gmd:specification xlink:href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/doc/GeoBase_fed_en_Specifications_2_1.pdf" xlink:title="Federal Electoral Districts - Data Product Specifications"/>
               <gmd:explanation xsi:type="gmd:PT_FreeText_PropertyType">
                 <gco:CharacterString>The accuracy of quantitative attributes attached to features in the FED dataset is verified manually by Elections Canada and through established QA processes. Database rules of integrity ensure the accuracy and correctness of the data.</gco:CharacterString>
                 <gmd:PT_FreeText>
@@ -1796,17 +1784,17 @@
   </gmd:metadataConstraints>
   <gmd:metadataConstraints>
     <gmd:MD_LegalConstraints>
+      <gmd:useLimitation xsi:type="gmd:PT_FreeText_PropertyType">
+        <gco:CharacterString>Open Government Licence - Canada (http://open.canada.ca/en/open-government-licence-canada)</gco:CharacterString>
+        <gmd:PT_FreeText>
+          <gmd:textGroup>
+            <gmd:LocalisedCharacterString locale="#FR">Licence du gouvernement ouvert - Canada (http://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada)</gmd:LocalisedCharacterString>
+          </gmd:textGroup>
+        </gmd:PT_FreeText>
+      </gmd:useLimitation>
       <gmd:useConstraints>
         <gmd:MD_RestrictionCode codeListValue="RI_610" codeList="http://nap.geogratis.gc.ca/metadata/register/napMetadataRegister.xml#IC_107">licenseUnrestricted; licenceSansRestriction</gmd:MD_RestrictionCode>
       </gmd:useConstraints>
-      <gmd:otherConstraints xsi:type="gmd:PT_FreeText_PropertyType">
-        <gco:CharacterString>Open Government Licence - Canada (http://data.gc.ca/eng/open-government-licence-canada)</gco:CharacterString>
-        <gmd:PT_FreeText>
-          <gmd:textGroup>
-            <gmd:LocalisedCharacterString locale="#FR">Licence du gouvernement ouvert - Canada (http://donnees.gc.ca/fra/licence-du-gouvernement-ouvert-canada)</gmd:LocalisedCharacterString>
-          </gmd:textGroup>
-        </gmd:PT_FreeText>
-      </gmd:otherConstraints>
     </gmd:MD_LegalConstraints>
   </gmd:metadataConstraints>
   <gmd:metadataMaintenance>

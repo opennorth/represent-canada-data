@@ -18,7 +18,7 @@ def namer(f):
 
 boundaries.register('Federal electoral districts',
     domain='Canada',
-    last_updated=date(2014, 9, 23),
+    last_updated=date(2016, 6, 3),
     name_func=namer,
     id_func=boundaries.attr('FEDNUM'),
     slug_func=boundaries.attr('FEDNUM'),
@@ -28,5 +28,5 @@ boundaries.register('Federal electoral districts',
     data_url='http://ftp2.cits.rncan.gc.ca/pub/geobase/official/fed_cf/shp_eng/fed_cf_CA_2_1_shp_en.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca'},
-    notes='Merge electoral districts with multiple features into single features.',
+    notes='Merge electoral districts with multiple features into single features (Brandon—Souris, Courtenay—Alberni, Gaspésie—Les Îles-de-la-Madeleine, Halifax, Manicouagan, Selkirk—Interlake—Eastman).',
 )
