@@ -63,6 +63,10 @@ Check if the data request process spreadsheet is out-of-date:
 
     invoke spreadsheet
 
+Or less verbose:
+
+    invoke spreadsheet --base=. --private-base=../represent-canada-data-private > /dev/null
+
 ## Contact
 
 Please use [GitHub Issues](https://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
