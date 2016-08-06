@@ -14,7 +14,8 @@ boundaries.register('Saskatchewan electoral districts (Representation Act, 2012)
     authority='Her Majesty the Queen in Right of Saskatchewan',
     source_url='https://www.geosask.ca/',
     licence_url='https://www.geosask.ca/Portal/jsp/terms_popup.jsp',
-    data_url='ftp://portaldata:freedata@ftp.isc.ca/PackagedData/ElectionsSask/2013_Constituency.zip',
+    # The data, previously available from GeoSask, is now available from Elections Saskatchewan without a license.
+    # data_url='http://electionssk1.blob.core.windows.net/shapefiles/Constit_2012.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/province:sk'},
 )
