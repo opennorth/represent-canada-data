@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin/>
+<pubdate>20160416</pubdate>
+<title>Town of Newmarket Ward Boundaries</title>
+<geoform>vector digital data</geoform>
+</citeinfo>
+</citation>
+<descript>
+<abstract>Since 2003 the Town of Newmarket has had a ward system of representation on Town Council. This system contains seven wards, where residents vote for the Councillor they want to see represent them in their ward during municipal elections.</abstract>
+<purpose>To visualize the political boundaries in Newmarket</purpose>
+</descript>
+<timeperd>
+<timeinfo>
+<rngdates>
+<begdate>20080627</begdate>
+<enddate>20161231</enddate>
+</rngdates>
+</timeinfo>
+<current>publication date</current>
+</timeperd>
+<status>
+<progress>In work</progress>
+<update>As needed</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-79.511001</westbc>
+<eastbc>-79.410953</eastbc>
+<northbc>44.084420</northbc>
+<southbc>44.014752</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>None</themekt>
+<themekey>Government,Spatial Data</themekey>
+</theme>
+<theme>
+<themekt>ISO 19115 Topic Categories</themekt>
+<themekey>boundaries</themekey>
+</theme>
+<place>
+<placekt>None</placekt>
+<placekey>Newmarket, Ward 1, Ward 2, Ward 3, Ward 4, Ward 5, Ward 6, Ward 7</placekey>
+</place>
+<temporal>
+<tempkt>None</tempkt>
+<tempkey>current</tempkey>
+</temporal>
+</keywords>
+<accconst>None</accconst>
+<useconst>The information depicted in this data set has been compiled from various sources. While every effort has been made to accurately depict the information, data and/or mapping errors may exist. It is not a substitute for a legal survey.Your use of the information will be governed by the terms of the Town of Newmarket's Open Data Licence, in force as of the date you accessed the information.</useconst>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>Legislative Services, Corporate Services</cntorg>
+</cntorgp>
+<cntpos>Records and Project Coordinator</cntpos>
+<cntaddr>
+<addrtype>physical</addrtype>
+<address>395 Mulock Drive</address>
+<address>P.O. Box 328 STN MAIN</address>
+<city>Newmarket</city>
+<state>Ontario</state>
+<postal>L3Y 4X7</postal>
+<country>CA</country>
+</cntaddr>
+<cntvoice>905-895-5193</cntvoice>
+<cntemail>maps@newmarket.ca</cntemail>
+</cntinfo>
+</ptcontac>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>GIS, Information Technology, Corporate Services</cntorg>
+</cntorgp>
+<cntpos>GIS Coordinator</cntpos>
+<cntaddr>
+<addrtype>physical</addrtype>
+<address>395 Mulock Drive</address>
+<address>P.O. Box 328 STN MAIN</address>
+<city>Newmarket</city>
+<state>Ontario</state>
+<postal>L3Y 4X7</postal>
+<country>CA</country>
+</cntaddr>
+<cntvoice>905-895-5193</cntvoice>
+<cntemail>maps@newmarket.ca</cntemail>
+</cntinfo>
+</ptcontac>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>Legislative Services, Corporate Services</cntorg>
+</cntorgp>
+<cntpos>Records and Project Coordinator</cntpos>
+<cntaddr>
+<addrtype>physical</addrtype>
+<address>395 Mulock Drive</address>
+<address>P.O. Box 328 STN MAIN</address>
+<city>Newmarket</city>
+<state>Ontario</state>
+<postal>L3Y 4X7</postal>
+<country>CA</country>
+</cntaddr>
+<cntvoice>905-895-5193</cntvoice>
+<cntemail>maps@newmarket.ca</cntemail>
+</cntinfo>
+</ptcontac>
+<datacred>© The Town of Newmarket</datacred>
+<native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.2.2.3574</native>
+</idinfo>
+<dataqual>
+<logic>Expression of the confidence in information completeness and accuracy.</logic>
+</dataqual>
+<spdoinfo>
+<direct>Vector</direct>
+<ptvctinf>
+<sdtsterm>
+<sdtstype>GT-polygon composed of chains</sdtstype>
+<ptvctcnt>7</ptvctcnt>
+</sdtsterm>
+</ptvctinf>
+</spdoinfo>
+<eainfo>
+<detailed>
+<enttyp>
+<enttypl>OPENDATA.WARDS</enttypl>
+<enttypd>Ward boundaries</enttypd>
+<enttypds>Town of Newmarket, Legislative Services, Corporate Services</enttypds>
+</enttyp>
+<attr>
+<attrlabl>ENTRY_UID</attrlabl>
+<attrdef>Entry technician</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>User ID automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>ENTRY_WHEN</attrlabl>
+<attrdef>Entry date</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>Entry date and time automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>WARD</attrlabl>
+<attrdef>Ward number</attrdef>
+<attrdefs>Town of Newmarket, Legislative Services, Corporate Services</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>1</rdommin>
+<rdommax>7</rdommax>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>NAME</attrlabl>
+<attrdef>Name of Ward Councillor</attrdef>
+<attrdefs>Town of Newmarket, Legislative Services, Corporate Services</attrdefs>
+<attrdomv>
+<udom>Name</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>ADDRESS</attrlabl>
+</attr>
+<attr>
+<attrlabl>TOWN</attrlabl>
+</attr>
+<attr>
+<attrlabl>PCODE</attrlabl>
+</attr>
+<attr>
+<attrlabl>BPHONE</attrlabl>
+</attr>
+<attr>
+<attrlabl>HPHONE</attrlabl>
+</attr>
+<attr>
+<attrlabl>CPHONE</attrlabl>
+</attr>
+<attr>
+<attrlabl>FAX</attrlabl>
+</attr>
+<attr>
+<attrlabl>E_MAIL</attrlabl>
+</attr>
+<attr>
+<attrlabl>MAYOR</attrlabl>
+</attr>
+<attr>
+<attrlabl>M_ADRES</attrlabl>
+</attr>
+<attr>
+<attrlabl>R_COUNCL</attrlabl>
+</attr>
+<attr>
+<attrlabl>C_ADRES</attrlabl>
+</attr>
+<attr>
+<attrlabl>M_TOWN</attrlabl>
+</attr>
+<attr>
+<attrlabl>C_TOWN</attrlabl>
+</attr>
+<attr>
+<attrlabl>M_PCODE</attrlabl>
+</attr>
+<attr>
+<attrlabl>C_PCODE</attrlabl>
+</attr>
+<attr>
+<attrlabl>M_BPHONE</attrlabl>
+</attr>
+<attr>
+<attrlabl>M_HPHONE</attrlabl>
+</attr>
+<attr>
+<attrlabl>M_FAX</attrlabl>
+</attr>
+<attr>
+<attrlabl>C_FAX</attrlabl>
+</attr>
+<attr>
+<attrlabl>M_EMAIL</attrlabl>
+</attr>
+<attr>
+<attrlabl>C_EMAIL</attrlabl>
+</attr>
+<attr>
+<attrlabl>C_BPHONE</attrlabl>
+</attr>
+<attr>
+<attrlabl>C_HPHONE</attrlabl>
+</attr>
+<attr>
+<attrlabl>WEB</attrlabl>
+</attr>
+<attr>
+<attrlabl>E_MAIL_2</attrlabl>
+</attr>
+<attr>
+<attrlabl>PARENTID</attrlabl>
+<attrdef>Parent ID</attrdef>
+<attrdomv>
+<udom>numbers that are automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>EDIT_UID</attrlabl>
+<attrdef>Editing technician</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>User ID automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>EDIT_WHEN</attrlabl>
+<attrdef>Editing Date</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>Edit date and time automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>OBJECTID</attrlabl>
+<attrdef>Internal feature number.</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>Numbers that are automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>GISID</attrlabl>
+<attrdef>Internal feature number.</attrdef>
+<attrdefs>Town of Newmarket</attrdefs>
+<attrdomv>
+<udom>Numbers that are automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>GLOBALID</attrlabl>
+<attrdef>Internal feature number.</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>Numbers that are automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>SHAPE.AREA</attrlabl>
+<attrdef>Feature geometry - Area.</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>Coordinates defining the features.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>SHAPE</attrlabl>
+<attrdef>Feature geometry.</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>Coordinates defining the features.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>SHAPE.LEN</attrlabl>
+<attrdef>Feature geometry - Perimeter</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>Coordinates defining the features.</udom>
+</attrdomv>
+</attr>
+</detailed>
+</eainfo>
+<metainfo>
+<metd>20160428</metd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>GIS, Information Technology, Corporate Services</cntorg>
+</cntorgp>
+<cntpos>GIS Coordinator</cntpos>
+<cntaddr>
+<addrtype>physical</addrtype>
+<address>395 Mulock Drive</address>
+<address>P.O. Box 328 STN MAIN</address>
+<city>Newmarket</city>
+<state>Ontario</state>
+<postal>L3Y 4X7</postal>
+<country>CA</country>
+</cntaddr>
+<cntvoice>905-895-5193</cntvoice>
+<cntemail>maps@newmarket.ca</cntemail>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+<metuc>The information depicted in this data set has been compiled from various sources. While every effort has been made to accurately depict the information, data and/or mapping errors may exist. It is not a substitute for a legal survey.Your use of the information will be governed by the terms of the Town of Newmarket's Open Data Licence, in force as of the date you accessed the information.</metuc>
+</metainfo>
+</metadata>
+
