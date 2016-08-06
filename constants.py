@@ -5,21 +5,20 @@ import re
 
 open_data_licenses = [
     'http://cms.burlington.ca/AssetFactory.aspx?did=18762',
-    'http://open.canada.ca/en/open-government-licence-canada',
+    'http://data.open.guelph.ca/pages/open-government-licence',
     'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     'http://donnees.ville.sherbrooke.qc.ca/licence.html',
     'http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
-    'http://www.greatersudbury.ca/inside-city-hall/open-government/open-data/licence/',
     'http://oakville.ca/data/open_data_licence.html',
+    'http://open.canada.ca/en/open-government-licence-canada',
     'http://opendata.peelregion.ca/terms-of-use.aspx',
-    'http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/',
     'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
     'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
     'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html',
     'http://www.edmonton.ca/city_government/documents/Web-version2.1-OpenDataAgreement.pdf',
     'http://www.electionspei.ca/apilicense',
-    'http://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data',
     'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp',
+    'http://www.greatersudbury.ca/inside-city-hall/open-government/open-data/licence/',
     'http://www.halifax.ca/opendata/OD_TermsOfUse.php',
     'http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx',
     'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf',
@@ -38,6 +37,7 @@ open_data_licenses = [
     'https://niagaraopendata.ca/pages/open-government-license-2-0-town-of-lincoln',
     'https://open.alberta.ca/licence',
     'https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data',
+    'https://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data',
 ]
 
 some_rights_reserved_licenses = [
@@ -67,12 +67,12 @@ terms = {
     'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp': 'I. Terms of Use. This work is provided under the terms of "City of Fredericton - Terms of Use" (http://fredericton.icreate2.esolutionsgroup.ca/cityfredericton/en/citygovernment/TermsOfUse.asp).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx': 'I. Terms of Use. This work is provided under the terms of “Open Data London – Terms of Use” (http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     # Open Government Licence.
-    'http://open.canada.ca/en/open-government-licence-canada':
-    'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://open.canada.ca/en/open-government-licence-canada).',
+    'http://data.open.guelph.ca/pages/open-government-licence':
+    'I. Terms of Use. Contains information provided by the City of Guelph under an open government license (http://data.open.guelph.ca/pages/open-government-licence).',
     'http://oakville.ca/data/open_data_licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence — Town of Oakville (http://oakville.ca/data/open_data_licence.html).',
-    'http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/':
-    'I. Terms of Use. Contains information provided by the City of Guelph under an open government license (http://openguelph.wpengine.com/open-data-guelph/city-of-guelph-open-government-licence/).',
+    'http://open.canada.ca/en/open-government-licence-canada':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://open.canada.ca/en/open-government-licence-canada).',
     'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
     'http://www.halifax.ca/opendata/OD_TermsOfUse.php':
@@ -105,7 +105,7 @@ terms = {
     'http://opendata.peelregion.ca/terms-of-use.aspx': "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Peel's Open Data Licence - Version 1.0 (http://opendata.peelregion.ca/terms-of-use.aspx).",
     'http://www.electionspei.ca/apilicense': 'I. Terms of Use. This information is provided by Elections PEI under the Elections PEI Data License (http://www.electionspei.ca/apilicense).',
     'http://www.greatersudbury.ca/inside-city-hall/open-government/open-data/licence/': 'I. Terms of Use. Contains information licensed under the Open Data Licence – City of Greater Sudbury (http://www.greatersudbury.ca/inside-city-hall/open-government/open-data/licence/).',
-    'http://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data': "I. Terms of Use. Contains public sector Data made available under the City of Hamilton’s Open Data Licence (http://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data).",
+    'https://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data': "I. Terms of Use. Contains public sector Data made available under the City of Hamilton’s Open Data Licence (https://www.hamilton.ca/city-initiatives/strategies-actions/open-accessible-data).",
     'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf': "I. Terms of Use. Contains public sector Datasets made available under the Town of Milton's Open Data License v.1 (http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf).",
     'http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp': 'I. Terms of Use. Contains information provided by the Regional Municipality of Waterloo under licence (http://www.regionofwaterloo.ca/en/regionalGovernment/OpenDataLicence.asp).',
     'https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data': 'I. Terms of Use. Contains information licensed under the Open Government Licence – The Corporation of the Municipality of Chatham-Kent (https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data).',

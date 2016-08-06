@@ -479,37 +479,41 @@ def urls(base='.'):
     """
     headers = {'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'}
 
+    seen = set()
     for slug, config in registry(base).items():
         for key in ('source_url', 'licence_url', 'data_url'):
             if key in config:
                 url = config[key]
-                result = urlparse(url)
-                if result.scheme == 'ftp':
-                    ftp = FTP(result.hostname)
-                    ftp.login(result.username, result.password)
-                    ftp.cwd(os.path.dirname(result.path))
-                    if os.path.basename(result.path) not in ftp.nlst():
-                        print('404 %s' % url)
-                    ftp.quit()
-                else:
-                    try:
-                        arguments = {}
-                        if result.username:
-                            url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
-                            arguments['auth'] = (result.username, result.password)
-                        response = requests.head(url, headers=headers, **arguments)
-                        if response.status_code == 405:  # if HEAD requests are not allowed
-                            response = requests.get(url, headers=headers, **arguments)
-                        if response.status_code != 200:
-                            print('%d %s' % (response.status_code, url))
-                    except requests.exceptions.ConnectionError:
-                        print('404 %s' % url)
-                    except socket.error:
-                        errno, errstr = sys.exc_info()[:2]
-                        if errno == socket.timeout:
-                            print('Timeout %s' % url)
-                        else:
-                            print('%s %s' % (errstr, url))
+                if url not in seen:
+                    seen.add(url)
+
+                    result = urlparse(url)
+                    if result.scheme == 'ftp':
+                        ftp = FTP(result.hostname)
+                        ftp.login(result.username, result.password)
+                        ftp.cwd(os.path.dirname(result.path))
+                        if os.path.basename(result.path) not in ftp.nlst():
+                            print('404 %s' % url)
+                        ftp.quit()
+                    else:
+                        try:
+                            arguments = {}
+                            if result.username:
+                                url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
+                                arguments['auth'] = (result.username, result.password)
+                            response = requests.head(url, headers=headers, **arguments)
+                            if response.status_code == 405:  # if HEAD requests are not allowed
+                                response = requests.get(url, headers=headers, **arguments)
+                            if response.status_code != 200:
+                                print('%d %s' % (response.status_code, url))
+                        except requests.exceptions.ConnectionError:
+                            print('404 %s' % url)
+                        except socket.error:
+                            errno, errstr = sys.exc_info()[:2]
+                            if errno == socket.timeout:
+                                print('Timeout %s' % url)
+                            else:
+                                print('%s %s' % (errstr, url))
 
 
 @task
