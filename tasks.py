@@ -150,9 +150,7 @@ def get_definition(division_id):
     sections = division_id.split('/')
     ocd_type, ocd_type_id = sections[-1].split(':')
 
-    config = {
-        'encoding': 'iso-8859-1',
-    }
+    config = {}
 
     # Determine slug, domain and authority.
     name = ocdid_to_name().get(division_id)
@@ -443,9 +441,10 @@ def definitions(base='.'):
             print('%-60s Missing licence_url or data_url' % slug)
 
         # Validate fields.
-        for key in ('name', 'singular'):
-            if key in config:
-                print('%-60s Expected %s to be missing' % (slug, key))
+        if 'name' in config:
+            print('%-60s Expected name to be missing' % (slug, key))
+        if 'singular' in config and not slug.endswith(')'):
+            print('%-60s Expected singular to be missing' % (slug, key))
 
         if slug not in ('Census divisions', 'Census subdivisions'):
             # Check for invalid keys or empty values.
@@ -467,7 +466,8 @@ def definitions(base='.'):
             expected_slug, expected_config = get_definition(division_id)
 
             # Check for unexpected values.
-            assert_match(slug, 'slug', slug, expected_slug)
+            if not slug.endswith(')'):
+                assert_match(slug, 'slug', slug, expected_slug)
             for key, value in expected_config.items():
                 assert_match(slug, key, config[key], value)
 
