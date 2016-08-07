@@ -38,7 +38,7 @@ for fragment, (name, machine_name, type) in sets.items():
         domain='%s, NS' % name,
         last_updated=date(2016, 8, 7),
         name_func=lambda f: '%s %s' % (type.capitalize(), re.sub(r'\D+0?', '', f.get('poll_dist'))),
-        id_func=lambda f: re.sub(r'\D+0?', '', f.get('poll_dist')),
+        id_func=lambda f: re.sub(r'^\D+0?', '', f.get('poll_dist')),
         authority='Her Majesty the Queen in Right of Nova Scotia',
         source_url='https://data.novascotia.ca/Municipalities/Municipal-Electoral-Districts/gcep-xeci',
         licence_url='http://novascotia.ca/opendata/licence.asp',
