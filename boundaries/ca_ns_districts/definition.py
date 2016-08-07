@@ -48,5 +48,5 @@ for fragment, (name, machine_name, type) in sets.items():
         extra={'division_id': 'ocd-division/country:ca/%s' % fragment},
         ogr2ogr='''-where "mu_code='%s'"''' % machine_name,
         base_file='geo_export_383c6711-c217-43ff-a2bc-2444da2b6425.shp',
-        notes='Merge electoral districts with multiple features into single features (GY02).',
+        notes='Merge electoral districts with multiple features into single features (AY01, GY02, SH01, SH04).',
     )
