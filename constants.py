@@ -9,6 +9,7 @@ open_data_licenses = [
     'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     'http://donnees.ville.sherbrooke.qc.ca/licence.html',
     'http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
+    'http://novascotia.ca/opendata/licence.asp',
     'http://oakville.ca/data/open_data_licence.html',
     'http://open.canada.ca/en/open-government-licence-canada',
     'http://opendata.peelregion.ca/terms-of-use.aspx',
@@ -69,6 +70,8 @@ terms = {
     # Open Government Licence.
     'http://data.open.guelph.ca/pages/open-government-licence':
     'I. Terms of Use. Contains information provided by the City of Guelph under an open government license (http://data.open.guelph.ca/pages/open-government-licence).',
+    'http://novascotia.ca/opendata/licence.asp':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – Nova Scotia (http://novascotia.ca/opendata/licence.asp).',
     'http://oakville.ca/data/open_data_licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence — Town of Oakville (http://oakville.ca/data/open_data_licence.html).',
     'http://open.canada.ca/en/open-government-licence-canada':
