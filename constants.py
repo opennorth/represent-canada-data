@@ -5,6 +5,7 @@ import re
 
 open_data_licenses = [
     'http://cms.burlington.ca/AssetFactory.aspx?did=18762',
+    'http://data.brantford.opendata.arcgis.com/',
     'http://data.open.guelph.ca/pages/open-government-licence',
     'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/',
     'http://donnees.ville.sherbrooke.qc.ca/licence.html',
@@ -12,6 +13,7 @@ open_data_licenses = [
     'http://novascotia.ca/opendata/licence.asp',
     'http://oakville.ca/data/open_data_licence.html',
     'http://open.canada.ca/en/open-government-licence-canada',
+    'http://opendata.haldimandcounty.on.ca/',
     'http://opendata.peelregion.ca/terms-of-use.aspx',
     'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use',
     'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf',
@@ -68,6 +70,8 @@ terms = {
     'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp': 'I. Terms of Use. This work is provided under the terms of "City of Fredericton - Terms of Use" (http://fredericton.icreate2.esolutionsgroup.ca/cityfredericton/en/citygovernment/TermsOfUse.asp).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx': 'I. Terms of Use. This work is provided under the terms of “Open Data London – Terms of Use” (http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     # Open Government Licence.
+    'http://data.brantford.opendata.arcgis.com/':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – Brantford (http://data.brantford.opendata.arcgis.com/).',
     'http://data.open.guelph.ca/pages/open-government-licence':
     'I. Terms of Use. Contains information provided by the City of Guelph under an open government license (http://data.open.guelph.ca/pages/open-government-licence).',
     'http://novascotia.ca/opendata/licence.asp':
@@ -76,6 +80,8 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence — Town of Oakville (http://oakville.ca/data/open_data_licence.html).',
     'http://open.canada.ca/en/open-government-licence-canada':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://open.canada.ca/en/open-government-licence-canada).',
+    'http://opendata.haldimandcounty.on.ca/':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – Haldimand County (http://opendata.haldimandcounty.on.ca/).',
     'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
     'http://www.halifax.ca/opendata/OD_TermsOfUse.php':
