@@ -23,7 +23,6 @@ from invoke import run, task
 from rfc6266 import parse_headers
 
 from constants import (
-    open_data_licenses,
     some_rights_reserved_licenses,
     all_rights_reserved_licenses,
     all_rights_reserved_terms_re,
@@ -394,6 +393,12 @@ def definitions(base='.'):
         'ocd-division/country:ca/csd:2494068',  # Saguenay
         'ocd-division/country:ca/csd:2443027',  # Sherbrooke
     )
+
+    response = requests.get('https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/pub?gid=0&single=true&output=csv')
+    response.encoding = 'utf-8'
+    reader = csv.DictReader(StringIO(response.text))
+    open_data_licenses = set(filter(None, (row['License URL'] for row in reader)))
+    open_data_licenses.add('http://www.electionspei.ca/apilicense')
 
     seen = set()
     division_ids = set()
