@@ -3,7 +3,7 @@ represent-boundaries==0.7.4
 Unidecode==0.04.16
 
 # Tasks
-Django==1.8.15
+Django==1.8.16
 GitPython==0.3.2-RC1
 invoke==0.11.1
 requests==2.6.0
