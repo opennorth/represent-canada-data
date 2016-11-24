@@ -10,5 +10,5 @@ boundaries.register('King wards',
     authority='Township of King',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/csd:3519049'},
-    ogr2ogr='''-where "WARD_NUMBE<>'0'"''',
+    ogr2ogr='''-where "WARD_NUMBE<>0"''',
 )
