@@ -197,8 +197,10 @@ def get_definition(division_id):
 
         if province_or_territory_sgc_code == '24' and division_id in boroughs:
             slug = re.compile('\A%s (boroughs|districts)\Z' % name)
-        elif province_or_territory_sgc_code == '12' and ocdid_to_type()[division_id] == 'RGM':
+        elif province_or_territory_sgc_code == '12' and ocdid_to_type()[division_id] != 'T':
             slug = '%s districts' % name
+        elif province_or_territory_sgc_code == '47' and ocdid_to_type()[division_id] != 'CY':
+            slug = '%s divisions' % name
         elif province_or_territory_sgc_code == '48' and ocdid_to_type()[division_id] == 'MD':
             slug = '%s divisions' % name
         elif province_or_territory_sgc_code == '24':
@@ -206,15 +208,19 @@ def get_definition(division_id):
                 slug = '%s quartiers' % name
             else:
                 slug = '%s districts' % name
-        elif name in ('East Hants', 'Lunenburg'):  # exceptions
-            slug = '%s districts' % name
         else:
             slug = '%s wards' % name
+
         config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
-        if province_or_territory_sgc_code == '13':
+
+        if province_or_territory_sgc_code == '12':
+            config['authority'] = ['Her Majesty the Queen in Right of Nova Scotia']
+        elif province_or_territory_sgc_code == '13':
             config['authority'] = ['Her Majesty the Queen in Right of New Brunswick']
         elif province_or_territory_sgc_code == '24':
             config['authority'] = ['Directeur général des élections du Québec']
+        elif province_or_territory_sgc_code == '47' and ocdid_to_type()[division_id] != 'CY':
+            config['authority'] = ['MuniSoft']
         elif ocd_type == 'csd':
             config['authority'] = authorities + [corporations()[division_id]]
         else:
@@ -386,7 +392,11 @@ def definitions(base='.'):
             print('%-60s %s' % (slug, message))
             seen.add(message)
 
-    borough_division_ids = (
+    duplicate_division_ids = (
+        # Multiple years.
+        'ocd-division/country:ca',
+        'ocd-division/country:ca/province:sk',
+        # Districts and boroughs.
         'ocd-division/country:ca/csd:2458227',  # Longueuil
         'ocd-division/country:ca/csd:2466023',  # Montréal
         'ocd-division/country:ca/csd:2423027',  # Québec
@@ -463,7 +473,7 @@ def definitions(base='.'):
             division_id = config['extra']['division_id']
 
             # Ensure division_id is unique.
-            if division_id in division_ids and division_id not in borough_division_ids:
+            if division_id in division_ids and division_id not in duplicate_division_ids:
                 print('%-60s Duplicate division_id %s' % (slug, division_id))
             else:
                 division_ids.add(division_id)

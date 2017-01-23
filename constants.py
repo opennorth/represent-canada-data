@@ -18,16 +18,13 @@ all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+
 
 terms = {
     # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
-    'http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use': 'I. Terms of Use. This work is provided under the terms of “City of Ottawa – Terms of Use” (http://ottawa.ca/en/mobile-apps-and-open-data/open-data-terms-use).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Windsor – Terms of Use” (http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
-    'http://www.edmonton.ca/city_government/documents/Web-version2.1-OpenDataAgreement.pdf': 'I. Terms of Use. This work is provided under the terms of City of Edmonton Open Data Terms of Use (http://www.edmonton.ca/city_government/documents/Web-version2.1-OpenDataAgreement.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php': """Attribution: This data is provided by the Directeur général des élections du Québec (http://www.electionsquebec.qc.ca), reproduced according to the terms of the "Conditions d'utilisation de notre site Web" (http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php). Copyright in the work belongs to the Government of Quebec.""",
     'http://www5.mississauga.ca/research_catalogue/CityofMississauga_TermsofUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Mississauga – Terms of Use” (http://www.mississauga.ca/file/COM/CityOfMississaugaTermsOfUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
-    'https://data.calgary.ca/OpenData/Pages/TermsofUse.aspx': 'I. Terms of Use. This data is provided by the City of Calgary and is made available under the Open Data Catalogue Terms of Use (https://cityonline.calgary.ca/Pages/PdcTermsOfUse.aspx).',
+    'https://www.edmonton.ca/city_government/documents/Web-version2.1-OpenDataAgreement.pdf': 'I. Terms of Use. This work is provided under the terms of City of Edmonton Open Data Terms of Use (https://www.edmonton.ca/city_government/documents/Web-version2.1-OpenDataAgreement.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     # @see Gowlings advice.
     'http://cms.burlington.ca/AssetFactory.aspx?did=18762': 'I. Terms of Use. This work is provided under the terms of “Terms of Use for Open Data Burlington” (http://cms.burlington.ca/AssetFactory.aspx?did=18762).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf': 'I. Attribution. This data is provided by GeoNB – www.snb.ca/geonb. This attribution does not constitute an endorsement by Service New Brunswick or its GeoNB partners.\n\nII. Warranty, Liability, Indemnity of Service New Brunswick and its GeoNB partners.\n1. Except as expressly provided in the “GeoNB License Agreement” (http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf), this data is provided “As is” without any representations, warranties, guarantees or conditions, of any kind, whether expressed or implied, statutory or otherwise.\n2. Service New Brunswick (SNB) makes no representation or warranty of any kind with respect to the accuracy, usefulness, novelty, validity, scope, completeness or currency of the data and expressly disclaims any implied warranty of merchantability or fitness for a particular purpose of the data. SNB does not ensure or warrant compatibility with past, current or future versions of your browser to access the data.\n3. The Licensee shall have no recourse against SNB, nor its GeoNB partners, whether by way of any suit or action, for any loss, liability, damage or cost that the Licensee may suffer or incur at any time, by reason of the Licensee’s possession or use of the data.\n4. The Licensee shall indemnify SNB, and its GeoNB partners, and their officers, employees, agents and contractors from all claims alleging loss, costs, expenses, damages or injuries (including injuries resulting in death) arising out of the Licensee’s possession or use of the data.\n5. The Licensee shall license all individuals (or companies) who obtain data or derivative products from the Licensee the right to use the data or derivative products by way of a license agreement, and that agreement shall impose upon these individuals (or companies) the same terms and conditions as those contained in Section II of this agreement.\n6. The Licensee’s liability to indemnify SNB under this agreement shall not affect or prejudice SNB from exercising any other rights under law.\n7. SNB assumes no obligation to update the data. The data may be changed without notice to the Licensee.',
-    'http://www.fredericton.ca/en/citygovernment/TermsOfUse.asp': 'I. Terms of Use. This work is provided under the terms of "City of Fredericton - Terms of Use" (http://fredericton.icreate2.esolutionsgroup.ca/cityfredericton/en/citygovernment/TermsOfUse.asp).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     'http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx': 'I. Terms of Use. This work is provided under the terms of “Open Data London – Terms of Use” (http://www.london.ca/city-hall/open-data/Pages/OpenData-TermsofUse.aspx).  Any use of the work other than as authorized under these terms is strictly prohibited.',
     # Open Government Licence wording.
     'http://data.brantford.opendata.arcgis.com/':
@@ -40,6 +37,8 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (http://open.canada.ca/en/open-government-licence-canada).',
     'http://opendata.haldimandcounty.on.ca/':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Haldimand County (http://opendata.haldimandcounty.on.ca/).',
+    'http://ottawa.ca/en/city-hall/get-know-your-city/open-data#open-data-licence-version-2-0':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Ottawa (http://ottawa.ca/en/city-hall/get-know-your-city/open-data#open-data-licence-version-2-0).',
     'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
     'http://www.halifax.ca/opendata/OD_TermsOfUse.php':
@@ -50,12 +49,16 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence - Town of Newmarket (http://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf).',
     'http://www.regina.ca/residents/open-government/open-government-licence/':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Regina (http://www.regina.ca/residents/open-government/open-government-licence/).',
+    'http://www2.gnb.ca/content/dam/gnb/Departments/gs-sg/pdf/OpenDataPolicy.pdf':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – New Brunswick (http://www2.gnb.ca/content/dam/gnb/Departments/gs-sg/pdf/OpenDataPolicy.pdf).',
+    'https://data.calgary.ca/stories/s/u45n-7awa':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Calgary (https://data.calgary.ca/stories/s/u45n-7awa).',
     'https://data.strathcona.ca/licence':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Strathcona County (https://data.strathcona.ca/licence).',
     'https://data.winnipeg.ca/open-data-licence':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Winnipeg (https://data.winnipeg.ca/open-data-licence).',
-    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default':
-    'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD&vgnextfmt=default).',
+    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland':
     'I. Terms of Use. Contains information licensed under the Open Government Licence — City of Welland (https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-grimsby':
@@ -71,8 +74,8 @@ terms = {
     # Text provided by license.
     'http://data.open.guelph.ca/pages/open-government-licence':
     'I. Terms of Use. Contains information provided by the City of Guelph under an open government license (http://data.open.guelph.ca/pages/open-government-licence).',
-    'http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/':
-    "I. Termes d'utilisation. Contient des données reproduites, modifiées, traduites ou distribuées « telles quelles » avec la permission de la Ville de Montréal (http://donnees.ville.montreal.qc.ca/licence/licence-texte-complet/).",
+    'http://donnees.ville.montreal.qc.ca/portail/licence/':
+    "I. Termes d'utilisation. Contient des données reproduites, modifiées, traduites ou distribuées « telles quelles » avec la permission de la Ville de Montréal (http://donnees.ville.montreal.qc.ca/portail/licence/).",
     'http://donnees.ville.sherbrooke.qc.ca/licence.html':
     "I. Termes d'utilisation. Contient des données reproduites et distribuées « telles quelles » avec la permission de la Ville de Sherbrooke (http://donnees.ville.sherbrooke.qc.ca/licence.html).",
     'http://opendata.peelregion.ca/terms-of-use.aspx':
