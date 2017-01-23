@@ -13,7 +13,7 @@ sets = {
     'cd:1212': ['Pictou', 'PI', 'district'],
     'cd:1214': ['Antigonish', 'AT', 'district'],
     'cd:1215': ['Inverness', 'IN', 'district'],
-    'cd:1216': ['Richmond', 'RI', 'district'],
+    'cd:1216': ['Richmond, NS', 'RI', 'district'],
     'cd:1218': ['Victoria', 'VI', 'district'],
     'csd:1201001': ['Barrington', 'BA', 'district'],
     'csd:1201006': ['Shelburne', 'SH', 'district'],
