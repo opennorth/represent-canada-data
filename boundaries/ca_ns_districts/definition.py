@@ -39,7 +39,7 @@ sets = {
 for fragment, (name, machine_name, type) in sets.items():
     boundaries.register('%s %ss' % (name, type),
         file='%s.shp' % name,
-        domain='%s, NS' % name,
+        domain=name if ', NS' in name else '%s, NS' % name,
         last_updated=date(2016, 9, 2),
         name_func=lambda f: '%s %s' % (type.capitalize(), re.sub(r'^\D+0?', '', f.get('poll_dist'))),
         id_func=lambda f: re.sub(r'^\D+0?', '', f.get('poll_dist')),
