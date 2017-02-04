@@ -38,7 +38,6 @@ sets = {
 
 for fragment, (name, machine_name, type) in sets.items():
     boundaries.register('%s %ss' % (name, type),
-        file='%s.shp' % name,
         domain=name if ', NS' in name else '%s, NS' % name,
         last_updated=date(2016, 9, 2),
         name_func=lambda f: '%s %s' % (type.capitalize(), re.sub(r'^\D+0?', '', f.get('poll_dist'))),
@@ -46,11 +45,9 @@ for fragment, (name, machine_name, type) in sets.items():
         authority='Her Majesty the Queen in Right of Nova Scotia',
         source_url='https://data.novascotia.ca/Municipalities/Municipal-Polling-Districts/gcep-xeci',
         licence_url='http://novascotia.ca/opendata/licence.asp',
-        # Download manually then run the `ogr2ogr` task on this directory.
-        # data_url='https://data.novascotia.ca/api/geospatial/gcep-xeci?method=export&format=Shapefile',
+        data_url='https://data.novascotia.ca/api/geospatial/gcep-xeci?method=export&format=Shapefile',
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/%s' % fragment},
-        ogr2ogr='''-where "mu_code='%s' AND poll_dist<>'Unresolved'"''' % machine_name,
-        base_file='geo_export_c73fc08d-b628-46b1-810a-0688537f8634.shp',
+        is_valid_func=lambda f, machine_name=machine_name: f.get('mu_code') == machine_name and f.get('poll_dist') != 'Unresolved',
         notes='Merge electoral districts with multiple features into single features (AY01, GU02, SH01, SH04).',
     )
