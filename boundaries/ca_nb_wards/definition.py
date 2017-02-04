@@ -42,7 +42,7 @@ for geographic_code, (name, machine_name) in sets.items():
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/csd:%d' % geographic_code},
         is_valid_func=lambda f, machine_name=machine_name: f.get('MUN_NAME') == machine_name,
-        notes='Compare the subdivisions in boundaries/ca_nb_wards/definition.py to `ogrinfo -al -geom=NO boundaries/ca_nb_wards | grep " MUN_NAME" | sort | uniq | cut -d= -f 2`.',
+        notes='Compare the subdivisions in boundaries/ca_nb_wards/definition.py to:\nogrinfo -al -geom=NO boundaries/ca_nb_wards | grep " MUN_NAME" | sort | uniq | cut -d= -f 2',
     )
 
 boundaries.register('Beresford wards',

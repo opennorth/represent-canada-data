@@ -28,5 +28,6 @@ for geographic_code, name in sets.items():
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/csd:%d' % geographic_code},
         is_valid_func=lambda f, name=name: f.get('Municipali') == name,
+        notes='Compare the subdivisions in boundaries/ca_on_waterloo_wards/definition.py to:\nogrinfo -al -geom=NO boundaries/ca_on_waterloo_wards | grep " Municipali" | sort | uniq | cut -d= -f 2',
         skip_crc32=True,
     )
