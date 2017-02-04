@@ -28,6 +28,7 @@ We do not have permission to redistribute every dataset available through the [R
     mkvirtualenv representdata
     # Install the requirements.
     pip install -r requirements.txt
+    npm install -g esri-dump
 
 ### Regular tasks
 
@@ -47,13 +48,18 @@ Check that all data directories contain a `LICENSE.txt`:
 
     invoke licenses
 
-Update any out-of-date shapefiles:
+Update a specific out-of-date shapefile:
+
+    invoke shapefiles --base=boundaries/ocd-division/country:ca/province:qc
+
+Or, update all out-of-date shapefiles. The output may contain additional instructions:
 
     invoke shapefiles
 
-Or update a specific shapefile:
+Some shapefiles are online but require exceptional processing. Remember to update `last_updated` in `definition.py`:
 
-    invoke shapefiles --base=boundaries/ocd-division/country:ca/province:qc
+    esri-dump http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0 > boundaries/ca_nb_wards/wards.geojson
+    ogr2ogr -f "ESRI Shapefile" boundaries/ca_nb_wards boundaries/ca_nb_wards/wards.geojson
 
 Fix file permissions:
 
