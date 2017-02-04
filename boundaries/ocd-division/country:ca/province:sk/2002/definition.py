@@ -12,7 +12,9 @@ def namer(f):
         return 'Regina Northeast'
     return n
 
-boundaries.register('Saskatchewan electoral districts',
+
+boundaries.register('Saskatchewan electoral districts (Representation Act, 2002)',
+    singular='Saskatchewan electoral district',
     domain='Saskatchewan',
     last_updated=date(2010, 10, 12),
     name_func=namer,
