@@ -122,10 +122,8 @@ valid_keys = set([
     'notes',
     'encoding',
     # Used by this script. Not validated.
-    'ogr2ogr',
     'prj',
     'skip_crc32',
-    'base_file',
 ])
 
 valid_extra_keys = set([

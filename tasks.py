@@ -532,18 +532,6 @@ def urls(base='.'):
 
 
 @task
-def ogr2ogr(base='.'):
-    """
-    Run ogr2ogr tasks.
-    """
-    for slug, config in registry(base).items():
-        if 'ogr2ogr' in config:
-            directory = dirname(config['file'])
-            if not os.path.exists(config['file']):
-                run('ogr2ogr -f "ESRI Shapefile" "%s" "%s/%s" %s' % (config['file'], directory, config['base_file'], config['ogr2ogr']), echo=True)
-
-
-@task
 def shapefiles(base='.'):
     """
     Update any out-of-date shapefiles.
@@ -663,13 +651,6 @@ def shapefiles(base='.'):
                     else:
                         print('No PRJ file %s' % url)
 
-                    # Run any additional commands on the shapefile.
-                    if 'ogr2ogr' in config:
-                        run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s %s' % (directory, shp_file_path, config['ogr2ogr']), echo=True)
-                        for name in list(files_to_add):
-                            if not os.path.exists(name):
-                                files_to_add.remove(name)
-
                 # Update last updated timestamp.
                 definition_path = os.path.join(directory, 'definition.py')
                 with open(definition_path) as f:
@@ -678,17 +659,16 @@ def shapefiles(base='.'):
                     f.write(re.sub('(?<=last_updated=date\()[\d, ]+', last_updated.strftime('%Y, %-m, %-d'), definition))
 
                 # Print notes.
-                notes = []
                 if 'notes' in config:
-                    notes.append(config['notes'])
-                if notes:
-                    print('%s\n%s\n' % (slug, '\n'.join(notes)))
+                    print('%s\n%s\n' % (slug, config['notes']))
         else:
             print('Unrecognized extension %s\n' % url)
 
     # Retrieve shapefiles.
+    processed = set()
     for slug, config in registry(base).items():
-        if 'data_url' in config:
+        if slug not in processed and 'data_url' in config:
+            processed.add(slug)
             url = config['data_url']
             result = urlparse(url)
 
