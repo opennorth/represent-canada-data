@@ -660,15 +660,15 @@ def shapefiles(base='.'):
 
                 # Print notes.
                 if 'notes' in config:
-                    print('%s\n%s\n' % (slug, config['notes']))
+                    print('%s\n%s\n' % (config['file'], config['notes']))
         else:
             print('Unrecognized extension %s\n' % url)
 
     # Retrieve shapefiles.
     processed = set()
     for slug, config in registry(base).items():
-        if slug not in processed and 'data_url' in config:
-            processed.add(slug)
+        if config['file'] not in processed and 'data_url' in config:
+            processed.add(config['file'])
             url = config['data_url']
             result = urlparse(url)
 
