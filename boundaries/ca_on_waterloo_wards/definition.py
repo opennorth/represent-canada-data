@@ -19,7 +19,7 @@ for geographic_code, name in sets.items():
     boundaries.register('%s wards' % name,
         domain='%s, ON' % name,
         last_updated=date(2015, 1, 6),
-        name_func=boundaries.attr('WardName'),
+        name_func=lambda f: 'Ward %s' % f.get('WardNumber'),
         id_func=boundaries.attr('WardNumber'),
         authority='Regional Municipality of Waterloo',
         source_url='http://www.regionofwaterloo.ca/en/regionalGovernment/WardBoundaries.asp',
