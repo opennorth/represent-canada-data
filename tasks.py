@@ -145,7 +145,7 @@ def corporations():
     return corporations_memo
 
 
-def get_definition(division_id):
+def get_definition(division_id, path=None):
     sections = division_id.split('/')
     ocd_type, ocd_type_id = sections[-1].split(':')
 
@@ -213,11 +213,11 @@ def get_definition(division_id):
 
         config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
 
-        if province_or_territory_sgc_code == '12':
+        if province_or_territory_sgc_code == '12' and 'boundaries/ca_ns_districts/' in path:
             config['authority'] = ['Her Majesty the Queen in Right of Nova Scotia']
-        elif province_or_territory_sgc_code == '13':
+        elif province_or_territory_sgc_code == '13' and 'boundaries/ca_nb_wards/' in path:
             config['authority'] = ['Her Majesty the Queen in Right of New Brunswick']
-        elif province_or_territory_sgc_code == '24':
+        elif province_or_territory_sgc_code == '24' and 'boundaries/ca_qc_' in path:
             config['authority'] = ['Directeur général des élections du Québec']
         elif province_or_territory_sgc_code == '47' and ocdid_to_type()[division_id] != 'CY':
             config['authority'] = ['MuniSoft']
@@ -478,7 +478,7 @@ def definitions(base='.'):
             else:
                 division_ids.add(division_id)
 
-            expected_slug, expected_config = get_definition(division_id)
+            expected_slug, expected_config = get_definition(division_id, path=config['file'])
 
             # Check for unexpected values.
             if not slug.endswith(')'):
@@ -878,15 +878,15 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                     # Columns that are always tracked manually.
                    (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Response notes')) or
                    # Scrapers for municipalities without wards are tracked manually.
-                   (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or
+                   (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or  # noqa
                    # In-progress requests are tracked manually.
-                   (key == 'Shapefile?'       and a == 'Request'and b == 'Requested') or
+                   (key == 'Shapefile?'       and a == 'Request'and b == 'Requested') or  # noqa
                    # Contacts for in-progress requests and private data are tracked manually.
-                   (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or
+                   (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or  # noqa
                    # We may have a contact to confirm the nonexistence of municipal subdivisions.
-                   (key == 'Contact'          and a == 'N/A'    and record['Shapefile?'] == 'N/A') or
+                   (key == 'Contact'          and a == 'N/A'    and record['Shapefile?'] == 'N/A') or  # noqa
                    # MFIPPA requests are tracked manually.
-                   (key == 'Received via'     and a == 'email'  and b == 'MFIPPA') or
+                   (key == 'Received via'     and a == 'email'  and b == 'MFIPPA') or  # noqa
                    # We may have information for a bad shapefile from an in-progress request.
                    (key in ('Received via', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested')):
                     record[key] = b
