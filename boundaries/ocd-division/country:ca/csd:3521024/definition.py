@@ -15,5 +15,5 @@ boundaries.register('Caledon wards',
     data_url='http://opendata.peelregion.ca/media/2549/wardboundary20102014_shp_04.2012.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/csd:3521024'},
-    ogr2ogr='''-where "MUNIC='24'"''',
+    is_valid_func=lambda f: int(f.get('MUNIC')) == 24,
 )
