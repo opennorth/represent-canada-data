@@ -17,7 +17,6 @@ sets = {
 
 for geographic_code, name in sets.items():
     boundaries.register('%s wards' % name,
-        file='%s.shp' % name,
         domain='%s, ON' % name,
         last_updated=date(2015, 1, 6),
         name_func=boundaries.attr('WardName'),
