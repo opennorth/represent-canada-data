@@ -27,6 +27,6 @@ for geographic_code, name in sets.items():
         data_url='http://www.regionofwaterloo.ca/opendatadownloads/WardBoundaries.zip',
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/csd:%d' % geographic_code},
-        is_valid_func=lambda f: f.get('Municipali') == name,
+        is_valid_func=lambda f, name=name: f.get('Municipali') == name,
         skip_crc32=True,
     )
