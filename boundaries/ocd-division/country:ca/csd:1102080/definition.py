@@ -12,6 +12,7 @@ def namer(f):
         return "Kelly's Cove"
     return n
 
+
 boundaries.register('Stratford wards',
     domain='Stratford, PE',
     last_updated=date(2013, 7, 19),

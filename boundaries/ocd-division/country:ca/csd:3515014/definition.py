@@ -10,6 +10,7 @@ def namer(f):
     import boundaries
     return re.sub(' Ward \d+\Z', '', boundaries.clean_attr('NAME')(f))
 
+
 boundaries.register('Peterborough wards',
     domain='Peterborough, ON',
     last_updated=date(2014, 2, 28),

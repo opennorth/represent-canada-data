@@ -22,6 +22,7 @@ def ider(f):
         'Nutana - City Centre': 6,
     }[f.get('Name')]
 
+
 boundaries.register('Saskatoon wards',
     domain='Saskatoon, SK',
     last_updated=date(2015, 5, 22),

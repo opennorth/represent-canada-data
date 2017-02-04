@@ -15,6 +15,7 @@ def namer(f):
         return "O'Leary—Inverness"
     return n
 
+
 boundaries.register('Prince Edward Island electoral districts',
     domain='Prince Edward Island',
     last_updated=date(2013, 7, 16),

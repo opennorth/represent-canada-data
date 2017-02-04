@@ -16,6 +16,7 @@ def namer(f):
 
     return mappings.get(n, n)
 
+
 boundaries.register('Federal electoral districts',
     domain='Canada',
     last_updated=date(2016, 6, 3),
