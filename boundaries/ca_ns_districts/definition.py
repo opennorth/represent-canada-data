@@ -5,6 +5,30 @@ from datetime import date
 
 import boundaries
 
+# The shapefile contains features for towns without subdivisions:
+# * Amherst
+# * Annapolis Royal
+# * Antigonish
+# * Bridgewater
+# * Clark's Harbour
+# * Digby
+# * Kentville
+# * Lockeport
+# * Lunenburg
+# * Mahone Bay
+# * Middleton
+# * Mulgrave
+# * Oxford
+# * Parrsboro
+# * Part Hawkesbury
+# * Pictou
+# * Shelburne
+# * Stewiacke
+# * Trenton
+# * Westville
+# * Windsor
+# * Wolfville
+# * Yarmouth
 sets = {
     'cd:1205': ['Annapolis', 'AP', 'district'],
     'cd:1207': ['Kings', 'KI', 'district'],
@@ -39,7 +63,7 @@ sets = {
 for fragment, (name, machine_name, type) in sets.items():
     boundaries.register('%s %ss' % (name, type),
         domain=name if ', NS' in name else '%s, NS' % name,
-        last_updated=date(2016, 9, 2),
+        last_updated=date(2017, 2, 4),
         name_func=lambda f: '%s %s' % (type.capitalize(), re.sub(r'^\D+0?', '', f.get('poll_dist'))),
         id_func=lambda f: re.sub(r'^\D+0?', '', f.get('poll_dist')),
         authority='Her Majesty the Queen in Right of Nova Scotia',
@@ -48,6 +72,6 @@ for fragment, (name, machine_name, type) in sets.items():
         data_url='https://data.novascotia.ca/api/geospatial/gcep-xeci?method=export&format=Shapefile',
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/%s' % fragment},
-        is_valid_func=lambda f, machine_name=machine_name: f.get('mu_code') == machine_name and f.get('poll_dist') != 'Unresolved',
-        notes='Merge electoral districts with multiple features into single features (AY01, GU02, SH01, SH04).',
+        is_valid_func=lambda f, machine_name=machine_name: f.get('mu_code') == machine_name and f.get('poll_dist') != 'Unresolved' and not f.get('poll_dist').endswith('AL'),
+        notes='Compare the subdivisions in boundaries/ca_ns_districts/definition.py to:\nogrinfo -al -geom=NO boundaries/ca_ns_districts | grep " mun" | sort | uniq | cut -d= -f 2\nLoad the shapefile manually:\nfab ohoh update_boundaries --merge union -d data/shapefiles/public/boundaries/ca_ns_districts',
     )
