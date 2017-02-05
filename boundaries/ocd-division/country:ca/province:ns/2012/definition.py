@@ -5,7 +5,8 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Nova Scotia electoral districts',
+boundaries.register('Nova Scotia electoral districts',  # (2012)
+    singular='Nova Scotia electoral district',
     domain='Nova Scotia',
     last_updated=date(2016, 7, 28),
     name_func=boundaries.dashed_attr('DISTRICT'),
