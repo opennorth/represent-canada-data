@@ -4,7 +4,8 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('New Brunswick electoral districts',
+boundaries.register('New Brunswick electoral districts',  # (2013)
+    singular='New Brunswick electoral district',
     domain='New Brunswick',
     last_updated=date(2015, 6, 23),
     name_func=boundaries.attr('PED_Name_E'),
