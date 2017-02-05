@@ -4,6 +4,12 @@
 
 This repository stores the digital boundary files for the database. The [represent-canada](https://github.com/opennorth/represent-canada) repository is what's running at [represent.opennorth.ca](https://represent.opennorth.ca/).
 
+## Layout
+
+Boundary files are under [boundaries/](boundaries/). Most are stored in a directory tree matching [Open Civic Data Division Identifiers (OCD-ID)](http://docs.opencivicdata.org/en/latest/proposals/0002.html) starting at [boundaries/ocd-division/](boundaries/ocd-division/). Federal, provincial and territorial boundary files are further scoped by [redistribution year](https://github.com/opennorth/represent-canada/issues/102).
+
+A few boundary files exist outside the OCD-ID tree. Some, like `ca_cd` and `ca_csd`, are Census geography files whose OCD-ID would clash with Canada's. Others are the sources of multiple boundary sets in the API, each with a different OCD-ID.
+
 ## License
 
 Open North has permission to redistribute all shapefiles in this repository. Please read the [overall license](https://github.com/opennorth/represent-canada-data/tree/master/LICENSE.txt) and the `LICENSE.txt` file in each directory to know your rights. In some cases, you will not have permission to redistribute the shapefile.
