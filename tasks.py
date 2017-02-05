@@ -394,9 +394,6 @@ def definitions(base='.'):
             seen.add(message)
 
     duplicate_division_ids = (
-        # Multiple years.
-        'ocd-division/country:ca',
-        'ocd-division/country:ca/province:sk',
         # Districts and boroughs.
         'ocd-division/country:ca/csd:2458227',  # Longueuil
         'ocd-division/country:ca/csd:2466023',  # Montréal
@@ -409,12 +406,19 @@ def definitions(base='.'):
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
     open_data_licenses = set(filter(None, (row['License URL'] for row in reader)))
-    open_data_licenses.extend(more_open_data_licenses)
+    open_data_licenses.update(more_open_data_licenses)
 
     seen = set()
     division_ids = set()
     for slug, config in registry(base).items():
         directory = dirname(config['file'])
+
+        if config.get('extra'):
+            division_id = config['extra']['division_id']
+            ocd_type = division_id.split('/')[-1].split(':')[0]
+        else:
+            division_id = None
+            ocd_type = None
 
         # Validate LICENSE.txt.
         license_path = os.path.join(directory, 'LICENSE.txt')
@@ -458,9 +462,9 @@ def definitions(base='.'):
 
         # Validate fields.
         if 'name' in config:
-            print('%-60s Expected name to be missing' % (slug, key))
-        if 'singular' in config and not slug.endswith(')'):
-            print('%-60s Expected singular to be missing' % (slug, key))
+            print('%-60s Expected name to be missing' % slug)
+        if 'singular' in config and not slug.endswith(')') and ocd_type not in ('country', 'province', 'territory'):
+            print('%-60s Expected singular to be missing' % slug)
 
         if slug not in ('Census divisions', 'Census subdivisions'):
             # Check for invalid keys or empty values.
@@ -471,10 +475,8 @@ def definitions(base='.'):
                 if not value:
                     print('%-60s Empty value for %s' % (slug, key))
 
-            division_id = config['extra']['division_id']
-
             # Ensure division_id is unique.
-            if division_id in division_ids and division_id not in duplicate_division_ids:
+            if division_id in division_ids and division_id not in duplicate_division_ids and ocd_type not in ('country', 'province', 'territory'):
                 print('%-60s Duplicate division_id %s' % (slug, division_id))
             else:
                 division_ids.add(division_id)
@@ -518,8 +520,9 @@ def urls(base='.'):
                                 url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
                                 arguments['auth'] = (result.username, result.password)
                             response = requests.head(url, headers=headers, **arguments)
-                            if response.status_code == 405:  # if HEAD requests are not allowed
-                                response = requests.get(url, headers=headers, **arguments)
+                            # If HEAD requests are not properly supported.
+                            if response.status_code in (204, 405, 500) or (response.status_code == 302 and '404' in response.headers['Location']):
+                                response = requests.get(url, headers=headers, stream=True, **arguments)
                             if response.status_code != 200:
                                 print('%d %s' % (response.status_code, url))
                         except requests.exceptions.ConnectionError:

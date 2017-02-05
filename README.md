@@ -38,6 +38,8 @@ Load the virtual environment:
 
     workon representdata
 
+#### Maintain definition files
+
 Make the code style consistent:
 
     flake8
@@ -46,17 +48,23 @@ Check that all `definition.py` files are valid:
 
     invoke definitions
 
-Check that the source, data and license URLs work:
-
-    invoke urls
-
 Check that all data directories contain a `LICENSE.txt`:
 
     invoke licenses
 
+Check that the source, data and license URLs work:
+
+    invoke urls
+
+Find and correct the URLs in `definition.py` files. If you update a `licence_url`, you may need to update other occurrences in `LICENSE.txt`, `constants.py`, `tasks.py` and [this master spreadsheet](https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/edit#gid=0). Once all corrections are made, re-run `definitions` and `urls`.
+
+If you update a `data_url`, update its shapefile, `name_func` and `id_func` by following the instructions in the next sections.
+
+#### Download shapefiles
+
 Update a specific out-of-date shapefile. This task updates the `last_updated` date in the `definition.py` file:
 
-    invoke shapefiles --base=boundaries/ocd-division/country:ca/province:qc
+    invoke shapefiles --base=boundaries/ocd-division/country:ca/province:qc/2011
 
 Or, update all out-of-date shapefiles. The output may contain additional instructions:
 
@@ -66,6 +74,22 @@ Some shapefiles are online but require exceptional processing. Remember to updat
 
     esri-dump http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0 > boundaries/ca_nb_wards/wards.geojson
     ogr2ogr -f "ESRI Shapefile" boundaries/ca_nb_wards boundaries/ca_nb_wards/wards.geojson
+
+#### Process shapefiles
+
+Get information about the shapefile:
+
+    ogrinfo -al -geom=NO boundaries/ocd-division/country:ca/province:qc/2011
+
+Determine the attribute for the feature's name and, if it exists, the attribute for the feature's public identifier.
+
+For features that are numbered like "Ward 1", if there is no attribute for the numeric identifier, we can extract it from the name, like `id_func=lambda f: re.sub(r'\D', '', f.get('WARD'))`. Similarly, if there is no attribute for the name, we can build it from the numeric identifier, like `name_func=lambda f: 'Ward %s' % f.get('WARD')`.
+
+For features that aren't numbered like "Ward 1", determining the public identifier may be tricky: the ID should be discoverable online; no two features should have the same ID; and `OBJECTID` is never the ID.
+
+Read [this section](https://github.com/opennorth/represent-boundaries/blob/master/definition.example.py#L51-L76) of the example `definition.py` file for help writing a `name_func` and `id_func`.
+
+#### Cleanup
 
 Fix file permissions:
 
