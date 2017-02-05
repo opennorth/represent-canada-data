@@ -1,9 +1,1 @@
-Distributed with permission from the Government of British Columbia.  Please direct licensing inquiries and requests to:
-
-Kevin Pangman
-GIS Cartographer
-Elections BC
-Tel: 1-250-356-2711
-Fax: 1-250-387-3578
-Toll free: 1-800-661-8683
-Kevin.Pangman@elections.bc.ca
+I. Terms of Use. Contains information licenced under the Elections BC Open Data Licence (http://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf).
