@@ -10,7 +10,7 @@ def namer(f):
     return boundaries.clean_attr('DIST_NAME')(f) or boundaries.clean_attr('Elec_Distr')(f)
 
 
-boundaries.register('Newfoundland and Labrador electoral districts',  # 2015
+boundaries.register('Newfoundland and Labrador electoral districts',  # (2015)
     singular='Newfoundland and Labrador electoral district',
     domain='Newfoundland and Labrador',
     last_updated=date(2016, 1, 7),
