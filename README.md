@@ -1,22 +1,20 @@
 # Represent API: Data
 
-[Represent](https://represent.opennorth.ca/) is the open database of Canadian elected officials and electoral districts. It provides a [REST API](https://represent.opennorth.ca/api/) to boundary, representative, and postcode resources.
+[Represent](https://represent.opennorth.ca/) is the open database of Canadian elected officials and electoral districts. It provides an [API](https://represent.opennorth.ca/api/) to boundary, representative, and postcode resources.
 
 This repository stores the digital boundary files for the database. The [represent-canada](https://github.com/opennorth/represent-canada) repository is what's running at [represent.opennorth.ca](https://represent.opennorth.ca/).
 
 ## License
 
-Open North has permission to redistribute all datasets in this repository. Please read the [overall license](https://github.com/opennorth/represent-canada-data/tree/master/LICENSE.txt) and the `LICENSE.txt` file in each directory to know your rights. In some cases, you will not have permission to redistribute the dataset.
+Open North has permission to redistribute all shapefiles in this repository. Please read the [overall license](https://github.com/opennorth/represent-canada-data/tree/master/LICENSE.txt) and the `LICENSE.txt` file in each directory to know your rights. In some cases, you will not have permission to redistribute the shapefile.
 
-## Data Quality
+## Completeness
 
-### Lineage
+Open North lacks permission to redistribute the shapefiles of some boundary sets in the API. Refer to the `source_url`, `licence_url` and `data_url` of those boundary sets to get copies of those shapefiles.
 
-All datasets are from government sources, with one exception: the postal code<sup>OM</sup> dataset in the `postcodes/fed` directory is from [Geocoder.ca](http://geocoder.ca/). ([Canada Post has sued Geocoder.ca](http://geocoder.ca/?sued=1) for distributing this file.) The `definition.py` files will have more details on sources and any modifications made to the files. Postal Code<sup>OM</sup> is an official mark of Canada Post Corporation.
+## Provenance
 
-### Completeness
-
-We do not have permission to redistribute every dataset available through the [Represent API](https://represent.opennorth.ca/api/). For example, we do not have permission from the Government of Ontario to distribute its [boundary file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/Shapefile.htm) and [postal code<sup>OM</sup> concordance file](http://www.elections.on.ca/en-CA/Tools/ElectoralDistricts/PostalCodeFile.htm) (no longer available). You must download these files separately from Elections Ontario. You may then use the `definition.py` file we provide to load it into the database.
+All datasets are from government sources, with one exception: the postal code<sup>OM</sup> dataset in the `postcodes/fed` directory is from [Geocoder.ca](http://geocoder.ca/). The `definition.py` files will have more details on sources and any modifications made to the files. Postal Code<sup>OM</sup> is an official mark of Canada Post Corporation.
 
 ## Maintenance
 
@@ -24,13 +22,21 @@ We do not have permission to redistribute every dataset available through the [R
 
     # Invoke must not be installed globally.
     pip uninstall invoke
+
     # Create a virtual environment.
     mkvirtualenv representdata
+
     # Install the requirements.
-    pip install -r requirements.txt
+    pip install -r requirements.txt flake8
     npm install -g esri-dump
 
 ### Regular tasks
+
+For all the following commands, add `--base=path/to/private/data` to run then on the private repository.
+
+Make the code style consistent:
+
+    flake8
 
 Load the virtual environment:
 
