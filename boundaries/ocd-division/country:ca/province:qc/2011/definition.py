@@ -5,7 +5,8 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Quebec electoral districts',
+boundaries.register('Quebec electoral districts',  # (2011)
+    singular='Quebec electoral district',
     domain='Quebec',
     last_updated=date(2012, 2, 24),
     name_func=boundaries.clean_attr('NM_CEP'),
