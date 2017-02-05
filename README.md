@@ -48,7 +48,7 @@ Check that all `definition.py` files are valid:
 
     invoke definitions
 
-Check that all data directories contain a `LICENSE.txt`:
+Check that all data directories contain a `LICENSE.txt` (don't run on the private repository):
 
     invoke licenses
 
@@ -58,7 +58,7 @@ Check that the source, data and license URLs work:
 
 Find and correct the URLs in `definition.py` files. If you update a `licence_url`, you may need to update other occurrences in `LICENSE.txt`, `constants.py`, `tasks.py` and [this master spreadsheet](https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/edit#gid=0). Once all corrections are made, re-run `definitions` and `urls`.
 
-If you update a `data_url`, update its shapefile, `name_func` and `id_func` by following the instructions in the next sections.
+If you update a `data_url`, update its shapefile, `name_func` and `id_func` following the instructions below.
 
 #### Download shapefiles
 
