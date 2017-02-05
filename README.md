@@ -1,6 +1,6 @@
 # Represent API: Data
 
-[Represent](https://represent.opennorth.ca/) is the open database of Canadian elected officials and electoral districts. It provides an [API](https://represent.opennorth.ca/api/) to boundary, representative, and postcode resources.
+[Represent](https://represent.opennorth.ca/) is the open database of Canadian elected officials and electoral districts. It provides a [REST API](https://represent.opennorth.ca/api/) to boundary, representative, and postcode resources.
 
 This repository stores the digital boundary files for the database. The [represent-canada](https://github.com/opennorth/represent-canada) repository is what's running at [represent.opennorth.ca](https://represent.opennorth.ca/).
 
@@ -34,13 +34,13 @@ All datasets are from government sources, with one exception: the postal code<su
 
 For all the following commands, add `--base=path/to/private/data` to run then on the private repository.
 
-Make the code style consistent:
-
-    flake8
-
 Load the virtual environment:
 
     workon representdata
+
+Make the code style consistent:
+
+    flake8
 
 Check that all `definition.py` files are valid:
 
