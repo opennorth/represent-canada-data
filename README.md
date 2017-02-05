@@ -54,7 +54,7 @@ Check that all data directories contain a `LICENSE.txt`:
 
     invoke licenses
 
-Update a specific out-of-date shapefile:
+Update a specific out-of-date shapefile. This task updates the `last_updated` date in the `definition.py` file:
 
     invoke shapefiles --base=boundaries/ocd-division/country:ca/province:qc
 
