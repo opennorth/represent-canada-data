@@ -17,7 +17,8 @@ def namer(f):
     return mappings.get(n, n)
 
 
-boundaries.register('Federal electoral districts',
+boundaries.register('Federal electoral districts',  # (2013 Representation Order)
+    singular='Federal electoral district',
     domain='Canada',
     last_updated=date(2016, 6, 3),
     name_func=namer,
@@ -29,5 +30,5 @@ boundaries.register('Federal electoral districts',
     data_url='http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/shp_eng/fed_cf_CA_2_1_shp_en.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca'},
-    notes='Merge electoral districts with multiple features into single features (Brandon—Souris, Courtenay—Alberni, Gaspésie—Les Îles-de-la-Madeleine, Halifax, Manicouagan, Selkirk—Interlake—Eastman).',
+    notes='Load the shapefile manually:\nfab ohoh update_boundaries:args="--merge union -d data/shapefiles/public/boundaries/ocd-division/country:ca/2013"',
 )
