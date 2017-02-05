@@ -23,6 +23,7 @@ from invoke import run, task
 from rfc6266 import parse_headers
 
 from constants import (
+    more_open_data_licenses,
     some_rights_reserved_licenses,
     all_rights_reserved_licenses,
     all_rights_reserved_terms_re,
@@ -408,7 +409,7 @@ def definitions(base='.'):
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
     open_data_licenses = set(filter(None, (row['License URL'] for row in reader)))
-    open_data_licenses.add('http://www.electionspei.ca/apilicense')
+    open_data_licenses.extend(more_open_data_licenses)
 
     seen = set()
     division_ids = set()

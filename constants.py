@@ -3,6 +3,11 @@ from __future__ import unicode_literals
 
 import re
 
+more_open_data_licenses = [
+    'http://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf',
+    'http://www.electionspei.ca/apilicense',
+]
+
 some_rights_reserved_licenses = [
     'http://mli2.gov.mb.ca/app/register/app/index.php',  # no commercial redistribution
     'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',  # per CIPPIC
@@ -29,6 +34,8 @@ terms = {
     # Open Government Licence wording.
     'http://data.brantford.opendata.arcgis.com/':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Brantford (http://data.brantford.opendata.arcgis.com/).',
+    'http://geonb.snb.ca/documents/license/geonb-odl_en.pdf':
+    'I. Terms of Use. Contains information licenced under the GeoNB Open Data Licence (http://geonb.snb.ca/documents/license/geonb-odl_en.pdf).',
     'http://novascotia.ca/opendata/licence.asp':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Nova Scotia (http://novascotia.ca/opendata/licence.asp).',
     'http://oakville.ca/data/open_data_licence.html':
@@ -41,6 +48,8 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Ottawa (http://ottawa.ca/en/city-hall/get-know-your-city/open-data#open-data-licence-version-2-0).',
     'http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – County of Grande Prairie (http://www.countygp.ab.ca/EN/main/community/maps-gis/open-data/open-data-licence.html).',
+    'http://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf':
+    'I. Terms of Use. Contains information licenced under the Elections BC Open Data Licence (http://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf).',
     'http://www.halifax.ca/opendata/OD_TermsOfUse.php':
     'I. Terms of Use. Contains information licenced under the Open Government Licence - Halifax (http://www.halifax.ca/opendata/OD_TermsOfUse.php).',
     'http://www.nanaimo.ca/EN/main/departments/106/DataCatalogue/Licence.html':
@@ -49,6 +58,8 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence - Town of Newmarket (http://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf).',
     'http://www.regina.ca/residents/open-government/open-government-licence/':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Regina (http://www.regina.ca/residents/open-government/open-government-licence/).',
+    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD':
+    'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD).',
     'http://www2.gnb.ca/content/dam/gnb/Departments/gs-sg/pdf/OpenDataPolicy.pdf':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – New Brunswick (http://www2.gnb.ca/content/dam/gnb/Departments/gs-sg/pdf/OpenDataPolicy.pdf).',
     'https://data.calgary.ca/stories/s/u45n-7awa':
@@ -57,8 +68,6 @@ terms = {
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Strathcona County (https://data.strathcona.ca/licence).',
     'https://data.winnipeg.ca/open-data-licence':
     'I. Terms of Use. Contains information licensed under the Open Government Licence – Winnipeg (https://data.winnipeg.ca/open-data-licence).',
-    'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD':
-    'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=4a37e03bb8d1e310VgnVCM10000071d60f89RCRD).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland':
     'I. Terms of Use. Contains information licensed under the Open Government Licence — City of Welland (https://niagaraopendata.ca/pages/open-government-license-2-0-city-of-welland).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-grimsby':
