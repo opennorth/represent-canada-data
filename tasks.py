@@ -682,7 +682,7 @@ def shapefiles(base='.'):
 @task
 def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     sgc_code_to_ocdid_map = sgc_code_to_ocdid()
-    records = OrderedDict()
+    expecteds = OrderedDict()
 
     reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_municipal_subdivisions-has_children.csv')
     next(reader)
@@ -705,7 +705,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
     next(reader)
     for row in reader:
-        records[row[0]] = {
+        expecteds[row[0]] = {
             'OCD': row[0],
             'Geographic name': row[1],
             'Geographic type': '',
@@ -719,7 +719,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             'Last boundary': '',
             'Next boundary': '',
             'Permission to distribute': '',
-            'Highrise URL': '',
             'Response notes': '',
         }
 
@@ -741,7 +740,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
 
             division_id = sgc_code_to_ocdid_map[row[0]]
 
-            record = {
+            expected = {
                 'OCD': division_id,
                 'Geographic name': name,
                 'Province or territory': province_or_territory,
@@ -754,22 +753,21 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                 'Last boundary': '',
                 'Next boundary': '',
                 'Permission to distribute': '',
-                'Highrise URL': '',
                 'Response notes': '',
             }
 
             if row[0] in municipal_subdivisions:
                 if municipal_subdivisions[row[0]] == 'N':
                     for header in ['Shapefile?'] + request_headers + receipt_headers:
-                        record[header] = 'N/A'
+                        expected[header] = 'N/A'
                 elif municipal_subdivisions[row[0]] == 'Y':
-                    record['Shapefile?'] = 'Request'
+                    expected['Shapefile?'] = 'Request'
                 elif municipal_subdivisions[row[0]] == '?':
-                    record['Shapefile?'] = ''
+                    expected['Shapefile?'] = ''
             else:
-                record['Shapefile?'] = ''
+                expected['Shapefile?'] = ''
 
-            records[division_id] = record
+            expecteds[division_id] = expected
         else:
             break
 
@@ -779,28 +777,30 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         for slug, config in registry(directory).items():
             if 'extra' in config:
                 division_id = config['extra']['division_id']
-                if division_id in records:
+                if division_id in expecteds:
                     license_path = os.path.join(dirname(config['file']), 'LICENSE.txt')
                     license_text = ''
                     if os.path.exists(license_path):
                         with open(license_path) as f:
                             license_text = f.read().rstrip('\n')
 
-                    record = records[division_id]
-                    record['Shapefile?'] = 'Y'
-                    record['Permission to distribute'] = permission_to_distribute
+                    expected = expecteds[division_id]
+                    expected['Shapefile?'] = 'Y'
+                    expected['Permission to distribute'] = permission_to_distribute
 
-                    if 'last_updated' in config:
-                        record['Last boundary'] = config['last_updated'].strftime('%-m/%-d/%Y')
+                    if 'data_url' in config:
+                        expected['Last boundary'] = 'N/A'
+                    elif 'last_updated' in config:
+                        expected['Last boundary'] = config['last_updated'].strftime('%-m/%-d/%Y')
 
                     if 'source_url' in config:
-                        record['Contact'] = 'N/A'
-                        record['Received via'] = 'online'
+                        expected['Contact'] = 'N/A'
+                        expected['Received via'] = 'online'
                     else:
                         match = all_rights_reserved_terms_re.search(license_text)
                         if match:
-                            record['Contact'] = match.group(1)
-                        record['Received via'] = 'email'
+                            expected['Contact'] = match.group(1)
+                        expected['Received via'] = 'email'
                 # The spreadsheet doesn't track borough boundaries.
                 elif '/borough:' not in division_id:
                     sys.stderr.write('%-25s no record\n' % division_id)
@@ -810,35 +810,35 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     response = requests.get('https://docs.google.com/spreadsheets/d/1ihCIDc9EtvxF7kzPg3Yk6e928DN7JzaycH92IBYr0QU/pub?gid=25&single=true&output=csv')
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
-    for row in reader:
-        record = records[row['OCD']]
+    for actual in reader:
+        expected = expecteds[actual['OCD']]
 
-        for key in row:
-            a = record[key]
-            b = row[key]
+        for key in actual:
+            e = expected[key]
+            a = actual[key]
 
-            if a != b:
-                if b and (
+            if e != a:
+                if a and (
                     # Columns that are always tracked manually.
-                   (key in ('Highrise URL', 'Request notes', 'Next boundary', 'Response notes')) or
+                   (key in ('Request notes', 'Next boundary', 'Response notes')) or
                    # Scrapers for municipalities without wards are tracked manually.
-                   (key == 'Shapefile?'       and not a         and b in ('Request', 'Requested')) or  # noqa
+                   (key == 'Shapefile?'       and not e          and a in ('Request', 'Requested')) or  # noqa
                    # In-progress requests are tracked manually.
-                   (key == 'Shapefile?'       and a == 'Request'and b == 'Requested') or  # noqa
+                   (key == 'Shapefile?'       and e == 'Request' and a == 'Requested') or  # noqa
                    # Contacts for in-progress requests and private data are tracked manually.
-                   (key == 'Contact'          and not a         and (row['Shapefile?'] == 'Requested' or record['Permission to distribute'] == 'N')) or  # noqa
+                   (key == 'Contact'          and not e          and (actual['Shapefile?'] == 'Requested' or expected['Permission to distribute'] == 'N')) or  # noqa
                    # We may have a contact to confirm the nonexistence of municipal subdivisions.
-                   (key == 'Contact'          and a == 'N/A'    and record['Shapefile?'] == 'N/A') or  # noqa
+                   (key == 'Contact'          and e == 'N/A'     and expected['Shapefile?'] == 'N/A') or  # noqa
                    # MFIPPA requests are tracked manually.
-                   (key == 'Received via'     and a == 'email'  and b == 'MFIPPA') or  # noqa
+                   (key == 'Received via'     and e == 'email'   and a == 'MFIPPA') or  # noqa
                    # We may have information for a bad shapefile from an in-progress request.
-                   (key in ('Received via', 'Permission to distribute') and not a and row['Shapefile?'] == 'Requested')):
-                    record[key] = b
+                   (key in ('Received via', 'Permission to distribute') and not e and actual['Shapefile?'] == 'Requested')):
+                    expected[key] = a
                 # The spreadsheet can add contacts and URLs.
-                elif key != 'Population' and (key not in ('Contact', 'URL') or a):  # separators
-                    sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, row['OCD'], a, b))
+                elif key != 'Population' and (key not in ('Contact', 'URL') or e):  # separators
+                    sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, actual['OCD'], e, a))
 
     writer = csv.writer(sys.stdout)
     writer.writerow(headers)
-    for _, record in records.items():
-        writer.writerow([record[header] for header in headers])
+    for _, expected in expecteds.items():
+        writer.writerow([expected[header] for header in headers])

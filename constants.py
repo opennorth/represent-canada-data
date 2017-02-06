@@ -180,7 +180,6 @@ municipal_subdivisions = {
 
 request_headers = [
     'Contact',
-    'Highrise URL',
     'Request notes',
     'Received via',
 ]
