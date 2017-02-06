@@ -321,68 +321,6 @@ def permissions(base='.'):
                 os.chmod(path, stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
 
 
-# @see http://ben.balter.com/2013/06/26/how-to-convert-shapefiles-to-geojson-for-use-on-github/
-@task
-def topojson(base='.', output_base='./topojson'):
-    sgc_code_to_ocdid_map = sgc_code_to_ocdid()
-    ocdid_to_name_map = ocdid_to_name()
-    readme = defaultdict(lambda: defaultdict(list))
-    if 'private' in base:
-        repository = 'represent-canada-private-data'
-    else:
-        repository = 'represent-canada-data'
-
-    for slug, config in registry(base).items():
-        if 'fed/cd' not in config['file'] and 'fed/csd' not in config['file']:  # files are too large for GitHub
-            shp_file_path = config['file']
-            directory = dirname(config['file'])
-            name = directory + '_' + slugify(slug)
-            basename = os.path.join(output_base, re.sub('[_/-]+', '_', re.sub('^/|/$', '', re.sub('^' + re.escape(base), '', name))))
-            topo_json_path = basename + '.topojson'
-            if not os.path.exists(topo_json_path):
-                geo_json_path = basename + '.geojson'
-                if not os.path.exists(geo_json_path):
-                    run('ogr2ogr -f "GeoJSON" -t_srs EPSG:4326 "%s" "%s"' % (geo_json_path, shp_file_path), echo=True)
-                run('topojson -o %s %s' % (topo_json_path, geo_json_path), echo=True)
-
-            division_id = config['extra']['division_id']
-            if os.stat(topo_json_path).st_size > 10485760:  # 10MB
-                suffix = ' (too large to preview)'
-            else:
-                suffix = ''
-
-            item = (
-                slug,
-                '* [%s](https://github.com/opennorth/%s/blob/master/topojson/%s#files): [API](https://represent.opennorth.ca/boundaries/%s/?limit=0)%s\n' % (
-                    slug,
-                    repository,
-                    os.path.basename(topo_json_path),
-                    slugify(slug),
-                    suffix
-                )
-            )
-
-            match = re.search('\Aocd-division/country:ca/csd:(\d+)', division_id)
-            if match:
-                readme[ocdid_to_name_map[sgc_code_to_ocdid_map[match.group(1)[:2]]]]['lower'].append(item)
-            else:
-                readme[ocdid_to_name_map[division_id]]['upper'].append(item)
-
-    with open(os.path.join(output_base, 'README.md'), 'w') as f:
-        f.write('# Represent API: TopoJSON\n')
-        items = readme.pop('Canada', None)
-        if items:
-            f.write('\n## Canada\n\n')
-            for part in ('upper', 'lower'):
-                for slug, markdown in sorted(items[part]):
-                    f.write(markdown)
-        for name, items in sorted(readme.items()):
-            f.write('\n## %s\n\n' % name)
-            for part in ('upper', 'lower'):
-                for slug, markdown in sorted(items[part]):
-                    f.write(markdown)
-
-
 @task
 def definitions(base='.'):
     """
