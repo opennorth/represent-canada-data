@@ -8,7 +8,7 @@ import boundaries
 
 def namer(f):
     import boundaries
-    return = boundaries.clean_attr('ENNAME')(f).replace('\u0092', "'")
+    return boundaries.clean_attr('ENNAME')(f).replace('\u0092', "'")
 
 
 boundaries.register('Federal electoral districts',  # (2013 Representation Order)
