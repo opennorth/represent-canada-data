@@ -637,13 +637,15 @@ def shapefiles(base='.'):
                     process(slug, config, url, data_file_path)
             else:
                 # Get the last modified timestamp.
-                arguments = {'allow_redirects': True}
+                arguments = {}
                 if result.username:
                     url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
                     arguments['auth'] = (result.username, result.password)
                 response = requests.head(url, headers=headers, **arguments)
-                if response.status_code == 405:  # if HEAD requests are not allowed
-                    response = requests.get(url, headers=headers, **arguments)
+                # If HEAD requests are not properly supported.
+                if response.status_code in (204, 405, 500) or (response.status_code == 302 and '404' in response.headers['Location']):
+                    response = requests.get(url, headers=headers, stream=True, **arguments)
+
                 last_modified = response.headers.get('last-modified')
 
                 # Parse the timestamp as a date.
