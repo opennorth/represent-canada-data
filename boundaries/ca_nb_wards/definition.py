@@ -46,19 +46,20 @@ for geographic_code, (name, machine_name) in sets.items():
         notes='Compare the subdivisions in boundaries/ca_nb_wards/definition.py to:\nogrinfo -al -geom=NO boundaries/ca_nb_wards | grep " MUN_NAME" | sort | uniq | cut -d= -f 2',
     )
 
-boundaries.register('Beresford wards',
-    domain='Beresford, NB',
-    last_updated=date(2014, 3, 24),
-    name_func=lambda f: 'Ward B' if f.get('OBJECTID') == 52 else 'Ward A',
-    id_func=lambda f: 'B' if f.get('OBJECTID') == 52 else 'A',
-    authority='Her Majesty the Queen in Right of New Brunswick',
-    source_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0',
-    licence_url='http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
-    data_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0',
-    encoding='iso-8859-1',
-    extra={'division_id': 'ocd-division/country:ca/csd:1315015'},
-    is_valid_func=lambda f: f.get('MUN_NAME') == 'Beresford',
-)
+# Beresford was present in 2014-03-24, not in 2017-02-06.
+# boundaries.register('Beresford wards',
+#     domain='Beresford, NB',
+#     last_updated=date(2014, 3, 24),
+#     name_func=lambda f: 'Ward B' if f.get('OBJECTID') == 52 else 'Ward A',
+#     id_func=lambda f: 'B' if f.get('OBJECTID') == 52 else 'A',
+#     authority='Her Majesty the Queen in Right of New Brunswick',
+#     source_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0',
+#     licence_url='http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
+#     data_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0',
+#     encoding='iso-8859-1',
+#     extra={'division_id': 'ocd-division/country:ca/csd:1315015'},
+#     is_valid_func=lambda f: f.get('MUN_NAME') == 'Beresford',
+# )
 
 boundaries.register('Grand Falls wards',
     domain='Grand Falls, NB',
