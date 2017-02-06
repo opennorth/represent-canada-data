@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Greater Sudbury wards',
     domain='Greater Sudbury, ON',
-    last_updated=date(2016, 7, 26),
+    last_updated=date(2016, 8, 12),
     name_func=lambda f: 'Ward %s' % f.get('WardNumber'),
     id_func=boundaries.attr('WardNumber'),
     authority='City of Greater Sudbury',

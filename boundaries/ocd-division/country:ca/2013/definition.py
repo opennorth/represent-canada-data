@@ -8,19 +8,13 @@ import boundaries
 
 def namer(f):
     import boundaries
-    n = boundaries.clean_attr('ENNAME')(f).replace('\x97', '—').replace("\u0092", "'")  # m-dash
-
-    mappings = {
-        'Gaspsie—Les les-de-la-Madeleine': 'Gaspésie—Les Îles-de-la-Madeleine',
-    }
-
-    return mappings.get(n, n)
+    return = boundaries.clean_attr('ENNAME')(f).replace('\u0092', "'")
 
 
 boundaries.register('Federal electoral districts',  # (2013 Representation Order)
     singular='Federal electoral district',
     domain='Canada',
-    last_updated=date(2016, 6, 3),
+    last_updated=date(2016, 6, 6),
     name_func=namer,
     id_func=boundaries.attr('FEDNUM'),
     slug_func=boundaries.attr('FEDNUM'),

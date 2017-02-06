@@ -63,7 +63,7 @@ sets = {
 for fragment, (name, machine_name, type) in sets.items():
     boundaries.register('%s %ss' % (name, type),
         domain=name if ', NS' in name else '%s, NS' % name,
-        last_updated=date(2017, 2, 4),
+        last_updated=date(2017, 2, 6),
         name_func=lambda f: '%s %s' % (type.capitalize(), re.sub(r'^\D+0?', '', f.get('poll_dist'))),
         id_func=lambda f: re.sub(r'^\D+0?', '', f.get('poll_dist')),
         authority='Her Majesty the Queen in Right of Nova Scotia',

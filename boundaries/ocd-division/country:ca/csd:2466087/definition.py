@@ -7,9 +7,7 @@ import boundaries
 
 
 def ider(f):
-    """
-    http://www.ville.dorval.qc.ca/en/downloads/pdf/Map_Electoral_Districts.pdf
-    """
+    # http://www.ville.dorval.qc.ca/en/downloads/pdf/Map_Electoral_Districts.pdf
     return {
         'Désiré-Girouard': '1',
         'La Présentation': '2',
@@ -22,7 +20,7 @@ def ider(f):
 
 boundaries.register('Dorval districts',
     domain='Dorval, QC',
-    last_updated=date(2013, 10, 6),
+    last_updated=date(2016, 1, 13),
     name_func=boundaries.attr('NOM_DISTRI'),
     id_func=ider,
     authority='Ville de Montréal',

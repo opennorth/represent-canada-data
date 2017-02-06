@@ -6,7 +6,7 @@ import boundaries
 
 boundaries.register('Oakville wards',
     domain='Oakville, ON',
-    last_updated=date(2014, 4, 23),
+    last_updated=date(2016, 4, 1),
     name_func=boundaries.attr('FULL_NAME'),
     id_func=boundaries.attr('WARD'),
     authority='Town of Oakville',

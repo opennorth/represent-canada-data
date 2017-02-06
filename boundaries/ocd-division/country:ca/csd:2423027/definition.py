@@ -9,7 +9,7 @@ import boundaries
 # @see http://www.mamrot.gouv.qc.ca/repertoire-des-municipalites/fiche/arrondissement/?tx_mamrotrepertoire_pi1[order]=asc_nom_mun
 boundaries.register('Québec boroughs',
     domain='Québec, QC',
-    last_updated=date(2016, 8, 6),
+    last_updated=date(2017, 2, 6),
     name_func=lambda f: f.get('NOM').replace('?', '—'),  # m-dash
     id_func=boundaries.attr('CODE'),
     authority='Ville de Québec',

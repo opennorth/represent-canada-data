@@ -6,9 +6,9 @@ import boundaries
 
 boundaries.register('Calgary wards',
     domain='Calgary, AB',
-    last_updated=date(2016, 8, 6),
+    last_updated=date(2017, 2, 6),
     name_func=boundaries.clean_attr('LABEL'),
-    id_func=boundaries.attr('WARD_NUM'),
+    id_func=lambda f: int(f.get('WARD_NUM')),
     authority='City of Calgary',
     source_url='https://data.calgary.ca/Base-Maps/Ward-Boundaries/r9vx-mhnf',
     licence_url='https://data.calgary.ca/stories/s/u45n-7awa',
