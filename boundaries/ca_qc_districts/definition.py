@@ -7,6 +7,7 @@ from datetime import date
 import boundaries
 
 # Some municipalities have holes for indian reserves and settlements.
+# Based on correspondence with Isabelle Wergifosse <IWergifosse@dgeq.qc.ca> (2014-03-25).
 indian_reserves_and_settlements = {
     72032: [72802],  # Oka: Kanesatake
     90012: [90801, 90802, 90804],  # La Tuque: Coucoucache, Wemotaci, Obedjiwan
@@ -466,4 +467,5 @@ for municipality in municipalities_with_boroughs:
             encoding='iso-8859-1',
             extra={'division_id': division_id},
             is_valid_func=lambda f, geographic_code=geographic_code, machine_name=machine_name: int(f.get('CO_MUNCP')) == geographic_code and f.get('NMTRI_ARON') == machine_name,
+            notes='Load the shapefile manually:\nfab ohoh update_boundaries:args="--merge union -d data/shapefiles/public/boundaries/ca_qc_districts"',
         )
