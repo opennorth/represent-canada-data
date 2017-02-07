@@ -119,11 +119,9 @@ Or less verbose:
 
 #### Postcode concordances
 
-Each data directory under [concordances/](concordances/) has a README explaining how to source and update its concordances.
+Each data directory under [concordances/](concordances/) has a README explaining how to source and update its concordances. If the concordances are more than a year old and can't be sourced, they should be removed. To do so, substitute the corresponding values in the above READMEs for `<slug>` and `<source>`:
 
-To remove concordances, replace `<source>` in the following command with one or `gnb.ca`, `gov.nl.ca` or `electionsquebec.qc.ca`:
-
-    fab ohoh update_concordances:args="<source> data/shapefiles/public/concordances/empty.csv"
+    fab ohoh update_concordances:args="<slug> <source> data/shapefiles/public/concordances/empty.csv"
 
 #### Postcodes
 
