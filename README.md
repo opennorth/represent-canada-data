@@ -81,6 +81,8 @@ Some shapefiles are online but require exceptional processing. Remember to updat
     esri-dump http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0 > boundaries/ca_nb_wards/wards.geojson
     ogr2ogr -f "ESRI Shapefile" boundaries/ca_nb_wards boundaries/ca_nb_wards/wards.geojson
 
+If you're updating `ca_qc_districts` or `ca_qc_boroughs`, [read this wiki page](https://github.com/opennorth/represent-canada/wiki/QC-municipal-divisions).
+
 #### Process shapefiles
 
 Get information about the shapefile:

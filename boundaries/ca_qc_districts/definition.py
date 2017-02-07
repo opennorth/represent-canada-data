@@ -292,7 +292,9 @@ def namer(f):
     import boundaries
     code = f.get('CO_MUNCP')
     name = f.get('NM_DIS')
-    if code == 23027:  # Québec
+
+    # Québec
+    if code == 23027:
         return {
             'Cap-Rouge-Laurentien': 'Cap-Rouge—Laurentien',
             'La Chute-Montmorency-Seigneurial': 'La Chute-Montmorency—Seigneurial',
@@ -304,9 +306,13 @@ def namer(f):
             'Saint-Louis-Sillery': 'Saint-Louis—Sillery',
             'Saint-Roch-Saint-Sauveur': 'Saint-Roch—Saint-Sauveur',
         }.get(name, name)
-    elif code == 58227:  # Longueuil
+
+    # Longueuil
+    elif code == 58227:
         return re.sub(r"\b(?:d'|de |du |des )", '', name)
-    elif code == 66023:  # Montréal
+
+    # Montréal
+    elif code == 66023:
         return {
             "Champlain-L'Île-des-Soeurs": "Champlain—L'Île-des-Soeurs",
             "d'Ahuntsic": 'Ahuntsic',
@@ -320,18 +326,49 @@ def namer(f):
             'St-Henri-Petite-Bourgogne-Pte-St-Charles': 'Saint-Henri—Petite-Bourgogne—Pointe-Saint-Charles',
             'Étienne-Desmarteaux': 'Étienne-Desmarteau',
         }.get(name, name)
-    elif code == 66097:  # Pointe-Claire
+
+    # Pointe-Claire
+    elif code == 66097:
         return name.replace('/ ', '/')
-    elif code == 81017:  # Gatineau
+
+    # Gatineau
+    elif code == 81017:
         return {
             'de Hull-Val-Tétreau': 'de Hull—Val-Tétreau',
             'de Saint-Raymond-Vanier': 'de Saint-Raymond—Vanier',
             'de Wright-Parc-de-la-Montagne': 'Wright—Parc-de-la-Montagne',
             'du Plateau-Manoir-des-Trembles': 'du Plateau—Manoir-des-Trembles',
         }.get(name, name)
+
+    # Coucoucache
+    elif code == 90801:
+        return 'La Croche'
+
+    # Wemotaci
+    elif code == 90802:
+        return 'La Croche'
+
+    # Obedjiwan
+    elif code == 90804:
+        return 'Parent'
+
+    # Uashat
+    elif code == 97802:
+        if int(f.get('NO_DIS')) == 3:
+            return "de l'Anse"
+        else:
+            return 'de Marie-Immaculée'
+
+    # Maliotenam
+    elif code == 97804:
+        return 'Moisie-Les Plages'
+
     else:
         if name:
-            return boundaries.clean_attr('NM_DIS')(f)
+            if 'District no ' in name:
+                return f.get('NM_DIS').replace(' no ', ' ')  # Baie-Saint-Paul
+            else:
+                return boundaries.clean_attr('NM_DIS')(f)
         elif f.get('MODE_SUFRG') == 'Q':
             return 'Quartier %s' % int(f.get('NO_DIS'))
         else:
