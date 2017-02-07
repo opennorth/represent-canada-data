@@ -117,6 +117,18 @@ Or less verbose:
 
     invoke spreadsheet --base=. --private-base=../represent-canada-data-private > /dev/null
 
+#### Postcode concordances
+
+Each data directory under [concordances/](concordances/) has a README explaining how to source and update its concordances.
+
+To remove concordances, replace `<source>` in the following command with one or `gnb.ca`, `gov.nl.ca` or `electionsquebec.qc.ca`:
+
+    fab ohoh update_concordances:args="<source> data/shapefiles/public/concordances/empty.csv"
+
+#### Postcodes
+
+Each data directory under [postcodes/](postcodes/) has a README explaining how to source and update its postcodes.
+
 ## Contact
 
 Please use [GitHub Issues](https://github.com/opennorth/represent-canada-data/issues) for bug reports. You may also contact [represent@opennorth.ca](mailto:represent@opennorth.ca).
