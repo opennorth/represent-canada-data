@@ -81,7 +81,13 @@ Some shapefiles are online but require exceptional processing. Remember to updat
     esri-dump http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0 > boundaries/ca_nb_wards/wards.geojson
     ogr2ogr -f "ESRI Shapefile" boundaries/ca_nb_wards boundaries/ca_nb_wards/wards.geojson
 
-If you're updating `ca_qc_districts` or `ca_qc_boroughs`, [read this wiki page](https://github.com/opennorth/represent-canada/wiki/QC-municipal-divisions).
+After receiving a new boundary file for all municipalities in Quebec, you need to update the `definition.py` file in `ca_qc_districts`.
+
+* Run `ruby boundaries/ca_qc_districts/sets.rb`
+* Copy the output into the appropriate section of `qc/districts/definition.py`
+* Comment out jurisdictions for which other sources have more complete data (Dorval, Kirkland)
+* Separately define the boundaries of jurisdictions whose names duplicate others' (Plessisville (32045))
+* After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular.
 
 #### Process shapefiles
 
