@@ -3,25 +3,37 @@ from __future__ import unicode_literals
 
 import re
 
-more_open_data_licenses = [
+"""
+Supplement the master open data catalog spreadsheet, so that the definitions
+task performs the correct test for the license.
+"""
+more_licenses_with_templates = [
+    # Open data licenses.
     'http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
     'http://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf',
     'http://www.electionspei.ca/apilicense',
-]
-
-some_rights_reserved_licenses = [
+    # Some rights reserved.
     'http://mli2.gov.mb.ca/app/register/app/index.php',  # no commercial redistribution
     'http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',  # per CIPPIC
     'https://www.geosask.ca/Portal/jsp/terms_popup.jsp',  # per CIPPIC
 ]
 
+"""
+"All rights reserved" licenses.
+"""
 all_rights_reserved_licenses = [
     'http://opendata-saskatoon.cloudapp.net/TermsOfUse/TermsOfUse',  # open data license pending
     'http://www.elections.on.ca/en/voting-in-ontario/electoral-districts/electoral-districts--maps--shapefiles-and-street-index-guide/limited-use-data-product-licence-agreement.html',  # per CIPPIC
 ]
 
+"""
+The template for "All rights reserved" licenses.
+"""
 all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+?.  Please direct licensing inquiries and requests to:\n\n(.+)', re.MULTILINE | re.DOTALL)
 
+"""
+The exact templates for other licenses.
+"""
 terms = {
     # @see https://www.cippic.ca/sites/default/files/CIPPIC%20-%20How%20to%20Redistribute%20Open%20Data.pdf
     'http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf': 'I. Terms of Use. This work is provided under the terms of “City of Windsor – Terms of Use” (http://www.citywindsor.ca/opendata/Documents/OpenDataTermsofUse.pdf).  Any use of the work other than as authorized under these terms is strictly prohibited.',
@@ -105,6 +117,9 @@ terms = {
     '© 2001 Her Majesty the Queen in Right of Manitoba, as represented by the Minister of Conservation. All rights reserved. Distributed under the terms of the Manitoba Land Initiative Terms and Conditions of Use (http://mli2.gov.mb.ca//app/register/app/index.php).',
 }
 
+"""
+The fuzzy templates for other licenses.
+"""
 terms_re = {
     # Creative Commons.
     'http://donnees.ville.quebec.qc.ca/licence.aspx': re.compile("\AI\. Terms of Use\. This material is licensed under a Creative Commons Attribution 4\.0 International License\. To view a copy of this license, visit http://creativecommons\.org/licenses/by/4\.0/legalcode\. It is attributed to .+, and the original version can be found at .+\.\Z"),
@@ -112,6 +127,9 @@ terms_re = {
     'https://www.geosask.ca/Portal/jsp/terms_popup.jsp': re.compile("\AAttribution: (Source|Adapted from): Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan, [^.]+\. The incorporation of data sourced from Her Majesty In Right Of Saskatchewan and/or Information Services Corporation of Saskatchewan, within this product shall not be construed as constituting an endorsement by Her Majesty In Right Of Saskatchewan or Information Services Corporation of Saskatchewan of such product\.\Z"),
 }
 
+"""
+Valid keys for a definition.py file.
+"""
 valid_keys = set([
     # Added by boundaries.register.
     'file',
@@ -136,11 +154,16 @@ valid_keys = set([
     'skip_crc32',
 ])
 
+"""
+Valid keys for a definition.py file's `extra` dictionary.
+"""
 valid_extra_keys = set([
     'division_id',
 ])
 
-# Authorities that are responsible for multiple shapefiles.
+"""
+Authorities that are responsible for multiple shapefiles.
+"""
 authorities = [
     'Elections Prince Edward Island',
     'Regional Municipality of Peel',
@@ -148,6 +171,10 @@ authorities = [
     'Ville de Montréal',
 ]
 
+"""
+Supplement ocd-division-ids, so that the spreadsheet task determines a correct
+value for the "Shapefile?" column.
+"""
 municipal_subdivisions = {
     # NL
     '1001542': 'N',
@@ -178,19 +205,24 @@ municipal_subdivisions = {
     '6106023': 'N',
 }
 
-request_headers = [
+"""
+CSV headers related to the request and receipt of a boundary.
+"""
+request_and_receipt_headers = [
+    # Request headers.
     'Contact',
     'Request notes',
     'Received via',
-]
-
-receipt_headers = [
+    # Receipt headers.
     'Last boundary',
     'Next boundary',
     'Permission to distribute',
     'Response notes',
 ]
 
+"""
+CSV headers to use in the spreadsheet task.
+"""
 headers = [
     'OCD',
     'Geographic name',
@@ -198,4 +230,4 @@ headers = [
     'Population',
     'URL',
     'Shapefile?',
-] + request_headers + receipt_headers
+] + request_and_receipt_headers

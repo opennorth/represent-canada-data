@@ -23,8 +23,7 @@ from invoke import run, task
 from rfc6266 import parse_headers
 
 from constants import (
-    more_open_data_licenses,
-    some_rights_reserved_licenses,
+    more_licenses_with_templates,
     all_rights_reserved_licenses,
     all_rights_reserved_terms_re,
     terms,
@@ -33,8 +32,7 @@ from constants import (
     valid_extra_keys,
     authorities,
     municipal_subdivisions,
-    request_headers,
-    receipt_headers,
+    request_and_receipt_headers,
     headers,
 )
 
@@ -343,8 +341,8 @@ def definitions(base='.'):
     response = requests.get('https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/pub?gid=0&single=true&output=csv')
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
-    open_data_licenses = set(filter(None, (row['License URL'] for row in reader)))
-    open_data_licenses.update(more_open_data_licenses)
+    licenses_with_templates = set(filter(None, (row['License URL'] for row in reader)))
+    licenses_with_templates.update(more_licenses_with_templates)
 
     seen = set()
     division_ids = set()
@@ -365,7 +363,7 @@ def definitions(base='.'):
                 license_text = f.read().rstrip('\n')
             if 'licence_url' in config:
                 licence_url = config['licence_url']
-                if licence_url in open_data_licenses or licence_url in some_rights_reserved_licenses:
+                if licence_url in licenses_with_templates:
                     if licence_url not in terms and not terms_re.get(licence_url):
                         warn('No LICENSE.txt template for License URL %s' % licence_url, slug)
                     elif licence_url in terms and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
@@ -758,7 +756,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
 
             if row[0] in municipal_subdivisions:
                 if municipal_subdivisions[row[0]] == 'N':
-                    for header in ['Shapefile?'] + request_headers + receipt_headers:
+                    for header in ['Shapefile?'] + request_and_receipt_headers:
                         expected[header] = 'N/A'
                 elif municipal_subdivisions[row[0]] == 'Y':
                     expected['Shapefile?'] = 'Request'
