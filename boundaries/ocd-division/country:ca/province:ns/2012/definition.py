@@ -10,7 +10,7 @@ boundaries.register('Nova Scotia electoral districts',  # (2012)
     domain='Nova Scotia',
     last_updated=date(2016, 12, 8),
     name_func=boundaries.dashed_attr('ED_NAME'),
-    id_func=boundaries.attr('ED_NO'),
+    id_func=lambda f: re.sub('\A0', '', f.get('ED_NO')),
     authority='Her Majesty the Queen in Right of Nova Scotia',
     source_url='http://electionsnovascotia.ca/Current-Maps',
     data_url='http://electionsnovascotia.ca/sites/default/files/NS_2012ED_Bnds.zip',
