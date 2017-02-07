@@ -6,6 +6,15 @@ from datetime import date
 
 import boundaries
 
+# Noting that the "union" merge strategy fails with:
+#
+#     GEOS_ERROR: TopologyException: found non-noded intersection between
+#     LINESTRING (...) and LINESTRING (...)
+#
+#     django.contrib.gis.geos.error.GEOSException: Could not initialize GEOS Geometry with given input.
+#
+# So, we instead use the "combine" merge strategy.
+
 # Some municipalities have holes for indian reserves and settlements.
 # Based on correspondence with Isabelle Wergifosse <IWergifosse@dgeq.qc.ca> (2014-03-25).
 indian_reserves_and_settlements = {
@@ -340,26 +349,26 @@ def district_namer(f):
             'du Plateau-Manoir-des-Trembles': 'du Plateau—Manoir-des-Trembles',
         }.get(name, name)
 
-    # Coucoucache
+    # Coucoucache (La Tuque)
     elif code == 90801:
         return 'La Croche'
 
-    # Wemotaci
+    # Wemotaci (La Tuque)
     elif code == 90802:
         return 'La Croche'
 
-    # Obedjiwan
+    # Obedjiwan (La Tuque)
     elif code == 90804:
         return 'Parent'
 
-    # Uashat
+    # Uashat (Sept-Îles)
     elif code == 97802:
         if int(f.get('NO_DIS')) == 3:
             return "de l'Anse"
         else:
             return 'de Marie-Immaculée'
 
-    # Maliotenam
+    # Maliotenam (Sept-Îles)
     elif code == 97804:
         return 'Moisie-Les Plages'
 
@@ -531,7 +540,7 @@ for municipality in municipalities_with_boroughs:
             encoding='iso-8859-1',
             extra={'division_id': division_id},
             is_valid_func=lambda f, geographic_code=geographic_code, machine_name=machine_name: int(f.get('CO_MUNCP')) == geographic_code and f.get('NMTRI_ARON') == machine_name,
-            notes='Load the shapefile manually:\nfab ohoh update_boundaries:args="--merge union -d data/shapefiles/public/boundaries/ca_qc_districts"',
+            notes='Load the shapefile manually:\nfab ohoh update_boundaries:args="--merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
         )
 
     boundaries.register('%s boroughs' % geographic_name,
@@ -544,5 +553,5 @@ for municipality in municipalities_with_boroughs:
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/csd:24%05d' % geographic_code},
         is_valid_func=lambda f, geographic_code=geographic_code: int(f.get('CO_MUNCP')) == geographic_code,
-        notes='Load the shapefile manually:\nfab ohoh update_boundaries:args="--merge union -d data/shapefiles/public/boundaries/ca_qc_districts"',
+        notes='Load the shapefile manually:\nfab ohoh update_boundaries:args="--merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
     )
