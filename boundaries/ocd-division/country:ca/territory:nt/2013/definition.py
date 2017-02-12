@@ -4,7 +4,7 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Northwest Territories electoral districts',  # (2013)
+boundaries.register('Northwest Territories electoral districts (2013)',
     singular='Northwest Territories electoral district',
     domain='Northwest Territories',
     last_updated=date(2014, 4, 9),
