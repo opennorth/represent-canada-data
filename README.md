@@ -44,6 +44,10 @@ Load the virtual environment:
 
     workon representdata
 
+List the available maintenance tasks:
+
+    invoke -l
+
 #### Maintain definition files
 
 Make the code style consistent:
@@ -67,6 +71,10 @@ Find and correct the URLs in `definition.py` files. If you update a `licence_url
 If you update a `data_url`, update its shapefile, `name_func` and `id_func` following the instructions below.
 
 #### Download shapefiles
+
+Check for old boundaries that may require manual updates:
+
+    invoke manual
 
 Update a specific out-of-date shapefile. This task updates the `last_updated` date in the `definition.py` file:
 

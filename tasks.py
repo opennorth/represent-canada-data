@@ -8,15 +8,14 @@ import re
 import socket
 import stat
 import sys
-from collections import defaultdict, OrderedDict
-from datetime import datetime
+from collections import OrderedDict
+from datetime import date, datetime, timedelta
 from ftplib import FTP
 from glob import glob
 from zipfile import ZipFile, BadZipfile
 
 import boundaries
 import requests
-from django.template.defaultfilters import slugify
 from django.utils.six.moves.urllib.parse import urlparse
 from six import StringIO
 from invoke import run, task
@@ -36,12 +35,16 @@ from constants import (
     headers,
 )
 
+sgc_code_to_ocdid_memo = {}
+ocdid_to_name_memo = {}
+ocdid_to_type_memo = {}
+corporations_memo = {}
+
 
 def dirname(path):
     """
     Returns the directory in which a shapefile exists.
     """
-
     # GitPython can't handle paths starting with "./".
     if path.startswith('./'):
         path = path[2:]
@@ -55,7 +58,6 @@ def registry(base='.'):
     """
     Reads definition.py files.
     """
-
     boundaries.autodiscover(base)
     return boundaries.registry
 
@@ -69,14 +71,10 @@ def csv_reader(url, encoding='utf-8'):
     return csv.reader(StringIO(response.text))
 
 
-sgc_code_to_ocdid_memo = {}
-
-
 def sgc_code_to_ocdid():
     """
     Maps Standard Geographical Classification codes to OCD identifiers.
     """
-
     if not sgc_code_to_ocdid_memo:
         sgc_code_to_ocdid_memo['01'] = 'ocd-division/country:ca'
         reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
@@ -95,14 +93,10 @@ def sgc_code_to_ocdid():
     return sgc_code_to_ocdid_memo
 
 
-ocdid_to_name_memo = {}
-
-
 def ocdid_to_name():
     """
     Maps OCD identifiers to names.
     """
-
     if not ocdid_to_name_memo:
         reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca.csv')
         next(reader)
@@ -111,14 +105,10 @@ def ocdid_to_name():
     return ocdid_to_name_memo
 
 
-ocdid_to_type_memo = {}
-
-
 def ocdid_to_type():
     """
     Maps OCD identifiers to types.
     """
-
     if not ocdid_to_type_memo:
         filenames = [
             'ca_census_divisions',
@@ -132,10 +122,10 @@ def ocdid_to_type():
     return ocdid_to_type_memo
 
 
-corporations_memo = {}
-
-
 def corporations():
+    """
+    Map OCD identifiers to organization name.
+    """
     if not corporations_memo:
         reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv')
         next(reader)
@@ -145,6 +135,9 @@ def corporations():
 
 
 def get_definition(division_id, path=None):
+    """
+    Returns the expected contents of a definition file.
+    """
     sections = division_id.split('/')
     ocd_type, ocd_type_id = sections[-1].split(':')
 
@@ -250,20 +243,12 @@ def get_definition(division_id, path=None):
     return (slug, config)
 
 
-def assert_match(slug, field, actual, expected):
-    if isinstance(expected, re._pattern_type):
-        if not expected.search(actual):
-            print('%-60s Expected %s to match %s not %s' % (slug, field, expected.pattern, actual))
-    elif isinstance(expected, list):
-        if actual not in expected:
-            print('%-60s Expected %s to be %s not %s' % (slug, field, expected[-1], actual))
-    elif actual != expected and expected is not None:
-        print('%-60s Expected %s to be %s not %s' % (slug, field, expected, actual))
-
-
 # @todo Guess name_func and id_func based on the shapefile.
 @task
 def define(division_id):
+    """
+    Print the contents of a definition file.
+    """
     slug, config = get_definition(division_id)
     if isinstance(slug, re._pattern_type):
         slug = re.sub('\\\[AZ]', '', slug.pattern)
@@ -328,6 +313,16 @@ def definitions(base='.'):
         if message not in seen:
             print('%-60s %s' % (slug, message))
             seen.add(message)
+
+    def assert_match(slug, field, actual, expected):
+        if isinstance(expected, re._pattern_type):
+            if not expected.search(actual):
+                print('%-60s Expected %s to match %s not %s' % (slug, field, expected.pattern, actual))
+        elif isinstance(expected, list):
+            if actual not in expected:
+                print('%-60s Expected %s to be %s not %s' % (slug, field, expected[-1], actual))
+        elif actual != expected and expected is not None:
+            print('%-60s Expected %s to be %s not %s' % (slug, field, expected, actual))
 
     duplicate_division_ids = (
         # Districts and boroughs.
@@ -469,6 +464,30 @@ def urls(base='.'):
                                 print('Timeout %s' % url)
                             else:
                                 print('%s %s' % (errstr, url))
+
+
+@task
+def manual(base='.'):
+    """
+    Print manually updated boundaries that were last updated over a year ago.
+    """
+    historical_slugs = {
+        'Saskatchewan electoral districts (Representation Act, 2002)',
+    }
+
+    messages = []
+
+    seen = set()
+    for slug, config in registry(base).items():
+        last_updated = config['last_updated']
+        if 'data_url' not in config and slug not in historical_slugs and last_updated < date.today() - timedelta(days=365):
+            directory = dirname(config['file'])
+            if directory not in seen:
+                messages.append('%s %-55s %-25s %s' % (last_updated, directory, config['domain'], config.get('source_url', '')))
+                seen.add(directory)
+
+    for message in sorted(messages):
+        print(message)
 
 
 @task
@@ -676,10 +695,11 @@ def shapefiles(base='.'):
                     process(slug, config, url, data_file_path)
 
 
-# Generate the spreadsheet for tracking progress on data collection.
 @task
 def spreadsheet(base='.', private_base='../represent-canada-private-data'):
-    sgc_code_to_ocdid_map = sgc_code_to_ocdid()
+    """
+    Validate and regenerate the spreadsheet for tracking progress on data collection.
+    """
     expecteds = OrderedDict()
 
     reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_municipal_subdivisions-has_children.csv')
@@ -736,7 +756,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             else:
                 raise Exception('Unrecognized name "%s"' % row[1])
 
-            division_id = sgc_code_to_ocdid_map[row[0]]
+            division_id = sgc_code_to_ocdid()[row[0]]
 
             expected = {
                 'OCD': division_id,
