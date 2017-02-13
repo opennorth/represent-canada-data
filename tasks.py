@@ -281,11 +281,12 @@ def licenses(base='.'):
     Check that all data directories contain a LICENSE.txt.
     """
     for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
-        for dirname in ('.git', '__pycache__', 'geojson', 'topojson', 'ca_qc_wip'):
+        for dirname in ('.git', '__pycache__'):
             if dirname in dirnames:
                 dirnames.remove(dirname)
-        if '.DS_Store' in filenames:
-            filenames.remove('.DS_Store')
+        for filename in ('.DS_Store', 'empty.csv'):
+            if filename in filenames:
+                filenames.remove(filename)
         if filenames and 'LICENSE.txt' not in filenames:
             print('%s No LICENSE.txt' % dirpath)
 
@@ -326,11 +327,12 @@ def definitions(base='.'):
 
     duplicate_division_ids = (
         # Districts and boroughs.
+        'ocd-division/country:ca/csd:2423027',  # Québec
+        'ocd-division/country:ca/csd:2425213',  # Lévis
+        'ocd-division/country:ca/csd:2443027',  # Sherbrooke
         'ocd-division/country:ca/csd:2458227',  # Longueuil
         'ocd-division/country:ca/csd:2466023',  # Montréal
-        'ocd-division/country:ca/csd:2423027',  # Québec
         'ocd-division/country:ca/csd:2494068',  # Saguenay
-        'ocd-division/country:ca/csd:2443027',  # Sherbrooke
     )
 
     response = requests.get('https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/pub?gid=0&single=true&output=csv')
