@@ -483,7 +483,11 @@ def manual(base='.'):
         if 'data_url' not in config and slug not in historical_slugs and last_updated < date.today() - timedelta(days=365):
             directory = dirname(config['file'])
             if directory not in seen:
-                messages.append('%s %-55s %-25s %s' % (last_updated, directory, config['domain'], config.get('source_url', '')))
+                message = '%s %-55s %-25s %s' % (last_updated, directory, config['domain'], config.get('source_url', ''))
+                notes = config.get('notes')
+                if notes:
+                    message += '\n%s\n' % notes
+                messages.append(message)
                 seen.add(directory)
 
     for message in sorted(messages):
