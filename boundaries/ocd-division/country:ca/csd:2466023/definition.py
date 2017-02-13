@@ -46,5 +46,5 @@ boundaries.register('Montréal boroughs and districts',
     licence_url='http://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/csd:2466023'},
-    notes='ogr2ogr -f "ESRI Shapefile" boundaries/ocd-division/country:ca/csd:2466023/merge.shp boundaries/ca_qc_boroughs/Montreal.shp -select NM_ARON,NO_ARON\nogr2ogr -f "ESRI Shapefile" boundaries/ocd-division/country:ca/csd:2466023/merge.shp boundaries/ca_qc_districts/Montreal-2466023.shp -append -addfields',
+    notes='''ogr2ogr -f "ESRI Shapefile" boundaries/ocd-division/country:ca/csd:2466023/merge.shp boundaries/ca_qc_districts/Districts\ Elec\ Mun\ 2014-02-28_DetU_region.shp -where "CO_MUNCP='66023'" -select NM_ARON,NO_ARON\nogr2ogr -f "ESRI Shapefile" boundaries/ocd-division/country:ca/csd:2466023/merge.shp boundaries/ca_qc_districts/Districts\ Elec\ Mun\ 2014-02-28_DetU_region.shp -where "CO_MUNCP='66023'" -append -addfields\nLoad the shapefile manually:\nfab ohoh update_boundaries:args="--merge combine -d data/shapefiles/public/boundaries/ocd-division/country:ca/csd:2466023"''',
 )
