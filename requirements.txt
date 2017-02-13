@@ -1,5 +1,5 @@
 # Definitions
-represent-boundaries==0.7.4
+represent-boundaries==0.7.5
 
 # Tasks
 Django==1.10.5
