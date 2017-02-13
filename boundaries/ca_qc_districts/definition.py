@@ -525,6 +525,8 @@ municipalities_with_boroughs = [
     },
 ]
 
+# @see http://www.toponymie.gouv.qc.ca/ct/toponymie-municipale/municipalites-arrondissements/arrondissement.aspx
+# @see http://www.mamrot.gouv.qc.ca/repertoire-des-municipalites/fiche/arrondissement/?tx_mamrotrepertoire_pi1[order]=asc_nom_mun
 for municipality in municipalities_with_boroughs:
     geographic_code = municipality['geographic_code']
     geographic_name = municipality['name']
