@@ -1,6 +1,4 @@
 # coding: utf-8
-from __future__ import unicode_literals
-
 import csv
 import os
 import os.path
@@ -12,12 +10,12 @@ from collections import OrderedDict
 from datetime import date, datetime, timedelta
 from ftplib import FTP
 from glob import glob
+from io import StringIO
+from urllib.parse import urlparse
 from zipfile import ZipFile, BadZipfile
 
 import boundaries
 import requests
-from django.utils.six.moves.urllib.parse import urlparse
-from six import StringIO
 from invoke import run, task
 from rfc6266 import parse_headers
 
@@ -258,9 +256,7 @@ def define(division_id):
     config['authority'] = config['authority'][-1]
     config['division_id'] = division_id
 
-    print("""from __future__ import unicode_literals
-
-from datetime import date
+    print("""from datetime import date
 
 import boundaries
 
