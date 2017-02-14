@@ -22,7 +22,7 @@ boundaries.register('Federal electoral districts',  # (2013 Representation Order
     source_url='http://geogratis.gc.ca/api/en/nrcan-rncan/ess-sst/56124851-71fc-4f94-8df2-40f59cd1dd46.html',
     licence_url='http://open.canada.ca/en/open-government-licence-canada',
     data_url='http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_fed_cf/shp_eng/fed_cf_CA_2_1_shp_en.zip',
-    encoding='iso-8859-1',
+    encoding='utf-8',
     extra={'division_id': 'ocd-division/country:ca'},
     notes='Load the shapefile manually:\nfab ohoh update_boundaries:args="--merge union -d data/shapefiles/public/boundaries/ocd-division/country:ca/2013"',
 )

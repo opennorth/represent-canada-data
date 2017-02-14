@@ -111,6 +111,8 @@ For features that aren't numbered like "Ward 1", determining the public identifi
 
 Read [this section](https://github.com/opennorth/represent-boundaries/blob/master/definition.example.py#L51-L76) of the example `definition.py` file for help writing a `name_func` and `id_func`.
 
+If you're updating many shapefiles, it may be long to run `ogrinfo` on each. Instead, run `../represent-canada/manage.py analyzeshapefiles -d . > manifest` and `git diff manifest` instead.
+
 #### Cleanup
 
 Fix file permissions:
@@ -123,7 +125,7 @@ Check if the data request process spreadsheet is out-of-date:
 
 Or less verbose:
 
-    invoke spreadsheet --base=. --private-base=../represent-canada-data-private > /dev/null
+    invoke spreadsheet --base=. --private-base=../represent-canada-private-data > /dev/null
 
 #### Postcode concordances
 

@@ -14,6 +14,6 @@ boundaries.register('New Brunswick electoral districts (2006)',
     source_url='http://www.snb.ca/geonb1/e/DC/catalogue-E.asp',
     licence_url='http://geonb.snb.ca/documents/license/geonb-odl_en.pdf',
     data_url='http://geonb.snb.ca/downloads/prov_electoral_districts/geonb_2010_ped-cep_shp.zip',
-    encoding='iso-8859-1',
+    encoding='utf-8',
     extra={'division_id': 'ocd-division/country:ca/province:nb'},
 )

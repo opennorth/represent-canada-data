@@ -27,7 +27,7 @@ boundaries.register('Dorval districts',
     source_url='http://donnees.ville.montreal.qc.ca/dataset/elections-2009-districts-electoraux',
     licence_url='http://donnees.ville.montreal.qc.ca/portail/licence/',
     data_url='http://donnees.ville.montreal.qc.ca/dataset/cbc2aeb1-dc73-487e-9b72-d803db631b15/resource/2b1074a3-2e81-456b-abb8-1ebbb0888562/download/elections-2009-districts-multi-poly.zip',
-    encoding='iso-8859-1',
+    encoding='utf-8',
     extra={'division_id': 'ocd-division/country:ca/csd:2466087'},
     is_valid_func=lambda f: int(f.get('MONTREAL')) == 0 and int(f.get('NUM_ARR')) == 1,
 )
