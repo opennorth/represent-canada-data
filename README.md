@@ -95,7 +95,7 @@ After receiving a new boundary file for all municipalities in Quebec, you need t
 * Copy the output into the appropriate section of `qc/districts/definition.py`
 * Comment out jurisdictions for which other sources have more complete data (Dorval, Kirkland)
 * Separately define the boundaries of jurisdictions whose names duplicate others' (Plessisville (32045))
-* After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular.
+* After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular
 
 #### Process shapefiles
 
