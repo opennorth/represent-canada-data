@@ -38,7 +38,7 @@ All datasets are from government sources, with one exception: the postal code<su
 
 ### Regular tasks
 
-For all the following commands, add `--base=path/to/private/data` to run then on the private repository.
+For all the following commands, add `--base=path/to/private/data` to run them on the private repository.
 
 Load the virtual environment:
 
