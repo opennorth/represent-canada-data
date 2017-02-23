@@ -89,6 +89,8 @@ Some shapefiles are online but require exceptional processing. Remember to updat
     esri-dump http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0 > boundaries/ca_nb_wards/wards.geojson
     ogr2ogr -f "ESRI Shapefile" boundaries/ca_nb_wards boundaries/ca_nb_wards/wards.geojson
 
+##### Quebec
+
 After receiving a new boundary file for all municipalities in Quebec, you need to update the `definition.py` file in `ca_qc_districts`.
 
 * Run `ruby boundaries/ca_qc_districts/sets.rb`
