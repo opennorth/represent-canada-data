@@ -15,8 +15,10 @@ from urllib.parse import urlparse
 from zipfile import ZipFile, BadZipfile
 
 import boundaries
+import lxml.html
 import requests
 from invoke import run, task
+from opencivicdata.divisions import Division
 from rfc6266 import parse_headers
 
 from constants import (
@@ -33,10 +35,8 @@ from constants import (
     headers,
 )
 
-sgc_code_to_ocdid_memo = {}
-ocdid_to_name_memo = {}
-ocdid_to_type_memo = {}
-corporations_memo = {}
+sgc_to_id_memo = {}
+ocd_division_csv = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'country-ca.csv')
 
 
 def dirname(path):
@@ -60,89 +60,40 @@ def registry(base='.'):
     return boundaries.registry
 
 
-def csv_reader(url, encoding='utf-8'):
+def csv_dict_reader(url, encoding='utf-8'):
     """
     Reads a remote CSV file.
     """
     response = requests.get(url)
     response.encoding = encoding
-    return csv.reader(StringIO(response.text))
+    return csv.DictReader(StringIO(response.text))
 
 
-def sgc_code_to_ocdid():
+def sgc_to_id():
     """
     Maps Standard Geographical Classification codes to OCD identifiers.
     """
-    if not sgc_code_to_ocdid_memo:
-        sgc_code_to_ocdid_memo['01'] = 'ocd-division/country:ca'
-        reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
-        next(reader)
-        for row in reader:
-            sgc_code_to_ocdid_memo[row[4]] = row[0]
-        filenames = [
-            'ca_census_divisions',
-            'ca_census_subdivisions',
-        ]
-        for filename in filenames:
-            reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename)
-            next(reader)
-            for row in reader:
-                sgc_code_to_ocdid_memo[row[0].split(':')[-1]] = row[0]
-    return sgc_code_to_ocdid_memo
-
-
-def ocdid_to_name():
-    """
-    Maps OCD identifiers to names.
-    """
-    if not ocdid_to_name_memo:
-        reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca.csv')
-        next(reader)
-        for row in reader:
-            ocdid_to_name_memo[row[0]] = row[1]
-    return ocdid_to_name_memo
-
-
-def ocdid_to_type():
-    """
-    Maps OCD identifiers to types.
-    """
-    if not ocdid_to_type_memo:
-        filenames = [
-            'ca_census_divisions',
-            'ca_census_subdivisions',
-        ]
-        for filename in filenames:
-            reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/%s.csv' % filename)
-            next(reader)
-            for row in reader:
-                ocdid_to_type_memo[row[0]] = row[3]
-    return ocdid_to_type_memo
-
-
-def corporations():
-    """
-    Map OCD identifiers to organization name.
-    """
-    if not corporations_memo:
-        reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions.csv')
-        next(reader)
-        for row in reader:
-            corporations_memo[row[0]] = row[4]
-    return corporations_memo
+    if not sgc_to_id_memo:
+        for division in Division.all('ca', from_csv=ocd_division_csv):
+            if division.attrs['sgc']:
+                sgc_to_id_memo[division.attrs['sgc']] = division.id
+            elif division._type in ('cd', 'csd'):
+                sgc_to_id_memo[division.id.rsplit(':', 1)[1]] = division.id
+    return sgc_to_id_memo
 
 
 def get_definition(division_id, path=None):
     """
     Returns the expected contents of a definition file.
     """
+    division = Division.get(division_id, from_csv=ocd_division_csv)
     sections = division_id.split('/')
     ocd_type, ocd_type_id = sections[-1].split(':')
 
     config = {}
 
     # Determine slug, domain and authority.
-    name = ocdid_to_name().get(division_id)
+    name = division.name
     if not name:
         print('%-60s unknown name: check slug and domain manually' % division_id)
 
@@ -158,40 +109,41 @@ def get_definition(division_id, path=None):
 
     elif ocd_type in ('cd', 'csd'):
         province_or_territory_sgc_code = ocd_type_id[:2]
-        province_or_territory_abbreviation = sgc_code_to_ocdid()[province_or_territory_sgc_code].split(':')[-1].upper()
+        province_or_territory_abbreviation = sgc_to_id()[province_or_territory_sgc_code].split(':')[-1].upper()
 
         boroughs = [
+            'ocd-division/country:ca/csd:2423027',  # Québec
             'ocd-division/country:ca/csd:2425213',  # Lévis
+            'ocd-division/country:ca/csd:2443027',  # Sherbrooke
             'ocd-division/country:ca/csd:2458227',  # Longueuil
             'ocd-division/country:ca/csd:2466023',  # Montréal
-            'ocd-division/country:ca/csd:2423027',  # Québec
             'ocd-division/country:ca/csd:2494068',  # Saguenay
-            'ocd-division/country:ca/csd:2443027',  # Sherbrooke
         ]
 
+        # @see `has_children` in `ca_municipal_subdivisions.rb` in `ocd-division-ids`
         quartiers = [
-            'ocd-division/country:ca/csd:2446080',  # Cowansville
-            'ocd-division/country:ca/csd:2467025',  # Delson
-            'ocd-division/country:ca/csd:2493005',  # Desbiens
-            'ocd-division/country:ca/csd:2403005',  # Gaspé
             'ocd-division/country:ca/csd:2402015',  # Grande-Rivière
-            'ocd-division/country:ca/csd:2469055',  # Huntingdon
-            'ocd-division/country:ca/csd:2487090',  # La Sarre
-            'ocd-division/country:ca/csd:2434120',  # Lac-Sergent
-            'ocd-division/country:ca/csd:2483065',  # Maniwaki
-            'ocd-division/country:ca/csd:2413095',  # Pohngamook
-            'ocd-division/country:ca/csd:2453050',  # Saint-Joseph-de-Sorel
-            'ocd-division/country:ca/csd:2489040',  # Senne-Terre
+            'ocd-division/country:ca/csd:2403005',  # Gaspé
             'ocd-division/country:ca/csd:2411040',  # Trois-Pistoles
+            'ocd-division/country:ca/csd:2413095',  # Pohngamook
+            'ocd-division/country:ca/csd:2434120',  # Lac-Sergent
+            'ocd-division/country:ca/csd:2446080',  # Cowansville
+            'ocd-division/country:ca/csd:2453050',  # Saint-Joseph-de-Sorel
+            'ocd-division/country:ca/csd:2467025',  # Delson
+            'ocd-division/country:ca/csd:2469055',  # Huntingdon
+            'ocd-division/country:ca/csd:2483065',  # Maniwaki
+            'ocd-division/country:ca/csd:2487090',  # La Sarre
+            'ocd-division/country:ca/csd:2489040',  # Senne-Terre
+            'ocd-division/country:ca/csd:2493005',  # Desbiens
         ]
 
         if province_or_territory_sgc_code == '24' and division_id in boroughs:
             slug = re.compile('\A%s (boroughs|districts)\Z' % name)
-        elif province_or_territory_sgc_code == '12' and ocdid_to_type()[division_id] != 'T':
+        elif province_or_territory_sgc_code == '12' and division.attrs['classification'] != 'T':
             slug = '%s districts' % name
-        elif province_or_territory_sgc_code == '47' and ocdid_to_type()[division_id] != 'CY':
+        elif province_or_territory_sgc_code == '47' and division.attrs['classification'] != 'CY':
             slug = '%s divisions' % name
-        elif province_or_territory_sgc_code == '48' and ocdid_to_type()[division_id] == 'MD':
+        elif province_or_territory_sgc_code == '48' and division.attrs['classification'] == 'MD':
             slug = '%s divisions' % name
         elif province_or_territory_sgc_code == '24':
             if division_id in quartiers:
@@ -209,19 +161,20 @@ def get_definition(division_id, path=None):
             config['authority'] = ['Her Majesty the Queen in Right of New Brunswick']
         elif province_or_territory_sgc_code == '24' and 'boundaries/ca_qc_' in path:
             config['authority'] = ['Directeur général des élections du Québec']
-        elif province_or_territory_sgc_code == '47' and ocdid_to_type()[division_id] != 'CY':
+        elif province_or_territory_sgc_code == '47' and division.attrs['classification'] != 'CY':
             config['authority'] = ['MuniSoft']
         elif ocd_type == 'csd':
-            config['authority'] = authorities + [corporations()[division_id]]
+            config['authority'] = authorities + [division.attrs['organization_name']]
         else:
             config['authority'] = ['']  # We have no expectation for the authority of a Census division
 
     elif ocd_type == 'borough':
         census_subdivision_ocdid = '/'.join(sections[:-1])
-        census_subdivision_name = ocdid_to_name()[census_subdivision_ocdid]
+        census_subdivision = Division.get(census_subdivision_ocdid, from_csv=ocd_division_csv)
+        census_subdivision_name = census_subdivision.name
 
         province_or_territory_sgc_code = census_subdivision_ocdid.split(':')[-1][:2]
-        province_or_territory_abbreviation = sgc_code_to_ocdid()[province_or_territory_sgc_code].split(':')[-1].upper()
+        province_or_territory_abbreviation = sgc_to_id()[province_or_territory_sgc_code].split(':')[-1].upper()
 
         if name:
             slug = '%s districts' % name
@@ -233,7 +186,7 @@ def get_definition(division_id, path=None):
         if province_or_territory_sgc_code == '24':
             config['authority'] = ['Directeur général des élections du Québec']
         else:
-            config['authority'] = [corporations()[census_subdivision_ocdid]]
+            config['authority'] = [census_subdivision.attrs['organization_name']]
 
     else:
         raise Exception('%s: Unrecognized OCD type %s' % (division_id, ocd_type))
@@ -241,7 +194,6 @@ def get_definition(division_id, path=None):
     return (slug, config)
 
 
-# @todo Guess name_func and id_func based on the shapefile.
 @task
 def define(division_id):
     """
@@ -344,7 +296,7 @@ def definitions(base='.'):
 
         if config.get('extra'):
             division_id = config['extra']['division_id']
-            ocd_type = division_id.split('/')[-1].split(':')[0]
+            ocd_type = division_id.rsplit('/', 1)[1].split(':')[0]
         else:
             division_id = None
             ocd_type = None
@@ -704,32 +656,30 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     """
     expecteds = OrderedDict()
 
-    reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_municipal_subdivisions-has_children.csv')
-    next(reader)
-    for row in reader:
-        municipal_subdivisions[row[0].split(':')[-1]] = row[1]
+    # Append to `municipal_subdivisions` from `constants.py`.
+    for division in Division.all('ca', from_csv=ocd_division_csv):
+        if division.attrs['has_children']:
+            municipal_subdivisions[division.id.rsplit(':', 1)[1]] = division.attrs['has_children']
 
-    urls = {}
-    reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_census_subdivisions-url.csv')
-    next(reader)
-    for row in reader:
-        urls[row[0].split(':')[-1]] = row[1]
+    # Map census subdivision type names to codes.
+    census_subdivision_type_names = {}
+    document = lxml.html.fromstring(requests.get('https://www12.statcan.gc.ca/census-recensement/2016/ref/dict/tab/t1_5-eng.cfm').content)
+    for text in document.xpath('//table//th[@headers]/text()'):
+        code, name = text.split(' – ', 1)  # non-breaking space
+        census_subdivision_type_names[name.lower()] = code
 
     abbreviations = {}
-    reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
-    next(reader)
-    for row in reader:
-        abbreviations[row[2]] = row[0].split(':')[-1].upper()
+    for division in Division.all('ca', from_csv=ocd_division_csv):
+        if division._type in ('province', 'territory'):
+            if division.attrs['abbreviation']:
+                abbreviations[division.attrs['abbreviation']] = division.id.rsplit(':', 1)[1].upper()
 
-    # Create records for provinces and territories.
-    reader = csv_reader('https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca/ca_provinces_and_territories.csv')
-    next(reader)
-    for row in reader:
-        expecteds[row[0]] = {
-            'OCD': row[0],
-            'Geographic name': row[1],
+        # Create records for provinces and territories.
+        expecteds[division.id] = {
+            'OCD': division.id,
+            'Geographic name': division.name,
             'Geographic type': '',
-            'Province or territory': row[0].split(':')[-1].upper(),
+            'Province or territory': division.id.rsplit(':', 1)[1].upper(),
             'Population': '',
             'URL': '',
             'Shapefile?': '',
@@ -743,53 +693,51 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         }
 
     # Create records for census subdivisions.
-    reader = csv_reader('http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/hlt-fst/pd-pl/FullFile.cfm?T=301&LANG=Eng&OFT=CSV&OFN=98-310-XWE2011002-301.CSV', 'ISO-8859-1')
-    next(reader)  # title
-    next(reader)  # headers
+    reader = csv_dict_reader('http://www12.statcan.gc.ca/census-recensement/2016/dp-pd/hlt-fst/pd-pl/Tables/CompFile.cfm?Lang=Eng&T=301&OFT=FULLCSV', 'ISO-8859-1')
     for row in reader:
-        if row:
-            result = re.search('\A(.+) \((.+)\)\Z', row[1])
-            if result:
-                name = result.group(1)
-                province_or_territory = abbreviations[result.group(2)]
-            elif row[1] == 'Canada':
-                name = 'Canada'
-                province_or_territory = ''
-            else:
-                raise Exception('Unrecognized name "%s"' % row[1])
+        code = row['Geographic code']
+        name = row['Geographic name, english']
 
-            division_id = sgc_code_to_ocdid()[row[0]]
-
-            expected = {
-                'OCD': division_id,
-                'Geographic name': name,
-                'Province or territory': province_or_territory,
-                'Geographic type': row[2],
-                'Population': row[4],
-                'URL': urls.get(row[0], ''),
-                'Contact': '',
-                'Request notes': '',
-                'Received via': '',
-                'Last boundary': '',
-                'Next boundary': '',
-                'Permission to distribute': '',
-                'Response notes': '',
-            }
-
-            if row[0] in municipal_subdivisions:
-                if municipal_subdivisions[row[0]] == 'N':
-                    for header in ['Shapefile?'] + request_and_receipt_headers:
-                        expected[header] = 'N/A'
-                elif municipal_subdivisions[row[0]] == 'Y':
-                    expected['Shapefile?'] = 'Request'
-                elif municipal_subdivisions[row[0]] == '?':
-                    expected['Shapefile?'] = ''
-            else:
-                expected['Shapefile?'] = ''
-
-            expecteds[division_id] = expected
-        else:
+        if code == 'Note:':
             break
+
+        division_id = sgc_to_id()[code]
+
+        type_name_en = row['CSD type, english']
+        type_name_fr = row['CSD type, french']
+        if type_name_en == type_name_fr:
+          type_name = type_name_en
+        else:
+          type_name = '%s / %s' % (type_name_en, type_name_fr)
+
+        expected = {
+            'OCD': division_id,
+            'Geographic name': name,
+            'Province or territory': sgc_to_id()[row['Geographic code, Province / territory']].rsplit(':', 1)[1].upper(),
+            'Geographic type': census_subdivision_type_names[type_name.lower()],
+            'Population': row['Population, 2016'],
+            'URL': '',
+            'Contact': '',
+            'Request notes': '',
+            'Received via': '',
+            'Last boundary': '',
+            'Next boundary': '',
+            'Permission to distribute': '',
+            'Response notes': '',
+        }
+
+        if code in municipal_subdivisions:
+            if municipal_subdivisions[code] == 'N':
+                for header in ['Shapefile?'] + request_and_receipt_headers:
+                    expected[header] = 'N/A'
+            elif municipal_subdivisions[code] == 'Y':
+                expected['Shapefile?'] = 'Request'
+            elif municipal_subdivisions[code] == '?':
+                expected['Shapefile?'] = ''
+        else:
+            expected['Shapefile?'] = ''
+
+        expecteds[division_id] = expected
 
     # Merge information from received data.
     for directory, permission_to_distribute in [(base, 'Y'), (private_base, 'N')]:
