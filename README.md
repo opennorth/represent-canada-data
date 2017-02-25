@@ -48,6 +48,10 @@ List the available maintenance tasks:
 
     invoke -l
 
+Update the OCD-IDs:
+
+    curl -O https://raw.githubusercontent.com/opencivicdata/ocd-division-ids/master/identifiers/country-ca.csv
+
 #### Maintain definition files
 
 Make the code style consistent:
@@ -93,11 +97,12 @@ Some shapefiles are online but require exceptional processing. Remember to updat
 
 After receiving a new boundary file for all municipalities in Quebec, you need to update the `definition.py` file in `ca_qc_districts`.
 
-* Run `ruby boundaries/ca_qc_districts/sets.rb`
-* Copy the output into the appropriate section of `qc/districts/definition.py`
-* Comment out jurisdictions for which other sources have more complete data (Dorval, Kirkland)
-* Separately define the boundaries of jurisdictions whose names duplicate others' (Plessisville (32045))
-* After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular
+1. Run `ruby boundaries/ca_qc_districts/sets.rb`
+1. Copy the output into the appropriate section of `qc/districts/definition.py`
+1. Comment out jurisdictions for which other sources have more complete data (Dorval, Kirkland)
+1. Separately define the boundaries of jurisdictions whose names duplicate others' (Plessisville (32045))
+
+After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular
 
 #### Process shapefiles
 
