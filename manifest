@@ -104,7 +104,7 @@ census-divisions: 293
 2456: Le Haut-Richelieu
 2457: La Vallée-du-Richelieu
 2458: Longueuil
-2459: Lajemmerais
+2459: Marguerite-D'Youville
 2460: L'Assomption
 2461: Joliette
 2462: Matawinie
@@ -294,7 +294,7 @@ census-divisions: 293
 6205: Keewatin
 6208: Kitikmeot
 
-census-subdivisions: 5253
+census-subdivisions: 5162
 1001101: Division No.  1, Subd. V
 1001105: Portugal Cove South
 1001113: Trepassey
@@ -529,7 +529,7 @@ census-subdivisions: 5253
 1007036: Port Blandford
 1007037: Traytown
 1007038: Division No.  7, Subd. D
-1007039: Savage Cove-Sandy Cove
+1007039: Sandy Cove
 1007040: Terra Nova
 1007041: Happy Adventure
 1007042: Eastport
@@ -552,12 +552,7 @@ census-subdivisions: 5253
 1008006: Musgrave Harbour
 1008008: Division No.  8, Subd. L
 1008011: Carmanville
-1008020: Fogo Island Region (Part)
-1008021: Fogo
-1008022: Joe Batt's Arm-Barr'd Islands-Shoal Bay
-1008023: Tilting
 1008024: Change Islands
-1008025: Seldom-Little Seldom
 1008026: Division No.  8, Subd. I
 1008029: Crow Head
 1008031: Division No.  8, Subd. H
@@ -609,6 +604,7 @@ census-subdivisions: 5253
 1008095: Ming's Bight
 1008096: Woodstock
 1008098: Miles Cove
+1008099: Fogo Island
 1009001: Division No.  9, Subd. F
 1009004: Englee
 1009007: Roddickton-Bide Arm
@@ -748,11 +744,10 @@ census-subdivisions: 5253
 1103006: Lot 27
 1103008: Kinkora
 1103009: Lot 26
-1103010: Central Bedeque
 1103011: Lot 25
 1103012: Lot 19
-1103013: Bedeque
 1103014: Kensington
+1103015: Bedeque and Area
 1103016: Lot 18
 1103018: Sherbrooke
 1103019: Lot 17
@@ -806,7 +801,6 @@ census-subdivisions: 5253
 1205006: Bear River 6B
 1205008: Annapolis Royal
 1205009: Annapolis, Subd. B
-1205012: Bridgetown
 1205014: Annapolis, Subd. C
 1205016: Middleton
 1206001: Lunenburg
@@ -828,7 +822,6 @@ census-subdivisions: 5253
 1207027: Glooscap 35
 1208001: West Hants
 1208002: Windsor
-1208004: Hantsport
 1208008: East Hants
 1208014: Indian Brook 14
 1209019: Cole Harbour 30
@@ -836,6 +829,7 @@ census-subdivisions: 5253
 1209034: Halifax
 1209037: Beaver Lake 17
 1209038: Sheet Harbour 36
+1209800: Wallace Hills 14A
 1210001: Colchester, Subd. C
 1210002: Stewiacke
 1210003: Millbrook 27
@@ -845,7 +839,6 @@ census-subdivisions: 5253
 1211001: Cumberland, Subd. A
 1211002: Parrsboro
 1211006: Cumberland, Subd. B
-1211008: Springhill
 1211009: Cumberland, Subd. C
 1211011: Amherst
 1211012: Oxford
@@ -862,7 +855,6 @@ census-subdivisions: 5253
 1212023: Merigomish Harbour 31
 1213001: St. Mary's
 1213004: Guysborough
-1213006: Canso
 1213008: Mulgrave
 1214001: Antigonish, Subd. A
 1214002: Antigonish
@@ -985,6 +977,7 @@ census-subdivisions: 5253
 1307045: Dieppe
 1307052: Shediac
 1308001: Dundas
+1308002: Cocagne
 1308003: Buctouche 16
 1308004: Wellington
 1308005: Bouctouche
@@ -1024,7 +1017,7 @@ census-subdivisions: 5253
 1309035: Eel Ground 2
 1309036: Alnwick
 1309038: Neguac
-1309044: Burnt Church 14
+1309044: Esgenoôpetitj 14
 1309047: Tabusintac 9
 1309050: Miramichi
 1310001: New Maryland
@@ -1039,6 +1032,7 @@ census-subdivisions: 5253
 1310013: Meductic
 1310014: Dumfries
 1310016: Prince William
+1310017: Hanwell
 1310018: Kingsclear
 1310019: Kingsclear 6
 1310021: Queensbury
@@ -1121,14 +1115,12 @@ census-subdivisions: 5253
 1314015: Tide Head
 1314016: Eldon
 1314017: Dalhousie
-1314018: Grimmer
-1314019: Kedgwick
+1314020: Kedgwick
 1314021: Saint-Quentin
 1314022: Saint-Quentin
 1314025: Belledune
 1314026: Indian Ranch
-1315001: Saumarez
-1315003: Tracadie-Sheila
+1315002: Tracadie
 1315006: Allardville
 1315008: Bathurst
 1315010: Pabineau 11
@@ -1322,13 +1314,13 @@ census-subdivisions: 5253
 2414005: Mont-Carmel
 2414010: Saint-Bruno-de-Kamouraska
 2414018: Saint-Pascal
-2414025: Sainte-Hélène
+2414025: Sainte-Hélène-de-Kamouraska
 2414030: Saint-Joseph-de-Kamouraska
 2414035: Saint-Alexandre-de-Kamouraska
 2414040: Saint-André
 2414045: Saint-Germain
 2414050: Kamouraska
-2414055: Saint-Denis
+2414055: Saint-Denis-De La Bouteillerie
 2414060: Saint-Philippe-de-Néri
 2414065: Rivière-Ouelle
 2414070: Saint-Pacôme
@@ -1389,7 +1381,7 @@ census-subdivisions: 5253
 2419025: Saint-Malachie
 2419030: Saint-Damien-de-Buckland
 2419037: Armagh
-2419045: Saint-Nérée
+2419045: Saint-Nérée-de-Bellechasse
 2419050: Saint-Lazare-de-Bellechasse
 2419055: Sainte-Claire
 2419062: Saint-Anselme
@@ -1634,9 +1626,9 @@ census-subdivisions: 5253
 2439145: Saint-Rosaire
 2439150: Sainte-Anne-du-Sault
 2439155: Daveluyville
-2439165: Maddington
+2439165: Maddington Falls
 2439170: Saint-Louis-de-Blandford
-2440005: Saint-Joseph-de-Ham-Sud
+2440005: Ham-Sud
 2440010: Saint-Adrien
 2440017: Wotton
 2440025: Saint-Camille
@@ -1708,7 +1700,7 @@ census-subdivisions: 5253
 2446005: Abercorn
 2446010: Frelighsburg
 2446017: Saint-Armand
-2446025: Saint-Pierre-de-Véronne-à-Pike-River
+2446025: Pike River
 2446030: Stanbridge Station
 2446035: Bedford
 2446040: Bedford
@@ -1930,8 +1922,7 @@ census-subdivisions: 5253
 2462922: Lac-du-Taureau
 2463005: Sainte-Marie-Salomé
 2463013: Saint-Jacques
-2463020: Saint-Alexis
-2463025: Saint-Alexis
+2463023: Saint-Alexis
 2463030: Saint-Esprit
 2463035: Saint-Roch-de-l'Achigan
 2463040: Saint-Roch-Ouest
@@ -2401,7 +2392,7 @@ census-subdivisions: 5253
 2499045: Eastmain
 2499050: Wemindji
 2499055: Chisasibi
-2499060: Baie-James
+2499060: Eeyou Istchee Baie-James
 2499065: Kawawachikamach
 2499070: Whapmagoostui
 2499075: Kuujjuarapik
@@ -2439,6 +2430,7 @@ census-subdivisions: 5253
 2499892: Tasiujaq
 2499893: Kuujjuaq
 2499894: Kangiqsualujjuaq
+2499895: Ivujivik
 2499902: Rivière-Koksoak
 2499904: Baie-d'Hudson
 3501005: South Glengarry
@@ -2518,14 +2510,14 @@ census-subdivisions: 5253
 3515003: Asphodel-Norwood
 3515005: Otonabee-South Monaghan
 3515008: Hiawatha First Nation
-3515013: Cavan-Monaghan
+3515013: Cavan Monaghan
 3515014: Peterborough
-3515015: Smith-Ennismore-Lakefield
+3515015: Selwyn
 3515019: Curve Lake First Nation 35
 3515023: Douro-Dummer
 3515030: Havelock-Belmont-Methuen
 3515037: North Kawartha
-3515044: Galway-Cavendish and Harvey
+3515044: Trent Lakes
 3516010: Kawartha Lakes
 3518001: Pickering
 3518005: Ajax
@@ -2552,7 +2544,7 @@ census-subdivisions: 5253
 3521024: Caledon
 3522001: East Garafraxa
 3522008: Amaranth
-3522010: East Luther Grand Valley
+3522010: Grand Valley
 3522012: Mono
 3522014: Orangeville
 3522016: Mulmur
@@ -2673,6 +2665,7 @@ census-subdivisions: 5253
 3541043: Arran-Elderslie
 3541045: Saugeen Shores
 3541055: South Bruce Peninsula
+3541056: Chief's Point No. 28
 3541057: Saugeen 29
 3541060: Neyaashiinigmiing 27
 3541069: Northern Bruce Peninsula
@@ -2697,7 +2690,7 @@ census-subdivisions: 5253
 3543023: Oro-Medonte
 3543031: Collingwood
 3543042: Barrie
-3543050: Mnjikaning First Nation 32 (Rama First Nation 32)
+3543050: Mnjikaning First Nation 32
 3543052: Orillia
 3543064: Wasaga Beach
 3543068: Tiny
@@ -2717,7 +2710,7 @@ census-subdivisions: 5253
 3546005: Highlands East
 3546015: Minden Hills
 3546018: Algonquin Highlands
-3546024: Dysart and Others
+3546024: Dysart et al
 3547002: Arnprior
 3547003: McNab/Braeside
 3547008: Greater Madawaska
@@ -2937,6 +2930,7 @@ census-subdivisions: 5253
 3559019: Emo
 3559024: Chapple
 3559026: Manitou Rapids 11
+3559030: Long Sault 12
 3559031: Morley
 3559040: Dawson
 3559042: Rainy River
@@ -2955,7 +2949,6 @@ census-subdivisions: 5253
 3559068: Rainy Lake 17A
 3559069: Rainy Lake 17B
 3559090: Rainy River, Unorganized
-3559092: Long Sault 12
 3560001: Ignace
 3560004: Whitefish Bay 32A
 3560005: Whitefish Bay 33A
@@ -3013,7 +3006,7 @@ census-subdivisions: 5253
 3560097: Muskrat Dam Lake
 3560098: Kingfisher Lake 1
 3560100: Wawakapewin (Long Dog Lake)
-3560102: MacDowell Lake
+3560102: McDowell Lake
 3560104: Kee-Way-Win
 4601035: Stuartburn
 4601039: Piney
@@ -3029,7 +3022,7 @@ census-subdivisions: 5253
 4601079: Shoal Lake (Part) 40
 4601082: Shoal Lake (Part) 39A
 4601094: Division No.  1, Unorganized
-4602025: Franklin
+4602024: Emerson-Franklin
 4602026: Roseau Rapids 2A
 4602027: Roseau River 2
 4602032: De Salaberry
@@ -3043,11 +3036,8 @@ census-subdivisions: 5253
 4602069: Taché
 4602075: Ritchot
 4603030: Montcalm
-4603033: Emerson
-4603036: Rhineland
-4603038: Gretna
 4603040: Altona
-4603042: Plum Coulee
+4603041: Rhineland
 4603047: Stanley
 4603050: Winkler
 4603053: Morden
@@ -3057,70 +3047,43 @@ census-subdivisions: 5253
 4603067: Morris
 4603072: Dufferin
 4603074: Carman
-4604033: Pembina
-4604035: Manitou
-4604039: Louise
-4604044: Pilot Mound
-4604046: Crystal City
-4604051: Roblin
-4604053: Cartwright
+4604034: Pembina
+4604040: Louise
+4604052: Cartwright-Roblin
 4604057: Argyle
-4604063: Lorne
-4604066: Somerset
+4604064: Lorne
 4604068: Swan Lake  7
 4605025: Killarney - Turtle Mountain
-4605031: Morton
-4605033: Boissevain
-4605037: Winchester
-4605039: Deloraine
-4605043: Brenda
-4605047: Waskada
-4605050: Arthur
+4605032: Boissevain-Morton
+4605038: Deloraine-Winchester
+4605044: Brenda-Waskada
 4605052: Melita
-4605055: Edward
-4605058: Albert
-4605061: Cameron
-4605063: Hartney
-4605067: Whitewater
-4605070: Riverside
-4605076: Strathcona
-4606015: Sifton
-4606018: Oak Lake
+4605056: Two Borders
+4605062: Grassland
+4605071: Prairie Lakes
+4606016: Sifton
 4606023: Pipestone
-4606028: Wallace
 4606029: Canupawakpa Dakota First Nation (Oak Lake 59)
-4606030: Elkhorn
+4606031: Wallace-Woodworth
 4606034: Virden
-4606037: Woodworth
 4606040: Sioux Valley Dakota Nation
-4607038: South Cypress
-4607041: Glenboro
-4607045: Oakland
-4607047: Wawanesa
-4607051: Glenwood
-4607053: Souris
+4607039: Glenboro-South Cypress
+4607046: Oakland-Wawanesa
+4607052: Souris-Glenwood
 4607057: Whitehead
 4607060: Cornwallis
 4607062: Brandon
-4607065: North Cypress
+4607066: North Cypress-Langford
 4607068: Carberry
 4607071: Elton
-4607075: Daly
-4607077: Rivers
-4608031: South Norfolk
-4608033: Notre Dame de Lourdes
-4608038: Treherne
+4607076: Riverdale
+4608032: Norfolk-Treherne
 4608042: Victoria
-4608045: North Norfolk
-4608048: MacGregor
-4608054: Lansdowne
-4608059: Westbourne
-4608061: Gladstone
-4608066: Lakeview
+4608046: North Norfolk
+4608055: Glenella-Lansdowne
+4608060: WestLake-Gladstone
 4608069: Sandy Bay 5
-4608072: Glenella
-4609017: Grey
-4609020: St. Claude
+4609018: Grey
 4609024: Portage la Prairie
 4609025: Long Plain (Part) 6
 4609026: Dakota Plains 6A
@@ -3146,81 +3109,54 @@ census-subdivisions: 5253
 4614036: Rockwood
 4614039: Stonewall
 4614042: Teulon
-4615018: Langford
 4615020: Neepawa
-4615023: Odanah
-4615027: Saskatchewan
-4615029: Rapid City
-4615033: Blanshard
-4615036: Hamiota
-4615038: Hamiota
-4615041: Miniota
+4615032: Oakview
+4615037: Hamiota
 4615042: Birdtail Creek 57
-4615046: Archie
-4615048: Ellice
+4615047: Ellice-Archie
 4615049: Gambler 63 (Part)
-4615051: St-Lazare
-4615055: Birtle
-4615057: Birtle
-4615061: Shoal Lake
-4615064: Strathclair
+4615056: Prairie View
+4615063: Yellowhead
 4615067: Keeseekoowenin 61
-4615069: Harrison
+4615070: Harrison Park
 4615071: Rolling River 67
 4615072: Rolling River 67B
-4615073: Minto
+4615074: Minto-Odanah
 4615075: Minnedosa
 4615078: Rosedale
-4615091: Clanwilliam
-4615093: Erickson
-4615095: Park (South)
-4616002: Rossburn
-4616007: Rossburn
+4615092: Clanwilliam-Erickson
+4616005: Rossburn
 4616017: Waywayseecappo First Nation
-4616019: Silver Creek
-4616024: Russell
+4616020: Riding Mountain West
 4616025: Gambler 63 (Part)
-4616029: Binscarth
-4616032: Russell
-4616038: Shellmouth-Boulton
-4616045: Hillsburg
+4616030: Russell-Binscarth
 4616046: Valley River 63A
-4616049: Shell River
-4616052: Roblin
+4616048: Hillsburg-Roblin-Shell River
 4617026: Alonsa
 4617029: Ebb and Flow 52
-4617034: McCreary
-4617036: McCreary
-4617040: Ste. Rose
-4617042: Ste. Rose du Lac
-4617045: Ochre River
+4617035: McCreary
+4617041: Ste. Rose
 4617048: Dauphin
 4617050: Dauphin
-4617053: Gilbert Plains
-4617055: Gilbert Plains
-4617057: Grandview
-4617060: Grandview
-4617063: Ethelbert
-4617067: Ethelbert
-4617071: Mossey River
-4617073: Winnipegosis
-4617076: Lawrence
+4617054: Gilbert Plains
+4617058: Grandview
+4617064: Ethelbert
+4617072: Mossey River
+4617075: Lakeshore
 4617092: Division No. 17, Unorganized
 4618031: Gimli
 4618034: Winnipeg Beach
 4618037: Armstrong
 4618040: St. Laurent
 4618044: Coldwell
-4618052: Eriksdale
 4618055: Dog Creek 46
-4618057: Siglunes
+4618056: West Interlake
 4618060: Grahamdale
 4618063: Little Saskatchewan 48
 4618067: Fairford (Part) 50
 4618068: Fisher
-4618071: Bifrost
 4618074: Arborg
-4618077: Riverton
+4618076: Bifrost-Riverton
 4618091: Division No. 18, Unorganized, East Part
 4618093: Division No. 18, Unorganized, West Part
 4619045: Division No. 19, Unorganized
@@ -3246,12 +3182,9 @@ census-subdivisions: 5253
 4619079: Pauingassi First Nation
 4619082: Chemawawin 3
 4620032: Mountain (South)
-4620037: Minitonas
-4620039: Minitonas
-4620041: Swan River
-4620043: Benito
+4620042: Swan Valley West
 4620048: Swan River
-4620052: Bowsman
+4620051: Minitonas-Bowsman
 4620055: Mountain (North)
 4620066: Division No. 20, Unorganized, South Part
 4620069: Division No. 20, Unorganized, North Part
@@ -3287,6 +3220,7 @@ census-subdivisions: 5253
 4622067: Cross Lake 19E
 4622800: Wasagamack
 4622801: St. Theresa Point
+4622802: Mooseocoot
 4623022: Gillam
 4623025: Gillam
 4623027: Fox Lake 2
@@ -3302,6 +3236,7 @@ census-subdivisions: 5253
 4623065: Brochet 197
 4623067: Lac Brochet 197A
 4623071: Shamattawa 1
+4623800: Black Sturgeon
 4701001: Argyle No. 1
 4701002: Gainsborough
 4701004: Carievale
@@ -3327,7 +3262,6 @@ census-subdivisions: 5253
 4701043: Storthoaks No. 31
 4701044: Storthoaks
 4701047: Antler No. 61
-4701048: Antler
 4701049: Redvers
 4701053: Moose Mountain No. 63
 4701054: Manor
@@ -3352,7 +3286,6 @@ census-subdivisions: 5253
 4701808: White Bear 70
 4701809: Ocean Man 69
 4701810: Ocean Man 69A
-4701811: Ocean Man 69B
 4701812: Ocean Man 69C
 4701813: Ocean Man 69E
 4701814: Ocean Man 69F
@@ -3360,7 +3293,7 @@ census-subdivisions: 5253
 4701816: Ocean Man 69I
 4701817: Ocean Man 69H
 4701818: Ocean Man 69D
-4701819: Pheasant Rump 68
+4701819: Pheasant Rump Nakota 68
 4702001: Cambria No. 6
 4702002: Torquay
 4702006: Souris Valley No. 7
@@ -3368,7 +3301,6 @@ census-subdivisions: 5253
 4702011: Lake Alma No. 8
 4702012: Lake Alma
 4702014: Surprise Valley No. 9
-4702015: Gladmar
 4702016: Minton
 4702018: Happy Valley No. 10
 4702023: Bengough
@@ -3700,7 +3632,6 @@ census-subdivisions: 5253
 4708042: Lacadena No. 228
 4708044: Kyle
 4708046: Miry Creek No. 229
-4708047: Shackleton
 4708048: Abbey
 4708049: Lancer
 4708053: Clinworth No. 230
@@ -3872,7 +3803,6 @@ census-subdivisions: 5253
 4711071: Bradwell
 4711072: Allan
 4711073: Dalmeny
-4711074: Elstow
 4711075: Osler
 4711076: Colonsay No. 342
 4711077: Clavet
@@ -3936,7 +3866,6 @@ census-subdivisions: 5253
 4713029: Dodsland
 4713031: Plenty
 4713032: Grandview No. 349
-4713033: Ruthilda
 4713038: Mariposa No. 350
 4713039: Tramping Lake
 4713041: Progress No. 351
@@ -4014,6 +3943,7 @@ census-subdivisions: 5253
 4714840: Red Earth 29
 4714841: Yellowquill 90
 4714842: Kinistin 91
+4714843: Yellow Quill 90-9
 4714845: Carrot River 29A
 4714846: Opaskwayak Cree Nation 27A (Carrot River)
 4715001: St. Peter No. 369
@@ -4076,7 +4006,6 @@ census-subdivisions: 5253
 4715099: Paddockwood No. 520
 4715844: One Arrow 95
 4715845: Beardy's 97 and Okemasis 96
-4715846: Chief Joseph Custer
 4715847: Muskoday First Nation
 4715848: Wahpaton 94A
 4715849: James Smith 100
@@ -4107,7 +4036,6 @@ census-subdivisions: 5253
 4716028: North Battleford No. 437
 4716029: North Battleford
 4716033: Round Hill No. 467
-4716034: Rabbit Lake
 4716038: Meeting Lake No. 466
 4716041: Leask No. 464
 4716042: Leask
@@ -4232,10 +4160,10 @@ census-subdivisions: 5253
 4718801: Cumberland House Cree Nation 20
 4718802: Montreal Lake 106
 4718803: Stanley 157
+4718806: Wapaskokimaw 202
 4718807: La Plonge 192
 4718808: Morin Lake 217
 4718809: Lac La Ronge 156
-4718810: Potato River 156A
 4718811: Sucker River 156C (Nemebien River 156C)
 4718812: Kitsakie 156B
 4718813: Four Portages 157C
@@ -4249,15 +4177,13 @@ census-subdivisions: 5253
 4718823: Chicken 225
 4718824: Fond du Lac 227
 4718825: Brabant Lake
+4718826: Southend No. 200A
 4718828: Chicken 224
 4718829: Clearwater River Dene Band 223
 4718831: Grandmother's Bay 219
 4718832: Lac La Hache 220
-4718833: Fond du Lac 229
 4718839: Clearwater River Dene 222
 4718844: Little Hills 158
-4718846: Fond du Lac 232
-4718847: Fond du Lac 231
 4718849: Little Hills 158B
 4718852: Kimosom Pwatinahk 203 (Deschambault Lake)
 4718854: Kinoosao-Thomas Clark 204
@@ -4284,8 +4210,7 @@ census-subdivisions: 5253
 4802022: Taber
 4802023: Barnwell
 4802029: Vauxhall
-4802031: Newell County No. 4
-4802032: Tilley
+4802031: Newell County
 4802034: Brooks
 4802036: Duchess
 4802038: Rosemary
@@ -4384,11 +4309,9 @@ census-subdivisions: 5253
 4807029: Donalda
 4807031: Flagstaff County
 4807032: Alliance
-4807034: Galahad
 4807036: Forestburg
 4807038: Heisler
 4807039: Daysland
-4807041: Strome
 4807042: Killam
 4807044: Sedgewick
 4807046: Lougheed
@@ -4438,7 +4361,6 @@ census-subdivisions: 5253
 4810003: Rosalind
 4810004: Ferintosh
 4810006: Edberg
-4810008: New Norway
 4810009: Bawlf
 4810011: Camrose
 4810012: Bittern Lake
@@ -4451,7 +4373,6 @@ census-subdivisions: 5253
 4810026: Minburn County No. 27
 4810028: Vegreville
 4810031: Innisfree
-4810032: Minburn
 4810034: Mannville
 4810036: Vermilion River County
 4810038: Paradise Valley
@@ -4537,6 +4458,7 @@ census-subdivisions: 5253
 4812026: Waskatenau
 4812029: Smoky Lake
 4812037: Lac la Biche County
+4812038: Improvement District No. 349
 4812802: Unipouheos 121
 4812804: Puskiakiwenin 122
 4812806: Saddle Lake 125
@@ -4571,7 +4493,7 @@ census-subdivisions: 5253
 4813031: Westlock
 4813032: Clyde
 4813033: Larkspur
-4813036: Thorhild County No. 7
+4813036: Thorhild County
 4813044: Athabasca County
 4813045: Mewatha Beach
 4813046: Boyle
@@ -4609,17 +4531,13 @@ census-subdivisions: 5253
 4816849: Old Fort 217
 4816850: Allison Bay 219
 4816852: Dog Head 218
-4816855: Charles Lake 225
-4816856: Fort McKay 174
-4816857: Namur River 174A
-4816858: Namur Lake 174B
 4816859: Fort Mackay
 4816860: Thebathi 196
 4816861: Thabacha Náre 196A
 4817021: High Prairie
 4817024: Swan Hills
 4817026: Northern Sunrise County
-4817027: Big Lakes
+4817027: Big Lakes County
 4817029: Slave Lake
 4817031: Opportunity No. 17
 4817033: Lesser Slave River No.124
@@ -4657,13 +4575,11 @@ census-subdivisions: 5253
 4817845: Hay Lake 209
 4817848: Bushe River 207
 4817849: Upper Hay River 212
-4817852: Kapawe'no First Nation (Halcro 150C)
 4817853: Little Buffalo
 4817854: Carcajou 187
 4817855: Desmarais
 4817856: Woodland Cree 226
 4817857: Woodland Cree 228
-4817858: Kapawe'no First Nation (Grouard 230)
 4817859: Fort Vermilion 173B
 4817860: Loon Lake 235
 4818002: Fox Creek
@@ -4743,13 +4659,13 @@ census-subdivisions: 5253
 5905018: Warfield
 5905023: Rossland
 5905026: Kootenay Boundary A
-5905030: Kootenay Boundary B
+5905030: Kootenay Boundary B / Lower Columbia-Old-Glory
 5905032: Grand Forks
 5905037: Midway
 5905042: Greenwood
-5905050: Kootenay Boundary C
-5905052: Kootenay Boundary D
-5905054: Kootenay Boundary E
+5905050: Kootenay Boundary C / Christina Lake
+5905052: Kootenay Boundary D / Rural Grand Forks
+5905054: Kootenay Boundary E / West Boundary
 5907005: Osoyoos
 5907009: Keremeos
 5907014: Oliver
@@ -4779,6 +4695,7 @@ census-subdivisions: 5253
 5909027: Harrison Hot Springs
 5909032: Kent
 5909034: Fraser Valley D
+5909035: Fraser Valley H
 5909036: Fraser Valley E
 5909048: Fraser Valley C
 5909052: Abbotsford
@@ -4822,6 +4739,7 @@ census-subdivisions: 5253
 5909847: Bucktum 4
 5909848: Tipella 7
 5909849: Skwahla 2
+5909850: Boothroyd 13
 5909852: Paqulh
 5909875: Q'alatkú7em
 5909876: Albert Flat 5
@@ -4877,8 +4795,8 @@ census-subdivisions: 5253
 5917010: Sidney
 5917015: Central Saanich
 5917021: Saanich
-5917027: Capital F
-5917029: Capital G
+5917027: Saltspring Island
+5917029: Southern Gulf Islands
 5917030: Oak Bay
 5917034: Victoria
 5917040: Esquimalt
@@ -4888,8 +4806,8 @@ census-subdivisions: 5253
 5917047: View Royal
 5917049: Highlands
 5917052: Sooke
-5917054: Capital H (Part 1)
-5917056: Capital H (Part 2)
+5917054: Juan de Fuca (Part 1)
+5917056: Juan de Fuca (Part 2)
 5917801: Cole Bay 3
 5917802: Union Bay 4
 5917803: East Saanich 2
@@ -4918,7 +4836,7 @@ census-subdivisions: 5253
 5919803: Tsussie 6
 5919804: Chemainus 13
 5919808: Kil-pah-las 3
-5919809: Kuper Island 7
+5919809: Penelakut Island 7
 5919811: Shingle Point 4
 5919812: Cowichan Lake
 5919814: Malachan 11
@@ -5052,12 +4970,12 @@ census-subdivisions: 5253
 5931831: Slosh 1
 5931832: Towinock 2
 5931833: Mission 5
-5931842: Fountain  1B
+5931842: Fountain 1B
 5931843: Mount Currie
 5931844: Nequatque
 5933006: Merritt
-5933008: Thompson-Nicola M
-5933012: Thompson-Nicola N
+5933008: Thompson-Nicola M (Beautiful Nicola Valley - North)
+5933012: Thompson-Nicola N (Beautiful Nicola Valley - South)
 5933015: Lytton
 5933019: Ashcroft
 5933024: Cache Creek
@@ -5070,7 +4988,7 @@ census-subdivisions: 5253
 5933044: Thompson-Nicola P (Rivers and the Peaks)
 5933045: Sun Peaks Mountain
 5933054: Chase
-5933060: Thompson-Nicola L
+5933060: Thompson-Nicola L (Grasslands)
 5933067: Clearwater
 5933068: Thompson-Nicola A (Wells Gray Country)
 5933070: Thompson-Nicola B (Thompson Headwaters)
@@ -5097,18 +5015,16 @@ census-subdivisions: 5253
 5933825: Inklyuhkinatko 2
 5933828: Basque 18
 5933829: Klahkamich 17
-5933830: Klahkowit 5
 5933831: Kleetlekut 22
 5933832: Klickkumcheen 18
 5933833: Inkluckcheen
 5933834: Kumcheen 1
 5933836: Lower Hat Creek 2
 5933837: Peq-Paq 22
-5933838: Neskonlith
-5933839: Lytton  4A
-5933840: Lytton  4E
-5933841: Lytton  9A
-5933842: Lytton  9B
+5933839: Lytton 4A
+5933840: Lytton 4E
+5933841: Lytton 9A
+5933842: Lytton 9B
 5933844: Ashcroft 4
 5933845: 105 Mile Post 2
 5933846: Oregon Jack Creek 5
@@ -5147,6 +5063,7 @@ census-subdivisions: 5253
 5933895: Shawniken 4B
 5933896: Nekliptum  1
 5933897: Boothroyd 8A (Part)
+5933898: Neskonlith
 5935010: Kelowna
 5935012: Central Okanagan
 5935016: Lake Country
@@ -5221,8 +5138,6 @@ census-subdivisions: 5253
 5941813: Canim Lake 2
 5941817: Alexis Creek 14
 5941818: Alexis Creek 16
-5941819: Alexis Creek 24
-5941820: Alexis Creek 25
 5941821: Anahim's Flat 1
 5941827: Charley Boy's Meadow 3
 5941828: Chilco Lake 1
@@ -5236,12 +5151,8 @@ census-subdivisions: 5253
 5941839: Redstone Flat 1
 5941840: Squinas 2
 5941841: Stone 1
-5941842: Alexis Creek 17
-5941843: Seymour Meadows 19
 5941844: Agats Meadow 8
 5941845: Thomas Squinas Ranch 2A
-5941846: Toby's Meadow 4
-5941847: Alexis Creek  6
 5941848: Alexis Creek 21
 5941849: Baptiste Meadow 2
 5941850: Toosey 1
@@ -5257,7 +5168,6 @@ census-subdivisions: 5253
 5941862: Salmon River Meadow 7
 5941863: Tzetzi Lake 11
 5941864: Sundayman's Meadow 3
-5941865: Tatelkus Lake 28
 5941866: Euchinico Creek 17
 5941868: Sandy Harry 4
 5941871: Fishtrap 19
@@ -5288,6 +5198,7 @@ census-subdivisions: 5253
 5943815: Kippase 2
 5943816: Quatsino Subdivision 18
 5943817: Thomas Point 5
+5943835: Nimpkish 2
 5943836: Hope Island 1
 5943837: Alert Bay
 5945006: Central Coast A
@@ -5341,7 +5252,6 @@ census-subdivisions: 5253
 5949818: Sik-e-dakh 2
 5949819: Babine 17
 5949820: Bulkley River 19
-5949830: Kluachon Lake 1
 5949832: Iskut 6
 5949843: Guhthe Tah 12
 5949844: Kitselas 1
@@ -5454,8 +5364,7 @@ census-subdivisions: 5253
 6001029: Dawson
 6001031: Moosehide Creek 2
 6001032: Upper Liard
-6001033: Two Mile Village
-6001034: Two and One-Half Mile Village
+6001035: Two Mile and Two and One-Half Mile Village
 6001036: Tagish
 6001037: Ross River
 6001038: Champagne Landing 10
@@ -5497,7 +5406,7 @@ census-subdivisions: 5253
 6103052: Wekweètì
 6103097: Region 3, Unorganized
 6104005: Kakisa
-6104006: Trout Lake
+6104006: Sambaa Ke
 6104009: Fort Liard
 6104010: Nahanni Butte
 6104013: Jean Marie River
@@ -5538,7 +5447,7 @@ census-subdivisions: 5253
 6205017: Rankin Inlet
 6205019: Chesterfield Inlet
 6205023: Baker Lake
-6205027: Repulse Bay
+6205027: Naujaat
 6205033: Keewatin, Unorganized
 6208047: Kugaaruk
 6208059: Kugluktuk
@@ -5549,23 +5458,16 @@ census-subdivisions: 5253
 6208087: Taloyoak
 6208098: Kitikmeot, Unorganized
 
-saint-john-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
+grand-falls-wards: 2
+: North Ward
+: South Ward
 
-campobello-island-wards: 3
-1: Ward 1
-2: Ward 2
-3: Ward 3
-
-oromocto-wards: 3
+atholville-wards: 3
 1: Ward 1
 2: Ward 2
 3: Ward 3
 
-riverview-wards: 4
+bas-caraquet-wards: 4
 1: Ward 1
 2: Ward 2
 3: Ward 3
@@ -5579,11 +5481,25 @@ beaubassin-east-wards: 6
 5: Ward 5
 6: Ward 6
 
-moncton-wards: 4
+belledune-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
+campobello-island-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
+caraquet-wards: 4
 1: Ward 1
 2: Ward 2
 3: Ward 3
 4: Ward 4
+
+cocagne-wards: 2
+1: Ward 1
+2: Ward 2
 
 dieppe-wards: 5
 1: Ward 1
@@ -5592,7 +5508,7 @@ dieppe-wards: 5
 4: Ward 4
 5: Ward 5
 
-upper-miramichi-wards: 4
+edmundston-wards: 4
 1: Ward 1
 2: Ward 2
 3: Ward 3
@@ -5602,18 +5518,11 @@ florenceville-bristol-wards: 2
 1: Ward 1
 2: Ward 2
 
-saint-andre-wards: 0
-
-edmundston-wards: 4
+hanwell-wards: 4
 1: Ward 1
 2: Ward 2
 3: Ward 3
 4: Ward 4
-
-atholville-wards: 3
-1: Ward 1
-2: Ward 2
-3: Ward 3
 
 kedgwick-wards: 4
 1: Ward 1
@@ -5621,26 +5530,46 @@ kedgwick-wards: 4
 3: Ward 3
 4: Ward 4
 
-belledune-wards: 3
-1: Ward 1
-2: Ward 2
-3: Ward 3
-
-bas-caraquet-wards: 4
+moncton-wards: 4
 1: Ward 1
 2: Ward 2
 3: Ward 3
 4: Ward 4
 
-caraquet-wards: 4
+oromocto-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
+riverview-wards: 4
 1: Ward 1
 2: Ward 2
 3: Ward 3
 4: Ward 4
 
-grand-falls-wards: 2
-: North Ward
-: South Ward
+saint-john-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+saint-andre-wards: 0
+
+tracadie-wards: 8
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+
+upper-miramichi-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
 
 annapolis-districts: 11
 1: District 1
