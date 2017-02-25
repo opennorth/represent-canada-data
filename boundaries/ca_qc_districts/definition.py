@@ -110,7 +110,6 @@ sets = {
     71050: ["Les Cèdres", "districts"],
     71033: ["Les Coteaux", "districts"],
     1023: ["Les Îles-de-la-Madeleine", "districts"],
-    # District names from the city's shapefile are not extant.
     25213: ["Lévis", "districts"],
     58227: ["Longueuil", "districts"],
     32065: ["Lyster", "districts"],

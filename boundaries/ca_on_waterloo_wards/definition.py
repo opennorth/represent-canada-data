@@ -5,7 +5,6 @@ import boundaries
 sets = {
     3530004: 'North Dumfries',
     3530010: 'Cambridge',
-    # Also available from http://app.kitchener.ca/opendata/shp/wards.zip
     3530013: 'Kitchener',
     3530016: 'Waterloo',
     3530020: 'Wilmot',
