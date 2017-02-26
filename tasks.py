@@ -28,14 +28,15 @@ from constants import (
     terms,
     terms_re,
     valid_keys,
-    valid_extra_keys,
     authorities,
+    quartiers,
     municipal_subdivisions,
-    request_and_receipt_headers,
     headers,
+    default_expectation,
 )
 
-sgc_to_id_memo = {}
+province_or_territory_abbreviation_memo = {}
+divisions_with_boroughs_memo = set()
 ocd_division_csv = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'country-ca.csv')
 
 
@@ -69,75 +70,59 @@ def csv_dict_reader(url, encoding='utf-8'):
     return csv.DictReader(StringIO(response.text))
 
 
-def sgc_to_id():
-    """
-    Maps Standard Geographical Classification codes to OCD identifiers.
-    """
-    if not sgc_to_id_memo:
+def province_or_territory_abbreviation(code):
+    if not province_or_territory_abbreviation_memo:
         for division in Division.all('ca', from_csv=ocd_division_csv):
-            if division.attrs['sgc']:
-                sgc_to_id_memo[division.attrs['sgc']] = division.id
-            elif division._type in ('cd', 'csd'):
-                sgc_to_id_memo[division.id.rsplit(':', 1)[1]] = division.id
-    return sgc_to_id_memo
+            if division._type in ('province', 'territory'):
+                province_or_territory_abbreviation_memo[division.attrs['sgc']] = type_id(division.id).upper()
+    return province_or_territory_abbreviation_memo[type_id(code)[:2]]
+
+
+def divisions_with_boroughs():
+    """
+    Returns the OCD identifiers for divisions with boroughs.
+    """
+    if not divisions_with_boroughs_memo:
+        for division in Division.all('ca', from_csv=ocd_division_csv):
+            if division._type == 'borough':
+                divisions_with_boroughs_memo.add(division.parent.id)
+    return divisions_with_boroughs_memo
+
+
+def type_id(id):
+    """
+    Returns an OCD identifier's type ID.
+    """
+    return id.rsplit(':', 1)[1]
 
 
 def get_definition(division_id, path=None):
     """
     Returns the expected contents of a definition file.
     """
-    division = Division.get(division_id, from_csv=ocd_division_csv)
-    sections = division_id.split('/')
-    ocd_type, ocd_type_id = sections[-1].split(':')
-
     config = {}
+
+    division = Division.get(division_id, from_csv=ocd_division_csv)
 
     # Determine slug, domain and authority.
     name = division.name
     if not name:
-        print('%-60s unknown name: check slug and domain manually' % division_id)
+        print('%-60s unknown name: check slug and domain manually' % division.id)
 
-    if ocd_type == 'country':
+    if division._type == 'country':
         slug = 'Federal electoral districts'
         config['domain'] = name
         config['authority'] = ['Her Majesty the Queen in Right of Canada']
 
-    elif ocd_type in ('province', 'territory'):
+    elif division._type in ('province', 'territory'):
         slug = '%s electoral districts' % name
         config['domain'] = name
         config['authority'] = ['Her Majesty the Queen in Right of %s' % name]
 
-    elif ocd_type in ('cd', 'csd'):
-        province_or_territory_sgc_code = ocd_type_id[:2]
-        province_or_territory_abbreviation = sgc_to_id()[province_or_territory_sgc_code].split(':')[-1].upper()
+    elif division._type in ('cd', 'csd'):
+        province_or_territory_sgc_code = type_id(division.id)[:2]
 
-        boroughs = [
-            'ocd-division/country:ca/csd:2423027',  # Québec
-            'ocd-division/country:ca/csd:2425213',  # Lévis
-            'ocd-division/country:ca/csd:2443027',  # Sherbrooke
-            'ocd-division/country:ca/csd:2458227',  # Longueuil
-            'ocd-division/country:ca/csd:2466023',  # Montréal
-            'ocd-division/country:ca/csd:2494068',  # Saguenay
-        ]
-
-        # @see `has_children` in `ca_municipal_subdivisions.rb` in `ocd-division-ids`
-        quartiers = [
-            'ocd-division/country:ca/csd:2402015',  # Grande-Rivière
-            'ocd-division/country:ca/csd:2403005',  # Gaspé
-            'ocd-division/country:ca/csd:2411040',  # Trois-Pistoles
-            'ocd-division/country:ca/csd:2413095',  # Pohngamook
-            'ocd-division/country:ca/csd:2434120',  # Lac-Sergent
-            'ocd-division/country:ca/csd:2446080',  # Cowansville
-            'ocd-division/country:ca/csd:2453050',  # Saint-Joseph-de-Sorel
-            'ocd-division/country:ca/csd:2467025',  # Delson
-            'ocd-division/country:ca/csd:2469055',  # Huntingdon
-            'ocd-division/country:ca/csd:2483065',  # Maniwaki
-            'ocd-division/country:ca/csd:2487090',  # La Sarre
-            'ocd-division/country:ca/csd:2489040',  # Senne-Terre
-            'ocd-division/country:ca/csd:2493005',  # Desbiens
-        ]
-
-        if province_or_territory_sgc_code == '24' and division_id in boroughs:
+        if province_or_territory_sgc_code == '24' and division.id in divisions_with_boroughs():
             slug = re.compile('\A%s (boroughs|districts)\Z' % name)
         elif province_or_territory_sgc_code == '12' and division.attrs['classification'] != 'T':
             slug = '%s districts' % name
@@ -146,14 +131,14 @@ def get_definition(division_id, path=None):
         elif province_or_territory_sgc_code == '48' and division.attrs['classification'] == 'MD':
             slug = '%s divisions' % name
         elif province_or_territory_sgc_code == '24':
-            if division_id in quartiers:
+            if division.id in quartiers:
                 slug = '%s quartiers' % name
             else:
                 slug = '%s districts' % name
         else:
             slug = '%s wards' % name
 
-        config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation)
+        config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation(division.id))
 
         if province_or_territory_sgc_code == '12' and 'boundaries/ca_ns_districts/' in path:
             config['authority'] = ['Her Majesty the Queen in Right of Nova Scotia']
@@ -163,22 +148,17 @@ def get_definition(division_id, path=None):
             config['authority'] = ['Directeur général des élections du Québec']
         elif province_or_territory_sgc_code == '47' and division.attrs['classification'] != 'CY':
             config['authority'] = ['MuniSoft']
-        elif ocd_type == 'csd':
+        elif division._type == 'csd':
             config['authority'] = authorities + [division.attrs['organization_name']]
         else:
             config['authority'] = ['']  # We have no expectation for the authority of a Census division
 
-    elif ocd_type == 'borough':
-        census_subdivision_ocdid = '/'.join(sections[:-1])
-        census_subdivision = Division.get(census_subdivision_ocdid, from_csv=ocd_division_csv)
-        census_subdivision_name = census_subdivision.name
-
-        province_or_territory_sgc_code = census_subdivision_ocdid.split(':')[-1][:2]
-        province_or_territory_abbreviation = sgc_to_id()[province_or_territory_sgc_code].split(':')[-1].upper()
+    elif division._type == 'borough':
+        province_or_territory_sgc_code = type_id(division.parent.id)[:2]
 
         if name:
             slug = '%s districts' % name
-            config['domain'] = '%s, %s, %s' % (name, census_subdivision_name, province_or_territory_abbreviation)
+            config['domain'] = '%s, %s, %s' % (name, division.parent.name, province_or_territory_abbreviation(division.parent.id))
         else:
             slug = None
             config['domain'] = None
@@ -186,10 +166,10 @@ def get_definition(division_id, path=None):
         if province_or_territory_sgc_code == '24':
             config['authority'] = ['Directeur général des élections du Québec']
         else:
-            config['authority'] = [census_subdivision.attrs['organization_name']]
+            config['authority'] = [division.parent.attrs['organization_name']]
 
     else:
-        raise Exception('%s: Unrecognized OCD type %s' % (division_id, ocd_type))
+        raise Exception('%s: Unrecognized OCD type %s' % (division.id, division._type))
 
     return (slug, config)
 
@@ -273,16 +253,6 @@ def definitions(base='.'):
         elif actual != expected and expected is not None:
             print('%-60s Expected %s to be %s not %s' % (slug, field, expected, actual))
 
-    duplicate_division_ids = (
-        # Districts and boroughs.
-        'ocd-division/country:ca/csd:2423027',  # Québec
-        'ocd-division/country:ca/csd:2425213',  # Lévis
-        'ocd-division/country:ca/csd:2443027',  # Sherbrooke
-        'ocd-division/country:ca/csd:2458227',  # Longueuil
-        'ocd-division/country:ca/csd:2466023',  # Montréal
-        'ocd-division/country:ca/csd:2494068',  # Saguenay
-    )
-
     response = requests.get('https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/pub?gid=0&single=true&output=csv')
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
@@ -349,7 +319,7 @@ def definitions(base='.'):
 
         if slug not in ('Census divisions', 'Census subdivisions'):
             # Check for invalid keys or empty values.
-            invalid_keys = set(config['extra'].keys()) - valid_extra_keys
+            invalid_keys = set(config['extra'].keys()) - {'division_id'}
             if invalid_keys:
                 print('%-60s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
             for key, value in config['extra'].items():
@@ -357,7 +327,7 @@ def definitions(base='.'):
                     print('%-60s Empty value for %s' % (slug, key))
 
             # Ensure division_id is unique.
-            if division_id in division_ids and division_id not in duplicate_division_ids and ocd_type not in ('country', 'province', 'territory'):
+            if division_id in division_ids and division_id not in divisions_with_boroughs() and ocd_type not in ('country', 'province', 'territory'):
                 print('%-60s Duplicate division_id %s' % (slug, division_id))
             else:
                 division_ids.add(division_id)
@@ -512,23 +482,25 @@ def shapefiles(base='.'):
                     os.unlink(kmz_file_path)
 
             if not error_thrown:
+                shp_file_path = glob(os.path.join(directory, '*.shp'))
+
                 # Convert any KML to shapefile.
-                kml_file_path = os.path.join(directory, 'data.kml')
-                if os.path.exists(kml_file_path):
-                    result = run('ogrinfo -q %s | grep -v "3D Point"' % kml_file_path, hide='out').stdout
-                    if result.count('\n') > 1:
-                        print('Too many layers %s' % url)
-                    else:
-                        layer = re.search('\A\d+: (\S+)', result).group(1)
-                        run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON %s' % (directory, kml_file_path, layer), echo=True)
-                        for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
-                            files_to_add.append(name)
-                        os.unlink(kml_file_path)
+                if not shp_file_path:
+                    kml_file_path = os.path.join(directory, 'data.kml')
+                    if os.path.exists(kml_file_path):
+                        result = run('ogrinfo -q %s | grep -v "3D Point"' % kml_file_path, hide='out').stdout
+                        if result.count('\n') > 1:
+                            print('Too many layers %s' % url)
+                        else:
+                            layer = re.search('\A\d+: (\S+)', result).group(1)
+                            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON %s' % (directory, kml_file_path, layer), echo=True)
+                            for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
+                                files_to_add.append(name)
+                            os.unlink(kml_file_path)
 
                 # Merge multiple shapefiles into one.
-                names = glob(os.path.join(directory, '*.shp'))
-                if len(names) > 1:
-                    for name in names:
+                if len(shp_file_path) > 1:
+                    for name in shp_file_path:
                         run('ogr2ogr -f "ESRI Shapefile" %s %s -update -append -nln Boundaries' % (directory, name), echo=True)
                         basename = os.path.splitext(os.path.basename(name))[0]
                         for name in glob(os.path.join(directory, '%s.[dps][bhr][fjnpx]' % basename)):
@@ -652,47 +624,34 @@ def shapefiles(base='.'):
 @task
 def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     """
-    Validate and regenerate the spreadsheet for tracking progress on data collection.
+    Validate the spreadsheet for tracking progress on data collection.
     """
     expecteds = OrderedDict()
 
     # Append to `municipal_subdivisions` from `constants.py`.
     for division in Division.all('ca', from_csv=ocd_division_csv):
         if division.attrs['has_children']:
-            municipal_subdivisions[division.id.rsplit(':', 1)[1]] = division.attrs['has_children']
+            municipal_subdivisions[type_id(division.id)] = division.attrs['has_children']
 
-    # Map census subdivision type names to codes.
-    census_subdivision_type_names = {}
-    document = lxml.html.fromstring(requests.get('https://www12.statcan.gc.ca/census-recensement/2016/ref/dict/tab/t1_5-eng.cfm').content)
-    for text in document.xpath('//table//th[@headers]/text()'):
-        code, name = text.split(' – ', 1)  # non-breaking space
-        census_subdivision_type_names[name.lower()] = code
+    expecteds['ocd-division/country:ca'] = default_expectation.copy()
+    expecteds['ocd-division/country:ca'].update({
+        'OCD': 'ocd-division/country:ca',
+        'Geographic name': 'Canada',
+    })
 
-    abbreviations = {}
+    # Create expectations for provinces and territories.
     for division in Division.all('ca', from_csv=ocd_division_csv):
         if division._type in ('province', 'territory'):
-            if division.attrs['abbreviation']:
-                abbreviations[division.attrs['abbreviation']] = division.id.rsplit(':', 1)[1].upper()
+            expected = default_expectation.copy()
+            expected.update({
+                'OCD': division.id,
+                'Geographic name': division.name,
+                'Province or territory': type_id(division.id).upper(),
+            })
 
-        # Create records for provinces and territories.
-        expecteds[division.id] = {
-            'OCD': division.id,
-            'Geographic name': division.name,
-            'Geographic type': '',
-            'Province or territory': division.id.rsplit(':', 1)[1].upper(),
-            'Population': '',
-            'URL': '',
-            'Shapefile?': '',
-            'Contact': '',
-            'Request notes': '',
-            'Received via': '',
-            'Last boundary': '',
-            'Next boundary': '',
-            'Permission to distribute': '',
-            'Response notes': '',
-        }
+            expecteds[division.id] = expected
 
-    # Create records for census subdivisions.
+    # Create expectations for census subdivisions.
     reader = csv_dict_reader('http://www12.statcan.gc.ca/census-recensement/2016/dp-pd/hlt-fst/pd-pl/Tables/CompFile.cfm?Lang=Eng&T=301&OFT=FULLCSV', 'ISO-8859-1')
     for row in reader:
         code = row['Geographic code']
@@ -701,43 +660,28 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
         if code == 'Note:':
             break
 
-        division_id = sgc_to_id()[code]
+        division = Division.get('ocd-division/country:ca/csd:%s' % row['Geographic code'], from_csv=ocd_division_csv)
 
-        type_name_en = row['CSD type, english']
-        type_name_fr = row['CSD type, french']
-        if type_name_en == type_name_fr:
-          type_name = type_name_en
-        else:
-          type_name = '%s / %s' % (type_name_en, type_name_fr)
-
-        expected = {
-            'OCD': division_id,
-            'Geographic name': name,
-            'Province or territory': sgc_to_id()[row['Geographic code, Province / territory']].rsplit(':', 1)[1].upper(),
-            'Geographic type': census_subdivision_type_names[type_name.lower()],
+        expected = default_expectation.copy()
+        expected.update({
+            'OCD': division.id,
+            'Geographic name': division.name,
+            'Province or territory': province_or_territory_abbreviation(division.id),
+            'Geographic type': division.attrs['classification'],
             'Population': row['Population, 2016'],
-            'URL': '',
-            'Contact': '',
-            'Request notes': '',
-            'Received via': '',
-            'Last boundary': '',
-            'Next boundary': '',
-            'Permission to distribute': '',
-            'Response notes': '',
-        }
+        })
 
         if code in municipal_subdivisions:
             if municipal_subdivisions[code] == 'N':
-                for header in ['Shapefile?'] + request_and_receipt_headers:
-                    expected[header] = 'N/A'
+                expected['Shapefile?'] = 'N/A'
+                expected['Contact'] = 'N/A'
+                expected['Received via'] = 'N/A'
+                expected['Last boundary'] = 'N/A'
+                expected['Permission to distribute'] = 'N/A'
             elif municipal_subdivisions[code] == 'Y':
                 expected['Shapefile?'] = 'Request'
-            elif municipal_subdivisions[code] == '?':
-                expected['Shapefile?'] = ''
-        else:
-            expected['Shapefile?'] = ''
 
-        expecteds[division_id] = expected
+        expecteds[division.id] = expected
 
     # Merge information from received data.
     for directory, permission_to_distribute in [(base, 'Y'), (private_base, 'N')]:
@@ -764,6 +708,9 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                     if 'source_url' in config:
                         expected['Contact'] = 'N/A'
                         expected['Received via'] = 'online'
+                    elif expected['Province or territory'] == 'SK' and expected['Geographic type'] == 'RM':
+                        expected['Contact'] = 'Mikael Nagel\nMapping Technician\nTel: 1-306-569-2988 x205\nToll free: 1-800-663-6864\nmaps@munisoft.ca'
+                        expected['Received via'] = 'purchase'
                     else:
                         match = all_rights_reserved_terms_re.search(license_text)
                         if match:
@@ -778,35 +725,47 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     response = requests.get('https://docs.google.com/spreadsheets/d/1ihCIDc9EtvxF7kzPg3Yk6e928DN7JzaycH92IBYr0QU/pub?gid=25&single=true&output=csv')
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
+
+    actuals = set()
     for actual in reader:
         expected = expecteds[actual['OCD']]
+        actuals.add(actual['OCD'])
 
-        for key in actual:
+        for key in actual.keys() - ('Population', 'URL', 'Request notes', 'Next boundary', 'Response notes'):
             e = expected[key]
             a = actual[key]
 
+            # Note: Some of the following conditions are repetitive for readability.
             if e != a:
-                if a and (
-                    # Columns that are always tracked manually.
-                   (key in ('Request notes', 'Next boundary', 'Response notes')) or
-                   # Scrapers for municipalities without wards are tracked manually.
-                   (key == 'Shapefile?'       and not e          and a in ('Request', 'Requested')) or  # noqa
-                   # In-progress requests are tracked manually.
-                   (key == 'Shapefile?'       and e == 'Request' and a == 'Requested') or  # noqa
-                   # Contacts for in-progress requests and private data are tracked manually.
-                   (key == 'Contact'          and not e          and (actual['Shapefile?'] == 'Requested' or expected['Permission to distribute'] == 'N')) or  # noqa
-                   # We may have a contact to confirm the nonexistence of municipal subdivisions.
-                   (key == 'Contact'          and e == 'N/A'     and expected['Shapefile?'] == 'N/A') or  # noqa
-                   # MFIPPA requests are tracked manually.
-                   (key == 'Received via'     and e == 'email'   and a == 'MFIPPA') or  # noqa
-                   # We may have information for a bad shapefile from an in-progress request.
-                   (key in ('Received via', 'Permission to distribute') and not e and actual['Shapefile?'] == 'Requested')):
-                    expected[key] = a
-                # The spreadsheet can add contacts and URLs.
-                elif key != 'Population' and (key not in ('Contact', 'URL') or e):  # separators
-                    sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, actual['OCD'], e, a))
+                # Change expectations for in-progress requests.
+                if expected['Shapefile?'] == 'Request' and actual['Shapefile?'] == 'Requested' and (
+                   # Request sent.
+                   (key == 'Shapefile?' and e == 'Request' and a == 'Requested') or
+                   # Contact found.
+                   (key == 'Contact' and not e and a)):
+                    continue
 
-    writer = csv.writer(sys.stdout)
-    writer.writerow(headers)
-    for _, expected in expecteds.items():
-        writer.writerow([expected[header] for header in headers])
+                # Some provinces and territories have missing expectations, in which case we defer to the spreadsheet.
+                elif actual['Province or territory'] in ('ON', 'MB') and not expected['Shapefile?'] and (
+                   # We determined that we needed to request boundaries.
+                   (key == 'Shapefile?' and not e and a in ('Request', 'Requested')) or
+                   # We determined that we needed to request boundaries, and did so.
+                   (actual['Shapefile?'] == 'Requested' and key == 'Contact' and not e and a)):
+                    continue
+
+                elif (
+                    # Contacts for private data are only stored in the spreadsheet.
+                    (expected['Permission to distribute'] == 'N' and key == 'Contact' and not e and a) or
+                    # MFIPPA receptions are only stored in the spreadsheet.
+                    (key == 'Received via' and e == 'email' and a == 'MFIPPA')):
+                    continue
+
+                sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, actual['OCD'], e, a))
+
+    for division_id in expecteds.keys() - actuals:
+        record = expecteds[division_id]
+        if record['Shapefile?'] != 'N/A':
+            sys.stderr.write('%s\t%s\t%s\t%s\t%s\n' % (division_id, record['Geographic name'], record['Province or territory'], record['Geographic type'], record['Population']))
+
+    for division_id in actuals - expecteds.keys():
+        sys.stderr.write('Remove %s\n' % division_id)

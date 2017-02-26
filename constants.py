@@ -147,16 +147,9 @@ valid_keys = set([
     'extra',
     'notes',
     'encoding',
-    # Used by this script. Not validated.
+    # Used by tasks. Not validated.
     'prj',
     'skip_crc32',
-])
-
-"""
-Valid keys for a definition.py file's `extra` dictionary.
-"""
-valid_extra_keys = set([
-    'division_id',
 ])
 
 """
@@ -170,13 +163,30 @@ authorities = [
 ]
 
 """
-Supplement ocd-division-ids, so that the spreadsheet task determines a correct
-value for the "Shapefile?" column.
+Divisions with 'quartiers' instead of 'districts'.
+"""
+# @see `has_children` in `ca_municipal_subdivisions.rb` in `ocd-division-ids`
+quartiers = [
+    'ocd-division/country:ca/csd:2402015',  # Grande-Rivière
+    'ocd-division/country:ca/csd:2403005',  # Gaspé
+    'ocd-division/country:ca/csd:2411040',  # Trois-Pistoles
+    'ocd-division/country:ca/csd:2413095',  # Pohngamook
+    'ocd-division/country:ca/csd:2434120',  # Lac-Sergent
+    'ocd-division/country:ca/csd:2446080',  # Cowansville
+    'ocd-division/country:ca/csd:2453050',  # Saint-Joseph-de-Sorel
+    'ocd-division/country:ca/csd:2467025',  # Delson
+    'ocd-division/country:ca/csd:2469055',  # Huntingdon
+    'ocd-division/country:ca/csd:2483065',  # Maniwaki
+    'ocd-division/country:ca/csd:2487090',  # La Sarre
+    'ocd-division/country:ca/csd:2489040',  # Senne-Terre
+    'ocd-division/country:ca/csd:2493005',  # Desbiens
+]
+
+"""
+Supplement `has_children` in `ocd-division-ids`, so that the spreadsheet task
+determines a correct value for the "Shapefile?" column.
 """
 municipal_subdivisions = {
-    # NL
-    '1001542': 'N',
-    '1005018': 'N',
     # ON
     '3501012': 'N',
     '3518013': 'N',
@@ -191,32 +201,11 @@ municipal_subdivisions = {
     '4602044': 'N',
     '4609029': 'N',
     '4622026': 'N',
-    # SK
-    '4701024': 'N',
-    '4707039': 'N',
-    '4708004': 'N',
-    '4709012': 'N',
-    '4716029': 'N',
     # YT
     '6001009': 'N',
     # NT
     '6106023': 'N',
 }
-
-"""
-CSV headers related to the request and receipt of a boundary.
-"""
-request_and_receipt_headers = [
-    # Request headers.
-    'Contact',
-    'Request notes',
-    'Received via',
-    # Receipt headers.
-    'Last boundary',
-    'Next boundary',
-    'Permission to distribute',
-    'Response notes',
-]
 
 """
 CSV headers to use in the spreadsheet task.
@@ -228,4 +217,30 @@ headers = [
     'Population',
     'URL',
     'Shapefile?',
-] + request_and_receipt_headers
+    # Request headers.
+    'Contact',
+    'Request notes',
+    'Received via',
+    # Receipt headers.
+    'Last boundary',
+    'Next boundary',
+    'Permission to distribute',
+    'Response notes',
+]
+
+default_expectation = {
+    'OCD': '',
+    'Geographic name': '',
+    'Province or territory': '',
+    'Geographic type': '',
+    'Population': '',
+    'URL': '',
+    'Shapefile?': '',
+    'Contact': '',
+    'Request notes': '',
+    'Received via': '',
+    'Last boundary': '',
+    'Next boundary': '',
+    'Permission to distribute': '',
+    'Response notes': '',
+}

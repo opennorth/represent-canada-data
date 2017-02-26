@@ -132,7 +132,7 @@ Check if the data request process spreadsheet is out-of-date:
 
 Or less verbose:
 
-    invoke spreadsheet --base=. --private-base=../represent-canada-private-data > /dev/null
+    invoke spreadsheet --base=. --private-base=../represent-canada-private-data
 
 #### Postcode concordances
 
