@@ -4,7 +4,7 @@ import boundaries
 
 boundaries.register('Calgary wards',
     domain='Calgary, AB',
-    last_updated=date(2017, 2, 6),
+    last_updated=date(2017, 10, 6),
     name_func=boundaries.clean_attr('LABEL'),
     id_func=lambda f: int(f.get('WARD_NUM')),
     authority='City of Calgary',
