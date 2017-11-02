@@ -76,6 +76,8 @@ If you update a `data_url`, update its shapefile, `name_func` and `id_func` foll
 
 #### Download shapefiles
 
+*After downloading shapefiles, but before committing, you must process the shapefiles, as described in the next step.*
+
 Check for old boundaries that may require manual updates:
 
     invoke manual
@@ -93,6 +95,10 @@ Some shapefiles are online but require exceptional processing. Remember to updat
     esri-dump http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0 > boundaries/ca_nb_wards/wards.geojson
     ogr2ogr -f "ESRI Shapefile" boundaries/ca_nb_wards boundaries/ca_nb_wards/wards.geojson
 
+After running these commands, you may have both untracked files and deleted files. This is due to sources changing filenames. If you `git add` the directory, the untracked files will be staged to be added and the deleted files will be staged to be removed.
+
+After running these commands, you may have only modified the `definition.py` file, i.e. only the `last_updated` value is changed. That's also fine.
+
 ##### Quebec
 
 After receiving a new boundary file for all municipalities in Quebec, you need to update the `definition.py` file in `ca_qc_districts`.
@@ -102,7 +108,7 @@ After receiving a new boundary file for all municipalities in Quebec, you need t
 1. Comment out jurisdictions for which other sources have more complete data (Dorval, Kirkland)
 1. Separately define the boundaries of jurisdictions whose names duplicate others' (Plessisville (32045))
 
-After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular
+After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular.
 
 #### Process shapefiles
 
@@ -119,6 +125,8 @@ For features that aren't numbered like "Ward 1", determining the public identifi
 Read [this section](https://github.com/opennorth/represent-boundaries/blob/master/definition.example.py#L51-L76) of the example `definition.py` file for help writing a `name_func` and `id_func`.
 
 If you're updating many shapefiles, it may be long to run `ogrinfo` on each. Instead, run `../represent-canada/manage.py analyzeshapefiles -d . > manifest` and `git diff manifest` instead.
+
+Once you've updated the `definition.py` files to correctly extract the feature's name and public identifier, you can commit the `definition.py` files and data files.
 
 #### Cleanup
 
