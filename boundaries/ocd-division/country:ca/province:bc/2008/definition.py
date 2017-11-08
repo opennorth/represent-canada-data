@@ -2,7 +2,7 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('British Columbia electoral districts',  # (2008 Redistribution)
+boundaries.register('British Columbia electoral districts (2008 Redistribution)',
     singular='British Columbia electoral district',
     domain='British Columbia',
     last_updated=date(2016, 11, 30),
