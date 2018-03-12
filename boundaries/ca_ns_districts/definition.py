@@ -66,7 +66,7 @@ for fragment, (name, machine_name, type) in sets.items():
         id_func=lambda f: re.sub(r'^\D+0?', '', f.get('poll_dist')),
         authority='Her Majesty the Queen in Right of Nova Scotia',
         source_url='https://data.novascotia.ca/Municipalities/Municipal-Polling-Districts/gcep-xeci',
-        licence_url='http://novascotia.ca/opendata/licence.asp',
+        licence_url='https://novascotia.ca/opendata/licence.asp',
         data_url='https://data.novascotia.ca/api/geospatial/gcep-xeci?method=export&format=Shapefile',
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/%s' % fragment},

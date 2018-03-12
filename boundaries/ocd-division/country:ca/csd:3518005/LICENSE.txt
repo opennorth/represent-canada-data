@@ -1,7 +1,1 @@
-Distributed with permission from the Town of Ajax.  Please direct licensing inquiries and requests to:
-
-Chris Walker
-GIS Coordinator 
-Town of Ajax
-Tel: 1-905-619-2529 x3288 
-chris.walker@ajax.ca
+I. Terms of Use. Contains public sector Information made available under The Corporation of the Town of Ajax's Open Data Licence (http://townofajax.maps.arcgis.com/sharing/rest/content/items/22e2d8e248724d7cb0310dc2db675abd/data).
