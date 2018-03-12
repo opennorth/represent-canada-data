@@ -15,10 +15,10 @@ from urllib.parse import urlparse
 from zipfile import ZipFile, BadZipfile
 
 import boundaries
-import lxml.html
 import requests
 from invoke import run, task
 from opencivicdata.divisions import Division
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from rfc6266 import parse_headers
 
 from constants import (
@@ -31,9 +31,10 @@ from constants import (
     authorities,
     quartiers,
     municipal_subdivisions,
-    headers,
     default_expectation,
 )
+
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 province_or_territory_abbreviation_memo = {}
 divisions_with_boroughs_memo = set()
@@ -370,10 +371,13 @@ def urls(base='.'):
                             if result.username:
                                 url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
                                 arguments['auth'] = (result.username, result.password)
-                            response = requests.head(url, headers=headers, **arguments)
+                            try:
+                                response = requests.head(url, headers=headers, **arguments)
+                            except requests.exceptions.SSLError:
+                                response = requests.head(url, verify=False, headers=headers, **arguments)
                             # If HEAD requests are not properly supported.
-                            if response.status_code in (204, 405, 500) or (response.status_code == 302 and '404' in response.headers['Location']):
-                                response = requests.get(url, headers=headers, stream=True, **arguments)
+                            if response.status_code in (204, 403, 405, 500) or (response.status_code == 302 and '404' in response.headers['Location']):
+                                response = requests.get(url, stream=True, **arguments)
                             if response.status_code != 200:
                                 print('%d %s' % (response.status_code, url))
                         except requests.exceptions.ConnectionError:
@@ -492,8 +496,8 @@ def shapefiles(base='.'):
                         if result.count('\n') > 1:
                             print('Too many layers %s' % url)
                         else:
-                            layer = re.search('\A\d+: (\S+)', result).group(1)
-                            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON %s' % (directory, kml_file_path, layer), echo=True)
+                            layer = re.search('\A\d+: (.+?) \(', result).group(1)
+                            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON "%s"' % (directory, kml_file_path, layer), echo=True)
                             for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
                                 files_to_add.append(name)
                             os.unlink(kml_file_path)
@@ -586,7 +590,7 @@ def shapefiles(base='.'):
                     arguments['auth'] = (result.username, result.password)
                 response = requests.head(url, headers=headers, **arguments)
                 # If HEAD requests are not properly supported.
-                if response.status_code in (204, 405, 500) or (response.status_code == 302 and '404' in response.headers['Location']):
+                if response.status_code in (204, 403, 405, 500) or (response.status_code == 302 and '404' in response.headers['Location']):
                     response = requests.get(url, headers=headers, stream=True, **arguments)
 
                 last_modified = response.headers.get('last-modified')
@@ -606,7 +610,11 @@ def shapefiles(base='.'):
                         filename = parse_headers(response.headers['content-disposition']).filename_unsafe
                     else:
                         filename = url
+
                     extension = os.path.splitext(filename)[1].lower()
+                    if not extension:
+                        if response.headers['content-type'] == 'application/vnd.google-earth.kml+xml; charset=utf-8':
+                            extension = '.kml'
 
                     # Set the new file's name.
                     data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)
@@ -655,7 +663,6 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     reader = csv_dict_reader('http://www12.statcan.gc.ca/census-recensement/2016/dp-pd/hlt-fst/pd-pl/Tables/CompFile.cfm?Lang=Eng&T=301&OFT=FULLCSV', 'ISO-8859-1')
     for row in reader:
         code = row['Geographic code']
-        name = row['Geographic name, english']
 
         if code == 'Note:':
             break
@@ -753,11 +760,10 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
                    (actual['Shapefile?'] == 'Requested' and key == 'Contact' and not e and a)):
                     continue
 
-                elif (
-                    # Contacts for private data are only stored in the spreadsheet.
-                    (expected['Permission to distribute'] == 'N' and key == 'Contact' and not e and a) or
-                    # MFIPPA receptions are only stored in the spreadsheet.
-                    (key == 'Received via' and e == 'email' and a == 'MFIPPA')):
+                # Contacts for private data are only stored in the spreadsheet.
+                elif ((expected['Permission to distribute'] == 'N' and key == 'Contact' and not e and a) or
+                      # MFIPPA receptions are only stored in the spreadsheet.
+                      (key == 'Received via' and e == 'email' and a == 'MFIPPA')):
                     continue
 
                 sys.stderr.write('%-25s %s: expected "%s" got "%s"\n' % (key, actual['OCD'], e, a))
