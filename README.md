@@ -42,7 +42,7 @@ For all the following commands, add `--base=path/to/private/data` to run them on
 
 Load the virtual environment:
 
-    workon representdata
+    pyenv activate representdata
 
 List the available maintenance tasks:
 
