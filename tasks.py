@@ -254,6 +254,12 @@ def definitions(base='.'):
         elif actual != expected and expected is not None:
             print('%-60s Expected %s to be %s not %s' % (slug, field, expected, actual))
 
+    def has_multiple_sets(division_id):
+        ocd_type = division_id.rsplit('/', 1)[1].split(':')[0]
+        return ocd_type in ('country', 'province', 'territory') or division_id in (
+            'ocd-division/country:ca/csd:3520005',  # Toronto
+        )
+
     response = requests.get('https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/pub?gid=0&single=true&output=csv')
     response.encoding = 'utf-8'
     reader = csv.DictReader(StringIO(response.text))
@@ -282,7 +288,7 @@ def definitions(base='.'):
                 if licence_url in licenses_with_templates:
                     if licence_url not in terms and not terms_re.get(licence_url):
                         warn('No LICENSE.txt template for License URL %s' % licence_url, slug)
-                    elif licence_url in terms and license_text != terms[licence_url] or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
+                    elif licence_url in terms and license_text != (terms[licence_url] % licence_url) or terms_re.get(licence_url) and not terms_re[licence_url].search(license_text):
                         print('%-60s Expected LICENSE.txt to match license-specific template' % slug)
                 elif licence_url in all_rights_reserved_licenses:
                     if not all_rights_reserved_terms_re.search(license_text):
@@ -315,7 +321,7 @@ def definitions(base='.'):
         # Validate fields.
         if 'name' in config:
             print('%-60s Expected name to be missing' % slug)
-        if 'singular' in config and not slug.endswith(')') and ocd_type not in ('country', 'province', 'territory'):
+        if 'singular' in config and not slug.endswith(')') and not has_multiple_sets(division_id):
             print('%-60s Expected singular to be missing' % slug)
 
         if slug not in ('Census divisions', 'Census subdivisions'):
@@ -328,7 +334,7 @@ def definitions(base='.'):
                     print('%-60s Empty value for %s' % (slug, key))
 
             # Ensure division_id is unique.
-            if division_id in division_ids and division_id not in divisions_with_boroughs() and ocd_type not in ('country', 'province', 'territory'):
+            if division_id in division_ids and division_id not in divisions_with_boroughs() and not has_multiple_sets(division_id):
                 print('%-60s Duplicate division_id %s' % (slug, division_id))
             else:
                 division_ids.add(division_id)
