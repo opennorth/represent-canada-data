@@ -295,6 +295,7 @@ sets = {
 # ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep -B6 CODE | grep NM_DIS | sort
 def district_namer(f):
     import boundaries
+    type_id = f.get('NO_DIS')
     code = f.get('CO_MUNCP')
     name = f.get('NM_DIS')
 
@@ -309,6 +310,27 @@ def district_namer(f):
             'Saint-Louis-Sillery': 'Saint-Louis—Sillery',
             'Saint-Roch-Saint-Sauveur': 'Saint-Roch—Saint-Sauveur',
         }.get(name, name)
+
+    # Sherbrooke
+    elif code == 43027:
+        # https://cartes.ville.sherbrooke.qc.ca/monarrondissementenligne/
+        return {
+            1.10: 'Deauville',
+            1.20: 'Rock Forest',
+            1.30: 'Saint-Élie',
+            1.40: 'Brompton',
+            2.10: 'Hôtel-Dieu',
+            2.20: 'Desranleau',
+            2.30: 'Quatre-Saisons',
+            2.40: 'Pin-Solitaire',
+            3.10: 'Uplands',
+            3.20: 'Fairview',
+            4.10: 'Université',
+            4.20: 'Ascot',
+            4.30: 'Lac-des-Nations',
+            4.40: 'Golf',
+            4.50: 'Carrefour',
+        }[type_id]
 
     # Longueuil
     elif code == 58227:
@@ -357,9 +379,9 @@ def district_namer(f):
             else:
                 return boundaries.clean_attr('NM_DIS')(f)
         elif f.get('MODE_SUFRG') == 'Q':
-            return 'Quartier %s' % int(f.get('NO_DIS'))
+            return 'Quartier %s' % int(type_id)
         else:
-            return 'District %s' % int(f.get('NO_DIS'))
+            return 'District %s' % int(type_id)
 
 
 def borough_namer(f):
