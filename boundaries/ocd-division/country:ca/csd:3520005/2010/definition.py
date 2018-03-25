@@ -3,7 +3,8 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Toronto wards',
+boundaries.register('Toronto wards',  # (2010)
+    singular='Toronto ward',
     domain='Toronto, ON',
     last_updated=date(2012, 10, 24),
     name_func=boundaries.attr('NAME'),
