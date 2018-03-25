@@ -71,5 +71,5 @@ for fragment, (name, machine_name, type) in sets.items():
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/%s' % fragment},
         is_valid_func=lambda f, machine_name=machine_name: f.get('mu_code') == machine_name and f.get('poll_dist') != 'Unresolved' and not f.get('poll_dist').endswith('AL'),
-        notes='Compare the subdivisions in boundaries/ca_ns_districts/definition.py to:\nogrinfo -al -geom=NO boundaries/ca_ns_districts | grep " mun" | sort | uniq | cut -d= -f 2\nLoad the shapefile manually:\nfab alpheus update_boundaries:args="--merge union -d data/shapefiles/public/boundaries/ca_ns_districts"',
+        notes='Compare the subdivisions in boundaries/ca_ns_districts/definition.py to:\nogrinfo -al -geom=NO boundaries/ca_ns_districts | grep " mun" | sort | uniq | cut -d= -f 2\nLoad the shapefile manually:\nfab alpheus update_boundaries:args="-r --merge union -d data/shapefiles/public/boundaries/ca_ns_districts"',
     )

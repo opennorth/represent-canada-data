@@ -424,7 +424,7 @@ for geographic_code, (name, type) in sets.items():
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/csd:24%05d' % geographic_code},
         is_valid_func=lambda f, geographic_codes=geographic_codes: int(f.get('CO_MUNCP')) in geographic_codes,
-        notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="--merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
+        notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="-r --merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
     )
 
 boundaries.register('Paroisse de Plessisville districts',
@@ -539,7 +539,7 @@ for municipality in municipalities_with_boroughs:
             encoding='iso-8859-1',
             extra={'division_id': division_id},
             is_valid_func=lambda f, geographic_code=geographic_code, subdivision_id=subdivision_id: int(f.get('CO_MUNCP')) == geographic_code and int(f.get('NO_ARON')) == subdivision_id,
-            notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="--merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
+            notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="-r --merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
         )
 
     boundaries.register('%s boroughs' % geographic_name,
@@ -552,5 +552,5 @@ for municipality in municipalities_with_boroughs:
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/csd:24%05d' % geographic_code},
         is_valid_func=lambda f, geographic_code=geographic_code: int(f.get('CO_MUNCP')) == geographic_code,
-        notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="--merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
+        notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="-r --merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
     )
