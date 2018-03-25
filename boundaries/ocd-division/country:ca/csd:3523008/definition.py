@@ -4,7 +4,7 @@ import boundaries
 
 boundaries.register('Guelph wards',
     domain='Guelph, ON',
-    last_updated=date(2016, 8, 9),
+    last_updated=date(2018, 3, 16),
     name_func=lambda f: 'Ward %s' % f.get('WARD'),  # guelph.ca doesn't use the names in `NAME`.
     id_func=boundaries.attr('WARD'),
     authority='City of Guelph',

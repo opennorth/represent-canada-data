@@ -6,7 +6,7 @@ import boundaries
 boundaries.register('Toronto wards',  # (2010)
     singular='Toronto ward',
     domain='Toronto, ON',
-    last_updated=date(2012, 10, 24),
+    last_updated=date(2018, 1, 16),
     name_func=boundaries.attr('NAME'),
     id_func=lambda f: re.sub('\A0', '', f.get('SCODE_NAME')),
     authority='City of Toronto',
