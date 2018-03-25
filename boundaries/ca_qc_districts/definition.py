@@ -368,7 +368,7 @@ def borough_namer(f):
     name = f.get('NM_ARON')
 
     # Montréal
-    elif code == 66023:
+    if code == 66023:
         return {
             'Le Plateau-Mont-Royal': 'Plateau-Mont-Royal',
             'Le Sud-Ouest': 'Sud-Ouest',
