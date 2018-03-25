@@ -6,4 +6,4 @@ Download and pre-process:
 
 Install:
 
-    fab ohoh update_postcodes:args="data/shapefiles/public/postcodes/ocd-division/country:ca/Canada.csv"
+    fab alpheus update_postcodes:args="data/shapefiles/public/postcodes/ocd-division/country:ca/Canada.csv"
