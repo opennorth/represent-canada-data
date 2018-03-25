@@ -4,7 +4,7 @@ import boundaries
 
 boundaries.register('Hamilton wards',
     domain='Hamilton, ON',
-    last_updated=date(2017, 2, 1),
+    last_updated=date(2018, 3, 1),
     name_func=lambda f: 'Ward %s' % f.get('WARD'),
     id_func=boundaries.attr('WARD'),
     authority='City of Hamilton',
