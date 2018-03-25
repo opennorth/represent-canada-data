@@ -6,4 +6,4 @@ Download and pre-process:
 
 Install:
 
-    fab ohoh update_concordances:args="quebec-electoral-districts electionsquebec.qc.ca data/shapefiles/public/concordances/ocd-division/country:ca/province:qc/out.csv"
+    fab alpheus update_concordances:args="quebec-electoral-districts electionsquebec.qc.ca data/shapefiles/public/concordances/ocd-division/country:ca/province:qc/out.csv"
