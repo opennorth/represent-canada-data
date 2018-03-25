@@ -37,7 +37,7 @@ def ider(f):
 
 boundaries.register('Montréal boroughs and districts',
     domain='Montréal, QC',
-    last_updated=date(2014, 2, 28),
+    last_updated=date(2017, 11, 30),
     name_func=namer,
     id_func=ider,
     authority='Directeur général des élections du Québec',

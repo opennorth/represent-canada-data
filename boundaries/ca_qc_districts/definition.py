@@ -416,7 +416,7 @@ for geographic_code, (name, type) in sets.items():
 
     boundaries.register('%s %s' % (name, type),
         domain='%s, QC' % name,
-        last_updated=date(2014, 2, 28),
+        last_updated=date(2017, 11, 30),
         name_func=district_namer,
         id_func=district_ider,
         authority='Directeur général des élections du Québec',
@@ -429,7 +429,7 @@ for geographic_code, (name, type) in sets.items():
 
 boundaries.register('Paroisse de Plessisville districts',
     domain='Plessisville, QC',
-    last_updated=date(2014, 2, 28),
+    last_updated=date(2017, 11, 30),
     name_func=district_namer,
     id_func=district_ider,
     authority='Directeur général des élections du Québec',
@@ -531,7 +531,7 @@ for municipality in municipalities_with_boroughs:
 
         boundaries.register('%s districts' % name,
             domain='%s, %s, QC' % (name, geographic_name),
-            last_updated=date(2014, 2, 28),
+            last_updated=date(2017, 11, 30),
             name_func=district_namer,
             id_func=district_ider,
             authority='Directeur général des élections du Québec',
@@ -544,7 +544,7 @@ for municipality in municipalities_with_boroughs:
 
     boundaries.register('%s boroughs' % geographic_name,
         domain='%s, QC' % geographic_name,
-        last_updated=date(2014, 2, 28),
+        last_updated=date(2017, 11, 30),
         name_func=borough_namer,
         id_func=lambda f: int(f.get('NO_ARON')),
         authority='Directeur général des élections du Québec',
