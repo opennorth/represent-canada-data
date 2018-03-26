@@ -401,19 +401,17 @@ def manual(base='.'):
     """
     Print manually updated boundaries that were last updated over a year ago.
     """
-    historical_slugs = {
-        'Saskatchewan electoral districts (Representation Act, 2002)',
-    }
-
     messages = []
 
     seen = set()
     for slug, config in registry(base).items():
         last_updated = config['last_updated']
-        if 'data_url' not in config and slug not in historical_slugs and last_updated < date.today() - timedelta(days=365):
-            directory = dirname(config['file'])
+        directory = dirname(config['file'])
+        # Skip automated and archival boundaries.
+        if 'data_url' not in config and not re.search(r'/\d{4}/\Z', directory) and last_updated < date.today() - timedelta(days=365):
             if directory not in seen:
-                message = '%s %-55s %-25s %s' % (last_updated, directory, config['domain'], config.get('source_url', ''))
+                domain = '' if directory == 'boundaries/ca_qc_districts/' else config['domain']
+                message = '%s %-55s %-25s %s' % (last_updated, directory, domain, config.get('source_url', ''))
                 notes = config.get('notes')
                 if notes:
                     message += '\n%s\n' % notes
