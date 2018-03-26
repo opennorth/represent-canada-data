@@ -1,4 +1,710 @@
 
+acton-vale-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+adstock-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+ahuntsic-cartierville-districts: 4
+1.1: Sault-au-Récollet
+1.2: Saint-Sulpice
+1.3: Ahuntsic
+1.4: Bordeaux-Cartierville
+
+ajax-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+albanel-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+alberta-electoral-districts: 87
+1: Dunvegan-Central Peace-Notley
+10: Calgary-Fish Creek
+11: Calgary-Foothills
+12: Calgary-Fort
+13: Calgary-Glenmore
+14: Calgary-Greenway
+15: Calgary-Hawkwood
+16: Calgary-Hays
+17: Calgary-Klein
+18: Calgary-Lougheed
+19: Calgary-Mackay-Nose Hill
+2: Lesser Slave Lake
+20: Calgary-McCall
+21: Calgary-Mountain View
+22: Calgary-North West
+23: Calgary-Northern Hills
+24: Calgary-Shaw
+25: Calgary-South East
+26: Calgary-Varsity
+27: Calgary-West
+28: Edmonton-Beverly-Clareview
+29: Edmonton-Calder
+3: Calgary-Acadia
+30: Edmonton-Castle Downs
+31: Edmonton-Centre
+32: Edmonton-Decore
+33: Edmonton-Ellerslie
+34: Edmonton-Glenora
+35: Edmonton-Gold Bar
+36: Edmonton-Highlands-Norwood
+37: Edmonton-Manning
+38: Edmonton-McClung
+39: Edmonton-Meadowlark
+4: Calgary-Bow
+40: Edmonton-Mill Creek
+41: Edmonton-Mill Woods
+42: Edmonton-Riverview
+43: Edmonton-Rutherford
+44: Edmonton-South West
+45: Edmonton-Strathcona
+46: Edmonton-Whitemud
+47: Airdrie
+48: Athabasca-Sturgeon-Redwater
+49: Banff-Cochrane
+5: Calgary-Buffalo
+50: Barrhead-Morinville-Westlock
+51: Battle River-Wainwright
+52: Bonnyville-Cold Lake
+53: Cardston-Taber-Warner
+54: Chestermere-Rocky View
+55: Cypress-Medicine Hat
+56: Drayton Valley-Devon
+57: Drumheller-Stettler
+58: Fort McMurray-Conklin
+59: Fort McMurray-Wood Buffalo
+6: Calgary-Cross
+60: Fort Saskatchewan-Vegreville
+61: Grande Prairie-Smoky
+62: Grande Prairie-Wapiti
+63: Highwood
+64: Innisfail-Sylvan Lake
+65: Lac La Biche-St. Paul-Two Hills
+66: Lacombe-Ponoka
+67: Leduc-Beaumont
+68: Lethbridge-East
+69: Lethbridge-West
+7: Calgary-Currie
+70: Little Bow
+71: Livingstone-Macleod
+72: Medicine Hat
+73: Olds-Didsbury-Three Hills
+74: Peace River
+75: Red Deer-North
+76: Red Deer-South
+77: Rimbey-Rocky Mountain House-Sundre
+78: Sherwood Park
+79: Spruce Grove-St. Albert
+8: Calgary-East
+80: St. Albert
+81: Stony Plain
+82: Strathcona-Sherwood Park
+83: Strathmore-Brooks
+84: Vermilion-Lloydminster
+85: West Yellowhead
+86: Wetaskiwin-Camrose
+87: Whitecourt-Ste. Anne
+9: Calgary-Elbow
+
+alma-districts: 8
+1: Delisle
+2: Isle-Maligne—Albert-Naud
+3: Melançon
+4: Damase-Boulanger
+5: Saint-Pierre
+6: Champagnat
+7: Scott
+8: Signay—Labarre
+
+amherst-districts: 6
+1: Lac de la Sucrerie
+2: Vendée
+3: Lac Cameron
+4: Rockway Valley
+5: Boileau
+6: Saint-Rémi
+
+amqui-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+ange-gardien-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+anjou-districts: 3
+2.1: de l'Ouest
+2.2: de l'Est
+2.3: du Centre
+
+annapolis-districts: 11
+1: District 1
+10: District 10
+11: District 11
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+antigonish-districts: 10
+1: District 1
+10: District 10
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+argyle-districts: 10
+1: District 1
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+atholville-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
+baie-comeau-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+baie-saint-paul-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+barraute-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+barrie-wards: 10
+1: Ward 1
+10: Ward 10
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+barrington-districts: 5
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+
+bas-caraquet-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+beaconsfield-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+beaubassin-east-wards: 6
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+
+beauceville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+beauharnois-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+beaumont-districts: 6
+1: du Moulin
+2: d' Orléans
+3: du Domaine
+4: de la Seigneurie
+5: de Vincennes
+6: de Ville-Marie
+
+beauport-districts: 3
+16: Sainte-Thérèse-de-Lisieux
+17: La Chute-Montmorency—Seigneurial
+18: Robert-Giffard
+
+belledune-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
+beloeil-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+berthierville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+blainville-districts: 10
+1: Fontainebleau
+10: du Blainvillier
+2: de la Côte-Saint-Louis
+3: Saint-Rédempteur
+4: du Plan-Bouchard
+5: Notre-Dame-de-l'Assomption
+6: de Chante-Bois
+7: des Hirondelles
+8: d'Alençon
+9: de la Renaissance
+
+boisbriand-districts: 8
+1: Sanche
+2: Dugué
+3: Filion
+4: Dubois
+5: Brosseau
+6: Labelle
+7: Desjardins
+8: Dion
+
+boischatel-districts: 6
+1: des Falaises
+2: du Chemin-du-Roy
+3: du Golf
+4: des Dolines
+5: de la Montmorency
+6: des Saphirs
+
+boucherville-districts: 8
+1: Pierre-Viger
+2: Père-Le Jeune
+3: Sainte-Famille
+4: Découvreurs
+5: Seigneurie
+6: Saint-Louis
+7: Mortagne
+8: Normandie
+
+brampton-wards: 10
+1: Ward 1
+10: Ward 10
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+brantford-wards: 5
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+
+british-columbia-electoral-districts: 85
+ABM: Abbotsford-Mission
+ABS: Abbotsford South
+ABW: Abbotsford West
+APR: Alberni-Pacific Rim
+BDS: Boundary-Similkameen
+BND: Burnaby-Deer Lake
+BNE: Burnaby-Edmonds
+BNL: Burnaby-Lougheed
+BNN: Burnaby North
+CBC: Cariboo-Chilcotin
+CBN: Cariboo North
+CHC: Chilliwack
+CHH: Chilliwack-Hope
+CLR: Columbia River-Revelstoke
+CMX: Comox Valley
+CQB: Coquitlam-Burke Mountain
+CQM: Coquitlam-Maillardville
+CWV: Cowichan Valley
+DLN: Delta North
+DLS: Delta South
+ESR: Esquimalt-Royal Roads
+FLA: Fort Langley-Aldergrove
+FRN: Fraser-Nicola
+JDF: Juan de Fuca
+KAN: Kamloops-North Thompson
+KAS: Kamloops-South Thompson
+KLA: Kelowna-Lake Country
+KMI: Kelowna-Mission
+KOE: Kootenay East
+KOW: Kootenay West
+LLY: Langley
+MRM: Maple Ridge-Mission
+MRP: Maple Ridge-Pitt Meadows
+NAN: Nanaimo
+NCW: Nanaimo-North Cowichan
+NEC: Nechako Lakes
+NEL: Nelson-Creston
+NEW: New Westminster
+NOC: North Coast
+NOI: North Island
+NVL: North Vancouver-Lonsdale
+NVS: North Vancouver-Seymour
+OBG: Oak Bay-Gordon Head
+PAQ: Parksville-Qualicum
+PCN: Peace River North
+PCS: Peace River South
+PEN: Penticton
+POC: Port Coquitlam
+POM: Port Moody-Coquitlam
+POR: Powell River-Sunshine Coast
+PRM: Prince George-Mackenzie
+PRV: Prince George-Valemount
+RCC: Richmond Centre
+RCE: Richmond East
+RCS: Richmond-Steveston
+SAN: Saanich North and the Islands
+SAS: Saanich South
+SHU: Shuswap
+SKE: Skeena
+SKN: Stikine
+SRC: Surrey-Cloverdale
+SRF: Surrey-Fleetwood
+SRG: Surrey-Green Timbers
+SRN: Surrey-Newton
+SRP: Surrey-Panorama
+SRT: Surrey-Tynehead
+SWH: Surrey-Whalley
+SWR: Surrey-White Rock
+VFA: Vancouver-Fairview
+VFC: Vancouver-False Creek
+VFV: Vancouver-Fraserview
+VHA: Vancouver-Hastings
+VKE: Vancouver-Kensington
+VKI: Vancouver-Kingsway
+VLA: Vancouver-Langara
+VMP: Vancouver-Mount Pleasant
+VNP: Vancouver-Point Grey
+VNQ: Vancouver-Quilchena
+VNW: Vancouver-West End
+VRM: Vernon-Monashee
+VTB: Victoria-Beacon Hill
+VTS: Victoria-Swan Lake
+WCA: West Vancouver-Capilano
+WSS: West Vancouver-Sea to Sky
+WTK: Westside-Kelowna
+
+british-columbia-electoral-districts-2015-redistribution: 87
+ABM: Abbotsford-Mission
+ABS: Abbotsford South
+ABW: Abbotsford West
+BDS: Boundary-Similkameen
+BND: Burnaby-Deer Lake
+BNE: Burnaby-Edmonds
+BNL: Burnaby-Lougheed
+BNN: Burnaby North
+CBC: Cariboo-Chilcotin
+CBN: Cariboo North
+CHC: Chilliwack
+CHK: Chilliwack-Kent
+CLR: Columbia River-Revelstoke
+CQB: Coquitlam-Burke Mountain
+CQM: Coquitlam-Maillardville
+CRC: Courtenay-Comox
+CWV: Cowichan Valley
+DLN: Delta North
+DLS: Delta South
+ESM: Esquimalt-Metchosin
+FRN: Fraser-Nicola
+KAN: Kamloops-North Thompson
+KAS: Kamloops-South Thompson
+KLA: Kelowna-Lake Country
+KLM: Kelowna-Mission
+KLW: Kelowna West
+KOE: Kootenay East
+KOW: Kootenay West
+LJF: Langford-Juan de Fuca
+LLY: Langley
+LYE: Langley East
+MAM: Maple Ridge-Mission
+MAP: Maple Ridge-Pitt Meadows
+MPR: Mid Island-Pacific Rim
+NAN: Nanaimo
+NCW: Nanaimo-North Cowichan
+NEC: Nechako Lakes
+NEL: Nelson-Creston
+NEW: New Westminster
+NOC: North Coast
+NOI: North Island
+NVL: North Vancouver-Lonsdale
+NVS: North Vancouver-Seymour
+OBG: Oak Bay-Gordon Head
+PAQ: Parksville-Qualicum
+PCN: Peace River North
+PCS: Peace River South
+PEN: Penticton
+POC: Port Coquitlam
+POM: Port Moody-Coquitlam
+POR: Powell River-Sunshine Coast
+PRM: Prince George-Mackenzie
+PRV: Prince George-Valemount
+RNC: Richmond North Centre
+RQE: Richmond-Queensborough
+RSC: Richmond South Centre
+RST: Richmond-Steveston
+SAN: Saanich North and the Islands
+SAS: Saanich South
+SHU: Shuswap
+SKE: Skeena
+SKN: Stikine
+SRC: Surrey-Cloverdale
+SRF: Surrey-Fleetwood
+SRG: Surrey-Green Timbers
+SUG: Surrey-Guildford
+SUN: Surrey-Newton
+SUP: Surrey-Panorama
+SUS: Surrey South
+SWH: Surrey-Whalley
+SWR: Surrey-White Rock
+VFA: Vancouver-Fairview
+VFC: Vancouver-False Creek
+VFV: Vancouver-Fraserview
+VHA: Vancouver-Hastings
+VKE: Vancouver-Kensington
+VKI: Vancouver-Kingsway
+VLA: Vancouver-Langara
+VMP: Vancouver-Mount Pleasant
+VNP: Vancouver-Point Grey
+VNQ: Vancouver-Quilchena
+VNW: Vancouver-West End
+VRM: Vernon-Monashee
+VTB: Victoria-Beacon Hill
+VTS: Victoria-Swan Lake
+WVC: West Vancouver-Capilano
+WVS: West Vancouver-Sea to Sky
+
+bromont-districts: 6
+1: Mont-Soleil
+2: Lac-Bromont
+3: Mont-Brome
+4: Shefford
+5: Pierre-Laporte
+6: Adamsville
+
+brompton-districts: 2
+1.1: de Beauvoir
+1.2: des Moulins
+
+brossard-districts: 10
+1: District 1
+10: District 10
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+brownsburg-chatham-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+burlington-wards: 6
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+
+caledon-wards: 5
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+
+calgary-wards: 14
+1: Ward 1
+10: Ward 10
+11: Ward 11
+12: Ward 12
+13: Ward 13
+14: Ward 14
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+cambridge-wards: 8
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+
+campobello-island-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
+candiac-districts: 6
+1: La Promenade
+2: Saint-Laurent
+3: Champlain
+4: Taschereau
+5: Montcalm
+6: Jean-Leman
+
+cantley-districts: 6
+1: des Monts
+2: des Prés
+3: de la Rive
+4: du Parc
+5: des Érables
+6: des Lacs
+
+cap-chat-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+cap-sante-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+cape-breton-districts: 12
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+caraquet-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+carignan-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+causapscal-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
 census-divisions: 293
 1001: Division No.  1
 1002: Division No.  2
@@ -5458,683 +6164,6 @@ census-subdivisions: 5162
 6208087: Taloyoak
 6208098: Kitikmeot, Unorganized
 
-grand-falls-wards: 2
-: North Ward
-: South Ward
-
-atholville-wards: 3
-1: Ward 1
-2: Ward 2
-3: Ward 3
-
-bas-caraquet-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-beaubassin-east-wards: 6
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-
-belledune-wards: 3
-1: Ward 1
-2: Ward 2
-3: Ward 3
-
-campobello-island-wards: 3
-1: Ward 1
-2: Ward 2
-3: Ward 3
-
-caraquet-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-cocagne-wards: 2
-1: Ward 1
-2: Ward 2
-
-dieppe-wards: 5
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-
-edmundston-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-florenceville-bristol-wards: 2
-1: Ward 1
-2: Ward 2
-
-hanwell-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-kedgwick-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-moncton-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-oromocto-wards: 3
-1: Ward 1
-2: Ward 2
-3: Ward 3
-
-riverview-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-saint-john-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-saint-andre-wards: 0
-
-tracadie-wards: 8
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-
-upper-miramichi-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-annapolis-districts: 11
-1: District 1
-10: District 10
-11: District 11
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-kings-districts: 9
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-colchester-districts: 11
-1: District 1
-10: District 10
-11: District 11
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-cumberland-districts: 10
-1: District 1
-10: District 10
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-pictou-districts: 12
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-antigonish-districts: 10
-1: District 1
-10: District 10
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-inverness-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-richmond-ns-districts: 5
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-
-victoria-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-barrington-districts: 5
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-
-shelburne-districts: 9
-1: District 1
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-
-argyle-districts: 10
-1: District 1
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-yarmouth-districts: 7
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-
-clare-districts: 9
-1: District 1
-2A: District 2A
-2B: District 2B
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-digby-districts: 5
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-
-queens-districts: 7
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-
-lunenburg-districts: 10
-1: District 1
-10: District 10
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-chester-districts: 7
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-
-west-hants-districts: 10
-1: District 1
-10: District 10
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-east-hants-districts: 11
-1: District 1
-10: District 10
-11: District 11
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-truro-wards: 3
-1: District 1
-2: District 2
-3: District 3
-
-new-glasgow-wards: 3
-1: District 1
-2: District 2
-3: District 3
-
-stellarton-wards: 2
-1: District 1
-2: District 2
-
-st-marys-districts: 7
-1: District 1
-2: District 2
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-guysborough-districts: 9
-1: District 1
-2: District 2
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-cape-breton-districts: 12
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-north-dumfries-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-cambridge-wards: 8
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-
-kitchener-wards: 10
-1: Ward 1
-10: Ward 10
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-waterloo-wards: 7
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-
-wilmot-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-wellesley-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-woolwich-wards: 3
-1: Ward 1
-2: Ward 2
-3: Ward 3
-
-acton-vale-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-adstock-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-albanel-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-alma-districts: 8
-1: Delisle
-2: Isle-Maligne—Albert-Naud
-3: Melançon
-4: Damase-Boulanger
-5: Saint-Pierre
-6: Champagnat
-7: Scott
-8: Signay—Labarre
-
-amherst-districts: 6
-1: Lac de la Sucrerie
-2: Vendée
-3: Lac Cameron
-4: Rockway Valley
-5: Boileau
-6: Saint-Rémi
-
-amqui-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-ange-gardien-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-baie-comeau-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-baie-saint-paul-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-barraute-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-beaconsfield-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-beauceville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-beauharnois-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-beaumont-districts: 6
-1: du Moulin
-2: d' Orléans
-3: du Domaine
-4: de la Seigneurie
-5: de Vincennes
-6: de Ville-Marie
-
-beloeil-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-berthierville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-blainville-districts: 10
-1: Fontainebleau
-10: du Blainvillier
-2: de la Côte-Saint-Louis
-3: Saint-Rédempteur
-4: du Plan-Bouchard
-5: Notre-Dame-de-l'Assomption
-6: de Chante-Bois
-7: des Hirondelles
-8: d'Alençon
-9: de la Renaissance
-
-boisbriand-districts: 8
-1: Sanche
-2: Dugué
-3: Filion
-4: Dubois
-5: Brosseau
-6: Labelle
-7: Desjardins
-8: Dion
-
-boischatel-districts: 6
-1: des Falaises
-2: du Chemin-du-Roy
-3: du Golf
-4: des Dolines
-5: de la Montmorency
-6: des Saphirs
-
-boucherville-districts: 8
-1: Pierre-Viger
-2: Père-Le Jeune
-3: Sainte-Famille
-4: Découvreurs
-5: Seigneurie
-6: Saint-Louis
-7: Mortagne
-8: Normandie
-
-bromont-districts: 6
-1: Mont-Soleil
-2: Lac-Bromont
-3: Mont-Brome
-4: Shefford
-5: Pierre-Laporte
-6: Adamsville
-
-brossard-districts: 10
-1: District 1
-10: District 10
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-brownsburg-chatham-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-candiac-districts: 6
-1: La Promenade
-2: Saint-Laurent
-3: Champlain
-4: Taschereau
-5: Montcalm
-6: Jean-Leman
-
-cantley-districts: 6
-1: des Monts
-2: des Prés
-3: de la Rive
-4: du Parc
-5: des Érables
-6: des Lacs
-
-cap-chat-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-cap-sante-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-carignan-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-causapscal-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
 chambly-districts: 8
 1: du Canton
 2: du Bassin
@@ -6161,15 +6190,30 @@ charlemagne-districts: 6
 5: District 5
 6: District 6
 
-chateauguay-districts: 8
-1: de La Noue
-2: du Filgate
-3: de Robutel
-4: de Bumbray
-5: de Salaberry
-6: de Lang
-7: de Le Moyne
-8: D'Youville
+charlesbourg-districts: 3
+13: Saint-Rodrigue
+14: Louis-XIV
+15: Les Monts
+
+charlottetown-wards: 10
+1: Queens Square
+10: Falconwood
+2: Belvedere
+3: Brighton
+4: St. Avards
+5: Spring Park
+6: Mount Edward
+7: Beach Grove
+8: Highfield
+9: Stonepark
+
+chatham-kent-wards: 6
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
 
 chelsea-districts: 6
 1: District 1
@@ -6186,6 +6230,52 @@ chertsey-districts: 6
 4: District 4
 5: District 5
 6: District 6
+
+chester-districts: 7
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+
+chicoutimi-districts: 8
+10: District 10
+11: District 11
+12: District 12
+13: District 13
+14: District 14
+15: District 15
+16: District 16
+9: District 9
+
+chateauguay-districts: 8
+1: de La Noue
+2: du Filgate
+3: de Robutel
+4: de Bumbray
+5: de Salaberry
+6: de Lang
+7: de Le Moyne
+8: D'Youville
+
+clare-districts: 9
+1: District 1
+2A: District 2A
+2B: District 2B
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+clarington-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
 
 clermont-districts: 6
 1: District 1
@@ -6211,6 +6301,23 @@ cloridorme-districts: 6
 5: Saint-Yvon Ouest
 6: de la Torpille
 
+cocagne-wards: 2
+1: Ward 1
+2: Ward 2
+
+colchester-districts: 11
+1: District 1
+10: District 10
+11: District 11
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
 compton-districts: 6
 1: District 1
 2: District 2
@@ -6235,6 +6342,34 @@ cookshire-eaton-districts: 6
 5: District 5
 6: District 6
 
+coteau-du-lac-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+cowansville-quartiers: 6
+1: Ruiter
+2: Sweetsburg
+3: Vilas
+4: Bruck
+5: Davignon
+6: Fordyce
+
+cumberland-districts: 10
+1: District 1
+10: District 10
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
 cote-saint-luc-districts: 8
 1: District 1
 2: District 2
@@ -6245,13 +6380,29 @@ cote-saint-luc-districts: 8
 7: District 7
 8: District 8
 
-coteau-du-lac-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
+cote-des-neigesnotre-dame-de-grace-districts: 5
+3.1: Darlington
+3.2: Côte-des-Neiges
+3.3: Snowdon
+3.4: Notre-Dame-de-Grâce
+3.5: Loyola
+
+delson-quartiers: 2
+1: Nord
+2: Sud
+
+desbiens-quartiers: 3
+1: Ouest
+2: Centre
+3: Est
+
+desjardins-districts: 6
+10: District 10
+11: District 11
+12: District 12
+13: District 13
+14: District 14
+15: District 15
 
 deux-montagnes-districts: 6
 1: Du Grand-Moulin
@@ -6260,6 +6411,20 @@ deux-montagnes-districts: 6
 4: De La Gare
 5: Du Coteau
 6: Du Golf
+
+dieppe-wards: 5
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+
+digby-districts: 5
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
 
 dollard-des-ormeaux-districts: 8
 1: District 1
@@ -6270,6 +6435,14 @@ dollard-des-ormeaux-districts: 8
 6: District 6
 7: District 7
 8: District 8
+
+dorval-districts: 6
+1: Désiré-Girouard
+2: La Présentation
+3: Fénelon
+4: Pine Beach
+5: Strathmore
+6: Surrey
 
 drummondville-districts: 12
 1: District 1
@@ -6301,6 +6474,39 @@ east-broughton-districts: 6
 5: District 5
 6: District 6
 
+east-hants-districts: 11
+1: District 1
+10: District 10
+11: District 11
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+edmonton-wards: 12
+1: Ward 1
+10: Ward 10
+11: Ward 11
+12: Ward 12
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+edmundston-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
 farnham-districts: 6
 1: Robert-C.-Wilkins
 2: Aldéi-Martel
@@ -6308,2672 +6514,6 @@ farnham-districts: 6
 4: Du Docteur-Jean-Louis-Cardin
 5: Esther-Elkin
 6: Omer-Galipault
-
-fossambault-sur-le-lac-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-frontenac-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-gatineau-districts: 18
-1: d'Aylmer
-10: de Touraine
-11: de Pointe-Gatineau
-12: du Carrefour-de-l'Hôpital
-13: du Versant
-14: de Bellevue
-15: du Lac-Beauchamp
-16: de la Rivière-Blanche
-17: de Masson-Angers
-18: de Buckingham
-2: de Lucerne
-3: de Deschênes
-4: du Plateau—Manoir-des-Trembles
-5: Wright—Parc-de-la-Montagne
-6: de l'Orée-du-Parc
-7: de Saint-Raymond—Vanier
-8: de Hull—Val-Tétreau
-9: de Limbour
-
-granby-districts: 10
-1: District 1
-10: District 10
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-hebertville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-hudson-districts: 6
-1: Como
-2: Hudson-Est
-3: Hudson-Centre
-4: Fairhaven
-5: Heights-Est
-6: Ouest
-
-joliette-districts: 7
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-
-lancienne-lorette-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lange-gardien-districts: 6
-1: du Lièvre
-2: du lac Donaldson
-3: du Plateau
-4: Glen-Almond
-5: des Arpents-Verts
-6: Carrière
-
-lascension-de-notre-seigneur-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lassomption-districts: 6
-1: Hector-Charland
-2: Wilfrid-Laurier
-3: Pierre-Lesueur
-4: Louis-Laberge
-5: Albert-Racette
-6: Maurice-Lafortune
-
-lepiphanie-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lile-perrot-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lislet-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-la-malbaie-districts: 8
-1: St-Fidèle
-2: Cap-à-l'Aigle
-3: Rivière-Malbaie
-4: Centre-Ville
-5: De la Seigneurie
-6: Pointe-au-Pic
-7: Rivière-Mailloux
-8: Sainte-Agnès
-
-la-peche-districts: 7
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-
-la-prairie-districts: 8
-1: de la Milice
-2: Christ-Roi
-3: Vieux La Prairie
-4: de la Citière
-5: de la Clairière
-6: de la Magdeleine
-7: de la Bataille
-8: de la Briqueterie
-
-la-tuque-districts: 9
-1: Parent
-1: Parent
-2: La Croche
-2: La Croche
-2: La Croche
-3: Terrasse St-Maurice Jacques-Buteux
-4: Polyvalente
-5: Bel-Air/Centre-Ville Lac St-Louis
-6: Aéroport
-
-lac-au-saumon-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lac-brome-districts: 6
-1: Bondville-Fulford
-2: West-Brome—Iron-Hill
-3: East-Hill
-4: Knowlton-Victoria
-5: Knowlton-Lakeside
-6: Foster
-
-lac-des-ecorces-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lac-des-seize-iles-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lac-megantic-districts: 6
-1: Agnès
-2: Fatima
-3: Centre-ville
-4: Québec-Central
-5: Vieux-nord
-6: Montignac
-
-lac-saint-joseph-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lac-superieur-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lachute-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-lanoraie-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-laval-districts: 21
-1: Saint-François
-10: Auteuil
-11: Laval-des-Rapides
-12: Souvenir-Labelle
-13: Abord-à-Plouffe
-14: Chomedey
-15: Saint-Martin
-16: Sainte-Dorothée
-17: Laval-les-Îles
-18: Orée-des-Bois
-19: Marc-Aurèle-Fortin
-2: Saint-Vincent-de-Paul
-20: Fabreville
-21: Sainte-Rose
-3: Val-des-Arbres
-4: Duvernay-Pont-Viau
-5: Marigot
-6: Concorde-Bois-de-Boulogne
-7: Renaud
-8: Vimont
-9: Saint-Bruno
-
-lavaltrie-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-lery-districts: 6
-1: de la Gare
-2: Les Boisés
-3: Bellevue
-4: Les Riverains
-5: du Manoir
-6: Woodland
-
-les-cedres-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-les-coteaux-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-les-iles-de-la-madeleine-districts: 6
-1: L'Île-du-Havre-Aubert
-2: L'Étang-du-Nord
-3: Cap-aux-Meules
-4: Fatima
-5: Havre-aux-Maisons
-6: Grande-Entrée
-
-levis-districts: 15
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-13: District 13
-14: District 14
-15: District 15
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-longueuil-districts: 15
-1: Fatima-Parcours-du-Cerf
-10: Greenfield Park
-11: Laflèche
-12: Vieux-Saint-Hubert-la Savane
-13: Parc-de-la-Cité
-14: Iberville
-15: Maraîchers
-2: Boisé-Du Tremblay
-3: Parc-Michel-Chartrand
-4: Antoinette-Robidoux
-5: Georges-Dor
-6: Explorateurs
-7: Coteau-Rouge
-8: Saint-Charles
-9: LeMoyne-Jacques-Cartier
-
-lyster-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-macamic-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-magog-districts: 10
-1: District 1
-10: District 10
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-malartic-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-mandeville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-marieville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-mascouche-districts: 8
-1: Louis-Hébert
-2: Laurier
-3: Le Gardeur
-4: La Vérendrye
-5: Du Côteau
-6: Des Hauts-Bois
-7: Du Rucher
-8: Du Manoir
-
-matane-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-mcmasterville-districts: 6
-1: Rive
-2: Village
-3: Parc
-4: Vétérans
-5: Érables
-6: Chênes
-
-mercier-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-metabetchouanlac-a-la-croix-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-mirabel-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-mont-joli-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-mont-royal-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-mont-saint-hilaire-districts: 6
-1: du Déboulis
-2: des Patriotes
-3: du Piémont
-4: de Rouville
-5: de la Montagne
-6: de la Pommeraie
-
-mont-tremblant-districts: 8
-1: Station-Mont-Tremblant—Lac-Ouimet
-2: Lac-Mercier
-3: Lac-Lamoureux—Lac-Fortier
-4: Mont-Daim
-5: Saint-Jovite—Des Ruisseaux
-6: Saint-Jovite—Centre-Ouest
-7: Saint-Jovite—Centre-Est
-8: Lac-Maskinongé
-
-montcalm-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-montmagny-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-montreal-districts: 58
-1.1: Sault-au-Récollet
-1.2: Saint-Sulpice
-1.3: Ahuntsic
-1.4: Bordeaux-Cartierville
-10.1: Bois-de-Liesse
-10.2: Cap-Saint-Jacques
-11.1: Mile-End
-11.2: DeLorimier
-11.3: Jeanne-Mance
-12.1: La Pointe-aux-Prairies
-12.2: Pointe-aux-Trembles
-12.3: Rivière-des-Prairies
-13.1: Saint-Édouard
-13.2: Étienne-Desmarteau
-13.3: Vieux-Rosemont
-13.4: Marie-Victorin
-14.1: Côte-de-Liesse
-14.2: Norman-McLaren
-15.1: Saint-Léonard-Est
-15.2: Saint-Léonard-Ouest
-16.1: Saint-Henri—Petite-Bourgogne—Pointe-Saint-Charles
-16.2: Saint-Paul—Émard
-17.1: Champlain—L'Île-des-Soeurs
-17.2: Desmarchais-Crawford
-18.1: Peter-McGill
-18.2: Saint-Jacques
-18.3: Sainte-Marie
-19.1: Saint-Michel
-19.2: François-Perrault
-19.3: Villeray
-19.4: Parc-Extension
-2.1: de l'Ouest
-2.2: de l'Est
-2.3: du Centre
-3.1: Darlington
-3.2: Côte-des-Neiges
-3.3: Snowdon
-3.4: Notre-Dame-de-Grâce
-3.5: Loyola
-4.1: du Canal
-4.2: J.-Émery-Provost
-4.3: Fort-Rolland
-5.1: Sault-Saint-Louis
-5.2: Cecil-P.-Newman
-6.1: Pierre-Foretier
-6.2: Denis-Benjamin-Viger
-6.3: Jacques-Bizard
-6.4: Sainte-Geneviève
-7.1: Tétreaultville
-7.2: Maisonneuve—Longue-Pointe
-7.3: Hochelaga
-7.4: Louis-Riel
-8.1: Marie-Clarac
-8.2: Ovide-Clermont
-9.1: Claude-Ryan
-9.2: Joseph-Beaubien
-9.3: Robert-Bourassa
-9.4: Jeanne-Sauvé
-
-montreal-est-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-nantes-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-notre-dame-de-lile-perrot-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-notre-dame-des-bois-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-notre-dame-des-prairies-districts: 6
-1: Ste-Julie
-2: Riverain
-3: Bocage
-4: Vivaldi
-5: Notre-Dame
-6: Chaloupe
-
-notre-dame-du-mont-carmel-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-oka-districts: 11
-1: District 1
-1: District 1
-2: District 2
-3: District 3
-3: District 3
-4: District 4
-4: District 4
-5: District 5
-5: District 5
-6: District 6
-6: District 6
-
-otterburn-park-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-perce-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-pincourt-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-plessisville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-pointe-aux-outardes-districts: 6
-1: Lagacé
-2: Laflèche
-3: Les Petites Rivières
-4: Dufour
-5: Côté
-6: La Grosse Pointe
-
-pointe-calumet-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-pointe-claire-districts: 8
-1: Cedar/Le Village
-2: Lakeside
-3: Valois
-4: Cedar Park Heights
-5: Lakeside Heights
-6: Seigniory
-7: Northview
-8: Oneida
-
-pointe-lebel-districts: 6
-1: Langlois
-2: Murray
-3: Gémus
-4: Dufour
-5: Chouinard
-6: Moreau
-
-pontiac-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-port-danielgascons-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-prevost-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-princeville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-quebec-districts: 21
-1: Cap-aux-Diamants
-10: Le Plateau
-11: La Pointe-de-Sainte-Foy
-12: Cap-Rouge—Laurentien
-13: Saint-Rodrigue
-14: Louis-XIV
-15: Les Monts
-16: Sainte-Thérèse-de-Lisieux
-17: La Chute-Montmorency—Seigneurial
-18: Robert-Giffard
-19: Lac-Saint-Charles—Saint-Émile
-2: Montcalm—Saint-Sacrement
-20: Loretteville-Les Châtels
-21: Val-Bélair
-3: Saint-Roch—Saint-Sauveur
-4: Limoilou
-5: Maizerets-Lairet
-6: Vanier
-7: Neufchâtel-Lebourgneuf
-8: Duberger-Les Saules
-9: Saint-Louis—Sillery
-
-ragueneau-districts: 6
-1: de la Rivière-à-la-Truite
-2: du Ruisseau-Vert
-3: de la Rivière-aux-Vases
-4: de la Rivière-aux-Rosiers
-5: du Ruisseau-à-l'Anguille
-6: de la Rivière-Ragueneau
-
-rawdon-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-repentigny-districts: 12
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-richelieu-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-richmond-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-rigaud-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-rimouski-districts: 11
-1: Sacré-Coeur
-10: Sainte-Blandine et Mont-Lebel
-11: Le Bic
-2: Nazareth
-3: Saint-Germain
-4: Rimouski-Est
-5: Pointe-au-Père
-6: Sainte-Odile
-7: Saint-Robert
-8: Terrasse-Arthur-Buies
-9: Saint-Pie-X
-
-riviere-du-loup-districts: 6
-1: de la Pointe
-2: de l'Estuaire
-3: de St-Patrice
-4: de Fraserville
-5: de la Rivière
-6: de la Plaine
-
-rougemont-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-rouyn-noranda-districts: 12
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-roxton-pond-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saguenay-districts: 19
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-13: District 13
-14: District 14
-15: District 15
-16: District 16
-17: District 17
-18: District 18
-19: District 19
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-saint-agapit-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-alphonse-rodriguez-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-ambroise-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-ambroise-de-kildare-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-andre-dargenteuil-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-anicet-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-antonin-districts: 6
-1: des Mille-Âcres
-2: de l'Église
-3: du Vieux-Chemin
-4: de la Bleuetière
-5: du Chemin-Neuf
-6: du Sable-et-de-la-Forêt
-
-saint-aubert-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-augustin-de-desmaures-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-basile-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-basile-le-grand-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-bruno-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-bruno-de-guigues-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-bruno-de-montarville-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-saint-calixte-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-cesaire-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-charles-de-bellechasse-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-christophe-darthabaska-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-chrysostome-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-claude-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-colomban-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-comeliniere-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-constant-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-saint-cyrille-de-wendover-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-damase-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-damien-districts: 6
-1: Nord de la paroisse
-2: village / Lac Lachance
-3: Lac Noir / Rivière Noire
-4: Sud de la paroisse
-5: Lac Matambin
-6: Lac Corbeau
-
-saint-david-de-falardeau-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-denis-de-brompton-districts: 6
-1: Secteur du Lac-Brompton
-2: Secteur des Lacs-Desmarais et Petit-Lac-Brompton
-3: Secteur du Lac-Montjoie
-4: Secteur du Village
-5: Secteur rural 1
-6: Secteur rural 2
-
-saint-dominique-districts: 6
-1: Secteur Ouest
-2: Secteur Rang 7 et rue Boucher
-3: Secteur centre
-4: Secteur nord
-5: Secteur noyau villageois
-6: Secteur Rang 9, plage au Sable et Brûlé
-
-saint-donat-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-esprit-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-eustache-districts: 10
-1: Vieux-Saint-Eustache
-10: des Jardins
-2: du Carrefour
-3: de la Rivière-Nord
-4: des Érables
-5: du Clair-Matin
-6: de la Seigneurie
-7: des Moissons
-8: des Îles
-9: Plateau-des-Chênes
-
-saint-fabien-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-faustinlac-carre-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-felix-de-valois-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-ferdinand-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-ferreol-les-neiges-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-flavien-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-francois-xavier-de-brompton-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-fulgence-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-gabriel-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-gedeon-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-georges-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-saint-germain-de-grantham-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-henri-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-henri-de-taillon-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-honore-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-hyacinthe-districts: 11
-1: District 1
-10: District 10
-11: District 11
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-saint-ignace-de-loyola-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-isidore-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-jean-baptiste-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-jean-sur-richelieu-districts: 12
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-saint-jerome-districts: 12
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-saint-joseph-de-beauce-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-joseph-du-lac-districts: 6
-1: de la Baie
-2: des Sables
-3: des Coteaux
-4: de la Vallée
-5: du Berceau
-6: du Domaine
-
-saint-lambert-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-saint-lazare-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-leonard-daston-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-linlaurentides-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-louis-de-gonzague-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-mathieu-de-beloeil-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-maurice-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-michel-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-nazaire-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-philippe-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-pie-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-placide-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-remi-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-roch-de-lachigan-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-simeon-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-stanislas-de-kostka-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-thomas-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-tite-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-urbain-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-saint-zotique-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-adele-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-anne-de-bellevue-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-anne-de-sorel-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-anne-des-monts-districts: 6
-1: des Montagnes
-2: des Ruisseaux
-3: du Cap
-4: de la Rivière
-5: du Faubourg
-6: de l'Anse
-
-sainte-anne-des-plaines-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-brigitte-de-laval-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-catherine-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-catherine-de-hatley-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-catherine-de-la-jacques-cartier-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-claire-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-clotilde-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-genevieve-de-berthier-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-julie-districts: 8
-1: de la Belle-Rivière—Ringuet
-2: du Moulin
-3: de la Vallée
-4: du Rucher
-5: du Vieux-Village
-6: du Grand-Coteau
-7: de l'Arc-en-Ciel
-8: de la Montagne
-
-sainte-julienne-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-marthe-sur-le-lac-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-melanie-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-sophie-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sainte-therese-districts: 8
-1: De Sève
-2: Verschelden
-3: Morris
-4: Chapleau
-5: Lonergan
-6: Ducharme
-7: Blanchard
-8: Marie-Thérèse
-
-sainte-therese-de-gaspe-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-salaberry-de-valleyfield-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-senneville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-sept-iles-districts: 12
-1: de Sainte-Marguerite
-2: de Ferland
-3: de l'Anse
-3: de l'Anse
-4: de Marie-Immaculée
-4: de Marie-Immaculée
-5: du Vieux-Quai
-6: de Mgr-Blanche
-7: de Jacques-Cartier
-8: de Sainte-Famille
-9: Moisie-Les Plages
-9: Moisie-Les Plages
-
-shawinigan-districts: 8
-1: de la Rivière
-2: des Boisés
-3: Val-Maurice
-4: Almaville
-5: de la Cité
-6: des Montagnes
-7: du Rocher
-8: des Hêtres
-
-sherbrooke-districts: 21
-1.1: de Beauvoir
-1.2: des Moulins
-2.1: du Pin-Solitaire
-2.2: des Quatre-Saisons
-2.3: de Desranleau
-2.4: de Lavigerie
-2.5: de Marie-Rivier
-3.1: d'Uplands
-3.2: de Fairview
-4.1: du Centre-Sud
-4.2: d'Ascot
-4.3: de la Croix-Lumineuse
-4.4: de l'Université
-5.1: de Deauville
-5.2: des Châteaux-d'Eau
-5.3: de Rock Forest
-5.4: de Saint-Élie
-6.1: de Beckett
-6.2: du Domaine-Howard
-6.3: de Montcalm
-6.4: du Carrefour
-
-sorel-tracy-districts: 8
-1: Bourgchemin
-2: Richelieu
-3: St-Laurent
-4: Vieux-Sorel
-5: Du Faubourg
-6: Des Gouverneurs
-7: Des Patriotes
-8: Pierre-De Saurel
-
-temiscouata-sur-le-lac-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-terrebonne-districts: 16
-1: District 1
-10: District 10
-11: District 11
-12: District 12
-13: District 13
-14: District 14
-15: District 15
-16: District 16
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-thetford-mines-districts: 10
-1: District 1
-10: District 10
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-trois-rivieres-districts: 16
-1: Carmel
-10: Rigaud
-11: Saint-Louis-de-France
-12: Sainte-Marguerite
-13: Sainte-Marthe
-14: du Sanctuaire
-15: des Terrasses
-16: Vieilles-Forges
-2: Châteaudun
-3: Chavigny
-4: des Estacades
-5: Laviolette
-6: Madeleine
-7: Marie-de-l'Incarnation
-8: des Plateaux
-9: Pointe-du-Lac
-
-val-dor-districts: 9
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-6: District 6
-7: District 7
-8: District 8
-
-val-david-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-val-des-monts-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-varennes-districts: 8
-1: La Guillaudière
-2: La Sitière
-3: Langloiserie
-4: Notre-Dame
-5: Petite-Prairie
-6: Les Seigneuries
-7: Saint-Charles
-8: De Martigny
-
-vaudreuil-dorion-districts: 8
-1: du Quinchien
-2: d'Harwood
-3: du Fief-Cavagnal
-4: de la Seigneurie
-5: des Chenaux
-6: de la Cité-des-Jeunes
-7: du Carrefour
-8: de la Baie
-
-vercheres-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-victoriaville-districts: 10
-1: du Parc-de-L'Amitié
-10: d'Arthabaska-Est
-2: du Parc-de-L'Île
-3: Charles-Édouard-Mailhot
-4: de Sainte-Famille
-5: du Parc-Terre-des-Jeunes
-6: du Parc-Victoria
-7: de Sainte-Victoire
-8: d'Arthabaska-Nord
-9: d'Arthabaska-Ouest
-
-waterloo-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-weedon-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-wentworth-nord-districts: 6
-1: Louisa-Farmer
-2: Rivière-Ouest-Lac-Wentworth
-3: Laurentian Acres-Les Acres
-4: Des Lacs Noirs-Hôtel-de-Ville
-5: Saint-François
-6: Notre-Dame
-
-westmount-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-cowansville-quartiers: 6
-1: Ruiter
-2: Sweetsburg
-3: Vilas
-4: Bruck
-5: Davignon
-6: Fordyce
-
-delson-quartiers: 2
-1: Nord
-2: Sud
-
-desbiens-quartiers: 3
-1: Ouest
-2: Centre
-3: Est
-
-gaspe-quartiers: 6
-1: Quartier 1
-2: Quartier 2
-3: Quartier 3
-4: Quartier 4
-5: Quartier 5
-6: Quartier 6
-
-grande-riviere-quartiers: 3
-1: Grande Rivière Est
-2: Grande Rivière Ouest
-3: Pabos
-
-huntingdon-quartiers: 3
-1: Est
-2: Sud
-3: Ouest
-
-la-sarre-quartiers: 3
-1: Quartier 1
-2: Quartier 2
-3: Quartier 3
-
-lac-sergent-quartiers: 4
-1: Quartier 1
-2: Quartier 2
-3: Quartier 3
-4: Quartier 4
-
-maniwaki-quartiers: 6
-1: Quartier 1
-2: Quartier 2
-3: Quartier 3
-4: Quartier 4
-5: Quartier 5
-6: Quartier 6
-
-pohenegamook-quartiers: 3
-1: Quartier 1
-2: Quartier 2
-3: Quartier 3
-
-saint-joseph-de-sorel-quartiers: 3
-1: Quartier #1
-2: Quartier #2
-3: Quartier #3
-
-senneterre-quartiers: 6
-1: Quartier 1
-2: Quartier 2
-3: Quartier 3
-4: Quartier 4
-5: Quartier 5
-6: Quartier 6
-
-trois-pistoles-quartiers: 3
-1: Est
-2: Ouest
-3: Nord
-
-paroisse-de-plessisville-districts: 6
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-
-desjardins-districts: 6
-10: District 10
-11: District 11
-12: District 12
-13: District 13
-14: District 14
-15: District 15
-
-les-chutes-de-la-chaudiere-est-districts: 5
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-9: District 9
-
-les-chutes-de-la-chaudiere-ouest-districts: 4
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-
-levis-boroughs: 15
-1: Desjardins
-1: Desjardins
-1: Desjardins
-1: Desjardins
-1: Desjardins
-1: Desjardins
-2: Les Chutes-de-la-Chaudière-Est
-2: Les Chutes-de-la-Chaudière-Est
-2: Les Chutes-de-la-Chaudière-Est
-2: Les Chutes-de-la-Chaudière-Est
-2: Les Chutes-de-la-Chaudière-Est
-3: Les Chutes-de-la-Chaudière-Ouest
-3: Les Chutes-de-la-Chaudière-Ouest
-3: Les Chutes-de-la-Chaudière-Ouest
-3: Les Chutes-de-la-Chaudière-Ouest
-
-le-vieux-longueuil-districts: 9
-1: Fatima-Parcours-du-Cerf
-2: Boisé-Du Tremblay
-3: Parc-Michel-Chartrand
-4: Antoinette-Robidoux
-5: Georges-Dor
-6: Explorateurs
-7: Coteau-Rouge
-8: Saint-Charles
-9: LeMoyne-Jacques-Cartier
-
-greenfield-park-districts: 1
-10: Greenfield Park
-
-saint-hubert-districts: 5
-11: Laflèche
-12: Vieux-Saint-Hubert-la Savane
-13: Parc-de-la-Cité
-14: Iberville
-15: Maraîchers
-
-longueuil-boroughs: 15
-1: Le Vieux-Longueuil
-1: Le Vieux-Longueuil
-1: Le Vieux-Longueuil
-1: Le Vieux-Longueuil
-1: Le Vieux-Longueuil
-1: Le Vieux-Longueuil
-1: Le Vieux-Longueuil
-1: Le Vieux-Longueuil
-1: Le Vieux-Longueuil
-2: Greenfield Park
-3: Saint-Hubert
-3: Saint-Hubert
-3: Saint-Hubert
-3: Saint-Hubert
-3: Saint-Hubert
-
-ahuntsic-cartierville-districts: 4
-1.1: Sault-au-Récollet
-1.2: Saint-Sulpice
-1.3: Ahuntsic
-1.4: Bordeaux-Cartierville
-
-anjou-districts: 3
-2.1: de l'Ouest
-2.2: de l'Est
-2.3: du Centre
-
-cote-des-neigesnotre-dame-de-grace-districts: 5
-3.1: Darlington
-3.2: Côte-des-Neiges
-3.3: Snowdon
-3.4: Notre-Dame-de-Grâce
-3.5: Loyola
-
-lachine-districts: 3
-4.1: du Canal
-4.2: J.-Émery-Provost
-4.3: Fort-Rolland
-
-lasalle-districts: 2
-5.1: Sault-Saint-Louis
-5.2: Cecil-P.-Newman
-
-lile-bizardsainte-genevieve-districts: 4
-6.1: Pierre-Foretier
-6.2: Denis-Benjamin-Viger
-6.3: Jacques-Bizard
-6.4: Sainte-Geneviève
-
-mercierhochelaga-maisonneuve-districts: 4
-7.1: Tétreaultville
-7.2: Maisonneuve—Longue-Pointe
-7.3: Hochelaga
-7.4: Louis-Riel
-
-montreal-nord-districts: 2
-8.1: Marie-Clarac
-8.2: Ovide-Clermont
-
-outremont-districts: 4
-9.1: Claude-Ryan
-9.2: Joseph-Beaubien
-9.3: Robert-Bourassa
-9.4: Jeanne-Sauvé
-
-pierrefonds-roxboro-districts: 2
-10.1: Bois-de-Liesse
-10.2: Cap-Saint-Jacques
-
-plateau-mont-royal-districts: 3
-11.1: Mile-End
-11.2: DeLorimier
-11.3: Jeanne-Mance
-
-riviere-des-prairiespointe-aux-trembles-districts: 3
-12.1: La Pointe-aux-Prairies
-12.2: Pointe-aux-Trembles
-12.3: Rivière-des-Prairies
-
-rosemontla-petite-patrie-districts: 4
-13.1: Saint-Édouard
-13.2: Étienne-Desmarteau
-13.3: Vieux-Rosemont
-13.4: Marie-Victorin
-
-saint-laurent-districts: 2
-14.1: Côte-de-Liesse
-14.2: Norman-McLaren
-
-saint-leonard-districts: 2
-15.1: Saint-Léonard-Est
-15.2: Saint-Léonard-Ouest
-
-sud-ouest-districts: 2
-16.1: Saint-Henri—Petite-Bourgogne—Pointe-Saint-Charles
-16.2: Saint-Paul—Émard
-
-verdun-districts: 2
-17.1: Champlain—L'Île-des-Soeurs
-17.2: Desmarchais-Crawford
-
-ville-marie-districts: 3
-18.1: Peter-McGill
-18.2: Saint-Jacques
-18.3: Sainte-Marie
-
-villeraysaint-michelparc-extension-districts: 4
-19.1: Saint-Michel
-19.2: François-Perrault
-19.3: Villeray
-19.4: Parc-Extension
-
-montreal-boroughs: 58
-1: Ahuntsic-Cartierville
-1: Ahuntsic-Cartierville
-1: Ahuntsic-Cartierville
-1: Ahuntsic-Cartierville
-10: Pierrefonds-Roxboro
-10: Pierrefonds-Roxboro
-11: Plateau-Mont-Royal
-11: Plateau-Mont-Royal
-11: Plateau-Mont-Royal
-12: Rivière-des-Prairies—Pointe-aux-Trembles
-12: Rivière-des-Prairies—Pointe-aux-Trembles
-12: Rivière-des-Prairies—Pointe-aux-Trembles
-13: Rosemont—La Petite-Patrie
-13: Rosemont—La Petite-Patrie
-13: Rosemont—La Petite-Patrie
-13: Rosemont—La Petite-Patrie
-14: Saint-Laurent
-14: Saint-Laurent
-15: Saint-Léonard
-15: Saint-Léonard
-16: Sud-Ouest
-16: Sud-Ouest
-17: Verdun
-17: Verdun
-18: Ville-Marie
-18: Ville-Marie
-18: Ville-Marie
-19: Villeray—Saint-Michel—Parc-Extension
-19: Villeray—Saint-Michel—Parc-Extension
-19: Villeray—Saint-Michel—Parc-Extension
-19: Villeray—Saint-Michel—Parc-Extension
-2: Anjou
-2: Anjou
-2: Anjou
-3: Côte-des-Neiges—Notre-Dame-de-Grâce
-3: Côte-des-Neiges—Notre-Dame-de-Grâce
-3: Côte-des-Neiges—Notre-Dame-de-Grâce
-3: Côte-des-Neiges—Notre-Dame-de-Grâce
-3: Côte-des-Neiges—Notre-Dame-de-Grâce
-4: Lachine
-4: Lachine
-4: Lachine
-5: LaSalle
-5: LaSalle
-6: L'Île-Bizard—Sainte-Geneviève
-6: L'Île-Bizard—Sainte-Geneviève
-6: L'Île-Bizard—Sainte-Geneviève
-6: L'Île-Bizard—Sainte-Geneviève
-7: Mercier—Hochelaga-Maisonneuve
-7: Mercier—Hochelaga-Maisonneuve
-7: Mercier—Hochelaga-Maisonneuve
-7: Mercier—Hochelaga-Maisonneuve
-8: Montréal-Nord
-8: Montréal-Nord
-9: Outremont
-9: Outremont
-9: Outremont
-9: Outremont
-
-la-cite-limoilou-districts: 5
-1: Cap-aux-Diamants
-2: Montcalm—Saint-Sacrement
-3: Saint-Roch—Saint-Sauveur
-4: Limoilou
-5: Maizerets-Lairet
-
-les-rivieres-districts: 3
-6: Vanier
-7: Neufchâtel-Lebourgneuf
-8: Duberger-Les Saules
-
-sainte-foysillerycap-rouge-districts: 4
-10: Le Plateau
-11: La Pointe-de-Sainte-Foy
-12: Cap-Rouge—Laurentien
-9: Saint-Louis—Sillery
-
-charlesbourg-districts: 3
-13: Saint-Rodrigue
-14: Louis-XIV
-15: Les Monts
-
-beauport-districts: 3
-16: Sainte-Thérèse-de-Lisieux
-17: La Chute-Montmorency—Seigneurial
-18: Robert-Giffard
-
-la-haute-saint-charles-districts: 3
-19: Lac-Saint-Charles—Saint-Émile
-20: Loretteville-Les Châtels
-21: Val-Bélair
-
-quebec-boroughs: 21
-1: La Cité-Limoilou
-1: La Cité-Limoilou
-1: La Cité-Limoilou
-1: La Cité-Limoilou
-1: La Cité-Limoilou
-2: Les Rivières
-2: Les Rivières
-2: Les Rivières
-3: Sainte-Foy—Sillery—Cap-Rouge
-3: Sainte-Foy—Sillery—Cap-Rouge
-3: Sainte-Foy—Sillery—Cap-Rouge
-3: Sainte-Foy—Sillery—Cap-Rouge
-4: Charlesbourg
-4: Charlesbourg
-4: Charlesbourg
-5: Beauport
-5: Beauport
-5: Beauport
-6: La Haute-Saint-Charles
-6: La Haute-Saint-Charles
-6: La Haute-Saint-Charles
-
-chicoutimi-districts: 8
-10: District 10
-11: District 11
-12: District 12
-13: District 13
-14: District 14
-15: District 15
-16: District 16
-9: District 9
-
-jonquiere-districts: 8
-1: District 1
-2: District 2
-3: District 3
-4: District 4
-5: District 5
-6: District 6
-7: District 7
-8: District 8
-
-la-baie-districts: 3
-17: District 17
-18: District 18
-19: District 19
-
-saguenay-boroughs: 19
-1: Chicoutimi
-1: Chicoutimi
-1: Chicoutimi
-1: Chicoutimi
-1: Chicoutimi
-1: Chicoutimi
-1: Chicoutimi
-1: Chicoutimi
-2: Jonquière
-2: Jonquière
-2: Jonquière
-2: Jonquière
-2: Jonquière
-2: Jonquière
-2: Jonquière
-2: Jonquière
-3: La Baie
-3: La Baie
-3: La Baie
-
-brompton-districts: 2
-1.1: de Beauvoir
-1.2: des Moulins
-
-fleurimont-districts: 5
-2.1: du Pin-Solitaire
-2.2: des Quatre-Saisons
-2.3: de Desranleau
-2.4: de Lavigerie
-2.5: de Marie-Rivier
-
-lennoxville-districts: 2
-3.1: d'Uplands
-3.2: de Fairview
-
-mont-bellevue-districts: 4
-4.1: du Centre-Sud
-4.2: d'Ascot
-4.3: de la Croix-Lumineuse
-4.4: de l'Université
-
-rock-rorestsaint-eliedeauville-districts: 4
-5.1: de Deauville
-5.2: des Châteaux-d'Eau
-5.3: de Rock Forest
-5.4: de Saint-Élie
-
-jacques-cartier-districts: 4
-6.1: de Beckett
-6.2: du Domaine-Howard
-6.3: de Montcalm
-6.4: du Carrefour
-
-sherbrooke-boroughs: 21
-1: Brompton
-1: Brompton
-2: Fleurimont
-2: Fleurimont
-2: Fleurimont
-2: Fleurimont
-2: Fleurimont
-3: Lennoxville
-3: Lennoxville
-4: Mont-Bellevue
-4: Mont-Bellevue
-4: Mont-Bellevue
-4: Mont-Bellevue
-5: Rock Rorest—Saint-Élie—Deauville
-5: Rock Rorest—Saint-Élie—Deauville
-5: Rock Rorest—Saint-Élie—Deauville
-5: Rock Rorest—Saint-Élie—Deauville
-6: Jacques-Cartier
-6: Jacques-Cartier
-6: Jacques-Cartier
-6: Jacques-Cartier
-
-federal-electoral-districts-2003-representation-order: 308
-10001: Avalon
-10002: Bonavista—Gander—Grand Falls—Windsor
-10003: Humber—St. Barbe—Baie Verte
-10004: Labrador
-10005: Random—Burin—St. George's
-10006: St. John's East
-10007: St. John's South—Mount Pearl
-11001: Cardigan
-11002: Charlottetown
-11003: Egmont
-11004: Malpeque
-12001: Cape Breton—Canso
-12002: Central Nova
-12003: Dartmouth—Cole Harbour
-12004: Halifax
-12005: Halifax West
-12006: Kings—Hants
-12007: Cumberland—Colchester—Musquodoboit Valley
-12008: Sackville—Eastern Shore
-12009: South Shore—St. Margaret's
-12010: Sydney—Victoria
-12011: West Nova
-13001: Acadie—Bathurst
-13002: Beauséjour
-13003: Fredericton
-13004: Fundy Royal
-13005: Madawaska—Restigouche
-13006: Miramichi
-13007: Moncton—Riverview—Dieppe
-13008: New Brunswick Southwest
-13009: Saint John
-13010: Tobique—Mactaquac
-24001: Abitibi—Témiscamingue
-24002: Ahuntsic
-24003: Alfred-Pellan
-24004: Argenteuil—Papineau—Mirabel
-24005: Beauce
-24006: Beauharnois—Salaberry
-24007: Beauport—Limoilou
-24008: Berthier—Maskinongé
-24009: Bourassa
-24010: Brome—Missisquoi
-24011: Brossard—La Prairie
-24012: Chambly—Borduas
-24013: Charlesbourg—Haute-Saint-Charles
-24014: Montmorency—Charlevoix—Haute-Côte-Nord
-24015: Châteauguay—Saint-Constant
-24016: Chicoutimi—Le Fjord
-24017: Compton—Stanstead
-24018: Drummond
-24019: Gaspésie—Îles-de-la-Madeleine
-24020: Gatineau
-24021: Hochelaga
-24022: Honoré-Mercier
-24023: Hull—Aylmer
-24024: Jeanne-Le Ber
-24025: Joliette
-24026: Jonquière—Alma
-24027: Lac-Saint-Louis
-24028: La Pointe-de-l'Île
-24029: LaSalle—Émard
-24030: Laurentides—Labelle
-24031: Laurier—Sainte-Marie
-24032: Laval
-24033: Laval—Les Îles
-24034: Lévis—Bellechasse
-24035: Longueuil—Pierre-Boucher
-24036: Lotbinière—Chutes-de-la-Chaudière
-24037: Louis-Hébert
-24038: Louis-Saint-Laurent
-24039: Manicouagan
-24040: Marc-Aurèle-Fortin
-24041: Haute-Gaspésie—La Mitis—Matane—Matapédia
-24042: Mégantic—L'Érable
-24043: Montcalm
-24044: Mount Royal
-24045: Notre-Dame-de-Grâce—Lachine
-24046: Abitibi—Baie-James—Nunavik—Eeyou
-24047: Outremont
-24048: Papineau
-24049: Pierrefonds—Dollard
-24050: Pontiac
-24051: Portneuf—Jacques-Cartier
-24052: Québec
-24053: Repentigny
-24054: Bas-Richelieu—Nicolet—Bécancour
-24055: Richmond—Arthabaska
-24056: Rimouski-Neigette—Témiscouata—Les Basques
-24057: Rivière-des-Mille-Îles
-24058: Montmagny—L'Islet—Kamouraska—Rivière-du-Loup
-24059: Rivière-du-Nord
-24060: Roberval—Lac-Saint-Jean
-24061: Rosemont—La Petite-Patrie
-24062: Saint-Bruno—Saint-Hubert
-24063: Saint-Hyacinthe—Bagot
-24064: Saint-Jean
-24065: Saint-Lambert
-24066: Saint-Laurent—Cartierville
-24067: Saint-Léonard—Saint-Michel
-24068: Saint-Maurice—Champlain
-24069: Shefford
-24070: Sherbrooke
-24071: Terrebonne—Blainville
-24072: Trois-Rivières
-24073: Vaudreuil-Soulanges
-24074: Verchères—Les Patriotes
-24075: Westmount—Ville-Marie
-35001: Ajax—Pickering
-35002: Algoma—Manitoulin—Kapuskasing
-35003: Ancaster—Dundas—Flamborough—Westdale
-35004: Barrie
-35005: Beaches—East York
-35006: Bramalea—Gore—Malton
-35007: Brampton—Springdale
-35008: Brampton West
-35009: Brant
-35010: Burlington
-35011: Cambridge
-35012: Carleton—Mississippi Mills
-35013: Chatham-Kent—Essex
-35014: Durham
-35015: Davenport
-35016: Don Valley East
-35017: Don Valley West
-35018: Dufferin—Caledon
-35019: Eglinton—Lawrence
-35020: Elgin—Middlesex—London
-35021: Essex
-35022: Etobicoke Centre
-35023: Etobicoke—Lakeshore
-35024: Etobicoke North
-35025: Glengarry—Prescott—Russell
-35026: Bruce—Grey—Owen Sound
-35027: Guelph
-35028: Haldimand—Norfolk
-35029: Haliburton—Kawartha Lakes—Brock
-35030: Halton
-35031: Hamilton Centre
-35032: Hamilton East—Stoney Creek
-35033: Hamilton Mountain
-35034: Huron—Bruce
-35035: Kenora
-35036: Kingston and the Islands
-35037: Kitchener Centre
-35038: Kitchener—Conestoga
-35039: Kitchener—Waterloo
-35040: Lanark—Frontenac—Lennox and Addington
-35041: Leeds—Grenville
-35042: London—Fanshawe
-35043: London North Centre
-35044: London West
-35045: Markham—Unionville
-35046: Lambton—Kent—Middlesex
-35047: Mississauga—Brampton South
-35048: Mississauga East—Cooksville
-35049: Mississauga—Erindale
-35050: Mississauga South
-35051: Mississauga—Streetsville
-35052: Nepean—Carleton
-35053: Newmarket—Aurora
-35054: Niagara Falls
-35055: Niagara West—Glanbrook
-35056: Nickel Belt
-35057: Nipissing—Timiskaming
-35058: Northumberland—Quinte West
-35059: Oak Ridges—Markham
-35060: Oakville
-35061: Oshawa
-35062: Ottawa Centre
-35063: Ottawa—Orléans
-35064: Ottawa South
-35065: Ottawa—Vanier
-35066: Ottawa West—Nepean
-35067: Oxford
-35068: Parkdale—High Park
-35069: Parry Sound—Muskoka
-35070: Perth—Wellington
-35071: Peterborough
-35072: Pickering—Scarborough East
-35073: Prince Edward—Hastings
-35074: Renfrew—Nipissing—Pembroke
-35075: Richmond Hill
-35076: St. Catharines
-35077: St. Paul's
-35078: Sarnia—Lambton
-35079: Sault Ste. Marie
-35080: Scarborough—Agincourt
-35081: Scarborough Centre
-35082: Scarborough—Guildwood
-35083: Scarborough—Rouge River
-35084: Scarborough Southwest
-35085: Simcoe—Grey
-35086: Simcoe North
-35087: Stormont—Dundas—South Glengarry
-35088: Sudbury
-35089: Thornhill
-35090: Thunder Bay—Rainy River
-35091: Thunder Bay—Superior North
-35092: Timmins—James Bay
-35093: Toronto Centre
-35094: Toronto—Danforth
-35095: Trinity—Spadina
-35096: Vaughan
-35097: Welland
-35098: Wellington—Halton Hills
-35099: Whitby—Oshawa
-35100: Willowdale
-35101: Windsor—Tecumseh
-35102: Windsor West
-35103: York Centre
-35104: York—Simcoe
-35105: York South—Weston
-35106: York West
-46001: Brandon—Souris
-46002: Charleswood—St. James—Assiniboia
-46003: Churchill
-46004: Dauphin—Swan River—Marquette
-46005: Elmwood—Transcona
-46006: Kildonan—St. Paul
-46007: Portage—Lisgar
-46008: Provencher
-46009: Saint Boniface
-46010: Selkirk—Interlake
-46011: Winnipeg Centre
-46012: Winnipeg North
-46013: Winnipeg South
-46014: Winnipeg South Centre
-47001: Battlefords—Lloydminster
-47002: Blackstrap
-47003: Desnethé—Missinippi—Churchill River
-47004: Cypress Hills—Grasslands
-47005: Palliser
-47006: Prince Albert
-47007: Regina—Lumsden—Lake Centre
-47008: Regina—Qu'Appelle
-47009: Saskatoon—Humboldt
-47010: Saskatoon—Rosetown—Biggar
-47011: Saskatoon—Wanuskewin
-47012: Souris—Moose Mountain
-47013: Wascana
-47014: Yorkton—Melville
-48001: Fort McMurray—Athabasca
-48002: Calgary East
-48003: Calgary Centre-North
-48004: Calgary Northeast
-48005: Calgary—Nose Hill
-48006: Calgary Centre
-48007: Calgary Southeast
-48008: Calgary Southwest
-48009: Calgary West
-48010: Crowfoot
-48011: Edmonton—Mill Woods—Beaumont
-48012: Edmonton Centre
-48013: Edmonton East
-48014: Edmonton—Leduc
-48015: Edmonton—St. Albert
-48016: Edmonton—Sherwood Park
-48017: Edmonton—Spruce Grove
-48018: Edmonton—Strathcona
-48019: Lethbridge
-48020: Macleod
-48021: Medicine Hat
-48022: Peace River
-48023: Red Deer
-48024: Vegreville—Wainwright
-48025: Westlock—St. Paul
-48026: Wetaskiwin
-48027: Wild Rose
-48028: Yellowhead
-59001: Abbotsford
-59002: Burnaby—Douglas
-59003: Burnaby—New Westminster
-59004: Cariboo—Prince George
-59005: Chilliwack—Fraser Canyon
-59006: Delta—Richmond East
-59007: Pitt Meadows—Maple Ridge—Mission
-59008: Esquimalt—Juan de Fuca
-59009: Fleetwood—Port Kells
-59010: Kamloops—Thompson—Cariboo
-59011: Kelowna—Lake Country
-59012: Kootenay—Columbia
-59013: Langley
-59014: Nanaimo—Alberni
-59015: Nanaimo—Cowichan
-59016: Newton—North Delta
-59017: New Westminster—Coquitlam
-59018: Okanagan—Shuswap
-59019: North Vancouver
-59020: Okanagan—Coquihalla
-59021: Port Moody—Westwood—Port Coquitlam
-59022: Prince George—Peace River
-59023: Richmond
-59024: Saanich—Gulf Islands
-59025: Skeena—Bulkley Valley
-59026: British Columbia Southern Interior
-59027: South Surrey—White Rock—Cloverdale
-59028: Surrey North
-59029: Vancouver Centre
-59030: Vancouver East
-59031: Vancouver Island North
-59032: Vancouver Kingsway
-59033: Vancouver Quadra
-59034: Vancouver South
-59035: Victoria
-59036: West Vancouver—Sunshine Coast—Sea to Sky Country
-60001: Yukon
-61001: Northwest Territories
-62001: Nunavut
 
 federal-electoral-districts: 347
 10001: Avalon
@@ -9324,39 +6864,466 @@ federal-electoral-districts: 347
 61001: Northwest Territories
 62001: Nunavut
 
-st-johns-wards: 5
+federal-electoral-districts-2003-representation-order: 308
+10001: Avalon
+10002: Bonavista—Gander—Grand Falls—Windsor
+10003: Humber—St. Barbe—Baie Verte
+10004: Labrador
+10005: Random—Burin—St. George's
+10006: St. John's East
+10007: St. John's South—Mount Pearl
+11001: Cardigan
+11002: Charlottetown
+11003: Egmont
+11004: Malpeque
+12001: Cape Breton—Canso
+12002: Central Nova
+12003: Dartmouth—Cole Harbour
+12004: Halifax
+12005: Halifax West
+12006: Kings—Hants
+12007: Cumberland—Colchester—Musquodoboit Valley
+12008: Sackville—Eastern Shore
+12009: South Shore—St. Margaret's
+12010: Sydney—Victoria
+12011: West Nova
+13001: Acadie—Bathurst
+13002: Beauséjour
+13003: Fredericton
+13004: Fundy Royal
+13005: Madawaska—Restigouche
+13006: Miramichi
+13007: Moncton—Riverview—Dieppe
+13008: New Brunswick Southwest
+13009: Saint John
+13010: Tobique—Mactaquac
+24001: Abitibi—Témiscamingue
+24002: Ahuntsic
+24003: Alfred-Pellan
+24004: Argenteuil—Papineau—Mirabel
+24005: Beauce
+24006: Beauharnois—Salaberry
+24007: Beauport—Limoilou
+24008: Berthier—Maskinongé
+24009: Bourassa
+24010: Brome—Missisquoi
+24011: Brossard—La Prairie
+24012: Chambly—Borduas
+24013: Charlesbourg—Haute-Saint-Charles
+24014: Montmorency—Charlevoix—Haute-Côte-Nord
+24015: Châteauguay—Saint-Constant
+24016: Chicoutimi—Le Fjord
+24017: Compton—Stanstead
+24018: Drummond
+24019: Gaspésie—Îles-de-la-Madeleine
+24020: Gatineau
+24021: Hochelaga
+24022: Honoré-Mercier
+24023: Hull—Aylmer
+24024: Jeanne-Le Ber
+24025: Joliette
+24026: Jonquière—Alma
+24027: Lac-Saint-Louis
+24028: La Pointe-de-l'Île
+24029: LaSalle—Émard
+24030: Laurentides—Labelle
+24031: Laurier—Sainte-Marie
+24032: Laval
+24033: Laval—Les Îles
+24034: Lévis—Bellechasse
+24035: Longueuil—Pierre-Boucher
+24036: Lotbinière—Chutes-de-la-Chaudière
+24037: Louis-Hébert
+24038: Louis-Saint-Laurent
+24039: Manicouagan
+24040: Marc-Aurèle-Fortin
+24041: Haute-Gaspésie—La Mitis—Matane—Matapédia
+24042: Mégantic—L'Érable
+24043: Montcalm
+24044: Mount Royal
+24045: Notre-Dame-de-Grâce—Lachine
+24046: Abitibi—Baie-James—Nunavik—Eeyou
+24047: Outremont
+24048: Papineau
+24049: Pierrefonds—Dollard
+24050: Pontiac
+24051: Portneuf—Jacques-Cartier
+24052: Québec
+24053: Repentigny
+24054: Bas-Richelieu—Nicolet—Bécancour
+24055: Richmond—Arthabaska
+24056: Rimouski-Neigette—Témiscouata—Les Basques
+24057: Rivière-des-Mille-Îles
+24058: Montmagny—L'Islet—Kamouraska—Rivière-du-Loup
+24059: Rivière-du-Nord
+24060: Roberval—Lac-Saint-Jean
+24061: Rosemont—La Petite-Patrie
+24062: Saint-Bruno—Saint-Hubert
+24063: Saint-Hyacinthe—Bagot
+24064: Saint-Jean
+24065: Saint-Lambert
+24066: Saint-Laurent—Cartierville
+24067: Saint-Léonard—Saint-Michel
+24068: Saint-Maurice—Champlain
+24069: Shefford
+24070: Sherbrooke
+24071: Terrebonne—Blainville
+24072: Trois-Rivières
+24073: Vaudreuil-Soulanges
+24074: Verchères—Les Patriotes
+24075: Westmount—Ville-Marie
+35001: Ajax—Pickering
+35002: Algoma—Manitoulin—Kapuskasing
+35003: Ancaster—Dundas—Flamborough—Westdale
+35004: Barrie
+35005: Beaches—East York
+35006: Bramalea—Gore—Malton
+35007: Brampton—Springdale
+35008: Brampton West
+35009: Brant
+35010: Burlington
+35011: Cambridge
+35012: Carleton—Mississippi Mills
+35013: Chatham-Kent—Essex
+35014: Durham
+35015: Davenport
+35016: Don Valley East
+35017: Don Valley West
+35018: Dufferin—Caledon
+35019: Eglinton—Lawrence
+35020: Elgin—Middlesex—London
+35021: Essex
+35022: Etobicoke Centre
+35023: Etobicoke—Lakeshore
+35024: Etobicoke North
+35025: Glengarry—Prescott—Russell
+35026: Bruce—Grey—Owen Sound
+35027: Guelph
+35028: Haldimand—Norfolk
+35029: Haliburton—Kawartha Lakes—Brock
+35030: Halton
+35031: Hamilton Centre
+35032: Hamilton East—Stoney Creek
+35033: Hamilton Mountain
+35034: Huron—Bruce
+35035: Kenora
+35036: Kingston and the Islands
+35037: Kitchener Centre
+35038: Kitchener—Conestoga
+35039: Kitchener—Waterloo
+35040: Lanark—Frontenac—Lennox and Addington
+35041: Leeds—Grenville
+35042: London—Fanshawe
+35043: London North Centre
+35044: London West
+35045: Markham—Unionville
+35046: Lambton—Kent—Middlesex
+35047: Mississauga—Brampton South
+35048: Mississauga East—Cooksville
+35049: Mississauga—Erindale
+35050: Mississauga South
+35051: Mississauga—Streetsville
+35052: Nepean—Carleton
+35053: Newmarket—Aurora
+35054: Niagara Falls
+35055: Niagara West—Glanbrook
+35056: Nickel Belt
+35057: Nipissing—Timiskaming
+35058: Northumberland—Quinte West
+35059: Oak Ridges—Markham
+35060: Oakville
+35061: Oshawa
+35062: Ottawa Centre
+35063: Ottawa—Orléans
+35064: Ottawa South
+35065: Ottawa—Vanier
+35066: Ottawa West—Nepean
+35067: Oxford
+35068: Parkdale—High Park
+35069: Parry Sound—Muskoka
+35070: Perth—Wellington
+35071: Peterborough
+35072: Pickering—Scarborough East
+35073: Prince Edward—Hastings
+35074: Renfrew—Nipissing—Pembroke
+35075: Richmond Hill
+35076: St. Catharines
+35077: St. Paul's
+35078: Sarnia—Lambton
+35079: Sault Ste. Marie
+35080: Scarborough—Agincourt
+35081: Scarborough Centre
+35082: Scarborough—Guildwood
+35083: Scarborough—Rouge River
+35084: Scarborough Southwest
+35085: Simcoe—Grey
+35086: Simcoe North
+35087: Stormont—Dundas—South Glengarry
+35088: Sudbury
+35089: Thornhill
+35090: Thunder Bay—Rainy River
+35091: Thunder Bay—Superior North
+35092: Timmins—James Bay
+35093: Toronto Centre
+35094: Toronto—Danforth
+35095: Trinity—Spadina
+35096: Vaughan
+35097: Welland
+35098: Wellington—Halton Hills
+35099: Whitby—Oshawa
+35100: Willowdale
+35101: Windsor—Tecumseh
+35102: Windsor West
+35103: York Centre
+35104: York—Simcoe
+35105: York South—Weston
+35106: York West
+46001: Brandon—Souris
+46002: Charleswood—St. James—Assiniboia
+46003: Churchill
+46004: Dauphin—Swan River—Marquette
+46005: Elmwood—Transcona
+46006: Kildonan—St. Paul
+46007: Portage—Lisgar
+46008: Provencher
+46009: Saint Boniface
+46010: Selkirk—Interlake
+46011: Winnipeg Centre
+46012: Winnipeg North
+46013: Winnipeg South
+46014: Winnipeg South Centre
+47001: Battlefords—Lloydminster
+47002: Blackstrap
+47003: Desnethé—Missinippi—Churchill River
+47004: Cypress Hills—Grasslands
+47005: Palliser
+47006: Prince Albert
+47007: Regina—Lumsden—Lake Centre
+47008: Regina—Qu'Appelle
+47009: Saskatoon—Humboldt
+47010: Saskatoon—Rosetown—Biggar
+47011: Saskatoon—Wanuskewin
+47012: Souris—Moose Mountain
+47013: Wascana
+47014: Yorkton—Melville
+48001: Fort McMurray—Athabasca
+48002: Calgary East
+48003: Calgary Centre-North
+48004: Calgary Northeast
+48005: Calgary—Nose Hill
+48006: Calgary Centre
+48007: Calgary Southeast
+48008: Calgary Southwest
+48009: Calgary West
+48010: Crowfoot
+48011: Edmonton—Mill Woods—Beaumont
+48012: Edmonton Centre
+48013: Edmonton East
+48014: Edmonton—Leduc
+48015: Edmonton—St. Albert
+48016: Edmonton—Sherwood Park
+48017: Edmonton—Spruce Grove
+48018: Edmonton—Strathcona
+48019: Lethbridge
+48020: Macleod
+48021: Medicine Hat
+48022: Peace River
+48023: Red Deer
+48024: Vegreville—Wainwright
+48025: Westlock—St. Paul
+48026: Wetaskiwin
+48027: Wild Rose
+48028: Yellowhead
+59001: Abbotsford
+59002: Burnaby—Douglas
+59003: Burnaby—New Westminster
+59004: Cariboo—Prince George
+59005: Chilliwack—Fraser Canyon
+59006: Delta—Richmond East
+59007: Pitt Meadows—Maple Ridge—Mission
+59008: Esquimalt—Juan de Fuca
+59009: Fleetwood—Port Kells
+59010: Kamloops—Thompson—Cariboo
+59011: Kelowna—Lake Country
+59012: Kootenay—Columbia
+59013: Langley
+59014: Nanaimo—Alberni
+59015: Nanaimo—Cowichan
+59016: Newton—North Delta
+59017: New Westminster—Coquitlam
+59018: Okanagan—Shuswap
+59019: North Vancouver
+59020: Okanagan—Coquihalla
+59021: Port Moody—Westwood—Port Coquitlam
+59022: Prince George—Peace River
+59023: Richmond
+59024: Saanich—Gulf Islands
+59025: Skeena—Bulkley Valley
+59026: British Columbia Southern Interior
+59027: South Surrey—White Rock—Cloverdale
+59028: Surrey North
+59029: Vancouver Centre
+59030: Vancouver East
+59031: Vancouver Island North
+59032: Vancouver Kingsway
+59033: Vancouver Quadra
+59034: Vancouver South
+59035: Victoria
+59036: West Vancouver—Sunshine Coast—Sea to Sky Country
+60001: Yukon
+61001: Northwest Territories
+62001: Nunavut
+
+fleurimont-districts: 5
+2.1: du Pin-Solitaire
+2.2: des Quatre-Saisons
+2.3: de Desranleau
+2.4: de Lavigerie
+2.5: de Marie-Rivier
+
+florenceville-bristol-wards: 2
+1: Ward 1
+2: Ward 2
+
+fossambault-sur-le-lac-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+fredericton-wards: 12
+1: Ward 1
+10: Ward 10
+11: Ward 11
+12: Ward 12
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+frontenac-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+gaspe-quartiers: 6
+1: Quartier 1
+2: Quartier 2
+3: Quartier 3
+4: Quartier 4
+5: Quartier 5
+6: Quartier 6
+
+gatineau-districts: 18
+1: d'Aylmer
+10: de Touraine
+11: de Pointe-Gatineau
+12: du Carrefour-de-l'Hôpital
+13: du Versant
+14: de Bellevue
+15: du Lac-Beauchamp
+16: de la Rivière-Blanche
+17: de Masson-Angers
+18: de Buckingham
+2: de Lucerne
+3: de Deschênes
+4: du Plateau—Manoir-des-Trembles
+5: Wright—Parc-de-la-Montagne
+6: de l'Orée-du-Parc
+7: de Saint-Raymond—Vanier
+8: de Hull—Val-Tétreau
+9: de Limbour
+
+granby-districts: 10
+1: District 1
+10: District 10
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+grand-falls-wards: 2
+: North Ward
+: South Ward
+
+grande-prairie-county-no-1-divisions: 9
+1: Division 1
+2: Division 2
+3: Division 3
+4: Division 4
+5: Division 5
+6: Division 6
+7: Division 7
+8: Division 8
+9: Division 9
+
+grande-riviere-quartiers: 3
+1: Grande Rivière Est
+2: Grande Rivière Ouest
+3: Pabos
+
+greater-sudbury-wards: 12
+1: Ward 1
+10: Ward 10
+11: Ward 11
+12: Ward 12
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+greenfield-park-districts: 1
+10: Greenfield Park
+
+grimsby-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+guelph-wards: 6
 1: Ward 1
 2: Ward 2
 3: Ward 3
 4: Ward 4
 5: Ward 5
+6: Ward 6
 
-charlottetown-wards: 10
-1: Queens Square
-10: Falconwood
-2: Belvedere
-3: Brighton
-4: St. Avards
-5: Spring Park
-6: Mount Edward
-7: Beach Grove
-8: Highfield
-9: Stonepark
+guysborough-districts: 9
+1: District 1
+2: District 2
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
 
-stratford-wards: 3
-1: Kelly's Cove
-2: Stewart Cove
-3: Tea Hill
-
-summerside-wards: 8
-1: St. Eleanors—Bayview
-2: St. Eleanors—Slemon Park
-3: Summerside—North
-4: Clifton—Market
-5: Hillcrest—Platte River
-6: Center East—Downtown
-7: Green Shore—Three Oaks
-8: Wilmot
+haldimand-county-wards: 6
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
 
 halifax-districts: 16
 1: Waverley—Fall River—Musquodoboit Valley
@@ -9376,11 +7343,14 @@ halifax-districts: 16
 8: Halifax Peninsula North
 9: Halifax West Armdale
 
-fredericton-wards: 12
+hamilton-wards: 15
 1: Ward 1
 10: Ward 10
 11: Ward 11
 12: Ward 12
+13: Ward 13
+14: Ward 14
+15: Ward 15
 2: Ward 2
 3: Ward 3
 4: Ward 4
@@ -9389,6 +7359,838 @@ fredericton-wards: 12
 7: Ward 7
 8: Ward 8
 9: Ward 9
+
+hanwell-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+hudson-districts: 6
+1: Como
+2: Hudson-Est
+3: Hudson-Centre
+4: Fairhaven
+5: Heights-Est
+6: Ouest
+
+huntingdon-quartiers: 3
+1: Est
+2: Sud
+3: Ouest
+
+hebertville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+inverness-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+jacques-cartier-districts: 4
+6.1: de Beckett
+6.2: du Domaine-Howard
+6.3: de Montcalm
+6.4: du Carrefour
+
+joliette-districts: 7
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+
+jonquiere-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+kedgwick-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+king-wards: 6
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+
+kings-districts: 9
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+kirkland-districts: 8
+: Brunswick
+: Canvin
+: Holleuffer
+: Lacey Green est
+: Lacey Green ouest
+: Saint-Charles
+: Summerhill
+: Timberlea
+
+kitchener-wards: 10
+1: Ward 1
+10: Ward 10
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+lancienne-lorette-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lange-gardien-districts: 6
+1: du Lièvre
+2: du lac Donaldson
+3: du Plateau
+4: Glen-Almond
+5: des Arpents-Verts
+6: Carrière
+
+lascension-de-notre-seigneur-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lassomption-districts: 6
+1: Hector-Charland
+2: Wilfrid-Laurier
+3: Pierre-Lesueur
+4: Louis-Laberge
+5: Albert-Racette
+6: Maurice-Lafortune
+
+lislet-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lepiphanie-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lile-bizardsainte-genevieve-districts: 4
+6.1: Pierre-Foretier
+6.2: Denis-Benjamin-Viger
+6.3: Jacques-Bizard
+6.4: Sainte-Geneviève
+
+lile-perrot-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+la-baie-districts: 3
+17: District 17
+18: District 18
+19: District 19
+
+la-cite-limoilou-districts: 5
+1: Cap-aux-Diamants
+2: Montcalm—Saint-Sacrement
+3: Saint-Roch—Saint-Sauveur
+4: Limoilou
+5: Maizerets-Lairet
+
+la-haute-saint-charles-districts: 3
+19: Lac-Saint-Charles—Saint-Émile
+20: Loretteville-Les Châtels
+21: Val-Bélair
+
+la-malbaie-districts: 8
+1: St-Fidèle
+2: Cap-à-l'Aigle
+3: Rivière-Malbaie
+4: Centre-Ville
+5: De la Seigneurie
+6: Pointe-au-Pic
+7: Rivière-Mailloux
+8: Sainte-Agnès
+
+la-prairie-districts: 8
+1: de la Milice
+2: Christ-Roi
+3: Vieux La Prairie
+4: de la Citière
+5: de la Clairière
+6: de la Magdeleine
+7: de la Bataille
+8: de la Briqueterie
+
+la-peche-districts: 7
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+
+la-sarre-quartiers: 3
+1: Quartier 1
+2: Quartier 2
+3: Quartier 3
+
+la-tuque-districts: 9
+1: Parent
+1: Parent
+2: La Croche
+2: La Croche
+2: La Croche
+3: Terrasse St-Maurice Jacques-Buteux
+4: Polyvalente
+5: Bel-Air/Centre-Ville Lac St-Louis
+6: Aéroport
+
+lasalle-districts: 2
+5.1: Sault-Saint-Louis
+5.2: Cecil-P.-Newman
+
+lac-brome-districts: 6
+1: Bondville-Fulford
+2: West-Brome—Iron-Hill
+3: East-Hill
+4: Knowlton-Victoria
+5: Knowlton-Lakeside
+6: Foster
+
+lac-megantic-districts: 6
+1: Agnès
+2: Fatima
+3: Centre-ville
+4: Québec-Central
+5: Vieux-nord
+6: Montignac
+
+lac-saint-joseph-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lac-sergent-quartiers: 4
+1: Quartier 1
+2: Quartier 2
+3: Quartier 3
+4: Quartier 4
+
+lac-superieur-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lac-au-saumon-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lac-des-seize-iles-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lac-des-ecorces-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lachine-districts: 3
+4.1: du Canal
+4.2: J.-Émery-Provost
+4.3: Fort-Rolland
+
+lachute-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lanoraie-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+laval-districts: 21
+1: Saint-François
+10: Auteuil
+11: Laval-des-Rapides
+12: Souvenir-Labelle
+13: Abord-à-Plouffe
+14: Chomedey
+15: Saint-Martin
+16: Sainte-Dorothée
+17: Laval-les-Îles
+18: Orée-des-Bois
+19: Marc-Aurèle-Fortin
+2: Saint-Vincent-de-Paul
+20: Fabreville
+21: Sainte-Rose
+3: Val-des-Arbres
+4: Duvernay-Pont-Viau
+5: Marigot
+6: Concorde-Bois-de-Boulogne
+7: Renaud
+8: Vimont
+9: Saint-Bruno
+
+lavaltrie-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+le-vieux-longueuil-districts: 9
+1: Fatima-Parcours-du-Cerf
+2: Boisé-Du Tremblay
+3: Parc-Michel-Chartrand
+4: Antoinette-Robidoux
+5: Georges-Dor
+6: Explorateurs
+7: Coteau-Rouge
+8: Saint-Charles
+9: LeMoyne-Jacques-Cartier
+
+lennoxville-districts: 2
+3.1: d'Uplands
+3.2: de Fairview
+
+les-chutes-de-la-chaudiere-est-districts: 5
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+les-chutes-de-la-chaudiere-ouest-districts: 4
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+
+les-coteaux-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+les-cedres-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+les-rivieres-districts: 3
+6: Vanier
+7: Neufchâtel-Lebourgneuf
+8: Duberger-Les Saules
+
+les-iles-de-la-madeleine-districts: 6
+1: L'Île-du-Havre-Aubert
+2: L'Étang-du-Nord
+3: Cap-aux-Meules
+4: Fatima
+5: Havre-aux-Maisons
+6: Grande-Entrée
+
+lincoln-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+london-wards: 14
+1: Ward 1
+10: Ward 10
+11: Ward 11
+12: Ward 12
+13: Ward 13
+14: Ward 14
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+longueuil-boroughs: 15
+1: Le Vieux-Longueuil
+1: Le Vieux-Longueuil
+1: Le Vieux-Longueuil
+1: Le Vieux-Longueuil
+1: Le Vieux-Longueuil
+1: Le Vieux-Longueuil
+1: Le Vieux-Longueuil
+1: Le Vieux-Longueuil
+1: Le Vieux-Longueuil
+2: Greenfield Park
+3: Saint-Hubert
+3: Saint-Hubert
+3: Saint-Hubert
+3: Saint-Hubert
+3: Saint-Hubert
+
+longueuil-districts: 15
+1: Fatima-Parcours-du-Cerf
+10: Greenfield Park
+11: Laflèche
+12: Vieux-Saint-Hubert-la Savane
+13: Parc-de-la-Cité
+14: Iberville
+15: Maraîchers
+2: Boisé-Du Tremblay
+3: Parc-Michel-Chartrand
+4: Antoinette-Robidoux
+5: Georges-Dor
+6: Explorateurs
+7: Coteau-Rouge
+8: Saint-Charles
+9: LeMoyne-Jacques-Cartier
+
+lunenburg-districts: 10
+1: District 1
+10: District 10
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+lyster-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+lery-districts: 6
+1: de la Gare
+2: Les Boisés
+3: Bellevue
+4: Les Riverains
+5: du Manoir
+6: Woodland
+
+levis-boroughs: 15
+1: Desjardins
+1: Desjardins
+1: Desjardins
+1: Desjardins
+1: Desjardins
+1: Desjardins
+2: Les Chutes-de-la-Chaudière-Est
+2: Les Chutes-de-la-Chaudière-Est
+2: Les Chutes-de-la-Chaudière-Est
+2: Les Chutes-de-la-Chaudière-Est
+2: Les Chutes-de-la-Chaudière-Est
+3: Les Chutes-de-la-Chaudière-Ouest
+3: Les Chutes-de-la-Chaudière-Ouest
+3: Les Chutes-de-la-Chaudière-Ouest
+3: Les Chutes-de-la-Chaudière-Ouest
+
+levis-districts: 15
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+13: District 13
+14: District 14
+15: District 15
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+macamic-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+magog-districts: 10
+1: District 1
+10: District 10
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+malartic-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+mandeville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+manitoba-electoral-districts: 57
+: Agassiz
+: Arthur-Virden
+: Assiniboia
+: Brandon East
+: Brandon West
+: Burrows
+: Charleswood
+: Concordia
+: Dauphin
+: Dawson Trail
+: Elmwood
+: Emerson
+: Flin Flon
+: Fort Garry-Riverview
+: Fort Richmond
+: Fort Rouge
+: Fort Whyte
+: Gimli
+: Interlake
+: Kewatinook
+: Kildonan
+: Kirkfield Park
+: La Verendrye
+: Lac du Bonnet
+: Lakeside
+: Logan
+: Midland
+: Minto
+: Morden-Winkler
+: Morris
+: Point Douglas
+: Portage la Prairie
+: Radisson
+: Riding Mountain
+: Riel
+: River East
+: River Heights
+: Rossmere
+: Seine River
+: Selkirk
+: Southdale
+: Spruce Woods
+: St. Boniface
+: St. James
+: St. Johns
+: St. Norbert
+: St. Paul
+: St. Vital
+: Steinbach
+: Swan River
+: The Maples
+: The Pas
+: Thompson
+: Transcona
+: Tuxedo
+: Tyndall Park
+: Wolseley
+
+maniwaki-quartiers: 6
+1: Quartier 1
+2: Quartier 2
+3: Quartier 3
+4: Quartier 4
+5: Quartier 5
+6: Quartier 6
+
+marieville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+mascouche-districts: 8
+1: Louis-Hébert
+2: Laurier
+3: Le Gardeur
+4: La Vérendrye
+5: Du Côteau
+6: Des Hauts-Bois
+7: Du Rucher
+8: Du Manoir
+
+matane-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+mcmasterville-districts: 6
+1: Rive
+2: Village
+3: Parc
+4: Vétérans
+5: Érables
+6: Chênes
+
+mercier-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+mercierhochelaga-maisonneuve-districts: 4
+7.1: Tétreaultville
+7.2: Maisonneuve—Longue-Pointe
+7.3: Hochelaga
+7.4: Louis-Riel
+
+milton-wards: 8
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+
+mirabel-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+mississauga-wards: 11
+1: Ward 1
+10: Ward 10
+11: Ward 11
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+moncton-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+mont-bellevue-districts: 4
+4.1: du Centre-Sud
+4.2: d'Ascot
+4.3: de la Croix-Lumineuse
+4.4: de l'Université
+
+mont-joli-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+mont-royal-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+mont-saint-hilaire-districts: 6
+1: du Déboulis
+2: des Patriotes
+3: du Piémont
+4: de Rouville
+5: de la Montagne
+6: de la Pommeraie
+
+mont-tremblant-districts: 8
+1: Station-Mont-Tremblant—Lac-Ouimet
+2: Lac-Mercier
+3: Lac-Lamoureux—Lac-Fortier
+4: Mont-Daim
+5: Saint-Jovite—Des Ruisseaux
+6: Saint-Jovite—Centre-Ouest
+7: Saint-Jovite—Centre-Est
+8: Lac-Maskinongé
+
+montcalm-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+montmagny-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+montreal-boroughs: 58
+1: Ahuntsic-Cartierville
+1: Ahuntsic-Cartierville
+1: Ahuntsic-Cartierville
+1: Ahuntsic-Cartierville
+10: Pierrefonds-Roxboro
+10: Pierrefonds-Roxboro
+11: Plateau-Mont-Royal
+11: Plateau-Mont-Royal
+11: Plateau-Mont-Royal
+12: Rivière-des-Prairies—Pointe-aux-Trembles
+12: Rivière-des-Prairies—Pointe-aux-Trembles
+12: Rivière-des-Prairies—Pointe-aux-Trembles
+13: Rosemont—La Petite-Patrie
+13: Rosemont—La Petite-Patrie
+13: Rosemont—La Petite-Patrie
+13: Rosemont—La Petite-Patrie
+14: Saint-Laurent
+14: Saint-Laurent
+15: Saint-Léonard
+15: Saint-Léonard
+16: Sud-Ouest
+16: Sud-Ouest
+17: Verdun
+17: Verdun
+18: Ville-Marie
+18: Ville-Marie
+18: Ville-Marie
+19: Villeray—Saint-Michel—Parc-Extension
+19: Villeray—Saint-Michel—Parc-Extension
+19: Villeray—Saint-Michel—Parc-Extension
+19: Villeray—Saint-Michel—Parc-Extension
+2: Anjou
+2: Anjou
+2: Anjou
+3: Côte-des-Neiges—Notre-Dame-de-Grâce
+3: Côte-des-Neiges—Notre-Dame-de-Grâce
+3: Côte-des-Neiges—Notre-Dame-de-Grâce
+3: Côte-des-Neiges—Notre-Dame-de-Grâce
+3: Côte-des-Neiges—Notre-Dame-de-Grâce
+4: Lachine
+4: Lachine
+4: Lachine
+5: LaSalle
+5: LaSalle
+6: L'Île-Bizard—Sainte-Geneviève
+6: L'Île-Bizard—Sainte-Geneviève
+6: L'Île-Bizard—Sainte-Geneviève
+6: L'Île-Bizard—Sainte-Geneviève
+7: Mercier—Hochelaga-Maisonneuve
+7: Mercier—Hochelaga-Maisonneuve
+7: Mercier—Hochelaga-Maisonneuve
+7: Mercier—Hochelaga-Maisonneuve
+8: Montréal-Nord
+8: Montréal-Nord
+9: Outremont
+9: Outremont
+9: Outremont
+9: Outremont
 
 montreal-boroughs-and-districts: 116
 1: Ahuntsic-Cartierville
@@ -9508,752 +8310,144 @@ montreal-boroughs-and-districts: 116
 9.3: Robert-Bourassa
 9.4: Jeanne-Sauvé
 
-dorval-districts: 6
-1: Désiré-Girouard
-2: La Présentation
-3: Fénelon
-4: Pine Beach
-5: Strathmore
-6: Surrey
+montreal-districts: 58
+1.1: Sault-au-Récollet
+1.2: Saint-Sulpice
+1.3: Ahuntsic
+1.4: Bordeaux-Cartierville
+10.1: Bois-de-Liesse
+10.2: Cap-Saint-Jacques
+11.1: Mile-End
+11.2: DeLorimier
+11.3: Jeanne-Mance
+12.1: La Pointe-aux-Prairies
+12.2: Pointe-aux-Trembles
+12.3: Rivière-des-Prairies
+13.1: Saint-Édouard
+13.2: Étienne-Desmarteau
+13.3: Vieux-Rosemont
+13.4: Marie-Victorin
+14.1: Côte-de-Liesse
+14.2: Norman-McLaren
+15.1: Saint-Léonard-Est
+15.2: Saint-Léonard-Ouest
+16.1: Saint-Henri—Petite-Bourgogne—Pointe-Saint-Charles
+16.2: Saint-Paul—Émard
+17.1: Champlain—L'Île-des-Soeurs
+17.2: Desmarchais-Crawford
+18.1: Peter-McGill
+18.2: Saint-Jacques
+18.3: Sainte-Marie
+19.1: Saint-Michel
+19.2: François-Perrault
+19.3: Villeray
+19.4: Parc-Extension
+2.1: de l'Ouest
+2.2: de l'Est
+2.3: du Centre
+3.1: Darlington
+3.2: Côte-des-Neiges
+3.3: Snowdon
+3.4: Notre-Dame-de-Grâce
+3.5: Loyola
+4.1: du Canal
+4.2: J.-Émery-Provost
+4.3: Fort-Rolland
+5.1: Sault-Saint-Louis
+5.2: Cecil-P.-Newman
+6.1: Pierre-Foretier
+6.2: Denis-Benjamin-Viger
+6.3: Jacques-Bizard
+6.4: Sainte-Geneviève
+7.1: Tétreaultville
+7.2: Maisonneuve—Longue-Pointe
+7.3: Hochelaga
+7.4: Louis-Riel
+8.1: Marie-Clarac
+8.2: Ovide-Clermont
+9.1: Claude-Ryan
+9.2: Joseph-Beaubien
+9.3: Robert-Bourassa
+9.4: Jeanne-Sauvé
 
-kirkland-districts: 8
-: Brunswick
-: Canvin
-: Holleuffer
-: Lacey Green est
-: Lacey Green ouest
-: Saint-Charles
-: Summerhill
-: Timberlea
+montreal-est-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
 
-ottawa-wards: 23
-1: Orléans
-10: Gloucester-Southgate
-11: Beacon Hill-Cyrville
-12: Rideau-Vanier
-13: Rideau-Rockcliffe
-14: Somerset
-15: Kitchissippi
-16: River
-17: Capital
-18: Alta Vista
-19: Cumberland
-2: Innes
-20: Osgoode
-21: Rideau-Goulbourn
-22: Gloucester-South Nepean
-23: Kanata South
-3: Barrhaven
-4: Kanata North
-5: West Carleton-March
-6: Stittsville
-7: Bay
-8: College
-9: Knoxdale-Merivale
+montreal-nord-districts: 2
+8.1: Marie-Clarac
+8.2: Ovide-Clermont
 
-peterborough-wards: 5
-1: Otonabee
-2: Monaghan
-3: Town
-4: Ashburnham
-5: Northcrest
+metabetchouanlac-a-la-croix-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
 
-ajax-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
+nantes-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
 
-clarington-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-newmarket-wards: 7
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-
-king-wards: 6
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-
-toronto-wards: 44
-1: Etobicoke North (1)
-10: York Centre (10)
-11: York South-Weston (11)
-12: York South-Weston (12)
-13: Parkdale-High Park (13)
-14: Parkdale-High Park (14)
-15: Eglinton-Lawrence (15)
-16: Eglinton-Lawrence (16)
-17: Davenport (17)
-18: Davenport (18)
-19: Trinity-Spadina (19)
-2: Etobicoke North (2)
-20: Trinity-Spadina (20)
-21: St. Paul's (21)
-22: St. Paul's (22)
-23: Willowdale (23)
-24: Willowdale (24)
-25: Don Valley West (25)
-26: Don Valley West (26)
-27: Toronto Centre-Rosedale (27)
-28: Toronto Centre-Rosedale (28)
-29: Toronto-Danforth (29)
-3: Etobicoke Centre (3)
-30: Toronto-Danforth (30)
-31: Beaches-East York (31)
-32: Beaches-East York (32)
-33: Don Valley East (33)
-34: Don Valley East (34)
-35: Scarborough Southwest (35)
-36: Scarborough Southwest (36)
-37: Scarborough Centre (37)
-38: Scarborough Centre (38)
-39: Scarborough-Agincourt (39)
-4: Etobicoke Centre (4)
-40: Scarborough-Agincourt (40)
-41: Scarborough-Rouge River (41)
-42: Scarborough-Rouge River (42)
-43: Scarborough East (43)
-44: Scarborough East (44)
-5: Etobicoke-Lakeshore (5)
-6: Etobicoke-Lakeshore (6)
-7: York West (7)
-8: York West (8)
-9: York Centre (9)
-
-mississauga-wards: 11
-1: Ward 1
-10: Ward 10
-11: Ward 11
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-brampton-wards: 10
-1: Ward 1
-10: Ward 10
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-caledon-wards: 5
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-
-guelph-wards: 6
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-
-oakville-wards: 6
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-
-burlington-wards: 6
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-
-milton-wards: 8
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-
-hamilton-wards: 15
-1: Ward 1
-10: Ward 10
-11: Ward 11
-12: Ward 12
-13: Ward 13
-14: Ward 14
-15: Ward 15
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-welland-wards: 6
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-
-st-catharines-wards: 6
-: Grantham
-: Merritton
-: Port Dalhousie
-: St. Andrew's
-: St. George's
-: St. Patrick's
-
-lincoln-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-grimsby-wards: 4
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-
-haldimand-county-wards: 6
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-
-norfolk-county-wards: 7
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-
-brantford-wards: 5
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-
-chatham-kent-wards: 6
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-
-windsor-wards: 10
-1: Ward 1
-10: Ward 10
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-london-wards: 14
-1: Ward 1
-10: Ward 10
-11: Ward 11
-12: Ward 12
-13: Ward 13
-14: Ward 14
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-barrie-wards: 10
-1: Ward 1
-10: Ward 10
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-greater-sudbury-wards: 12
-1: Ward 1
-10: Ward 10
-11: Ward 11
-12: Ward 12
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-thunder-bay-wards: 7
-1: Current River
-2: Red River
-3: McKellar
-4: McIntyre
-5: Northwood
-6: Westfort
-7: Neebing
-
-winnipeg-wards: 15
-1: Old Kildonan
-10: South Winnipeg—St Norbert
-11: St. Vital
-12: St. Boniface
-13: Transcona
-14: Elmwood—East Kildonan
-15: North Kildonan
-2: Mynarski
-3: Point Douglas
-4: Daniel McIntyre
-5: St. James—Brooklands—Weston
-6: St. Charles
-7: Charleswood—Tuxedo—Whyte Ridge
-8: River Heights—Fort Garry
-9: Fort Rouge—East Fort Garry
-
-regina-wards: 10
-1: Ward 1
-10: Ward 10
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-saskatoon-wards: 10
-1: Ward 1
-10: Ward 10
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-calgary-wards: 14
-1: Ward 1
-10: Ward 10
-11: Ward 11
-12: Ward 12
-13: Ward 13
-14: Ward 14
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-strathcona-county-wards: 8
-1: Ward 1
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-
-edmonton-wards: 12
-1: Ward 1
-10: Ward 10
-11: Ward 11
-12: Ward 12
-2: Ward 2
-3: Ward 3
-4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
-
-grande-prairie-county-no-1-divisions: 9
-1: Division 1
-2: Division 2
-3: Division 3
-4: Division 4
-5: Division 5
-6: Division 6
-7: Division 7
-8: Division 8
-9: Division 9
-
-alberta-electoral-districts: 87
-1: Dunvegan-Central Peace-Notley
-10: Calgary-Fish Creek
-11: Calgary-Foothills
-12: Calgary-Fort
-13: Calgary-Glenmore
-14: Calgary-Greenway
-15: Calgary-Hawkwood
-16: Calgary-Hays
-17: Calgary-Klein
-18: Calgary-Lougheed
-19: Calgary-Mackay-Nose Hill
-2: Lesser Slave Lake
-20: Calgary-McCall
-21: Calgary-Mountain View
-22: Calgary-North West
-23: Calgary-Northern Hills
-24: Calgary-Shaw
-25: Calgary-South East
-26: Calgary-Varsity
-27: Calgary-West
-28: Edmonton-Beverly-Clareview
-29: Edmonton-Calder
-3: Calgary-Acadia
-30: Edmonton-Castle Downs
-31: Edmonton-Centre
-32: Edmonton-Decore
-33: Edmonton-Ellerslie
-34: Edmonton-Glenora
-35: Edmonton-Gold Bar
-36: Edmonton-Highlands-Norwood
-37: Edmonton-Manning
-38: Edmonton-McClung
-39: Edmonton-Meadowlark
-4: Calgary-Bow
-40: Edmonton-Mill Creek
-41: Edmonton-Mill Woods
-42: Edmonton-Riverview
-43: Edmonton-Rutherford
-44: Edmonton-South West
-45: Edmonton-Strathcona
-46: Edmonton-Whitemud
-47: Airdrie
-48: Athabasca-Sturgeon-Redwater
-49: Banff-Cochrane
-5: Calgary-Buffalo
-50: Barrhead-Morinville-Westlock
-51: Battle River-Wainwright
-52: Bonnyville-Cold Lake
-53: Cardston-Taber-Warner
-54: Chestermere-Rocky View
-55: Cypress-Medicine Hat
-56: Drayton Valley-Devon
-57: Drumheller-Stettler
-58: Fort McMurray-Conklin
-59: Fort McMurray-Wood Buffalo
-6: Calgary-Cross
-60: Fort Saskatchewan-Vegreville
-61: Grande Prairie-Smoky
-62: Grande Prairie-Wapiti
-63: Highwood
-64: Innisfail-Sylvan Lake
-65: Lac La Biche-St. Paul-Two Hills
-66: Lacombe-Ponoka
-67: Leduc-Beaumont
-68: Lethbridge-East
-69: Lethbridge-West
-7: Calgary-Currie
-70: Little Bow
-71: Livingstone-Macleod
-72: Medicine Hat
-73: Olds-Didsbury-Three Hills
-74: Peace River
-75: Red Deer-North
-76: Red Deer-South
-77: Rimbey-Rocky Mountain House-Sundre
-78: Sherwood Park
-79: Spruce Grove-St. Albert
-8: Calgary-East
-80: St. Albert
-81: Stony Plain
-82: Strathcona-Sherwood Park
-83: Strathmore-Brooks
-84: Vermilion-Lloydminster
-85: West Yellowhead
-86: Wetaskiwin-Camrose
-87: Whitecourt-Ste. Anne
-9: Calgary-Elbow
-
-british-columbia-electoral-districts: 85
-ABM: Abbotsford-Mission
-ABS: Abbotsford South
-ABW: Abbotsford West
-APR: Alberni-Pacific Rim
-BDS: Boundary-Similkameen
-BND: Burnaby-Deer Lake
-BNE: Burnaby-Edmonds
-BNL: Burnaby-Lougheed
-BNN: Burnaby North
-CBC: Cariboo-Chilcotin
-CBN: Cariboo North
-CHC: Chilliwack
-CHH: Chilliwack-Hope
-CLR: Columbia River-Revelstoke
-CMX: Comox Valley
-CQB: Coquitlam-Burke Mountain
-CQM: Coquitlam-Maillardville
-CWV: Cowichan Valley
-DLN: Delta North
-DLS: Delta South
-ESR: Esquimalt-Royal Roads
-FLA: Fort Langley-Aldergrove
-FRN: Fraser-Nicola
-JDF: Juan de Fuca
-KAN: Kamloops-North Thompson
-KAS: Kamloops-South Thompson
-KLA: Kelowna-Lake Country
-KMI: Kelowna-Mission
-KOE: Kootenay East
-KOW: Kootenay West
-LLY: Langley
-MRM: Maple Ridge-Mission
-MRP: Maple Ridge-Pitt Meadows
-NAN: Nanaimo
-NCW: Nanaimo-North Cowichan
-NEC: Nechako Lakes
-NEL: Nelson-Creston
-NEW: New Westminster
-NOC: North Coast
-NOI: North Island
-NVL: North Vancouver-Lonsdale
-NVS: North Vancouver-Seymour
-OBG: Oak Bay-Gordon Head
-PAQ: Parksville-Qualicum
-PCN: Peace River North
-PCS: Peace River South
-PEN: Penticton
-POC: Port Coquitlam
-POM: Port Moody-Coquitlam
-POR: Powell River-Sunshine Coast
-PRM: Prince George-Mackenzie
-PRV: Prince George-Valemount
-RCC: Richmond Centre
-RCE: Richmond East
-RCS: Richmond-Steveston
-SAN: Saanich North and the Islands
-SAS: Saanich South
-SHU: Shuswap
-SKE: Skeena
-SKN: Stikine
-SRC: Surrey-Cloverdale
-SRF: Surrey-Fleetwood
-SRG: Surrey-Green Timbers
-SRN: Surrey-Newton
-SRP: Surrey-Panorama
-SRT: Surrey-Tynehead
-SWH: Surrey-Whalley
-SWR: Surrey-White Rock
-VFA: Vancouver-Fairview
-VFC: Vancouver-False Creek
-VFV: Vancouver-Fraserview
-VHA: Vancouver-Hastings
-VKE: Vancouver-Kensington
-VKI: Vancouver-Kingsway
-VLA: Vancouver-Langara
-VMP: Vancouver-Mount Pleasant
-VNP: Vancouver-Point Grey
-VNQ: Vancouver-Quilchena
-VNW: Vancouver-West End
-VRM: Vernon-Monashee
-VTB: Victoria-Beacon Hill
-VTS: Victoria-Swan Lake
-WCA: West Vancouver-Capilano
-WSS: West Vancouver-Sea to Sky
-WTK: Westside-Kelowna
-
-british-columbia-electoral-districts-2015-redistribution: 87
-ABM: Abbotsford-Mission
-ABS: Abbotsford South
-ABW: Abbotsford West
-BDS: Boundary-Similkameen
-BND: Burnaby-Deer Lake
-BNE: Burnaby-Edmonds
-BNL: Burnaby-Lougheed
-BNN: Burnaby North
-CBC: Cariboo-Chilcotin
-CBN: Cariboo North
-CHC: Chilliwack
-CHK: Chilliwack-Kent
-CLR: Columbia River-Revelstoke
-CQB: Coquitlam-Burke Mountain
-CQM: Coquitlam-Maillardville
-CRC: Courtenay-Comox
-CWV: Cowichan Valley
-DLN: Delta North
-DLS: Delta South
-ESM: Esquimalt-Metchosin
-FRN: Fraser-Nicola
-KAN: Kamloops-North Thompson
-KAS: Kamloops-South Thompson
-KLA: Kelowna-Lake Country
-KLM: Kelowna-Mission
-KLW: Kelowna West
-KOE: Kootenay East
-KOW: Kootenay West
-LJF: Langford-Juan de Fuca
-LLY: Langley
-LYE: Langley East
-MAM: Maple Ridge-Mission
-MAP: Maple Ridge-Pitt Meadows
-MPR: Mid Island-Pacific Rim
-NAN: Nanaimo
-NCW: Nanaimo-North Cowichan
-NEC: Nechako Lakes
-NEL: Nelson-Creston
-NEW: New Westminster
-NOC: North Coast
-NOI: North Island
-NVL: North Vancouver-Lonsdale
-NVS: North Vancouver-Seymour
-OBG: Oak Bay-Gordon Head
-PAQ: Parksville-Qualicum
-PCN: Peace River North
-PCS: Peace River South
-PEN: Penticton
-POC: Port Coquitlam
-POM: Port Moody-Coquitlam
-POR: Powell River-Sunshine Coast
-PRM: Prince George-Mackenzie
-PRV: Prince George-Valemount
-RNC: Richmond North Centre
-RQE: Richmond-Queensborough
-RSC: Richmond South Centre
-RST: Richmond-Steveston
-SAN: Saanich North and the Islands
-SAS: Saanich South
-SHU: Shuswap
-SKE: Skeena
-SKN: Stikine
-SRC: Surrey-Cloverdale
-SRF: Surrey-Fleetwood
-SRG: Surrey-Green Timbers
-SUG: Surrey-Guildford
-SUN: Surrey-Newton
-SUP: Surrey-Panorama
-SUS: Surrey South
-SWH: Surrey-Whalley
-SWR: Surrey-White Rock
-VFA: Vancouver-Fairview
-VFC: Vancouver-False Creek
-VFV: Vancouver-Fraserview
-VHA: Vancouver-Hastings
-VKE: Vancouver-Kensington
-VKI: Vancouver-Kingsway
-VLA: Vancouver-Langara
-VMP: Vancouver-Mount Pleasant
-VNP: Vancouver-Point Grey
-VNQ: Vancouver-Quilchena
-VNW: Vancouver-West End
-VRM: Vernon-Monashee
-VTB: Victoria-Beacon Hill
-VTS: Victoria-Swan Lake
-WVC: West Vancouver-Capilano
-WVS: West Vancouver-Sea to Sky
-
-manitoba-electoral-districts: 57
-: Agassiz
-: Arthur-Virden
-: Assiniboia
-: Brandon East
-: Brandon West
-: Burrows
-: Charleswood
-: Concordia
-: Dauphin
-: Dawson Trail
-: Elmwood
-: Emerson
-: Flin Flon
-: Fort Garry-Riverview
-: Fort Richmond
-: Fort Rouge
-: Fort Whyte
-: Gimli
-: Interlake
-: Kewatinook
-: Kildonan
-: Kirkfield Park
-: La Verendrye
-: Lac du Bonnet
-: Lakeside
-: Logan
-: Midland
-: Minto
-: Morden-Winkler
-: Morris
-: Point Douglas
-: Portage la Prairie
-: Radisson
-: Riding Mountain
-: Riel
-: River East
-: River Heights
-: Rossmere
-: Seine River
-: Selkirk
-: Southdale
-: Spruce Woods
-: St. Boniface
-: St. James
-: St. Johns
-: St. Norbert
-: St. Paul
-: St. Vital
-: Steinbach
-: Swan River
-: The Maples
-: The Pas
-: Thompson
-: Transcona
-: Tuxedo
-: Tyndall Park
-: Wolseley
+new-brunswick-electoral-districts: 49
+1: Restigouche West
+10: Miramichi
+11: Southwest Miramichi-Bay du Vin
+12: Kent North
+13: Kent South
+14: Shediac Bay-Dieppe
+15: Shediac-Beaubassin-Cap-Pelé
+16: Memramcook-Tantramar
+17: Dieppe
+18: Moncton East
+19: Moncton Centre
+2: Campbellton-Dalhousie
+20: Moncton South
+21: Moncton Northwest
+22: Moncton Southwest
+23: Riverview
+24: Albert
+25: Gagetown-Petitcodiac
+26: Sussex-Fundy-St. Martins
+27: Hampton
+28: Quispamsis
+29: Rothesay
+3: Restigouche-Chaleur
+30: Saint John East
+31: Portland-Simonds
+32: Saint John Harbour
+33: Saint John Lancaster
+34: Kings Centre
+35: Fundy-The Isles-Saint John West
+36: Charlotte-Campobello
+37: Oromocto-Lincoln
+38: Fredericton-Grand Lake
+39: New Maryland-Sunbury
+4: Bathurst West-Beresford
+40: Fredericton South
+41: Fredericton North
+42: Fredericton-York
+43: Fredericton West-Hanwell
+44: Carleton-York
+45: Carleton
+46: Carleton-Victoria
+47: Victoria-La Vallée
+48: Edmundston-Madawaska Centre
+49: Madawaska Les Lacs-Edmundston
+5: Bathurst East-Nepisiguit-Saint-Isidore
+6: Caraquet
+7: Shippagan-Lamèque-Miscou
+8: Tracadie-Sheila
+9: Miramichi Bay-Neguac
 
 new-brunswick-electoral-districts-2006: 55
 1: Campbellton-Restigouche Centre
@@ -10312,56 +8506,52 @@ new-brunswick-electoral-districts-2006: 55
 8: Centre-Péninsule-Saint-Sauveur
 9: Tracadie-Sheila
 
-new-brunswick-electoral-districts: 49
-1: Restigouche West
-10: Miramichi
-11: Southwest Miramichi-Bay du Vin
-12: Kent North
-13: Kent South
-14: Shediac Bay-Dieppe
-15: Shediac-Beaubassin-Cap-Pelé
-16: Memramcook-Tantramar
-17: Dieppe
-18: Moncton East
-19: Moncton Centre
-2: Campbellton-Dalhousie
-20: Moncton South
-21: Moncton Northwest
-22: Moncton Southwest
-23: Riverview
-24: Albert
-25: Gagetown-Petitcodiac
-26: Sussex-Fundy-St. Martins
-27: Hampton
-28: Quispamsis
-29: Rothesay
-3: Restigouche-Chaleur
-30: Saint John East
-31: Portland-Simonds
-32: Saint John Harbour
-33: Saint John Lancaster
-34: Kings Centre
-35: Fundy-The Isles-Saint John West
-36: Charlotte-Campobello
-37: Oromocto-Lincoln
-38: Fredericton-Grand Lake
-39: New Maryland-Sunbury
-4: Bathurst West-Beresford
-40: Fredericton South
-41: Fredericton North
-42: Fredericton-York
-43: Fredericton West-Hanwell
-44: Carleton-York
-45: Carleton
-46: Carleton-Victoria
-47: Victoria-La Vallée
-48: Edmundston-Madawaska Centre
-49: Madawaska Les Lacs-Edmundston
-5: Bathurst East-Nepisiguit-Saint-Isidore
-6: Caraquet
-7: Shippagan-Lamèque-Miscou
-8: Tracadie-Sheila
-9: Miramichi Bay-Neguac
+new-glasgow-wards: 3
+1: District 1
+2: District 2
+3: District 3
+
+newfoundland-and-labrador-electoral-districts: 40
+: Baie Verte—Green Bay
+: Bonavista
+: Burgeo—La Poile
+: Burin—Grand Bank
+: Cape St. Francis
+: Carbonear—Trinity—Bay de Verde
+: Cartwright—L'Anse Au Clair
+: Conception Bay East—Bell Island
+: Conception Bay South
+: Corner Brook
+: Exploits
+: Ferryland
+: Fogo Island—Cape Freels
+: Fortune Bay—Cape La Hune
+: Gander
+: Grand Falls—Windsor—Buchans
+: Harbour Grace—Port de Grave
+: Harbour Main
+: Humber—Bay of Islands
+: Humber—Gros Morne
+: Labrador West
+: Lake Melville
+: Lewisporte—Twillingate
+: Mount Pearl North
+: Mount Pearl—Southlands
+: Mount Scio
+: Placentia West—Bellevue
+: Placentia—St. Mary's
+: St. Barbe—L'anse aux Meadows
+: St. George's—Humber
+: St. John's Centre
+: St. John's East—Quidi Vidi
+: St. John's West
+: Stephenville—Port Au Port
+: Terra Nova
+: Topsail—Paradise
+: Torngat Mountains
+: Virginia Waters—Pleasantville
+: Waterford Valley
+: Windsor Lake
 
 newfoundland-and-labrador-electoral-districts-2006: 48
 : Baie Verte - Springdale
@@ -10413,47 +8603,82 @@ newfoundland-and-labrador-electoral-districts-2006: 48
 : Trinity North
 : Virginia Waters
 
-newfoundland-and-labrador-electoral-districts: 40
-: Baie Verte—Green Bay
-: Bonavista
-: Burgeo—La Poile
-: Burin—Grand Bank
-: Cape St. Francis
-: Carbonear—Trinity—Bay de Verde
-: Cartwright—L'Anse Au Clair
-: Conception Bay East—Bell Island
-: Conception Bay South
-: Corner Brook
-: Exploits
-: Ferryland
-: Fogo Island—Cape Freels
-: Fortune Bay—Cape La Hune
-: Gander
-: Grand Falls—Windsor—Buchans
-: Harbour Grace—Port de Grave
-: Harbour Main
-: Humber—Bay of Islands
-: Humber—Gros Morne
-: Labrador West
-: Lake Melville
-: Lewisporte—Twillingate
-: Mount Pearl North
-: Mount Pearl—Southlands
-: Mount Scio
-: Placentia West—Bellevue
-: Placentia—St. Mary's
-: St. Barbe—L'anse aux Meadows
-: St. George's—Humber
-: St. John's Centre
-: St. John's East—Quidi Vidi
-: St. John's West
-: Stephenville—Port Au Port
-: Terra Nova
-: Topsail—Paradise
-: Torngat Mountains
-: Virginia Waters—Pleasantville
-: Waterford Valley
-: Windsor Lake
+newmarket-wards: 7
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+
+norfolk-county-wards: 7
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+
+north-dumfries-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+northwest-territories-electoral-districts-2013: 19
+1: Nunakput
+10: Thebacha
+11: Weledeh
+12: Hay River South
+13: Hay River North
+14: Range Lake
+15: Yellowknife South
+16: Kam Lake
+17: Frame Lake
+18: Yellowknife Centre
+19: Great Slave
+2: Inuvik Boot Lake
+3: Inuvik Twin Lakes
+4: Mackenzie-Delta
+5: Sahtu
+6: Nahendeh
+7: Monfwi
+8: Tu Nedhe
+9: Deh Cho
+
+notre-dame-de-lile-perrot-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+notre-dame-des-bois-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+notre-dame-des-prairies-districts: 6
+1: Ste-Julie
+2: Riverain
+3: Bocage
+4: Vivaldi
+5: Notre-Dame
+6: Chaloupe
+
+notre-dame-du-mont-carmel-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
 
 nova-scotia-electoral-districts: 51
 1: Annapolis
@@ -10508,6 +8733,190 @@ nova-scotia-electoral-districts: 51
 8: Clare—Digby
 9: Clayton Park West
 
+oakville-wards: 6
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+
+oka-districts: 11
+1: District 1
+1: District 1
+2: District 2
+3: District 3
+3: District 3
+4: District 4
+4: District 4
+5: District 5
+5: District 5
+6: District 6
+6: District 6
+
+oromocto-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
+ottawa-wards: 23
+1: Orléans
+10: Gloucester-Southgate
+11: Beacon Hill-Cyrville
+12: Rideau-Vanier
+13: Rideau-Rockcliffe
+14: Somerset
+15: Kitchissippi
+16: River
+17: Capital
+18: Alta Vista
+19: Cumberland
+2: Innes
+20: Osgoode
+21: Rideau-Goulbourn
+22: Gloucester-South Nepean
+23: Kanata South
+3: Barrhaven
+4: Kanata North
+5: West Carleton-March
+6: Stittsville
+7: Bay
+8: College
+9: Knoxdale-Merivale
+
+otterburn-park-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+outremont-districts: 4
+9.1: Claude-Ryan
+9.2: Joseph-Beaubien
+9.3: Robert-Bourassa
+9.4: Jeanne-Sauvé
+
+paroisse-de-plessisville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+perce-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+peterborough-wards: 5
+1: Otonabee
+2: Monaghan
+3: Town
+4: Ashburnham
+5: Northcrest
+
+pictou-districts: 12
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+pierrefonds-roxboro-districts: 2
+10.1: Bois-de-Liesse
+10.2: Cap-Saint-Jacques
+
+pincourt-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+plateau-mont-royal-districts: 3
+11.1: Mile-End
+11.2: DeLorimier
+11.3: Jeanne-Mance
+
+plessisville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+pohenegamook-quartiers: 3
+1: Quartier 1
+2: Quartier 2
+3: Quartier 3
+
+pointe-calumet-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+pointe-claire-districts: 8
+1: Cedar/Le Village
+2: Lakeside
+3: Valois
+4: Cedar Park Heights
+5: Lakeside Heights
+6: Seigniory
+7: Northview
+8: Oneida
+
+pointe-lebel-districts: 6
+1: Langlois
+2: Murray
+3: Gémus
+4: Dufour
+5: Chouinard
+6: Moreau
+
+pointe-aux-outardes-districts: 6
+1: Lagacé
+2: Laflèche
+3: Les Petites Rivières
+4: Dufour
+5: Côté
+6: La Grosse Pointe
+
+pontiac-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+port-danielgascons-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
 prince-edward-island-electoral-districts: 27
 1: Souris—Elmira
 10: Charlottetown—Sherwood
@@ -10536,6 +8945,22 @@ prince-edward-island-electoral-districts: 27
 7: Morell—Mermaid
 8: Tracadie—Hillsborough Park
 9: York—Oyster Bed
+
+princeville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+prevost-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
 
 quebec-electoral-districts: 125
 103: Mégantic
@@ -10664,6 +9089,1079 @@ quebec-electoral-districts: 125
 783: Roberval
 793: Ungava
 
+queens-districts: 7
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+
+quebec-boroughs: 21
+1: La Cité-Limoilou
+1: La Cité-Limoilou
+1: La Cité-Limoilou
+1: La Cité-Limoilou
+1: La Cité-Limoilou
+2: Les Rivières
+2: Les Rivières
+2: Les Rivières
+3: Sainte-Foy—Sillery—Cap-Rouge
+3: Sainte-Foy—Sillery—Cap-Rouge
+3: Sainte-Foy—Sillery—Cap-Rouge
+3: Sainte-Foy—Sillery—Cap-Rouge
+4: Charlesbourg
+4: Charlesbourg
+4: Charlesbourg
+5: Beauport
+5: Beauport
+5: Beauport
+6: La Haute-Saint-Charles
+6: La Haute-Saint-Charles
+6: La Haute-Saint-Charles
+
+quebec-districts: 21
+1: Cap-aux-Diamants
+10: Le Plateau
+11: La Pointe-de-Sainte-Foy
+12: Cap-Rouge—Laurentien
+13: Saint-Rodrigue
+14: Louis-XIV
+15: Les Monts
+16: Sainte-Thérèse-de-Lisieux
+17: La Chute-Montmorency—Seigneurial
+18: Robert-Giffard
+19: Lac-Saint-Charles—Saint-Émile
+2: Montcalm—Saint-Sacrement
+20: Loretteville-Les Châtels
+21: Val-Bélair
+3: Saint-Roch—Saint-Sauveur
+4: Limoilou
+5: Maizerets-Lairet
+6: Vanier
+7: Neufchâtel-Lebourgneuf
+8: Duberger-Les Saules
+9: Saint-Louis—Sillery
+
+ragueneau-districts: 6
+1: de la Rivière-à-la-Truite
+2: du Ruisseau-Vert
+3: de la Rivière-aux-Vases
+4: de la Rivière-aux-Rosiers
+5: du Ruisseau-à-l'Anguille
+6: de la Rivière-Ragueneau
+
+rawdon-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+regina-wards: 10
+1: Ward 1
+10: Ward 10
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+repentigny-districts: 12
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+richelieu-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+richmond-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+richmond-ns-districts: 5
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+
+rigaud-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+rimouski-districts: 11
+1: Sacré-Coeur
+10: Sainte-Blandine et Mont-Lebel
+11: Le Bic
+2: Nazareth
+3: Saint-Germain
+4: Rimouski-Est
+5: Pointe-au-Père
+6: Sainte-Odile
+7: Saint-Robert
+8: Terrasse-Arthur-Buies
+9: Saint-Pie-X
+
+riverview-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+riviere-des-prairiespointe-aux-trembles-districts: 3
+12.1: La Pointe-aux-Prairies
+12.2: Pointe-aux-Trembles
+12.3: Rivière-des-Prairies
+
+riviere-du-loup-districts: 6
+1: de la Pointe
+2: de l'Estuaire
+3: de St-Patrice
+4: de Fraserville
+5: de la Rivière
+6: de la Plaine
+
+rock-rorestsaint-eliedeauville-districts: 4
+5.1: de Deauville
+5.2: des Châteaux-d'Eau
+5.3: de Rock Forest
+5.4: de Saint-Élie
+
+rosemontla-petite-patrie-districts: 4
+13.1: Saint-Édouard
+13.2: Étienne-Desmarteau
+13.3: Vieux-Rosemont
+13.4: Marie-Victorin
+
+rougemont-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+rouyn-noranda-districts: 12
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+roxton-pond-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saguenay-boroughs: 19
+1: Chicoutimi
+1: Chicoutimi
+1: Chicoutimi
+1: Chicoutimi
+1: Chicoutimi
+1: Chicoutimi
+1: Chicoutimi
+1: Chicoutimi
+2: Jonquière
+2: Jonquière
+2: Jonquière
+2: Jonquière
+2: Jonquière
+2: Jonquière
+2: Jonquière
+2: Jonquière
+3: La Baie
+3: La Baie
+3: La Baie
+
+saguenay-districts: 19
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+13: District 13
+14: District 14
+15: District 15
+16: District 16
+17: District 17
+18: District 18
+19: District 19
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+saint-john-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+saint-agapit-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-alphonse-rodriguez-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-ambroise-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-ambroise-de-kildare-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-andre-wards: 0
+
+saint-andre-dargenteuil-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-anicet-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-antonin-districts: 6
+1: des Mille-Âcres
+2: de l'Église
+3: du Vieux-Chemin
+4: de la Bleuetière
+5: du Chemin-Neuf
+6: du Sable-et-de-la-Forêt
+
+saint-aubert-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-augustin-de-desmaures-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-basile-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-basile-le-grand-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-bruno-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-bruno-de-guigues-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-bruno-de-montarville-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+saint-calixte-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-charles-de-bellechasse-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-christophe-darthabaska-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-chrysostome-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-claude-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-colomban-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-constant-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+saint-cyrille-de-wendover-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-cesaire-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-comeliniere-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-damase-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-damien-districts: 6
+1: Nord de la paroisse
+2: village / Lac Lachance
+3: Lac Noir / Rivière Noire
+4: Sud de la paroisse
+5: Lac Matambin
+6: Lac Corbeau
+
+saint-david-de-falardeau-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-denis-de-brompton-districts: 6
+1: Secteur du Lac-Brompton
+2: Secteur des Lacs-Desmarais et Petit-Lac-Brompton
+3: Secteur du Lac-Montjoie
+4: Secteur du Village
+5: Secteur rural 1
+6: Secteur rural 2
+
+saint-dominique-districts: 6
+1: Secteur Ouest
+2: Secteur Rang 7 et rue Boucher
+3: Secteur centre
+4: Secteur nord
+5: Secteur noyau villageois
+6: Secteur Rang 9, plage au Sable et Brûlé
+
+saint-donat-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-esprit-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-eustache-districts: 10
+1: Vieux-Saint-Eustache
+10: des Jardins
+2: du Carrefour
+3: de la Rivière-Nord
+4: des Érables
+5: du Clair-Matin
+6: de la Seigneurie
+7: des Moissons
+8: des Îles
+9: Plateau-des-Chênes
+
+saint-fabien-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-faustinlac-carre-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-ferdinand-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-ferreol-les-neiges-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-flavien-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-francois-xavier-de-brompton-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-fulgence-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-felix-de-valois-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-gabriel-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-georges-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+saint-germain-de-grantham-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-gedeon-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-henri-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-henri-de-taillon-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-honore-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-hubert-districts: 5
+11: Laflèche
+12: Vieux-Saint-Hubert-la Savane
+13: Parc-de-la-Cité
+14: Iberville
+15: Maraîchers
+
+saint-hyacinthe-districts: 11
+1: District 1
+10: District 10
+11: District 11
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+saint-ignace-de-loyola-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-isidore-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-jean-baptiste-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-jean-sur-richelieu-districts: 12
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+saint-joseph-de-beauce-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-joseph-de-sorel-quartiers: 3
+1: Quartier #1
+2: Quartier #2
+3: Quartier #3
+
+saint-joseph-du-lac-districts: 6
+1: de la Baie
+2: des Sables
+3: des Coteaux
+4: de la Vallée
+5: du Berceau
+6: du Domaine
+
+saint-jerome-districts: 12
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+saint-lambert-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+saint-laurent-districts: 2
+14.1: Côte-de-Liesse
+14.2: Norman-McLaren
+
+saint-lazare-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-linlaurentides-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-louis-de-gonzague-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-leonard-districts: 2
+15.1: Saint-Léonard-Est
+15.2: Saint-Léonard-Ouest
+
+saint-leonard-daston-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-mathieu-de-beloeil-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-maurice-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-michel-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-nazaire-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-philippe-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-pie-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-placide-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-roch-de-lachigan-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-remi-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-simeon-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-stanislas-de-kostka-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-thomas-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-tite-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-urbain-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+saint-zotique-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-adele-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-anne-de-bellevue-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-anne-de-sorel-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-anne-des-monts-districts: 6
+1: des Montagnes
+2: des Ruisseaux
+3: du Cap
+4: de la Rivière
+5: du Faubourg
+6: de l'Anse
+
+sainte-anne-des-plaines-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-brigitte-de-laval-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-catherine-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-catherine-de-hatley-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-catherine-de-la-jacques-cartier-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-claire-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-clotilde-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-foysillerycap-rouge-districts: 4
+10: Le Plateau
+11: La Pointe-de-Sainte-Foy
+12: Cap-Rouge—Laurentien
+9: Saint-Louis—Sillery
+
+sainte-genevieve-de-berthier-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-julie-districts: 8
+1: de la Belle-Rivière—Ringuet
+2: du Moulin
+3: de la Vallée
+4: du Rucher
+5: du Vieux-Village
+6: du Grand-Coteau
+7: de l'Arc-en-Ciel
+8: de la Montagne
+
+sainte-julienne-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-marthe-sur-le-lac-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-melanie-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-sophie-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sainte-therese-districts: 8
+1: De Sève
+2: Verschelden
+3: Morris
+4: Chapleau
+5: Lonergan
+6: Ducharme
+7: Blanchard
+8: Marie-Thérèse
+
+sainte-therese-de-gaspe-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+salaberry-de-valleyfield-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
 saskatchewan-electoral-districts-representation-act-2002: 58
 1: Cumberland
 10: Saskatoon Meewasin
@@ -10787,23 +10285,525 @@ saskatchewan-electoral-districts-representation-act-2012: 61
 8: Cumberland
 9: Cut Knife—Turtleford
 
-northwest-territories-electoral-districts-2013: 19
-1: Nunakput
-10: Thebacha
-11: Weledeh
-12: Hay River South
-13: Hay River North
-14: Range Lake
-15: Yellowknife South
-16: Kam Lake
-17: Frame Lake
-18: Yellowknife Centre
-19: Great Slave
-2: Inuvik Boot Lake
-3: Inuvik Twin Lakes
-4: Mackenzie-Delta
-5: Sahtu
-6: Nahendeh
-7: Monfwi
-8: Tu Nedhe
-9: Deh Cho
+saskatoon-wards: 10
+1: Ward 1
+10: Ward 10
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+senneterre-quartiers: 6
+1: Quartier 1
+2: Quartier 2
+3: Quartier 3
+4: Quartier 4
+5: Quartier 5
+6: Quartier 6
+
+senneville-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+sept-iles-districts: 12
+1: de Sainte-Marguerite
+2: de Ferland
+3: de l'Anse
+3: de l'Anse
+4: de Marie-Immaculée
+4: de Marie-Immaculée
+5: du Vieux-Quai
+6: de Mgr-Blanche
+7: de Jacques-Cartier
+8: de Sainte-Famille
+9: Moisie-Les Plages
+9: Moisie-Les Plages
+
+shawinigan-districts: 8
+1: de la Rivière
+2: des Boisés
+3: Val-Maurice
+4: Almaville
+5: de la Cité
+6: des Montagnes
+7: du Rocher
+8: des Hêtres
+
+shelburne-districts: 9
+1: District 1
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+
+sherbrooke-boroughs: 21
+1: Brompton
+1: Brompton
+2: Fleurimont
+2: Fleurimont
+2: Fleurimont
+2: Fleurimont
+2: Fleurimont
+3: Lennoxville
+3: Lennoxville
+4: Mont-Bellevue
+4: Mont-Bellevue
+4: Mont-Bellevue
+4: Mont-Bellevue
+5: Rock Rorest—Saint-Élie—Deauville
+5: Rock Rorest—Saint-Élie—Deauville
+5: Rock Rorest—Saint-Élie—Deauville
+5: Rock Rorest—Saint-Élie—Deauville
+6: Jacques-Cartier
+6: Jacques-Cartier
+6: Jacques-Cartier
+6: Jacques-Cartier
+
+sherbrooke-districts: 21
+1.1: de Beauvoir
+1.2: des Moulins
+2.1: du Pin-Solitaire
+2.2: des Quatre-Saisons
+2.3: de Desranleau
+2.4: de Lavigerie
+2.5: de Marie-Rivier
+3.1: d'Uplands
+3.2: de Fairview
+4.1: du Centre-Sud
+4.2: d'Ascot
+4.3: de la Croix-Lumineuse
+4.4: de l'Université
+5.1: de Deauville
+5.2: des Châteaux-d'Eau
+5.3: de Rock Forest
+5.4: de Saint-Élie
+6.1: de Beckett
+6.2: du Domaine-Howard
+6.3: de Montcalm
+6.4: du Carrefour
+
+sorel-tracy-districts: 8
+1: Bourgchemin
+2: Richelieu
+3: St-Laurent
+4: Vieux-Sorel
+5: Du Faubourg
+6: Des Gouverneurs
+7: Des Patriotes
+8: Pierre-De Saurel
+
+st-catharines-wards: 6
+: Grantham
+: Merritton
+: Port Dalhousie
+: St. Andrew's
+: St. George's
+: St. Patrick's
+
+st-johns-wards: 5
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+
+st-marys-districts: 7
+1: District 1
+2: District 2
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+stellarton-wards: 2
+1: District 1
+2: District 2
+
+stratford-wards: 3
+1: Kelly's Cove
+2: Stewart Cove
+3: Tea Hill
+
+strathcona-county-wards: 8
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+
+sud-ouest-districts: 2
+16.1: Saint-Henri—Petite-Bourgogne—Pointe-Saint-Charles
+16.2: Saint-Paul—Émard
+
+summerside-wards: 8
+1: St. Eleanors—Bayview
+2: St. Eleanors—Slemon Park
+3: Summerside—North
+4: Clifton—Market
+5: Hillcrest—Platte River
+6: Center East—Downtown
+7: Green Shore—Three Oaks
+8: Wilmot
+
+terrebonne-districts: 16
+1: District 1
+10: District 10
+11: District 11
+12: District 12
+13: District 13
+14: District 14
+15: District 15
+16: District 16
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+thetford-mines-districts: 10
+1: District 1
+10: District 10
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+thunder-bay-wards: 7
+1: Current River
+2: Red River
+3: McKellar
+4: McIntyre
+5: Northwood
+6: Westfort
+7: Neebing
+
+toronto-wards: 44
+1: Etobicoke North (1)
+10: York Centre (10)
+11: York South-Weston (11)
+12: York South-Weston (12)
+13: Parkdale-High Park (13)
+14: Parkdale-High Park (14)
+15: Eglinton-Lawrence (15)
+16: Eglinton-Lawrence (16)
+17: Davenport (17)
+18: Davenport (18)
+19: Trinity-Spadina (19)
+2: Etobicoke North (2)
+20: Trinity-Spadina (20)
+21: St. Paul's (21)
+22: St. Paul's (22)
+23: Willowdale (23)
+24: Willowdale (24)
+25: Don Valley West (25)
+26: Don Valley West (26)
+27: Toronto Centre-Rosedale (27)
+28: Toronto Centre-Rosedale (28)
+29: Toronto-Danforth (29)
+3: Etobicoke Centre (3)
+30: Toronto-Danforth (30)
+31: Beaches-East York (31)
+32: Beaches-East York (32)
+33: Don Valley East (33)
+34: Don Valley East (34)
+35: Scarborough Southwest (35)
+36: Scarborough Southwest (36)
+37: Scarborough Centre (37)
+38: Scarborough Centre (38)
+39: Scarborough-Agincourt (39)
+4: Etobicoke Centre (4)
+40: Scarborough-Agincourt (40)
+41: Scarborough-Rouge River (41)
+42: Scarborough-Rouge River (42)
+43: Scarborough East (43)
+44: Scarborough East (44)
+5: Etobicoke-Lakeshore (5)
+6: Etobicoke-Lakeshore (6)
+7: York West (7)
+8: York West (8)
+9: York Centre (9)
+
+tracadie-wards: 8
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+
+trois-pistoles-quartiers: 3
+1: Est
+2: Ouest
+3: Nord
+
+trois-rivieres-districts: 16
+1: Carmel
+10: Rigaud
+11: Saint-Louis-de-France
+12: Sainte-Marguerite
+13: Sainte-Marthe
+14: du Sanctuaire
+15: des Terrasses
+16: Vieilles-Forges
+2: Châteaudun
+3: Chavigny
+4: des Estacades
+5: Laviolette
+6: Madeleine
+7: Marie-de-l'Incarnation
+8: des Plateaux
+9: Pointe-du-Lac
+
+truro-wards: 3
+1: District 1
+2: District 2
+3: District 3
+
+temiscouata-sur-le-lac-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+upper-miramichi-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+val-david-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+val-dor-districts: 9
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+6: District 6
+7: District 7
+8: District 8
+
+val-des-monts-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+varennes-districts: 8
+1: La Guillaudière
+2: La Sitière
+3: Langloiserie
+4: Notre-Dame
+5: Petite-Prairie
+6: Les Seigneuries
+7: Saint-Charles
+8: De Martigny
+
+vaudreuil-dorion-districts: 8
+1: du Quinchien
+2: d'Harwood
+3: du Fief-Cavagnal
+4: de la Seigneurie
+5: des Chenaux
+6: de la Cité-des-Jeunes
+7: du Carrefour
+8: de la Baie
+
+vercheres-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+verdun-districts: 2
+17.1: Champlain—L'Île-des-Soeurs
+17.2: Desmarchais-Crawford
+
+victoria-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+victoriaville-districts: 10
+1: du Parc-de-L'Amitié
+10: d'Arthabaska-Est
+2: du Parc-de-L'Île
+3: Charles-Édouard-Mailhot
+4: de Sainte-Famille
+5: du Parc-Terre-des-Jeunes
+6: du Parc-Victoria
+7: de Sainte-Victoire
+8: d'Arthabaska-Nord
+9: d'Arthabaska-Ouest
+
+ville-marie-districts: 3
+18.1: Peter-McGill
+18.2: Saint-Jacques
+18.3: Sainte-Marie
+
+villeraysaint-michelparc-extension-districts: 4
+19.1: Saint-Michel
+19.2: François-Perrault
+19.3: Villeray
+19.4: Parc-Extension
+
+waterloo-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+waterloo-wards: 7
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+
+weedon-districts: 6
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+
+welland-wards: 6
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+
+wellesley-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+wentworth-nord-districts: 6
+1: Louisa-Farmer
+2: Rivière-Ouest-Lac-Wentworth
+3: Laurentian Acres-Les Acres
+4: Des Lacs Noirs-Hôtel-de-Ville
+5: Saint-François
+6: Notre-Dame
+
+west-hants-districts: 10
+1: District 1
+10: District 10
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+9: District 9
+
+westmount-districts: 8
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
+8: District 8
+
+wilmot-wards: 4
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+
+windsor-wards: 10
+1: Ward 1
+10: Ward 10
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+6: Ward 6
+7: Ward 7
+8: Ward 8
+9: Ward 9
+
+winnipeg-wards: 15
+1: Old Kildonan
+10: South Winnipeg—St Norbert
+11: St. Vital
+12: St. Boniface
+13: Transcona
+14: Elmwood—East Kildonan
+15: North Kildonan
+2: Mynarski
+3: Point Douglas
+4: Daniel McIntyre
+5: St. James—Brooklands—Weston
+6: St. Charles
+7: Charleswood—Tuxedo—Whyte Ridge
+8: River Heights—Fort Garry
+9: Fort Rouge—East Fort Garry
+
+woolwich-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
+yarmouth-districts: 7
+1: District 1
+2: District 2
+3: District 3
+4: District 4
+5: District 5
+6: District 6
+7: District 7
