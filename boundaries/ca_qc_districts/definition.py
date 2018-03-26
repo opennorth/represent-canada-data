@@ -389,8 +389,12 @@ def borough_namer(f):
     code = f.get('CO_MUNCP')
     name = f.get('NM_ARON')
 
+    # Sherbrooke
+    if code == 43027:
+        return 'Arrondissement %s' % int(f.get('NO_ARON'))
+
     # Montréal
-    if code == 66023:
+    elif code == 66023:
         return {
             'Le Plateau-Mont-Royal': 'Plateau-Mont-Royal',
             'Le Sud-Ouest': 'Sud-Ouest',
@@ -421,7 +425,7 @@ for geographic_code, (name, type) in sets.items():
         id_func=district_ider,
         authority='Directeur général des élections du Québec',
         licence_url='https://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
-        encoding='iso-8859-1',
+        encoding='utf-8',
         extra={'division_id': 'ocd-division/country:ca/csd:24%05d' % geographic_code},
         is_valid_func=lambda f, geographic_codes=geographic_codes: int(f.get('CO_MUNCP')) in geographic_codes,
         notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="-r --merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
@@ -434,7 +438,7 @@ boundaries.register('Paroisse de Plessisville districts',
     id_func=district_ider,
     authority='Directeur général des élections du Québec',
     licence_url='https://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
-    encoding='iso-8859-1',
+    encoding='utf-8',
     extra={'division_id': 'ocd-division/country:ca/csd:2432045'},
     is_valid_func=lambda f: int(f.get('CO_MUNCP')) == 32045,
 )
@@ -536,7 +540,7 @@ for municipality in municipalities_with_boroughs:
             id_func=district_ider,
             authority='Directeur général des élections du Québec',
             licence_url='https://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
-            encoding='iso-8859-1',
+            encoding='utf-8',
             extra={'division_id': division_id},
             is_valid_func=lambda f, geographic_code=geographic_code, subdivision_id=subdivision_id: int(f.get('CO_MUNCP')) == geographic_code and int(f.get('NO_ARON')) == subdivision_id,
             notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="-r --merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
@@ -549,7 +553,7 @@ for municipality in municipalities_with_boroughs:
         id_func=lambda f: int(f.get('NO_ARON')),
         authority='Directeur général des élections du Québec',
         licence_url='https://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
-        encoding='iso-8859-1',
+        encoding='utf-8',
         extra={'division_id': 'ocd-division/country:ca/csd:24%05d' % geographic_code},
         is_valid_func=lambda f, geographic_code=geographic_code: int(f.get('CO_MUNCP')) == geographic_code,
         notes='Load the shapefile manually:\nfab alpheus update_boundaries:args="-r --merge combine -d data/shapefiles/public/boundaries/ca_qc_districts"',
