@@ -8866,7 +8866,7 @@ ottawa-wards: 23
 23: Kanata South
 3: Barrhaven
 4: Kanata North
-5: West Carleton – March
+5: West Carleton-March
 6: Stittsville
 7: Bay
 8: College
@@ -10587,21 +10587,21 @@ shelburne-districts: 9
 7: District 7
 
 sherbrooke-boroughs: 15
-1: 
-1: 
-1: 
-1: 
-2: 
-2: 
-2: 
-2: 
-3: 
-3: 
-4: 
-4: 
-4: 
-4: 
-4: 
+1: Arrondissement 1
+1: Arrondissement 1
+1: Arrondissement 1
+1: Arrondissement 1
+2: Arrondissement 2
+2: Arrondissement 2
+2: Arrondissement 2
+2: Arrondissement 2
+3: Arrondissement 3
+3: Arrondissement 3
+4: Arrondissement 4
+4: Arrondissement 4
+4: Arrondissement 4
+4: Arrondissement 4
+4: Arrondissement 4
 
 sherbrooke-districts: 15
 1.1: Deauville
