@@ -90,8 +90,9 @@ Or, update all out-of-date shapefiles. The output may contain additional instruc
 
     invoke shapefiles
 
-Some shapefiles are online but require exceptional processing. Remember to update `last_updated` in `definition.py`:
+Some shapefiles are online but require exceptional processing (`invoke shapefiles` will report `Unrecognized extension`). Remember to update `last_updated` in `definition.py`:
 
+    rm -f boundaries/ca_nb_wards/OGRGeoJSON.*
     esri-dump http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0 > boundaries/ca_nb_wards/wards.geojson
     ogr2ogr -f "ESRI Shapefile" boundaries/ca_nb_wards boundaries/ca_nb_wards/wards.geojson
 
@@ -103,12 +104,13 @@ After running these commands, you may have only modified the `definition.py` fil
 
 After receiving a new boundary file for all municipalities in Quebec, you need to update the `definition.py` file in `ca_qc_districts`.
 
+1. Update the filename in `ruby boundaries/ca_qc_districts/sets.rb`
 1. Run `ruby boundaries/ca_qc_districts/sets.rb`
 1. Copy the output into the appropriate section of `qc/districts/definition.py`
-1. Comment out jurisdictions for which other sources have more complete data (Dorval, Kirkland)
 1. Separately define the boundaries of jurisdictions whose names duplicate others' (Plessisville (32045))
+1. Perform the other checks in the comments of the file
 
-After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular.
+After loading the boundaries into Represent, check La Tuque and Sept-Îles in particular. Delete any boundary sets from Represent that are not current.
 
 #### Process shapefiles
 
@@ -146,7 +148,7 @@ Or less verbose:
 
 Each data directory under [concordances/](concordances/) has a README explaining how to source and update its concordances. If the concordances are more than a year old and can't be sourced, they should be removed. To do so, substitute the corresponding values in the above READMEs for `<slug>` and `<source>`:
 
-    fab ohoh update_concordances:args="<slug> <source> data/shapefiles/public/concordances/empty.csv"
+    fab alpheus update_concordances:args="<slug> <source> data/shapefiles/public/concordances/empty.csv"
 
 #### Postcodes
 
