@@ -8911,6 +8911,11 @@ peterborough-wards: 5
 4: Ashburnham
 5: Northcrest
 
+pickering-wards: 3
+1: Ward 1
+2: Ward 2
+3: Ward 3
+
 pictou-districts: 12
 1: District 1
 10: District 10
