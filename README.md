@@ -70,7 +70,7 @@ Check that the source, data and license URLs work:
 
     invoke urls
 
-Find and correct the URLs in `definition.py` files. If you update a `licence_url`, you may need to update other occurrences in `LICENSE.txt`, `constants.py`, `tasks.py` and [this master spreadsheet](https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/edit#gid=0). Once all corrections are made, re-run `definitions` and `urls`.
+Find and correct the URLs in `definition.py` files. If you update a `licence_url`, you may need to update other occurrences in `LICENSE.txt`, `constants.py` and [this master spreadsheet](https://docs.google.com/spreadsheets/d/1AmLQD2KwSpz3B4eStLUPmUQJmOOjRLI3ZUZSD5xUTWM/edit#gid=0). Once all corrections are made, re-run `definitions` and `urls`.
 
 If you update a `data_url`, update its shapefile, `name_func` and `id_func` following the instructions below.
 
@@ -114,7 +114,7 @@ After loading the boundaries into Represent, check La Tuque and Sept-Îles in pa
 
 #### Process shapefiles
 
-Get information about the shapefile:
+Get information about the shapefile, for example:
 
     ogrinfo -al -geom=NO boundaries/ocd-division/country:ca/province:qc/2011
 
@@ -126,7 +126,10 @@ For features that aren't numbered like "Ward 1", determining the public identifi
 
 Read [this section](https://github.com/opennorth/represent-boundaries/blob/master/definition.example.py#L51-L76) of the example `definition.py` file for help writing a `name_func` and `id_func`.
 
-If you're updating many shapefiles, it may be long to run `ogrinfo` on each. Instead, run `../represent-canada/manage.py analyzeshapefiles -d . > manifest` and `git diff manifest` instead.
+If you're updating many shapefiles, it may be long to run `ogrinfo` on each. Run:
+
+    ../represent-canada/manage.py analyzeshapefiles -d . > manifest
+    git diff manifest
 
 Once you've updated the `definition.py` files to correctly extract the feature's name and public identifier, you can commit the `definition.py` files and data files.
 
