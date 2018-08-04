@@ -8,7 +8,7 @@ task performs the correct test for the license.
 more_licenses_with_templates = [
     # Open data licenses.
     'http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
-    'http://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf',
+    'https://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf',
     'http://www.electionspei.ca/apilicense',
     # Some rights reserved.
     'http://mli2.gov.mb.ca/app/register/app/index.php',  # no commercial redistribution
@@ -33,8 +33,9 @@ all_rights_reserved_terms_re = re.compile('\ADistributed with permission from .+
 The exact templates for other licenses.
 """
 terms = {
-    # Text provided by license (Open Government Licence with jurisdiction name).
+    # Text provided by license ("Open Government Licence" with jurisdiction name).
     'https://open.alberta.ca/licence':                                                                                   'I. Terms of Use. Contains information licensed under the Open Government Licence – Alberta (%s).',
+    'https://www.barrie.ca/Online%20Services/PublishingImages/OpenData_Images/COB_DataLicense.pdf':                      'I. Terms of Use. Contains information licensed under the Open Government Licence – Barrie (%s).',
     'http://data-brantford.opendata.arcgis.com/pages/licence':                                                           'I. Terms of Use. Contains information licensed under the Open Government Licence – Brantford (%s).',
     'https://open.canada.ca/en/open-government-licence-canada':                                                          'I. Terms of Use. Contains information licensed under the Open Government Licence – Canada (%s).',
     'http://opendata.haldimandcounty.on.ca/':                                                                            'I. Terms of Use. Contains information licensed under the Open Government Licence – Haldimand County (%s).',
@@ -43,7 +44,7 @@ terms = {
     'https://data.strathcona.ca/licence':                                                                                'I. Terms of Use. Contains information licensed under the Open Government Licence – Strathcona County (%s).',
     'https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-licence/':                            'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (%s).',
     'https://data.winnipeg.ca/open-data-licence':                                                                        'I. Terms of Use. Contains information licensed under the Open Government Licence – Winnipeg (%s).',
-    # Text provided by license (Open Government Licence with corporation name).
+    # Text provided by license ("Open Government Licence" with corporation name).
     'https://data.calgary.ca/stories/s/u45n-7awa':                                                                       'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Calgary (%s).',
     'https://ottawa.ca/en/city-hall/get-know-your-city/open-data#open-data-licence-version-2-0':                         'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Ottawa (%s).',
     'https://www.regina.ca/residents/open-government/open-government-licence/':                                          'I. Terms of Use. Contains information licensed under the Open Government Licence – City of Regina (%s).',
@@ -54,22 +55,24 @@ terms = {
     'https://www.arcgis.com/sharing/rest/content/items/2ffb1ce148804fe4ade2414e6ef10d21/data':                           'I. Terms of Use. Contains information licensed under the Open Government Licence – The Corporation of the Municipality of Chatham-Kent (%s).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-grimsby':                                              'I. Terms of Use. Contains information licensed under the Open Government Licence — Town of Grimsby (%s).',
     'https://www.oakville.ca/data/open_data_licence.html':                                                               'I. Terms of Use. Contains information licensed under the Open Government Licence — Town of Oakville (%s).',
-    # Text provided by license (Open Government Licence with spelling variations).
+    # Text provided by license ("Open Government Licence" with spelling variations).
     'https://www.halifax.ca/home/open-data/open-data-license':                                                           'I. Terms of Use. Contains information licenced under the Open Government Licence - Halifax (%s).',
     'https://www.nanaimo.ca/your-government/maps-data/open-data-catalogue/open-data-catalogue-licence':                  'I. Terms of Use. Contains information licenced under the Open Government Licence - Nanaimo (%s).',
     'https://niagaraopendata.ca/pages/open-government-license-2-0-town-of-lincoln':                                      'I. Terms of Use. Contains information licensed under the Open Government License — The Corporation of the Town of Lincoln (%s).',
-    # Text provided by license (Open Data Licence).
+    # Text provided by license ("Open Data Licence").
     'https://www.greatersudbury.ca/city-hall/open-government/open-data/licence/':                                        'I. Terms of Use. Contains information licensed under the Open Data Licence – City of Greater Sudbury (%s).',
-    'https://www.cityofkingston.ca/documents/10180/144997/GIS_OpenDataLicense.pdf/72f5a9ac-afbc-4fe3-959d-9111c9393bfa': 'I. Terms of Use. Contains information licensed under the Open Data Licence – City of Kingston (%s).',
+    'https://www.cityofkingston.ca/documents/10180/144997/CityofKingston_OpenDataLicense.pdf':                           'I. Terms of Use. Contains information licensed under the Open Data Licence – City of Kingston (%s).',
     'http://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf':                                   'I. Terms of Use. Contains information licensed under the Open Data Licence - Town of Newmarket (%s).',
+    # Text provided by license ("public sector information").
+    'http://townofajax.maps.arcgis.com/sharing/rest/content/items/22e2d8e248724d7cb0310dc2db675abd/data':                "I. Terms of Use. Contains public sector Information made available under The Corporation of the Town of Ajax's Open Data Licence (%s).",
+    'http://opendata.peelregion.ca/terms-of-use.aspx':                                                                   "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Peel's Open Data Licence - Version 1.0 (%s).",
+    'https://www.pickering.ca/en/city-hall/resources/OpenDataLicencePickeringV1.pdf':                                    "I. Terms of Use. Contains public sector Information made available under The City of Pickering's Open Data Licence (%s).",
     # Text provided by license.
     'http://geonb.snb.ca/documents/license/geonb-odl_en.pdf':                                                            'I. Terms of Use. Contains information licenced under the GeoNB Open Data Licence (%s).',
-    'http://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf':                                                         'I. Terms of Use. Contains information licenced under the Elections BC Open Data Licence (%s).',
+    'https://www.elections.bc.ca/docs/EBC-Open-Data-Licence.pdf':                                                        'I. Terms of Use. Contains information licenced under the Elections BC Open Data Licence (%s).',
     'http://data.open.guelph.ca/pages/open-government-licence':                                                          'I. Terms of Use. Contains information provided by the City of Guelph under an open government license (%s).',
-    'http://opendata.peelregion.ca/terms-of-use.aspx':                                                                   "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Peel's Open Data Licence - Version 1.0 (%s).",
-    'http://townofajax.maps.arcgis.com/sharing/rest/content/items/22e2d8e248724d7cb0310dc2db675abd/data':                "I. Terms of Use. Contains public sector Information made available under The Corporation of the Town of Ajax's Open Data Licence (%s).",
     'https://www.hamilton.ca/city-initiatives/strategies-actions/open-data-licence-terms-and-conditions':                "I. Terms of Use. Contains public sector Data made available under the City of Hamilton’s Open Data Licence (%s).",
-    'http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf':                                  "I. Terms of Use. Contains public sector Datasets made available under the Town of Milton's Open Data License v.1 (%s).",
+    'https://www.milton.ca/en/townhall/resources/OpenDataAgreement.pdf':                                                 "I. Terms of Use. Contains public sector Datasets made available under the Town of Milton's Open Data License v.1 (%s).",
     'https://www.regionofwaterloo.ca/en/regional-government/open-data.aspx':                                             'I. Terms of Use. Contains information provided by the Regional Municipality of Waterloo under licence (%s).',
     # Text previously provided by license.
     'http://donnees.ville.montreal.qc.ca/portail/licence/':                                                              "I. Termes d'utilisation. Contient des données reproduites, modifiées, traduites ou distribuées « telles quelles » avec la permission de la Ville de Montréal (%s).",
@@ -138,7 +141,6 @@ Divisions with 'quartiers' instead of 'districts'.
 """
 # @see `has_children` in `ca_municipal_subdivisions.rb` in `ocd-division-ids`
 quartiers = [
-    'ocd-division/country:ca/csd:2402015',  # Grande-Rivière
     'ocd-division/country:ca/csd:2403005',  # Gaspé
     'ocd-division/country:ca/csd:2411040',  # Trois-Pistoles
     'ocd-division/country:ca/csd:2413095',  # Pohngamook
@@ -151,6 +153,7 @@ quartiers = [
     'ocd-division/country:ca/csd:2487090',  # La Sarre
     'ocd-division/country:ca/csd:2489040',  # Senne-Terre
     'ocd-division/country:ca/csd:2493005',  # Desbiens
+    'ocd-division/country:ca/csd:2499060',  # Eeyou Istchee Baie-James
 ]
 
 """
