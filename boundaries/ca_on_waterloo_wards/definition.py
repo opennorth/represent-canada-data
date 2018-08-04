@@ -19,7 +19,7 @@ for geographic_code, name in sets.items():
         name_func=lambda f: 'Ward %s' % f.get('WardNumber'),
         id_func=boundaries.attr('WardNumber'),
         authority='Regional Municipality of Waterloo',
-        source_url='http://rowopendata-rmw.opendata.arcgis.com/datasets/8556e15d83d649e69f5806054c83ad8e_15',
+        source_url='https://rowopendata-rmw.opendata.arcgis.com/datasets/8556e15d83d649e69f5806054c83ad8e_15',
         licence_url='https://www.regionofwaterloo.ca/en/regional-government/open-data.aspx',
         data_url='https://opendata.arcgis.com/datasets/8556e15d83d649e69f5806054c83ad8e_15.zip',
         encoding='iso-8859-1',

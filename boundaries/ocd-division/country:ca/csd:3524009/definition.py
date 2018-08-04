@@ -9,9 +9,10 @@ boundaries.register('Milton wards',
     name_func=lambda f: 'Ward %s' % re.search('WARD (\d+)', f.get('Descriptio')).group(1),
     id_func=lambda f: re.search('WARD (\d+)', f.get('Descriptio')).group(1),
     authority='Town of Milton',
-    source_url='http://icreateopendata.public.esolutionsgroup.ca/home/details/1a3d6722-a3a9-4591-abc8-ac55c060a65a',
-    licence_url='http://www.milton.ca/en/resourcesGeneral/Open_Data/Milton_Open_Data_Terms_V1.pdf',
-    data_url='http://icreateopendata.public.esolutionsgroup.ca/home/ServeFile/1a3d6722-a3a9-4591-abc8-ac55c060a65a?FileType=6',
+    source_url='https://www.milton.ca/en/townhall/opendata.asp',
+    licence_url='https://www.milton.ca/en/townhall/resources/OpenDataAgreement.pdf',
+    # 2018-10-22: https://www.milton.ca/en/resources/FutureWardBoundaries_180620128.zip
+    data_url='https://www.milton.ca/en/resources/WardBoundaries_18062018.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/csd:3524009'},
 )

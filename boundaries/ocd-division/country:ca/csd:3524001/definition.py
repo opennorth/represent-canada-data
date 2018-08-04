@@ -8,9 +8,10 @@ boundaries.register('Oakville wards',
     name_func=boundaries.attr('FULL_NAME'),
     id_func=boundaries.attr('WARD'),
     authority='Town of Oakville',
-    source_url='https://www.oakville.ca/data/ward-boundaries.html',
+    # 2018-10-22: https://portal-exploreoakville.opendata.arcgis.com/datasets/toak::2018-ward-boundaries
+    source_url='https://portal-exploreoakville.opendata.arcgis.com/datasets/toak::ward-boundaries',
     licence_url='https://www.oakville.ca/data/open_data_licence.html',
-    data_url='http://opendata.oakville.ca/Ward_Boundaries/Ward_Boundaries.shp.zip',
+    data_url='https://opendata.arcgis.com/datasets/06e1062918f043258ebcada195527120_0.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/csd:3524001'},
 )

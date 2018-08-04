@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<title>Pickering Ward Boundaries</title>
+<onlink>https://maps.pickering.ca/arcgisinter/rest/services/public/OpenData/MapServer/5</onlink>
+</citeinfo>
+</citation>
+<descript>
+<abstract>This
+polygon feature class contains The City of Pickering ward boundaries.
+
+Maintenance
+and Update Frequency: As Needed
+
+Department:
+City DevelopmentThe City of Pickering does not make any representations concerning the accuracy, likely results or reliability of the use of the materials. The City hereby disclaims all representations and warranties. While great care will be taken to keep this information as up to date as possible we cannot guarantee complete accuracy. For additional details please refer to the most up to date version of The City of Pickering's Licence Agreement. </abstract>
+<purpose>These are Pickering's ward boundaries.</purpose>
+</descript>
+<status>
+<update>As needed</update>
+</status>
+<keywords>
+<theme>
+<themekt>ISO 19115 Topic Categories</themekt>
+<themekey>boundaries</themekey>
+</theme>
+<theme>
+<themekt>None</themekt>
+<themekey>City of Pickering</themekey>
+<themekey>Ward Boundaries</themekey>
+<themekey>Boundaries</themekey>
+<themekey>Durham Boundaries</themekey>
+</theme>
+</keywords>
+<accconst>None</accconst>
+<useconst>Licence Agreement</useconst>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>City of Pickering</cntorg>
+</cntorgp>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>One The Esplanade</address>
+<city>Pickering</city>
+<postal>L1V 6K7</postal>
+<country>CA</country>
+</cntaddr>
+<cntvoice>(905) 420-4660</cntvoice>
+<cntemail>opendata@pickering.ca</cntemail>
+</cntinfo>
+</ptcontac>
+<datacred>City of Pickering</datacred>
+</idinfo>
+<metainfo>
+<metd>20180326</metd>
+<metc>
+<cntinfo>
+<!--no contact person or organization name available-->
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+</metainfo>
+</metadata>

@@ -14,9 +14,9 @@ boundaries.register('Newfoundland and Labrador electoral districts',  # (2015)
     last_updated=date(2015, 9, 21),
     name_func=namer,
     authority='Her Majesty the Queen in Right of Newfoundland and Labrador',
-    source_url='http://www.elections.gov.nl.ca/elections/ElectoralBoundaries/index.html',
-    data_url='http://www.elections.gov.nl.ca/elections/ElectoralBoundaries/Island_2015.zip',
+    source_url='https://www.elections.gov.nl.ca/elections/ElectoralBoundaries/index.html',
+    data_url='https://www.elections.gov.nl.ca/elections/ElectoralBoundaries/Island_2015.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/province:nl'},
-    notes='Download http://www.elections.gov.nl.ca/elections/ElectoralBoundaries/Labrador_2015.zip. Save Island_2015_EB_Poly_50k.shp as EPSG:2962. Merge the two *_2015_EB_Poly_50k.shp shapefiles.',
+    notes='Download https://www.elections.gov.nl.ca/elections/ElectoralBoundaries/Labrador_2015.zip. Save Island_2015_EB_Poly_50k.shp as EPSG:2962. Merge the two *_2015_EB_Poly_50k.shp shapefiles.',
 )
