@@ -273,10 +273,8 @@ def definitions(base='.'):
 
         if config.get('extra'):
             division_id = config['extra']['division_id']
-            ocd_type = division_id.rsplit('/', 1)[1].split(':')[0]
         else:
             division_id = None
-            ocd_type = None
 
         # Validate LICENSE.txt.
         license_path = os.path.join(directory, 'LICENSE.txt')
@@ -411,7 +409,7 @@ def manual(base='.'):
         if 'data_url' not in config and not re.search(r'/\d{4}/\Z', directory) and last_updated < date.today() - timedelta(days=365):
             if directory not in seen:
                 domain = '' if directory == 'boundaries/ca_qc_districts/' else config['domain']
-                message = '%s %-55s %-25s %s' % (last_updated, directory, domain, config.get('source_url', ''))
+                message = '%s %-55s %-25s %s' % (last_updated, directory, domain, config.get('source_url', '(no source)'))
                 notes = config.get('notes')
                 if notes:
                     message += '\n%s\n' % notes
