@@ -9183,15 +9183,15 @@ quebec-electoral-districts: 125
 793: Ungava
 
 quebec-electoral-districts-2017: 125
-104: MÃ©gantic
-110: Saint-FranÃ§ois
+104: Mégantic
+110: Saint-François
 116: Sherbrooke
 120: Orford
 126: Johnson
 132: Richmond
 138: Drummond-Bois-Francs
 144: Arthabaska
-150: Nicolet-BÃ©cancour
+150: Nicolet-Bécancour
 204: Brome-Missisquoi
 206: Granby
 210: Iberville
@@ -9200,17 +9200,17 @@ quebec-electoral-districts-2017: 125
 218: Beauharnois
 220: Soulanges
 224: Vaudreuil
-226: ChÃ¢teauguay
+226: Châteauguay
 230: Sanguinet
 232: La Prairie
-236: La PiniÃ¨re
+236: La Pinière
 238: Chambly
 240: Vachon
 244: Laporte
 246: Marie-Victorin
 250: Taillon
 252: Montarville
-256: VerchÃ¨res
+256: Verchères
 258: Borduas
 260: Saint-Hyacinthe
 264: Richelieu
@@ -9222,7 +9222,7 @@ quebec-electoral-districts-2017: 125
 316: Robert-Baldwin
 318: Saint-Laurent
 320: D'Arcy-McGee
-324: Notre-Dame-de-GrÃ¢ce
+324: Notre-Dame-de-Grâce
 326: Saint-Henri-Sainte-Anne
 330: Sainte-Marie-Saint-Jacques
 332: Westmount-Saint-Louis
@@ -9235,7 +9235,7 @@ quebec-electoral-districts-2017: 125
 352: Hochelaga-Maisonneuve
 356: Rosemont
 358: Viau
-360: Bourassa-SauvÃ©
+360: Bourassa-Sauvé
 364: Jeanne-Mance-Viger
 366: Anjou-Louis-Riel
 370: Bourget
@@ -9246,12 +9246,12 @@ quebec-electoral-districts-2017: 125
 466: Fabre
 470: Sainte-Rose
 476: Vimont
-482: Mille-ÃŽles
+482: Mille-Îles
 502: Groulx
 508: Deux-Montagnes
 514: Mirabel
 520: Argenteuil
-526: Saint-JÃ©rÃ´me
+526: Saint-Jérôme
 530: Les Plaines
 536: Blainville
 542: Terrebonne
@@ -9261,7 +9261,7 @@ quebec-electoral-districts-2017: 125
 566: Berthier
 570: Joliette
 576: Rousseau
-582: PrÃ©vost
+582: Prévost
 588: Bertrand
 594: Labelle
 602: Hull
@@ -9269,42 +9269,42 @@ quebec-electoral-districts-2017: 125
 614: Gatineau
 620: Chapleau
 626: Papineau
-636: Rouyn-Noranda-TÃ©miscamingue
+636: Rouyn-Noranda-Témiscamingue
 642: Abitibi-Ouest
 648: Abitibi-Est
-660: Trois-RiviÃ¨res
-666: MaskinongÃ©
+660: Trois-Rivières
+666: Maskinongé
 670: Laviolette-Saint-Maurice
 676: Champlain
 702: Jean-Talon
-708: Louis-HÃ©bert
+708: Louis-Hébert
 714: Portneuf
 720: La Peltrie
-726: Vanier-Les RiviÃ¨res
+726: Vanier-Les Rivières
 730: Taschereau
 736: Jean-Lesage
 742: Montmorency
 748: Charlesbourg
 754: Chauveau
-760: Charlevoix-CÃ´te-de-BeauprÃ©
+760: Charlevoix-Côte-de-Beaupré
 802: Beauce-Sud
 806: Beauce-Nord
-810: LotbiniÃ¨re-Frontenac
-814: Chutes-de-la-ChaudiÃ¨re
-818: LÃ©vis
+810: Lotbinière-Frontenac
+814: Chutes-de-la-Chaudière
+818: Lévis
 822: Bellechasse
-826: CÃ´te-du-Sud
-834: RiviÃ¨re-du-Loup-TÃ©miscouata
+826: Côte-du-Sud
+834: Rivière-du-Loup-Témiscouata
 838: Rimouski
-842: Matane-MatapÃ©dia
+842: Matane-Matapédia
 850: Bonaventure
-854: GaspÃ©
-858: ÃŽles-de-la-Madeleine
+854: Gaspé
+858: Îles-de-la-Madeleine
 902: Duplessis
-906: RenÃ©-LÃ©vesque
+906: René-Lévesque
 914: Dubuc
 918: Chicoutimi
-922: JonquiÃ¨re
+922: Jonquière
 926: Lac-Saint-Jean
 930: Roberval
 938: Ungava

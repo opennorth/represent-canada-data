@@ -13,6 +13,6 @@ boundaries.register('Quebec electoral districts (2017)',
     source_url='https://www.electionsquebec.qc.ca/francais/provincial/carte-electorale/geometrie-des-circonscriptions-provinciales-du-quebec.php',
     licence_url='https://www.electionsquebec.qc.ca/francais/conditions-d-utilisation-de-notre-site-web.php',
     data_url='https://www.electionsquebec.qc.ca/documents/zip/circonscriptions_electorales_2017_shapefile.zip',
-    encoding='windows-1252',
+    encoding='utf-8',
     extra={'division_id': 'ocd-division/country:ca/province:qc'},
 )
