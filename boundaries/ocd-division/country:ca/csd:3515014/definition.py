@@ -6,7 +6,7 @@ import boundaries
 
 def namer(f):
     import boundaries
-    return re.sub(' Ward \d+\Z', '', boundaries.clean_attr('NAME')(f))
+    return re.sub(r' Ward \d+\Z', '', boundaries.clean_attr('NAME')(f))
 
 
 boundaries.register('Peterborough wards',

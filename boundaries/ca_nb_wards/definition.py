@@ -13,7 +13,7 @@ boundaries.register('Grand Falls wards',
     data_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/csd:1312019'},
-    is_valid_func=lambda f: f.get('MUN_NAME') == 'Grand Falls\Grand-Sault',
+    is_valid_func=lambda f: f.get('MUN_NAME') == 'Grand Falls\\Grand-Sault',
 )
 
 # Beresford was present in 2014-03-24, not in 2017-02-06.
@@ -34,7 +34,7 @@ boundaries.register('Grand Falls wards',
 sets = {
     1314013: ['Atholville', 'Atholville'],
     1315027: ['Bas-Caraquet', 'Bas-Caraquet'],
-    1307005: ['Beaubassin East', 'Beaubassin East\Beaubassin-Est'],
+    1307005: ['Beaubassin East', 'Beaubassin East\\Beaubassin-Est'],
     1314025: ['Belledune', 'Belledune'],
     1302004: ['Campobello Island', 'Campobello'],
     1315028: ['Caraquet', 'Caraquet'],

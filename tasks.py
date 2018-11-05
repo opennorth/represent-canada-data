@@ -124,7 +124,7 @@ def get_definition(division_id, path=None):
         province_or_territory_sgc_code = type_id(division.id)[:2]
 
         if province_or_territory_sgc_code == '24' and division.id in divisions_with_boroughs():
-            slug = re.compile('\A%s (boroughs|districts)\Z' % name)
+            slug = re.compile(r'\A%s (boroughs|districts)\Z' % name)
         elif province_or_territory_sgc_code == '12' and division.attrs['classification'] != 'T':
             slug = '%s districts' % name
         elif province_or_territory_sgc_code == '47' and division.attrs['classification'] != 'CY':
@@ -182,7 +182,7 @@ def define(division_id):
     """
     slug, config = get_definition(division_id)
     if isinstance(slug, re._pattern_type):
-        slug = re.sub('\\\[AZ]', '', slug.pattern)
+        slug = re.sub(r'\\[AZ]', '', slug.pattern)
 
     config['slug'] = slug
     config['last_updated'] = datetime.now().strftime('%Y, %-m, %-d')
@@ -498,7 +498,7 @@ def shapefiles(base='.'):
                         if result.count('\n') > 1:
                             print('Too many layers %s' % url)
                         else:
-                            layer = re.search('\A\d+: (.+?) \(', result).group(1)
+                            layer = re.search(r'\A\d+: (.+?) \(', result).group(1)
                             run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON "%s"' % (directory, kml_file_path, layer), echo=True)
                             for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
                                 files_to_add.append(name)
@@ -547,7 +547,7 @@ def shapefiles(base='.'):
                 with open(definition_path) as f:
                     definition = f.read()
                 with open(definition_path, 'w') as f:
-                    f.write(re.sub('(?<=last_updated=date\()[\d, ]+', last_updated.strftime('%Y, %-m, %-d'), definition))
+                    f.write(re.sub(r'(?<=last_updated=date\()[\d, ]+', last_updated.strftime('%Y, %-m, %-d'), definition))
 
                 # Print notes.
                 if 'notes' in config:
