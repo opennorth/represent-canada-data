@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20180807</CreaDate><CreaTime>14383300</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.3\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20180807" Time="143833">CalculateField WARD_WGS84 AREA_TYPE "WD18" PYTHON_9.3 #</Process></lineage></DataProperties></Esri></metadata>
