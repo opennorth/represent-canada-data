@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><MD_Metadata xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xalan="http://xml.apache.org/xalan" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.isotc211.org/2005/gmd">
+<fileIdentifier>
+<gco:CharacterString>8b0b1f2bf8bb4e1da3a1bf567b17b77f</gco:CharacterString>
+</fileIdentifier>
+<language gco:nilReason="missing"/>
+<characterSet>
+<MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</MD_CharacterSetCode>
+</characterSet>
+<hierarchyLevel>
+<MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="ISOTC211/19115">dataset</MD_ScopeCode>
+</hierarchyLevel>
+<contact>
+<CI_ResponsibleParty>
+<contactInfo gco:nilReason="missing"/>
+<role>
+<CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="ISOTC211/19115">pointOfContact</CI_RoleCode>
+</role>
+</CI_ResponsibleParty>
+</contact>
+<dateStamp>
+<gco:Date>2018-10-17</gco:Date>
+</dateStamp>
+<metadataStandardName>
+<gco:CharacterString>NAP - Metadata</gco:CharacterString>
+</metadataStandardName>
+<metadataStandardVersion>
+<gco:CharacterString>1.2</gco:CharacterString>
+</metadataStandardVersion>
+<identificationInfo>
+<MD_DataIdentification>
+<citation>
+<CI_Citation>
+<title>
+<gco:CharacterString>Ward Boundaries</gco:CharacterString>
+</title>
+<date gco:nilReason="missing"/>
+<citedResponsibleParty gco:nilReason="missing"/>
+</CI_Citation>
+</citation>
+<abstract>
+<gco:CharacterString>Location of the current ward boundaries in Hamilton. Wards are divided electoral boundaries and are each assigned a voted-in city councillor. There are currently 15 wards.</gco:CharacterString>
+</abstract>
+<credit>
+<gco:CharacterString>City of Hamilton</gco:CharacterString>
+</credit>
+<status gco:nilReason="missing"/>
+<descriptiveKeywords>
+<MD_Keywords>
+<keyword>
+<gco:CharacterString>Ward</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>City Services</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Election Boundaries</gco:CharacterString>
+</keyword>
+</MD_Keywords>
+</descriptiveKeywords>
+<descriptiveKeywords>
+<MD_Keywords>
+<keyword>
+<gco:CharacterString>Ward</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>City Services</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Election Boundaries</gco:CharacterString>
+</keyword>
+</MD_Keywords>
+</descriptiveKeywords>
+<descriptiveKeywords>
+<MD_Keywords>
+<keyword>
+<gco:CharacterString>Ward</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>City Services</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Election Boundaries</gco:CharacterString>
+</keyword>
+</MD_Keywords>
+</descriptiveKeywords>
+<resourceConstraints>
+<MD_Constraints>
+<useLimitation>
+<gco:CharacterString>Open Data Licence Terms and Conditions</gco:CharacterString>
+</useLimitation>
+</MD_Constraints>
+</resourceConstraints>
+<language gco:nilReason="missing"/>
+<characterSet>
+<MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</MD_CharacterSetCode>
+</characterSet>
+</MD_DataIdentification>
+</identificationInfo>
+<distributionInfo>
+<MD_Distribution>
+<distributionFormat gco:nilReason="missing"/>
+<transferOptions>
+<MD_DigitalTransferOptions>
+<onLine>
+<CI_OnlineResource>
+<linkage>
+<URL>http://map.hamilton.ca/Static/PDFs/WardMaps/New%20City%20of%20Hamilton%20Wards%20With%20Old%20Boundaries.pdf</URL>
+</linkage>
+<protocol gco:nilReason="missing"/>
+<name>
+<gco:CharacterString>PDF - City of Hamilton Wards with Old Boundaries</gco:CharacterString>
+</name>
+<function>
+<CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download" codeSpace="ISOTC211/19115">download</CI_OnLineFunctionCode>
+</function>
+</CI_OnlineResource>
+</onLine>
+</MD_DigitalTransferOptions>
+</transferOptions>
+</MD_Distribution>
+</distributionInfo>
+</MD_Metadata>
