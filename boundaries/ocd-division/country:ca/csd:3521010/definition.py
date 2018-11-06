@@ -4,14 +4,14 @@ import boundaries
 
 boundaries.register('Brampton wards',
     domain='Brampton, ON',
-    last_updated=date(2013, 1, 4),
+    last_updated=date(2018, 5, 31),
     name_func=lambda f: 'Ward %s' % f.get('WARDNUM'),
     id_func=boundaries.attr('WARDNUM'),
     authority='Regional Municipality of Peel',
-    source_url='http://opendata.peelregion.ca/data-categories/regional-geography/ward-boundaries-(2010-2014).aspx',
+    source_url='http://opendata.peelregion.ca/data-categories/regional-geography/ward-boundaries-(2014-2018).aspx',
     licence_url='http://opendata.peelregion.ca/terms-of-use.aspx',
-    data_url='http://opendata.peelregion.ca/media/2549/wardboundary20102014_shp_04.2012.zip',
+    data_url='http://opendata.peelregion.ca/media/27287/wardbnd1418_shp.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/csd:3521010'},
-    is_valid_func=lambda f: int(f.get('MUNIC')) == 10,
+    is_valid_func=lambda f: f.get('MUNIC') == 'Brampton',
 )
