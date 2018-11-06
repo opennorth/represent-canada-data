@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin/>
+<pubdate>unknown</pubdate>
+<title>2018 Ward Boundaries</title>
+<geoform>vector digital data</geoform>
+<onlink>https://map.oshawa.ca/arcgis/rest/services/Operational/OpenData/MapServer/11</onlink>
+</citeinfo>
+</citation>
+<descript>
+<abstract>This dataset contains the Electoral Ward Boundaries which
+represent the divisions or districts used primarily for the election of
+representatives.  These boundaries represent an attempt to divide the
+City’s population into equitable groups to ensure fair representation.  
+These boundaries are approved by City Council in the City of Oshawa.</abstract>
+<purpose>To delineate and identify each of the five (5) Wards which will be utilized in the 2018 Municipal Election.</purpose>
+</descript>
+<status>
+<progress>Complete</progress>
+<update>None planned</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-180</westbc>
+<eastbc>180</eastbc>
+<northbc>90</northbc>
+<southbc>-90</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>ISO 19115 Topic Categories</themekt>
+<themekey>boundaries</themekey>
+</theme>
+<place>
+<placekt>None</placekt>
+<placekey>City of Oshawa</placekey>
+<placekey>Region of Durham</placekey>
+</place>
+</keywords>
+<accconst>None</accconst>
+<useconst>Open Data License AgreementThis data is for reference use only.  The City assumes no responsibility for the correctness of the data as it changes frequently and should not be used as a substitute for legal, real estate, survey or City of Oshawa staff advice.</useconst>
+<datacred>The Corporation of the City of Oshawa, Corporate Services Department, ITS Branch</datacred>
+</idinfo>
+<spdoinfo>
+<direct>Vector</direct>
+</spdoinfo>
+<eainfo>
+<detailed>
+<enttyp>
+<enttypl>WARDS_2018</enttypl>
+<enttypd>Ward Boundaries for the 2018 Municipal Election</enttypd>
+<enttypds>GIS Services</enttypds>
+</enttyp>
+<attr>
+<attrlabl>OBJECTID</attrlabl>
+<attrdef>Internal Feature Number</attrdef>
+<attrdefs>ESRI</attrdefs>
+</attr>
+<attr>
+<attrlabl>WARDNUMBER</attrlabl>
+<attrdef>The number assigned to each polygon which represents each Ward.</attrdef>
+<attrdefs>GIS Services</attrdefs>
+</attr>
+<attr>
+<attrlabl>SHAPE</attrlabl>
+<attrdef>Feature Geometry</attrdef>
+<attrdefs>ESRI</attrdefs>
+</attr>
+<attr>
+<attrlabl>Shape_Length</attrlabl>
+<attrdef>Length of feature in internal units.</attrdef>
+<attrdefs>ESRI</attrdefs>
+</attr>
+<attr>
+<attrlabl>Shape_Area</attrlabl>
+<attrdef>Area of feature in internal units squared.</attrdef>
+<attrdefs>ESRI</attrdefs>
+</attr>
+</detailed>
+</eainfo>
+<metainfo>
+<metd>20180104</metd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>City of Oshawa</cntorg>
+</cntorgp>
+<cntpos>GIS Supervisor</cntpos>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>50 Centre St S</address>
+<city>Oshawa</city>
+<state>Ontario</state>
+<postal>L1H 3Z7</postal>
+<country>CA</country>
+</cntaddr>
+<cntvoice>905-436-3311</cntvoice>
+<cntemail>service@oshawa.ca</cntemail>
+<hours>8:30am - 4:30pm</hours>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+</metainfo>
+</metadata>
