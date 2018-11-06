@@ -8,28 +8,13 @@ boundaries.register('Grand Falls wards',
     last_updated=date(2014, 3, 24),
     name_func=lambda f: 'South Ward' if f.get('OBJECTID') == 35 else 'North Ward',
     authority='Her Majesty the Queen in Right of New Brunswick',
-    source_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer',
+    source_url='http://geonb.snb.ca/arcgis/rest/services/GeoNB_ENB_MunicipalElections/MapServer',
     licence_url='http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
-    data_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0',
+    data_url='http://geonb.snb.ca/arcgis/rest/services/GeoNB_ENB_MunicipalElections/MapServer/1',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/csd:1312019'},
-    is_valid_func=lambda f: f.get('MUN_NAME') == 'Grand Falls\\Grand-Sault',
+    is_valid_func=lambda f: f.get('Mun_Name') == 'Grand Falls\\Grand-Sault',
 )
-
-# Beresford was present in 2014-03-24, not in 2017-02-06.
-# boundaries.register('Beresford wards',
-#     domain='Beresford, NB',
-#     last_updated=date(2014, 3, 24),
-#     name_func=lambda f: 'Ward B' if f.get('OBJECTID') == 52 else 'Ward A',
-#     id_func=lambda f: 'B' if f.get('OBJECTID') == 52 else 'A',
-#     authority='Her Majesty the Queen in Right of New Brunswick',
-#     source_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer',
-#     licence_url='http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
-#     data_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0',
-#     encoding='iso-8859-1',
-#     extra={'division_id': 'ocd-division/country:ca/csd:1315015'},
-#     is_valid_func=lambda f: f.get('MUN_NAME') == 'Beresford',
-# )
 
 sets = {
     1314013: ['Atholville', 'Atholville'],
@@ -42,7 +27,10 @@ sets = {
     1307045: ['Dieppe', 'Dieppe'],
     1313027: ['Edmundston', 'Edmunston'],
     1311027: ['Florenceville-Bristol', 'Florenceville-Bristol'],
+    # Fredericton has ward names in its data catalog.
+    # Grand Falls is above.
     1310017: ['Hanwell', 'Hanwell'],
+    # Haut-Madawaska incorporated after Census 2016: https://www2.gnb.ca/content/gnb/en/news/news_release.2017.03.0385.html
     1314020: ['Kedgwick', 'Kedgwick'],
     1307022: ['Moncton', 'Moncton'],
     1303012: ['Oromocto', 'Oromocto'],
@@ -51,24 +39,22 @@ sets = {
     1313002: ['Saint-André', 'Saint-André'],
     1315002: ['Tracadie', 'Tracadie'],
     1309027: ['Upper Miramichi', 'Upper Miramichi'],
-    # Fredericton has ward names in its data catalog.
-    # 1310032: ['Fredericton', 'Fredericton'],
+    # Beresford was present in 2014-03-24, not in 2017-02-06.
     # Memramcook was present in 2014-03-24, not in 2017-02-04.
-    # 1307013: ['Memramcook', 'Memramcook'],
 }
 
 for geographic_code, (name, machine_name) in sets.items():
     boundaries.register('%s wards' % name,
         domain='%s, NB' % name,
         last_updated=date(2017, 2, 25),
-        name_func=lambda f: 'Ward %s' % f.get('WARD_ID'),
-        id_func=boundaries.attr('WARD_ID'),
+        name_func=lambda f: 'Ward %s' % f.get('Ward_ID_2'),
+        id_func=boundaries.attr('Ward_ID_2'),
         authority='Her Majesty the Queen in Right of New Brunswick',
-        source_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer',
+        source_url='http://geonb.snb.ca/arcgis/rest/services/GeoNB_ENB_MunicipalElections/MapServer',
         licence_url='http://geonb.snb.ca/downloads/documents/geonb_license_e.pdf',
-        data_url='http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0',
+        data_url='http://geonb.snb.ca/arcgis/rest/services/GeoNB_ENB_MunicipalElections/MapServer/1',
         encoding='iso-8859-1',
         extra={'division_id': 'ocd-division/country:ca/csd:%d' % geographic_code},
-        is_valid_func=lambda f, machine_name=machine_name: f.get('MUN_NAME') == machine_name,
-        notes='Compare the subdivisions in boundaries/ca_nb_wards/definition.py to:\nogrinfo -al -geom=NO boundaries/ca_nb_wards | grep " MUN_NAME" | sort | uniq | cut -d= -f 2',
+        is_valid_func=lambda f, machine_name=machine_name: f.get('Mun_Name') == machine_name,
+        notes='Compare the subdivisions in boundaries/ca_nb_wards/definition.py to:\nogrinfo -al -geom=NO boundaries/ca_nb_wards | grep " Mun_Name" | sort | uniq | cut -d= -f 2',
     )

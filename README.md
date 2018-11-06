@@ -92,8 +92,8 @@ Or, update all out-of-date shapefiles. The output may contain additional instruc
 
 Some shapefiles are online but require exceptional processing (`invoke shapefiles` will report `Unrecognized extension`). Remember to update `last_updated` in `definition.py`:
 
-    rm -f boundaries/ca_nb_wards/OGRGeoJSON.*
-    esri-dump http://geonb.snb.ca/ArcGIS/rest/services/GeoNB_ENB_MunicipalWards/MapServer/0 > boundaries/ca_nb_wards/wards.geojson
+    rm -f boundaries/ca_nb_wards/wards.*
+    esri-dump http://geonb.snb.ca/arcgis/rest/services/GeoNB_ENB_MunicipalElections/MapServer/1 > boundaries/ca_nb_wards/wards.geojson
     ogr2ogr -f "ESRI Shapefile" boundaries/ca_nb_wards boundaries/ca_nb_wards/wards.geojson
 
 After running these commands, you may have both untracked files and deleted files. This is due to sources changing filenames. If you `git add` the directory, the untracked files will be staged to be added and the deleted files will be staged to be removed.
