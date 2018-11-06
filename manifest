@@ -21,11 +21,10 @@ ahuntsic-cartierville-districts: 4
 1.3: Ahuntsic
 1.4: Bordeaux-Cartierville
 
-ajax-wards: 4
+ajax-wards: 3
 1: Ward 1
 2: Ward 2
 3: Ward 3
-4: Ward 4
 
 alberta-electoral-districts: 87
 1: Dunvegan-Central Peace-Notley
@@ -662,6 +661,13 @@ VTB: Victoria-Beacon Hill
 VTS: Victoria-Swan Lake
 WVC: West Vancouver-Capilano
 WVS: West Vancouver-Sea to Sky
+
+brock-wards: 5
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
 
 bromont-districts: 6
 1: Mont-Soleil
@@ -8136,15 +8142,11 @@ mercierhochelaga-maisonneuve-districts: 4
 7.3: Hochelaga
 7.4: Louis-Riel
 
-milton-wards: 8
+milton-wards: 4
 1: Ward 1
 2: Ward 2
 3: Ward 3
 4: Ward 4
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
 
 mirabel-districts: 8
 1: District 1
@@ -8826,13 +8828,14 @@ nova-scotia-electoral-districts: 51
 8: Clare—Digby
 9: Clayton Park West
 
-oakville-wards: 6
+oakville-wards: 7
 1: Ward 1
 2: Ward 2
 3: Ward 3
 4: Ward 4
 5: Ward 5
 6: Ward 6
+7: Ward 7
 
 oka-districts: 6
 1: District 1
@@ -10543,6 +10546,13 @@ saskatoon-wards: 10
 : Sutherland—Erindale
 : Wildwood—Lakeview
 
+scugog-wards: 5
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
+
 senneterre-quartiers: 6
 1: Quartier 1
 2: Quartier 2
@@ -10745,7 +10755,7 @@ thunder-bay-wards: 7
 6: Westfort
 7: Neebing
 
-toronto-wards: 44
+toronto-wards-2010: 44
 1: Etobicoke North (1)
 10: York Centre (10)
 11: York South-Weston (11)
@@ -10791,54 +10801,32 @@ toronto-wards: 44
 8: York West (8)
 9: York Centre (9)
 
-toronto-wards-2018: 47
-1: Ward 1
-10: Ward 10
-11: Ward 11
-12: Ward 12
-13: Ward 13
-14: Ward 14
-15: Ward 15
-16: Ward 16
-17: Ward 17
-18: Ward 18
-19: Ward 19
-2: Ward 2
-20: Ward 20
-21: Ward 21
-22: Ward 22
-23: Ward 23
-24: Ward 24
-25: Ward 25
-26: Ward 26
-27: Ward 27
-28: Ward 28
-29: Ward 29
-3: Ward 3
-30: Ward 30
-31: Ward 31
-32: Ward 32
-33: Ward 33
-34: Ward 34
-35: Ward 35
-36: Ward 36
-37: Ward 37
-38: Ward 38
-39: Ward 39
-4: Ward 4
-40: Ward 40
-41: Ward 41
-42: Ward 42
-43: Ward 43
-44: Ward 44
-45: Ward 45
-46: Ward 46
-47: Ward 47
-5: Ward 5
-6: Ward 6
-7: Ward 7
-8: Ward 8
-9: Ward 9
+toronto-wards-2018: 25
+1: Etobicoke North
+10: Spadina-Fort York
+11: University-Rosedale
+12: Toronto-St. Paul's
+13: Toronto Centre
+14: Toronto-Danforth
+15: Don Valley West
+16: Don Valley East
+17: Don Valley North
+18: Willowdale
+19: Beaches-East York
+2: Etobicoke Centre
+20: Scarborough Southwest
+21: Scarborough Centre
+22: Scarborough-Agincourt
+23: Scarborough North
+24: Scarborough-Guildwood
+25: Scarborough-Rouge Park
+3: Etobicoke-Lakeshore
+4: Parkdale-High Park
+5: York South-Weston
+6: York Centre
+7: Humber River-Black Creek
+8: Eglinton-Lawrence
+9: Davenport
 
 tracadie-wards: 8
 1: Ward 1
@@ -10889,6 +10877,13 @@ upper-miramichi-wards: 4
 2: Ward 2
 3: Ward 3
 4: Ward 4
+
+uxbridge-wards: 5
+1: Ward 1
+2: Ward 2
+3: Ward 3
+4: Ward 4
+5: Ward 5
 
 val-david-districts: 6
 1: District 1
