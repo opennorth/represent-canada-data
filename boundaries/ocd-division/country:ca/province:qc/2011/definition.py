@@ -3,7 +3,7 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Quebec electoral districts',  # (2011)
+boundaries.register('Quebec electoral districts (2011)',
     singular='Quebec electoral district',
     domain='Quebec',
     last_updated=date(2012, 2, 24),
