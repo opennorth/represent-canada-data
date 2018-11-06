@@ -66,6 +66,7 @@ terms = {
     # Text provided by license ("public sector information").
     'http://townofajax.maps.arcgis.com/sharing/rest/content/items/22e2d8e248724d7cb0310dc2db675abd/data':                "I. Terms of Use. Contains public sector Information made available under The Corporation of the Town of Ajax's Open Data Licence (%s).",  # noqa: E241
     'http://opendata.peelregion.ca/terms-of-use.aspx':                                                                   "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Peel's Open Data Licence - Version 1.0 (%s).",  # noqa: E241
+    'https://www.durham.ca/en/regional-government/resources/Documents/OpenDataLicenceAgreement.pdf'                      "I. Terms of Use. Contains public sector Information made available under The Regional Municipality of Durham's Open Data Licence (%s)."  # noqa: E241
     'https://www.pickering.ca/en/city-hall/resources/OpenDataLicencePickeringV1.pdf':                                    "I. Terms of Use. Contains public sector Information made available under The City of Pickering's Open Data Licence (%s).",  # noqa: E241
     # Text provided by license.
     'http://geonb.snb.ca/documents/license/geonb-odl_en.pdf':                                                            'I. Terms of Use. Contains information licenced under the GeoNB Open Data Licence (%s).',  # noqa: E241
