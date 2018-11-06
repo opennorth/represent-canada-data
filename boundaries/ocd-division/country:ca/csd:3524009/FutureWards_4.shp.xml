@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20180618</CreaDate><CreaTime>09515700</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.3\ArcToolbox\Toolboxes\Data Management Tools.tbx\ChangePrivileges" Date="20161206" Time="111802">ChangePrivileges 'Database Connections\GISDATA on thvs-gisdb1.sde\GIS.GISDATA.WARDS_NEW' GIS_EDITOR GRANT GRANT</Process></lineage></DataProperties></Esri></metadata>
