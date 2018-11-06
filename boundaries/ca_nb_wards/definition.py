@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register('Grand Falls wards',
     domain='Grand Falls, NB',
-    last_updated=date(2014, 3, 24),
+    last_updated=date(2018, 11, 5),
     name_func=lambda f: 'South Ward' if f.get('OBJECTID') == 35 else 'North Ward',
     authority='Her Majesty the Queen in Right of New Brunswick',
     source_url='http://geonb.snb.ca/arcgis/rest/services/GeoNB_ENB_MunicipalElections/MapServer',
@@ -46,7 +46,7 @@ sets = {
 for geographic_code, (name, machine_name) in sets.items():
     boundaries.register('%s wards' % name,
         domain='%s, NB' % name,
-        last_updated=date(2017, 2, 25),
+        last_updated=date(2018, 11, 5),
         name_func=lambda f: 'Ward %s' % f.get('Ward_ID_2'),
         id_func=boundaries.attr('Ward_ID_2'),
         authority='Her Majesty the Queen in Right of New Brunswick',
