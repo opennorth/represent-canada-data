@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin/>
+<pubdate>20180907</pubdate>
+<title>Brock Ward Boundaries</title>
+<onlink>https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/30</onlink>
+</citeinfo>
+</citation>
+<descript>
+<abstract>Township of Brock Ward Boundaries</abstract>
+<purpose>Township of Brock Ward Boundaries</purpose>
+</descript>
+<status>
+<progress>Complete</progress>
+<update>As needed</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-79.3323</westbc>
+<eastbc>-78.3325</eastbc>
+<northbc>44.4315</northbc>
+<southbc>43.7926</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>None</themekt>
+<themekey>Durham Boundaries</themekey>
+</theme>
+</keywords>
+<accconst>None</accconst>
+<useconst>Open Data License</useconst>
+</idinfo>
+<metainfo>
+<metd>20180907</metd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>Township of Brock</cntorg>
+</cntorgp>
+<cntaddr>
+<addrtype>physical</addrtype>
+<city>Cannington</city>
+<state>Brock</state>
+<postal>L0E 1E0</postal>
+</cntaddr>
+<cntvoice>705-432-2355</cntvoice>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+</metainfo>
+</metadata>

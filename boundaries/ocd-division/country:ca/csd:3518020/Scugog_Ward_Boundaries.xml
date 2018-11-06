@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin/>
+<pubdate>20180907</pubdate>
+<title>Scugog Ward Boundaries</title>
+<onlink>https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/31</onlink>
+</citeinfo>
+</citation>
+<descript>
+<abstract>Township of Scugog Ward Boundaries</abstract>
+<purpose>Township of Scugog Ward Boundaries</purpose>
+</descript>
+<timeperd>
+<timeinfo>
+<rngdates>
+<begdate>20180907</begdate>
+<enddate>20180907</enddate>
+</rngdates>
+</timeinfo>
+<current>Unknown</current>
+</timeperd>
+<status>
+<progress>Complete</progress>
+<update>As needed</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-79.7949</westbc>
+<eastbc>-78.2074</eastbc>
+<northbc>44.7604</northbc>
+<southbc>43.6818</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>None</themekt>
+<themekey>Durham Boundaries</themekey>
+</theme>
+</keywords>
+<accconst>None</accconst>
+<useconst>Open Data License</useconst>
+</idinfo>
+<metainfo>
+<metd>20180907</metd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>Township of Scugog</cntorg>
+</cntorgp>
+<cntaddr>
+<addrtype>physical</addrtype>
+<city>Port Perry</city>
+<state>Scugog</state>
+<postal>L9L 1A7</postal>
+</cntaddr>
+<cntvoice>905-985-7346</cntvoice>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+</metainfo>
+</metadata>
