@@ -10,6 +10,6 @@ boundaries.register('Newmarket wards',
     authority='Town of Newmarket',
     encoding='iso-8859-1',
     source_url='http://open.newmarket.ca/opendata/navigo/#/show/4e404ea7c3cb6e3c?disp=6b625f5',
-    licence_url='http://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf',
+    licence_url='https://www.newmarket.ca/TownGovernment/Documents/Newmarket_OpenData_Licence.pdf',
     extra={'division_id': 'ocd-division/country:ca/csd:3519048'},
 )

@@ -11,7 +11,7 @@ boundaries.register('Alberta electoral districts',  # (2010)
     authority='Her Majesty the Queen in Right of Alberta',
     source_url='https://open.alberta.ca/opendata/electoral-division',
     licence_url='https://open.alberta.ca/licence',
-    data_url='http://www.elections.ab.ca/wp-content/uploads/EDs_Act2010_FINAL.zip',
+    data_url='https://www.elections.ab.ca/wp-content/uploads/EDs_Act2010_FINAL.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/province:ab'},
 )

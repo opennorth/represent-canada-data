@@ -19,7 +19,7 @@ boundaries.register('Federal electoral districts',  # (2013 Representation Order
     authority='Her Majesty the Queen in Right of Canada',
     source_url='https://open.canada.ca/data/en/dataset/5f1c2e06-405a-4357-9566-872e69ee2ade',
     licence_url='https://open.canada.ca/en/open-government-licence-canada',
-    data_url='http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lfed000a16a_e.zip',
+    data_url='https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lfed000a16a_e.zip',
     encoding='utf-8',
     extra={'division_id': 'ocd-division/country:ca'},
 )
