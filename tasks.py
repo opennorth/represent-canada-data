@@ -194,13 +194,13 @@ def define(division_id):
 import boundaries
 
 boundaries.register('%(slug)s',
-        domain='%(domain)s',
-        last_updated=date(%(last_updated)s),
-        name_func=boundaries.attr(''),
-        id_func=boundaries.attr(''),
-        authority='%(authority)s',
-        encoding='iso-8859-1',
-        extra={'division_id': '%(division_id)s'},
+    domain='%(domain)s',
+    last_updated=date(%(last_updated)s),
+    name_func=boundaries.attr(''),
+    id_func=boundaries.attr(''),
+    authority='%(authority)s',
+    encoding='iso-8859-1',
+    extra={'division_id': '%(division_id)s'},
 )""" % config)
 
 
