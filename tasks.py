@@ -731,9 +731,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
             else:
                 sys.stderr.write('%-25s no extra\n' % slug)
 
-    response = requests.get('https://docs.google.com/spreadsheets/d/1ihCIDc9EtvxF7kzPg3Yk6e928DN7JzaycH92IBYr0QU/pub?gid=25&single=true&output=csv')
-    response.encoding = 'utf-8'
-    reader = csv.DictReader(StringIO(response.text))
+    reader = csv_dict_reader('https://docs.google.com/spreadsheets/d/1ihCIDc9EtvxF7kzPg3Yk6e928DN7JzaycH92IBYr0QU/pub?gid=25&single=true&output=csv', 'utf-8')
 
     actuals = set()
     for actual in reader:
@@ -777,3 +775,166 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
 
     for division_id in actuals - expecteds.keys():
         sys.stderr.write('Remove %s\n' % division_id)
+
+
+@task
+def export(base='.', private_base='../represent-canada-private-data'):
+    b8 = {}
+    reader = csv_dict_reader('https://docs.google.com/spreadsheets/d/1ihCIDc9EtvxF7kzPg3Yk6e928DN7JzaycH92IBYr0QU/pub?gid=25&single=true&output=csv', 'utf-8')
+    for row in reader:
+        b8[row['OCD']] = row['Received via'] != 'purchase'
+
+
+    fieldnames = [
+        'Slug',
+        'A1. Rate your knowledge of National Legislatures.',
+        'A1. Rate your knowledge of Regional Legislatures.',
+        'A1. Rate your knowledge of City Legislatures.',
+        'A2. Rate your knowledge of open data.',
+        'B1. To which legislative body (or bodies) do these boundary files apply?',
+        'B2. Are the boundary files available online without the need to register or request access to them?',
+        'B2.1. Are the boundary files available online after requesting access or registering?',
+        'B2.2. Where did you find the boundary files?',
+        'B3. Do the boundary files you are providing cover the whole country?',
+        'B3.1. Please list the regions of the country that are covered by these boundary files - please use the highest level of administrative unit that is appropriate.',
+        'B3.2. Are boundary files for this type of constituency available for the rest of the country?',
+        'B4. Do the boundary files describe constituencies?',
+        'B5. Who is responsible for producing these boundary files?',
+        'B6. Are the constituency boundaries directly available in the boundary files dataset?',
+        'B6.1. If it is necessary to assemble them please list the types of administrative subdivisions required and the sources describing which administrative units make up each constituency.',
+        'B7. Please check as many of the following characteristics that you know are present in the boundary files',
+        'B8. Are the boundary files available free of charge?',
+        'B9. Are the boundary files downloadable at once?',
+        'B10. Boundary files should be up to date for the current legislative term: Are the boundary files up-to-date?',
+        'B10.1. What is the legislative term or terms when these boundaries are valid?',
+        'B11. Are the boundary files openly licensed/in public domain?',
+        'B11.1. Please submit a URL to the open licence or to a statement that the data are in public domain.',
+        'B12. In which formats are the boundary files?',
+    ]
+
+    writer = csv.DictWriter(sys.stdout, fieldnames, delimiter='\t')
+    writer.writeheader()
+    for directory in (base, private_base):
+        boundaries.registry = {}
+        for slug, config in registry(directory).items():
+            if 'extra' in config:
+                ocd = config['extra']['division_id']
+
+                ocd_type = config['extra']['division_id'].rsplit('/', 1)[1].split(':')[0]
+                if ocd_type == 'country':
+                    a1_level = 'National'
+                elif ocd_type in ('province', 'territory'):
+                    a1_level = 'Regional'
+                else:
+                    a1_level = 'City'
+
+                if ocd_type == 'borough':  # ca_qc_districts
+                    b8[ocd] = True
+                elif ocd_type == 'cd':  # ca_ns_districts
+                    b8[ocd] = True
+
+                b1 = config['domain']  # can use `get_definition` in scrapers-ca
+            elif config['domain'] == 'Canada':
+                ocd = 'ocd-division/country:ca'  # fake
+                a1_level = 'City'
+                b1 = '[Census divisions/subdivisions sometimes correspond to municipal legislatures, but not always.]'
+            else:
+                raise NotImplementedError(repr(config))
+
+            if 'data_url' in config:
+                data_url = config['data_url']
+                if data_url.endswith(('.zip', '&format=Shapefile')) or 'format=shp' in data_url:
+                    b12 = 'Shapefile'
+                elif data_url.endswith(('.kml', '.kmz', '?format=kml')):
+                    b12 = 'KML'
+                elif '/arcgis/rest/' in data_url:
+                    b12 = 'ESRI ArcGIS REST'
+                else:
+                    raise NotImplementedError(data_url)
+            else:
+                b12 = None
+
+            row = {
+                'Slug': slug,
+                'A1. Rate your knowledge of {} Legislatures.'.format(a1_level):
+                3,  # 1, 2, 3
+
+                'A2. Rate your knowledge of open data.':
+                3,  # 1, 2, 3
+
+                'B1. To which legislative body (or bodies) do these boundary files apply?':
+                b1,  # text
+
+                'B2. Are the boundary files available online without the need to register or request access to them?':
+                'data_url' in config,  # No, Yes
+
+                # B2 (No):
+                'B2.1. Are the boundary files available online after requesting access or registering?':
+                'source_url' in config if 'data_url' not in config else None,  # No, Yes
+
+                # B2 (Yes):
+                'B2.2. Where did you find the boundary files?':
+                config['source_url'] if 'data_url' in config else '',  # text
+
+                'B3. Do the boundary files you are providing cover the whole country?':
+                config['domain'] == 'Canada',  # No, Yes
+
+                # B3 (No):
+                'B3.1. Please list the regions of the country that are covered by these boundary files - please use the highest level of administrative unit that is appropriate.':
+                config['domain'] if config['domain'] != 'Canada' else '',  # text
+
+                # B3 (No):
+                'B3.2. Are boundary files for this type of constituency available for the rest of the country?':
+                True if config['domain'] != 'Canada' else None,  # No, Yes
+
+                'B4. Do the boundary files describe constituencies?':
+                'Yes',  # No, Yes
+
+                'B5. Who is responsible for producing these boundary files?':
+                config['authority'],  # text
+
+                'B6. Are the constituency boundaries directly available in the boundary files dataset?':  # might depend on is_valid_func and notes
+                'Yes',  # No, Yes
+
+                # B6 (No):
+                'B6.1. If it is necessary to assemble them please list the types of administrative subdivisions required and the sources describing which administrative units make up each constituency.':
+                '',  # text
+            }
+
+            # B2 (Yes):
+            row.update({
+                'B7. Please check as many of the following characteristics that you know are present in the boundary files':
+                ['Name and/or ID of constituency', 'Polygon'],  # checkboxes
+
+                'B8. Are the boundary files available free of charge?':
+                b8[ocd],  # No, Yes
+
+                'B9. Are the boundary files downloadable at once?':
+                'data_url' in config,  # No, Yes
+
+                'B10. Boundary files should be up to date for the current legislative term: Are the boundary files up-to-date?':
+                'Yes',  # No, Yes
+
+                'B10.1. What is the legislative term or terms when these boundaries are valid?':
+                'Current term',  # text
+
+                'B11. Are the boundary files openly licensed/in public domain?':
+                'licence_url' in config and directory != private_base,  # No, Yes
+
+                # B11 (Yes):
+                'B11.1. Please submit a URL to the open licence or to a statement that the data are in public domain.':
+                config['licence_url'] if 'licence_url' in config and directory != private_base else '',  # text
+
+                'B12. In which formats are the boundary files?':
+                b12,  # checkboxes
+            })
+
+            for k, v in row.items():
+                if v is True:
+                    row[k] = 'Yes'
+                elif v is False:
+                    row[k] = 'No'
+                elif isinstance(v, list):
+                    row[k] = ', '.join(v)
+
+            writer.writerow(row)
