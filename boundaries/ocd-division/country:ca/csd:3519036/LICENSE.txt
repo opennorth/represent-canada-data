@@ -1,7 +1,1 @@
-Distributed with permission from the City of Markham.  Please direct licensing inquiries and requests to:
-
-Matthew Miller
-GIS Analyst
-Information Technology Services
-Tel: 1-905-477-7000 x2036
-mmiller@markham.ca
+I. Terms of Use. Contains public sector Information made available under the City of Markham’s Open Data Licence (http://data-markham.opendata.arcgis.com/pages/terms-of-use).
