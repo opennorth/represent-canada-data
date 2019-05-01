@@ -14,7 +14,7 @@ def namer(f):
     return n
 
 
-boundaries.register('Prince Edward Island electoral districts',  # (2006)
+boundaries.register('Prince Edward Island electoral districts (2006)',
     singular='Prince Edward Island electoral district',
     domain='Prince Edward Island',
     last_updated=date(2013, 7, 16),
