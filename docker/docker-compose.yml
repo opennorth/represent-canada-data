@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  represent:
+    build: .
+    volumes:
+      - "../:/src/represent"
+    ports:
+      - "80"
+    working_dir: /src/represent
+    restart: always
+    command: "tail -f /dev/null"
