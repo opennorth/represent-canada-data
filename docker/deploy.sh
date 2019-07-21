@@ -9,6 +9,7 @@ echo "Setting up a Docker environment."
 docker pull ubuntu:17.10
 docker-compose build
 docker-compose up -d
+
 docker-compose exec represent /bin/bash -i -c '
 pip3 install -r requirements.txt flake8
 npm install -g esri-dump'
