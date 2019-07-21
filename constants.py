@@ -41,6 +41,7 @@ terms = {
     'http://opendata.haldimandcounty.on.ca/':                                                                            'I. Terms of Use. Contains information licensed under the Open Government Licence – Haldimand County (%s).',  # noqa: E241
     'https://www2.gnb.ca/content/dam/gnb/Departments/gs-sg/pdf/OpenDataPolicy.pdf':                                      'I. Terms of Use. Contains information licensed under the Open Government Licence – New Brunswick (%s).',  # noqa: E241
     'https://novascotia.ca/opendata/licence.asp':                                                                        'I. Terms of Use. Contains information licensed under the Open Government Licence – Nova Scotia (%s).',  # noqa: E241
+    'https://geohub.lio.gov.on.ca/datasets/school-board-boundaries':                                                     'I. Terms of Use. Contains information licensed under the Open Government Licence – Ontario (%s).',  # noqa: E241
     'https://data.strathcona.ca/licence':                                                                                'I. Terms of Use. Contains information licensed under the Open Government Licence – Strathcona County (%s).',  # noqa: E241
     'https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-licence/':                            'I. Terms of Use. Contains information licensed under the Open Government Licence – Toronto (%s).',  # noqa: E241
     'https://data.winnipeg.ca/open-data-licence':                                                                        'I. Terms of Use. Contains information licensed under the Open Government Licence – Winnipeg (%s).',  # noqa: E241
@@ -129,6 +130,7 @@ valid_keys = set([
     # Used by tasks. Not validated.
     'prj',
     'skip_crc32',
+    'basename',
 ])
 
 """
