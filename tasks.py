@@ -378,7 +378,7 @@ def urls(base='.'):
                             try:
                                 response = requests.head(url, headers=headers, **arguments)
                             except requests.exceptions.SSLError:
-                                response = requests.head(url, verify=False, headers=headers, **arguments)
+                                response = requests.head(url, headers=headers, verify=False, **arguments)
                             # If HEAD requests are not properly supported.
                             if response.status_code in (204, 403, 405, 500) or (response.status_code == 302 and '404' in response.headers['Location']):
                                 response = requests.get(url, stream=True, **arguments)
@@ -451,12 +451,18 @@ def shapefiles(base='.'):
                 try:
                     zip_file = ZipFile(data_file_path)
                     for name in zip_file.namelist():
+                        # Don't extract directories.
+                        if name[-1] == '/':
+                            continue
                         # Flatten the zip file hierarchy.
                         extension = os.path.splitext(name)[1]
                         if extension in ('.kml', '.kmz'):
                             basename = 'data%s' % extension  # assumes one KML or KMZ file per archive
                         else:
                             basename = os.path.basename(name)  # assumes no collisions across hierarchy
+                        # Extract only matching shapefiles.
+                        if 'basename' in config and basename.split(os.extsep, 1)[0] != config['basename']:
+                            continue
                         with open(os.path.join(directory, basename), 'wb') as f:
                             with zip_file.open(name, 'r') as fp:
                                 if 'skip_crc32' in config:
@@ -590,7 +596,10 @@ def shapefiles(base='.'):
                 if result.username:
                     url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
                     arguments['auth'] = (result.username, result.password)
-                response = requests.head(url, headers=headers, **arguments)
+                try:
+                    response = requests.head(url, headers=headers, **arguments)
+                except requests.exceptions.SSLError:
+                    response = requests.head(url, headers=headers, verify=False, **arguments)
                 # If HEAD requests are not properly supported.
                 if response.status_code in (204, 403, 405, 500) or (response.status_code == 302 and '404' in response.headers['Location']):
                     response = requests.get(url, headers=headers, stream=True, **arguments)
@@ -623,7 +632,10 @@ def shapefiles(base='.'):
 
                     # Download new file.
                     arguments['stream'] = True
-                    response = requests.get(url, headers=headers, **arguments)
+                    try:
+                        response = requests.get(url, headers=headers, **arguments)
+                    except requests.exceptions.SSLError:
+                        response = requests.get(url, headers=headers, verify=False, **arguments)
                     with open(data_file_path, 'wb') as f:
                         for chunk in response.iter_content():
                             f.write(chunk)

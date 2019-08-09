@@ -15,5 +15,3 @@ The first time you run ./deploy.sh, it might take several minutes, but will take
 Once Docker is set up (deployed), open a shell like this:
 
     cd ./docker && docker-compose exec represent /bin/bash
-
-## Usage
