@@ -5,7 +5,7 @@ import boundaries
 boundaries.register('Manitoba electoral districts 2018',
     singular='Manitoba electoral district',
     domain='Manitoba',
-    last_updated=date(2019, 7, 9),
+    last_updated=date(2018, 11, 30),
     name_func=boundaries.attr('ED'),
     authority='Her Majesty the Queen in Right of Manitoba',
     source_url='https://www.electionsmanitoba.ca/en/Resources/Maps',
