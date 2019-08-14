@@ -5,6 +5,7 @@ import boundaries
 sets = {
     'English Catholic': 'BOARD_ENGLISH_CATHOLIC',
     'English Public': 'BOARD_ENGLISH_PUBLIC',
+    'French Catholic': 'BOARD_FRENCH_CATHOLIC',
     'French Public': 'BOARD_FRENCH_PUBLIC',
 }
 
