@@ -460,6 +460,9 @@ def shapefiles(base='.'):
                             basename = 'data%s' % extension  # assumes one KML or KMZ file per archive
                         else:
                             basename = os.path.basename(name)  # assumes no collisions across hierarchy
+                        # Extract only matching shapefiles.
+                        if 'basename' in config and basename.split(os.extsep, 1)[0] != config['basename']:
+                            continue
                         with open(os.path.join(directory, basename), 'wb') as f:
                             with zip_file.open(name, 'r') as fp:
                                 if 'skip_crc32' in config:
@@ -491,10 +494,7 @@ def shapefiles(base='.'):
                     os.unlink(kmz_file_path)
 
             if not error_thrown:
-                if 'basename' in config:
-                    shp_file_path = [os.path.join(directory, '{}.shp'.format(basename))]
-                else:
-                    shp_file_path = glob(os.path.join(directory, '*.shp'))
+                shp_file_path = glob(os.path.join(directory, '*.shp'))
 
                 # Convert any KML to shapefile.
                 if not shp_file_path:
