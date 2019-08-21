@@ -13,4 +13,5 @@ boundaries.register('Manitoba electoral districts 2018',
     data_url='https://www.electionsmanitoba.ca/downloads/2018_Final_ED_Manitoba_Public_Urban.zip',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/province:mb'},
+    notes='Download https://www.electionsmanitoba.ca/downloads/2018_Final_ED_Winnipeg_Public_Urban.zip',
 )
