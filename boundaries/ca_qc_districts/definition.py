@@ -315,7 +315,7 @@ def district_namer(f):
     elif code == 43027:
         # https://cartes.ville.sherbrooke.qc.ca/monarrondissementenligne/
         return {
-            1.10: 'Deauville',
+            1.10: 'Lac Magog',
             1.20: 'Rock Forest',
             1.30: 'Saint-Élie',
             1.40: 'Brompton',
