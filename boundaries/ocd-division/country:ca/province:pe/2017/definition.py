@@ -18,4 +18,5 @@ boundaries.register('Prince Edward Island electoral districts (2017)',
     licence_url='http://www.gov.pe.ca/gis/index.php3?number=77462&lang=E',
     encoding='iso-8859-1',
     extra={'division_id': 'ocd-division/country:ca/province:pe'},
+    is_valid_func=lambda f: f.get('DISTRICT'),
 )
