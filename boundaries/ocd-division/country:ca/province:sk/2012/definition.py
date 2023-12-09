@@ -6,7 +6,7 @@ import boundaries
 boundaries.register('Saskatchewan electoral districts (Representation Act, 2012)',
     singular='Saskatchewan electoral district',
     domain='Saskatchewan',
-    last_updated=date(2014, 3, 20),
+    last_updated=date(2014, 3, 20),  # historical
     name_func=boundaries.dashed_attr('Con_Name'),
     id_func=boundaries.attr('Con_Num'),
     authority='Her Majesty the Queen in Right of Saskatchewan',

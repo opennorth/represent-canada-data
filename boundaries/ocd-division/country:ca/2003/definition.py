@@ -17,7 +17,7 @@ def namer(f):
 boundaries.register('Federal electoral districts (2003 Representation Order)',
     singular='Federal electoral district',
     domain='Canada',
-    last_updated=date(2011, 11, 28),
+    last_updated=date(2011, 11, 28),  # historical
     name_func=namer,
     id_func=boundaries.attr('FEDUID'),
     slug_func=boundaries.attr('FEDUID'),

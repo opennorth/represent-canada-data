@@ -14,7 +14,7 @@ def namer(f):
 boundaries.register('Saskatchewan electoral districts (Representation Act, 2002)',
     singular='Saskatchewan electoral district',
     domain='Saskatchewan',
-    last_updated=date(2010, 10, 12),
+    last_updated=date(2010, 10, 12),  # historical
     name_func=namer,
     id_func=boundaries.attr('CON_NUM'),
     authority='Her Majesty the Queen in Right of Saskatchewan',

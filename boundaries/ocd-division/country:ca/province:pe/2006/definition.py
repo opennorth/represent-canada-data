@@ -17,7 +17,7 @@ def namer(f):
 boundaries.register('Prince Edward Island electoral districts (2006)',
     singular='Prince Edward Island electoral district',
     domain='Prince Edward Island',
-    last_updated=date(2013, 7, 16),
+    last_updated=date(2013, 7, 16),  # historical
     name_func=namer,
     id_func=boundaries.attr('Name'),
     authority='Her Majesty the Queen in Right of Prince Edward Island',

@@ -5,7 +5,7 @@ import boundaries
 boundaries.register('British Columbia electoral districts (2015 Redistribution)',
     singular='British Columbia electoral district',
     domain='British Columbia',
-    last_updated=date(2016, 11, 30),
+    last_updated=date(2016, 11, 30),  # historical
     name_func=boundaries.attr('ED_NAME'),
     id_func=boundaries.attr('ED_ABBREV'),
     authority='Her Majesty the Queen in Right of British Columbia',

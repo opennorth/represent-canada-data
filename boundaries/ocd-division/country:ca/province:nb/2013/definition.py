@@ -5,7 +5,7 @@ import boundaries
 boundaries.register('New Brunswick electoral districts (2013)',
     singular='New Brunswick electoral district',
     domain='New Brunswick',
-    last_updated=date(2015, 6, 23),
+    last_updated=date(2015, 6, 23),  # historical
     name_func=boundaries.attr('PED_Name_E'),
     id_func=boundaries.attr('DIST_ID'),
     authority='Her Majesty the Queen in Right of New Brunswick',

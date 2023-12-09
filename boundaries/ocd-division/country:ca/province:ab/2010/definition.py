@@ -5,7 +5,7 @@ import boundaries
 boundaries.register('Alberta electoral districts (2010)',
     singular='Alberta electoral district',
     domain='Alberta',
-    last_updated=date(2016, 1, 6),
+    last_updated=date(2016, 1, 6),  # historical
     name_func=boundaries.attr('EDName2010'),
     id_func=boundaries.attr('EDNum2010'),
     authority='Her Majesty the Queen in Right of Alberta',
