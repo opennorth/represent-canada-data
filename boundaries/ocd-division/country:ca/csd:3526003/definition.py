@@ -5,7 +5,7 @@ import boundaries
 
 boundaries.register('Fort Erie wards',
     domain='Fort Erie, ON',
-    last_updated=date(2016, 1, 6),
+    last_updated=date(2017, 6, 19),
     name_func=boundaries.attr('Name'),
     id_func=lambda f: re.sub(r'\D', '', f.get('Name')),
     source_url='https://niagaraopendata.ca/dataset/town-of-fort-erie-wards-2014',
