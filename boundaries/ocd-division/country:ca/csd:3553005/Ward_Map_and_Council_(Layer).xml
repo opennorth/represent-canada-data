@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><MD_Metadata xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:xalan="http://xml.apache.org/xalan" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xmlns="http://www.isotc211.org/2005/gmd">
+    <characterSet>
+        <MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</MD_CharacterSetCode>
+    </characterSet>
+    <hierarchyLevel>
+        <MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="ISOTC211/19115">dataset</MD_ScopeCode>
+    </hierarchyLevel>
+    <hierarchyLevelName>
+        <gco:CharacterString>dataset</gco:CharacterString>
+    </hierarchyLevelName>
+    <contact gco:nilReason="missing"/>
+    <dateStamp gco:nilReason="missing"/>
+    <metadataStandardName>
+        <gco:CharacterString>ISO 19139 Geographic Information - Metadata - Implementation Specification</gco:CharacterString>
+    </metadataStandardName>
+    <metadataStandardVersion>
+        <gco:CharacterString>2007</gco:CharacterString>
+    </metadataStandardVersion>
+    <identificationInfo>
+        <MD_DataIdentification>
+            <citation gco:nilReason="missing"/>
+            <abstract>
+                <gco:CharacterString>City of Greater Sudbury municipal boundary, ward map and Mayor/Councillor information.</gco:CharacterString>
+            </abstract>
+            <purpose>
+                <gco:CharacterString>City of Greater Sudbury Municipal Council and Wards</gco:CharacterString>
+            </purpose>
+            <credit>
+                <gco:CharacterString>City of Greater Sudbury</gco:CharacterString>
+            </credit>
+            <descriptiveKeywords>
+                <MD_Keywords>
+                    <keyword>
+                        <gco:CharacterString>Government</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Municipal</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Council</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Mayor</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Layer</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Land Use &amp; Boundaries</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Political</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Politics</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Boundary</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Greater Sudbury</gco:CharacterString>
+                    </keyword>
+                    <keyword>
+                        <gco:CharacterString>Sudbury</gco:CharacterString>
+                    </keyword>
+                </MD_Keywords>
+            </descriptiveKeywords>
+            <resourceConstraints>
+                <MD_Constraints>
+                    <useLimitation>
+                        <gco:CharacterString>This product is for informational purposes and may not have been prepared for, or be suitable for legal, engineering, or surveying purposes. The data is provided &amp;quot;as-is&amp;quot; without warranty of any kind either expressed or implied. The City of Greater Sudbury assumes no liability either for any errors, omissions, or inaccuracies in the information provided regardless of the cause of such or for any decision made, action taken, or action not taken by the user in reliance upon any maps or information provided herein. Any and all liabilities for damage, direct or indirect, however caused and resulting in any way by the use of the supplied data is the full and final responsibility of the user.Ce produit est offert à titre d'information et n’est pas nécessairement destiné ni ne convient-il à des fins juridiques, d’ingénierie ou de levé. Les données sont procurées « telles quelles » sans aucune garantie, expresse ou implicite. La Ville du Grand Sudbury n’assume aucune responsabilité pour les erreurs, les omissions ou les inexactitudes qui pourraient se glisser dans les renseignements fournis, qu’elle qu’en soit la cause, ni pour les décisions et les mesures prises ou omises par l’utilisateur sur la foi des cartes ou des renseignements fournis. L’utilisateur est pleinement responsable de tout dommage subi, direct ou indirect, peu importe la cause et résultant d’une manière quelconque de l’emploi des données fournies.</gco:CharacterString>
+                    </useLimitation>
+                </MD_Constraints>
+            </resourceConstraints>
+            <language gco:nilReason="missing"/>
+            <characterSet>
+                <MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</MD_CharacterSetCode>
+            </characterSet>
+        </MD_DataIdentification>
+    </identificationInfo>
+</MD_Metadata>
