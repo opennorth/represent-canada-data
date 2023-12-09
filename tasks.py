@@ -18,8 +18,8 @@ import boundaries
 import requests
 from invoke import run, task
 from opencivicdata.divisions import Division
+from pyrfc6266 import parse_filename
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from pyrfc6266 import parse
 
 from constants import (
     more_licenses_with_templates,
@@ -430,6 +430,9 @@ def shapefiles(base='.'):
     """
     headers = {'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'}
 
+    def content_disposition_filename(response):
+        return parse_filename(response.headers['content-disposition'])
+
     def process(slug, config, url, data_file_path):
         # We can only process KML, KMZ and ZIP files.
         extension = os.path.splitext(data_file_path)[1]
@@ -527,7 +530,7 @@ def shapefiles(base='.'):
                     shp_file_path = shp_file_path[0]
                 if shp_file_path and os.path.exists(shp_file_path):
                     # Convert any 3D shapefile into 2D.
-                    result = run('ogrinfo -q %s' % shp_file_path, hide='out').stdout
+                    result = run('ogrinfo -q "%s"' % shp_file_path, hide='out').stdout
                     if result.count('\n') > 1:
                         print('Too many layers %s' % url)
                     elif re.search('3D Polygon', result):
@@ -621,7 +624,7 @@ def shapefiles(base='.'):
                 elif config['last_updated'] < last_updated:
                     # Determine the file extension.
                     if 'content-disposition' in response.headers:
-                        filename = parse(response.headers['content-disposition']).filename_unsafe
+                        filename = content_disposition_filename(response)
                     else:
                         filename = url
 
@@ -629,6 +632,8 @@ def shapefiles(base='.'):
                     if not extension:
                         if response.headers['content-type'] == 'application/vnd.google-earth.kml+xml; charset=utf-8':
                             extension = '.kml'
+                        elif 'content-disposition' in response.headers:
+                            extension = os.path.splitext(content_disposition_filename(response))[1].lower()
 
                     # Set the new file's name.
                     data_file_path = os.path.join(dirname(config['file']), 'data%s' % extension)
