@@ -2,6 +2,7 @@ from datetime import date
 
 import boundaries
 
+# https://en.wikipedia.org/wiki/2006_New_Brunswick_electoral_redistribution
 boundaries.register('New Brunswick electoral districts (2006)',
     singular='New Brunswick electoral district',
     domain='New Brunswick',
