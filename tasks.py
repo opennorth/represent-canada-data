@@ -210,7 +210,7 @@ def licenses(base='.'):
     Check that all data directories contain a LICENSE.txt.
     """
     for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
-        for dirname in ('.git', '__pycache__'):
+        for dirname in ('.git', '__pycache__', 'docker', 'node_modules'):
             if dirname in dirnames:
                 dirnames.remove(dirname)
         for filename in ('.DS_Store', 'empty.csv'):
@@ -228,6 +228,8 @@ def permissions(base='.'):
     for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
         if '.git' in dirnames:
             dirnames.remove('.git')
+        if 'deploy.sh' in filenames:
+            filenames.remove(filename)
         for filename in filenames:
             path = os.path.join(dirpath, filename)
             if filename not in 'update.sh' and os.stat(path).st_mode != 33188:  # 100644 octal
