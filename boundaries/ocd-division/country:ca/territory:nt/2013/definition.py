@@ -5,7 +5,8 @@ import boundaries
 boundaries.register('Northwest Territories electoral districts (2013)',
     singular='Northwest Territories electoral district',
     domain='Northwest Territories',
-    last_updated=date(2022, 5, 24),  # https://nwtelectoralboundaries.ca/wp-content/uploads/sites/6/2022/05/2021-electoral-boundaries-final-report-web.pdf
+    # https://nwtelectoralboundaries.ca/wp-content/uploads/sites/6/2022/05/2021-electoral-boundaries-final-report-web.pdf
+    last_updated=date(2022, 5, 24),
     name_func=boundaries.attr('ED'),
     id_func=lambda f: int(f.get('EDNWTF_ID')),
     authority='Her Majesty the Queen in Right of Northwest Territories',
