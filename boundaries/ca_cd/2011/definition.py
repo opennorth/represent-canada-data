@@ -2,7 +2,7 @@ from datetime import date
 
 import boundaries
 
-boundaries.register('Census divisions',
+boundaries.register('Census divisions',  # (2011)
     domain='Canada',
     last_updated=date(2016, 11, 8),
     name_func=boundaries.attr('CDNAME'),
