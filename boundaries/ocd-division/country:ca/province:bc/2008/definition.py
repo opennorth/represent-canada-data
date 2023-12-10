@@ -2,6 +2,7 @@ from datetime import date
 
 import boundaries
 
+# https://en.wikipedia.org/wiki/2008_British_Columbia_electoral_redistribution
 boundaries.register('British Columbia electoral districts (2008 Redistribution)',
     singular='British Columbia electoral district',
     domain='British Columbia',
