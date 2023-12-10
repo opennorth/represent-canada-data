@@ -355,8 +355,8 @@ def district_namer(f):
 
     # Pointe-Claire
     elif code == 66097:
-            # Check if required with:
-            # ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep '/ '
+        # Check if required with:
+        # ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep '/ '
         return name.replace('/ ', '/')
 
     # Gatineau

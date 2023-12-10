@@ -228,7 +228,7 @@ def permissions(base='.'):
         if '.git' in dirnames:
             dirnames.remove('.git')
         if 'deploy.sh' in filenames:
-            filenames.remove(filename)
+            filenames.remove('deploy.sh')
         for filename in filenames:
             path = os.path.join(dirpath, filename)
             if filename not in 'update.sh' and os.stat(path).st_mode != 33188:  # 100644 octal
