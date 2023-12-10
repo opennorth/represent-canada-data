@@ -1,4 +1,3 @@
-# coding: utf-8
 import re
 
 """
@@ -110,7 +109,7 @@ terms_re = {
 """
 Valid keys for a definition.py file.
 """
-valid_keys = set([
+valid_keys = {
     # Added by boundaries.register.
     'file',
     # Used by represent-boundaries.
@@ -133,7 +132,7 @@ valid_keys = set([
     'prj',
     'skip_crc32',
     'basename',
-])
+}
 
 """
 Authorities that are responsible for multiple shapefiles.

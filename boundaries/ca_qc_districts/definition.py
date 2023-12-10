@@ -1,4 +1,3 @@
-# coding: utf-8
 import re
 from datetime import date
 
@@ -418,7 +417,7 @@ def district_ider(f):
 for geographic_code, (name, type) in sets.items():
     geographic_codes = [geographic_code]
 
-    boundaries.register('%s %s' % (name, type),
+    boundaries.register('{} {}'.format(name, type),
         domain='%s, QC' % name,
         last_updated=date(2017, 11, 30),
         name_func=district_namer,
@@ -534,7 +533,7 @@ for municipality in municipalities_with_boroughs:
         subdivision_id = int(division_id.rsplit(':', 1)[-1])
 
         boundaries.register('%s districts' % name,
-            domain='%s, %s, QC' % (name, geographic_name),
+            domain='{}, {}, QC'.format(name, geographic_name),
             last_updated=date(2017, 11, 30),
             name_func=district_namer,
             id_func=district_ider,

@@ -1,4 +1,3 @@
-# coding: utf-8
 import csv
 import os
 import os.path
@@ -139,7 +138,7 @@ def get_definition(division_id, path=None):
         else:
             slug = '%s wards' % name
 
-        config['domain'] = '%s, %s' % (name, province_or_territory_abbreviation(division.id))
+        config['domain'] = '{}, {}'.format(name, province_or_territory_abbreviation(division.id))
 
         if province_or_territory_sgc_code == '12' and 'boundaries/ca_ns_districts/' in path:
             config['authority'] = ['Her Majesty the Queen in Right of Nova Scotia']
@@ -159,7 +158,7 @@ def get_definition(division_id, path=None):
 
         if name:
             slug = '%s districts' % name
-            config['domain'] = '%s, %s, %s' % (name, division.parent.name, province_or_territory_abbreviation(division.parent.id))
+            config['domain'] = '{}, {}, {}'.format(name, division.parent.name, province_or_territory_abbreviation(division.parent.id))
         else:
             slug = None
             config['domain'] = None
@@ -170,7 +169,7 @@ def get_definition(division_id, path=None):
             config['authority'] = [division.parent.attrs['organization_name']]
 
     else:
-        raise Exception('%s: Unrecognized OCD type %s' % (division.id, division._type))
+        raise Exception('{}: Unrecognized OCD type {}'.format(division.id, division._type))
 
     return (slug, config)
 
@@ -376,7 +375,7 @@ def urls(base='.'):
                         try:
                             arguments = {}
                             if result.username:
-                                url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
+                                url = '{}://{}{}'.format(result.scheme, result.hostname, result.path)
                                 arguments['auth'] = (result.username, result.password)
                             try:
                                 response = requests.head(url, headers=headers, **arguments)
@@ -389,12 +388,12 @@ def urls(base='.'):
                                 print('%d %s' % (response.status_code, url))
                         except requests.exceptions.ConnectionError:
                             print('404 %s' % url)
-                        except socket.error:
+                        except OSError:
                             errno, errstr = sys.exc_info()[:2]
                             if errno == socket.timeout:
                                 print('Timeout %s' % url)
                             else:
-                                print('%s %s' % (errstr, url))
+                                print('{} {}'.format(errstr, url))
 
 
 @task
@@ -478,7 +477,7 @@ def shapefiles(base='.'):
                             files_to_add.append(os.path.join(directory, basename))
                 except BadZipfile as e:
                     error_thrown = True
-                    print('Bad ZIP file %s %s\n' % (e, url))
+                    print('Bad ZIP file {} {}\n'.format(e, url))
                 finally:
                     os.unlink(data_file_path)
 
@@ -511,7 +510,7 @@ def shapefiles(base='.'):
                             print('Too many layers %s' % url)
                         else:
                             layer = re.search(r'\A\d+: (.+?) \(', result).group(1)
-                            run('ogr2ogr -f "ESRI Shapefile" %s %s -nlt POLYGON "%s"' % (directory, kml_file_path, layer), echo=True)
+                            run('ogr2ogr -f "ESRI Shapefile" {} {} -nlt POLYGON "{}"'.format(directory, kml_file_path, layer), echo=True)
                             for name in glob(os.path.join(directory, '*.[dps][bhr][fjpx]')):
                                 files_to_add.append(name)
                             os.unlink(kml_file_path)
@@ -519,7 +518,7 @@ def shapefiles(base='.'):
                 # Merge multiple shapefiles into one.
                 if len(shp_file_path) > 1:
                     for name in shp_file_path:
-                        run('ogr2ogr -f "ESRI Shapefile" %s %s -update -append -nln Boundaries' % (directory, name), echo=True)
+                        run('ogr2ogr -f "ESRI Shapefile" {} {} -update -append -nln Boundaries'.format(directory, name), echo=True)
                         basename = os.path.splitext(os.path.basename(name))[0]
                         for name in glob(os.path.join(directory, '%s.[dps][bhr][fjnpx]' % basename)):
                             files_to_add.remove(name)
@@ -534,7 +533,7 @@ def shapefiles(base='.'):
                     if result.count('\n') > 1:
                         print('Too many layers %s' % url)
                     elif re.search('3D Polygon', result):
-                        run('ogr2ogr -f "ESRI Shapefile" -overwrite %s %s -nlt POLYGON' % (directory, shp_file_path), echo=True)
+                        run('ogr2ogr -f "ESRI Shapefile" -overwrite {} {} -nlt POLYGON'.format(directory, shp_file_path), echo=True)
                         for name in list(files_to_add):
                             if not os.path.exists(name):
                                 files_to_add.remove(name)
@@ -563,7 +562,7 @@ def shapefiles(base='.'):
 
                 # Print notes.
                 if 'notes' in config:
-                    print('%s\n%s\n' % (config['file'], config['notes']))
+                    print('{}\n{}\n'.format(config['file'], config['notes']))
         else:
             print('Unrecognized extension %s\n' % url)
 
@@ -600,7 +599,7 @@ def shapefiles(base='.'):
                 # Get the last modified timestamp.
                 arguments = {}
                 if result.username:
-                    url = '%s://%s%s' % (result.scheme, result.hostname, result.path)
+                    url = '{}://{}{}'.format(result.scheme, result.hostname, result.path)
                     arguments['auth'] = (result.username, result.password)
                 try:
                     response = requests.head(url, headers=headers, **arguments)
@@ -620,7 +619,7 @@ def shapefiles(base='.'):
                 last_updated = last_updated.date()
 
                 if config['last_updated'] > last_updated:
-                    print('%s are more recent than the source (%s > %s)\n' % (slug, config['last_updated'], last_updated))
+                    print('{} are more recent than the source ({} > {})\n'.format(slug, config['last_updated'], last_updated))
                 elif config['last_updated'] < last_updated:
                     # Determine the file extension.
                     if 'content-disposition' in response.headers:
@@ -791,7 +790,7 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     for division_id in expecteds.keys() - actuals:
         record = expecteds[division_id]
         if record['Shapefile?'] != 'N/A':
-            sys.stderr.write('%s\t%s\t%s\t%s\t%s\n' % (division_id, record['Geographic name'], record['Province or territory'], record['Geographic type'], record['Population']))
+            sys.stderr.write('{}\t{}\t{}\t{}\t{}\n'.format(division_id, record['Geographic name'], record['Province or territory'], record['Geographic type'], record['Population']))
 
     for division_id in actuals - expecteds.keys():
         sys.stderr.write('Remove %s\n' % division_id)
