@@ -506,7 +506,7 @@ def shapefiles(base='.'):
                 if not shp_file_path:
                     kml_file_path = os.path.join(directory, 'data.kml')
                     if os.path.exists(kml_file_path):
-                        result = run('ogrinfo -q %s | grep -v "3D Point"' % kml_file_path, hide='out').stdout
+                        result = run('ogrinfo -q "%s" | grep -v "3D Point"' % kml_file_path, hide='out').stdout
                         if result.count('\n') > 1:
                             print('Too many layers %s' % url)
                         else:
