@@ -2,7 +2,6 @@ from datetime import date
 
 import boundaries
 
-
 boundaries.register('Newfoundland and Labrador electoral districts (2006)',
     singular='Newfoundland and Labrador electoral district',
     domain='Newfoundland and Labrador',

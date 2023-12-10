@@ -2,7 +2,6 @@ from datetime import date
 
 import boundaries
 
-
 boundaries.register('Saskatoon wards',
     domain='Saskatoon, SK',
     last_updated=date(2016, 10, 14),

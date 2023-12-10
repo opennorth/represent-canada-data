@@ -11,26 +11,26 @@ from ftplib import FTP
 from glob import glob
 from io import StringIO
 from urllib.parse import urlparse
-from zipfile import ZipFile, BadZipfile
+from zipfile import BadZipfile, ZipFile
 
-import boundaries
 import requests
 from invoke import run, task
 from opencivicdata.divisions import Division
 from pyrfc6266 import parse_filename
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
+import boundaries
 from constants import (
-    more_licenses_with_templates,
     all_rights_reserved_licenses,
     all_rights_reserved_terms_re,
+    authorities,
+    default_expectation,
+    more_licenses_with_templates,
+    municipal_subdivisions,
+    quartiers,
     terms,
     terms_re,
     valid_keys,
-    authorities,
-    quartiers,
-    municipal_subdivisions,
-    default_expectation,
 )
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)

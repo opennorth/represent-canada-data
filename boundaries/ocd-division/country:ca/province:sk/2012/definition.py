@@ -2,7 +2,6 @@ from datetime import date
 
 import boundaries
 
-
 boundaries.register('Saskatchewan electoral districts (Representation Act, 2012)',
     singular='Saskatchewan electoral district',
     domain='Saskatchewan',
