@@ -5,7 +5,7 @@ import boundaries
 
 def namer(f):
     import boundaries
-    n = boundaries.clean_attr('NM_CEP')
+    n = boundaries.clean_attr('NM_CEP')(f)
     # https://fr.wikipedia.org/wiki/Camille-Laurin_(circonscription_provinciale)
     if n == 'Bourget':
         return 'Camille-Laurin'
