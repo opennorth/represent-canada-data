@@ -2,11 +2,21 @@ from datetime import date
 
 import boundaries
 
+
+def namer(f):
+    import boundaries
+    n = boundaries.clean_attr('NM_CEP')
+    # https://fr.wikipedia.org/wiki/Camille-Laurin_(circonscription_provinciale)
+    if n == 'Bourget':
+        return 'Camille-Laurin'
+    return n
+
+
 boundaries.register('Quebec electoral districts (2017)',
     singular='Quebec electoral district',
     domain='Quebec',
     last_updated=date(2017, 10, 4),
-    name_func=boundaries.clean_attr('NM_CEP'),
+    name_func=namer,
     id_func=boundaries.attr('CO_CEP'),
     authority='Directeur général des élections du Québec',
     source_url='https://www.electionsquebec.qc.ca/francais/provincial/carte-electorale/geometrie-des-circonscriptions-provinciales-du-quebec.php',

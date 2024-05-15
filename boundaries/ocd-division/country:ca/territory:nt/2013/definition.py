@@ -4,8 +4,7 @@ import boundaries
 
 
 def namer(f):
-    import boundaries
-    n = boundaries.attr('ED')(f)
+    n = f.get('ED')
     # @see bhttps://www.ntlegislativeassembly.ca/members/members-legislative-assembly/members
     if n == 'Deh Cho':
         return 'Dehcho'
