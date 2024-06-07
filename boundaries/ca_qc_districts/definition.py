@@ -324,6 +324,7 @@ def district_namer(f):
             2.40: 'Pin-Solitaire',
             3.10: 'Uplands',
             3.20: 'Fairview',
+            3.30: 'Lennoxville',
             4.10: 'Université',
             4.20: 'Ascot',
             4.30: 'Lac-des-Nations',
@@ -390,7 +391,12 @@ def borough_namer(f):
 
     # Sherbrooke
     if code == 43027:
-        return 'Arrondissement %s' % int(f.get('NO_ARON'))
+        return {
+            1: 'Brompton–Rock Forest–Saint-Élie–Deauville',
+            2: 'Fleurimont',
+            3: 'Lennoxville',
+            4: 'Nations',
+        }[int(f.get('NO_ARON'))]
 
     # Montréal
     elif code == 66023:
@@ -515,10 +521,10 @@ municipalities_with_boroughs = [
         'name': 'Sherbrooke',
         'geographic_code': 43027,
         'boroughs': {
-            'ocd-division/country:ca/csd:2443027/borough:1': 'Arrondissement 1',
-            'ocd-division/country:ca/csd:2443027/borough:2': 'Arrondissement 2',
-            'ocd-division/country:ca/csd:2443027/borough:3': 'Arrondissement 3',
-            'ocd-division/country:ca/csd:2443027/borough:4': 'Arrondissement 4',
+            'ocd-division/country:ca/csd:2443027/borough:1': 'Brompton–Rock Forest–Saint-Élie–Deauville',
+            'ocd-division/country:ca/csd:2443027/borough:2': 'Fleurimont',
+            'ocd-division/country:ca/csd:2443027/borough:3': 'Lennoxville',
+            'ocd-division/country:ca/csd:2443027/borough:4': 'Nations',
         },
     },
 ]
