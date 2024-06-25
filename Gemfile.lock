@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dbf (4.2.4)
+
+PLATFORMS
+  universal-darwin-23
+
+DEPENDENCIES
+  dbf
+
+BUNDLED WITH
+   2.3.12

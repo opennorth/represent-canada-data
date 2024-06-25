@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'csv'
 require 'open-uri'
 
@@ -15,12 +16,12 @@ end
 
 sets = {}
 
-DBF::Table.new(File.expand_path('Districts_Mun_2017_11_30.dbf', __dir__)).each do |record|
+DBF::Table.new(File.expand_path('Districts_Quartiers_Mun_election_2021_region.dbf', __dir__)).each do |record|
   unless %w(ÉI RI).include?(record['CO_DESIGN'].force_encoding('iso-8859-1').encode('utf-8'))
     sets[record['CO_MUNCP']] = record['MODE_SUFRG']
   end
 end
 
-sets.each do |k,v|
+sets.sort_by{|k,v| k.to_s}.each do |k,v|
   puts %(    #{k}: ["#{names[k]}", "#{v == 'Q' ? 'quartiers' : 'districts'}"],)
 end

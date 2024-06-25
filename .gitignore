@@ -1,4 +1,5 @@
 .DS_Store
 *.pyc
 /node_modules
+/vendor
 /topojson/*.geojson
