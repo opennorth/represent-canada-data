@@ -339,12 +339,7 @@ def district_namer(f):
         }.get(name, name)
 
     if name:
-        # Check if required with:
-        # ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep ' no '
-        if 'District no ' in name:
-            return f.get('NM_DIS').replace(' no ', ' ')  # Baie-Saint-Paul
         return boundaries.clean_attr('NM_DIS')(f)
-
     if f.get('MODE_SUFRG') == 'Q':
         return 'Quartier %s' % int(type_id)
     return 'District %s' % int(type_id)
@@ -410,9 +405,9 @@ boundaries.register('Paroisse de Plessisville districts',
 )
 
 # Check the names with (replace `CODE`):
-# ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep -B3 CODE | sort | uniq
+# ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep -B4 CODE | sort | uniq
 # Check the identifiers with:
-# ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep -B4 CODE
+# ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep -B5 CODE
 municipalities_with_boroughs = [
     {
         'name': 'Lévis',
@@ -482,7 +477,7 @@ municipalities_with_boroughs = [
         'name': 'Sherbrooke',
         'geographic_code': 43027,
         'boroughs': {
-            'ocd-division/country:ca/csd:2443027/borough:1': 'Brompton–Rock Forest–Saint-Élie–Deauville',
+            'ocd-division/country:ca/csd:2443027/borough:1': 'Brompton—Rock Forest—Saint-Élie—Deauville',
             'ocd-division/country:ca/csd:2443027/borough:2': 'Fleurimont',
             'ocd-division/country:ca/csd:2443027/borough:3': 'Lennoxville',
             'ocd-division/country:ca/csd:2443027/borough:4': 'Nations',
