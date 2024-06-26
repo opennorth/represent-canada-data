@@ -367,7 +367,7 @@ def borough_namer(f):
         return {
             'Le Plateau-Mont-Royal': 'Plateau-Mont-Royal',
             'Le Sud-Ouest': 'Sud-Ouest',
-            'Rosemont--La-Petite-Patrie': 'Rosemont—La Petite-Patrie',
+            'Rosemont--La-Petite-Patrie': 'Rosemont—La Petite-Patrie',  # extra hyphen
         }.get(name, boundaries.clean_attr('NM_ARON')(f))
 
     return boundaries.clean_attr('NM_ARON')(f)
