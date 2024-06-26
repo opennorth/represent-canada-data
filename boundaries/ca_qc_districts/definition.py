@@ -310,7 +310,7 @@ def district_namer(f):
     code = f.get('CO_MUNCP')
     name = f.get('NM_DIS')
 
-    articles_re = re.compile(r"\b(?:d'|de |de l'|du |des )")
+    articles_re = re.compile(r"\b(?:d'|de (?:l')?|du |des )")
 
     # Sherbrooke
     if code == 43027:
