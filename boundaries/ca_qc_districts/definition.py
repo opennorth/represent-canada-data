@@ -303,53 +303,25 @@ sets = {
 
 
 # Check the names with (replace `CODE`):
-# ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep -B6 CODE | grep NM_DIS | sort
+# ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep -B7 CODE | grep NM_DIS | sort
 def district_namer(f):
     import boundaries
     type_id = f.get('NO_DIS')
     code = f.get('CO_MUNCP')
     name = f.get('NM_DIS')
 
-    # Québec
-    if code == 23027:
-        return {
-            # Hyphens.
-            'Cap-Rouge-Laurentien': 'Cap-Rouge—Laurentien',
-            'Chute-Montmorency-Seigneurial': 'Chute-Montmorency—Seigneurial',
-            'Lac-Saint-Charles-Saint-Émile': 'Lac-Saint-Charles—Saint-Émile',
-            'Montcalm-Saint-Sacrement': 'Montcalm—Saint-Sacrement',
-            'Saint-Louis-Sillery': 'Saint-Louis—Sillery',
-            'Saint-Roch-Saint-Sauveur': 'Saint-Roch—Saint-Sauveur',
-        }.get(name, name)
+    articles_re = re.compile(r"\b(?:d'|de |de l'|du |des )")
 
     # Sherbrooke
-    elif code == 43027:
-        # https://cartes.ville.sherbrooke.qc.ca/monarrondissementenligne/
-        return {
-            1.10: 'Lac Magog',
-            1.20: 'Rock Forest',
-            1.30: 'Saint-Élie',
-            1.40: 'Brompton',
-            2.10: 'Hôtel-Dieu',
-            2.20: 'Desranleau',
-            2.30: 'Quatre-Saisons',
-            2.40: 'Pin-Solitaire',
-            3.10: 'Uplands',
-            3.20: 'Fairview',
-            3.30: 'Lennoxville',
-            4.10: 'Université',
-            4.20: 'Ascot',
-            4.30: 'Lac-des-Nations',
-            4.40: 'Golf',
-            4.50: 'Carrefour',
-        }[type_id]
+    if code == 43027:
+        return articles_re.sub('', name)
 
     # Longueuil
-    elif code == 58227:
-        return re.sub(r"\b(?:d'|de |du |des )", '', name)
+    if code == 58227:
+        return articles_re.sub('', name)
 
     # Montréal
-    elif code == 66023:
+    if code == 66023:
         return {
             'Est (Pierrefonds-Roxboro)': 'Bois-de-Liesse',
             'Ouest (Pierrefonds-Roxboro)': 'Cap-Saint-Jacques',
@@ -366,34 +338,16 @@ def district_namer(f):
             'Saint-Paul-Émard': 'Saint-Paul—Émard',
         }.get(name, name)
 
-    # Pointe-Claire
-    elif code == 66097:
+    if name:
         # Check if required with:
-        # ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep '/ '
-        return name.replace('/ ', '/')
+        # ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep ' no '
+        if 'District no ' in name:
+            return f.get('NM_DIS').replace(' no ', ' ')  # Baie-Saint-Paul
+        return boundaries.clean_attr('NM_DIS')(f)
 
-    # Gatineau
-    elif code == 81017:
-        return {
-            # Hyphens.
-            'de Hull-Val-Tétreau': 'de Hull—Val-Tétreau',
-            'de Saint-Raymond-Vanier': 'de Saint-Raymond—Vanier',
-            'de Wright-Parc-de-la-Montagne': 'de Wright—Parc-de-la-Montagne',
-            'du Plateau-Manoir-des-Trembles': 'du Plateau—Manoir-des-Trembles',
-        }.get(name, name)
-
-    else:
-        if name:
-            # Check if required with:
-            # ogrinfo -al -geom=NO boundaries/ca_qc_districts | grep ' no '
-            if 'District no ' in name:
-                return f.get('NM_DIS').replace(' no ', ' ')  # Baie-Saint-Paul
-            else:
-                return boundaries.clean_attr('NM_DIS')(f)
-        elif f.get('MODE_SUFRG') == 'Q':
-            return 'Quartier %s' % int(type_id)
-        else:
-            return 'District %s' % int(type_id)
+    if f.get('MODE_SUFRG') == 'Q':
+        return 'Quartier %s' % int(type_id)
+    return 'District %s' % int(type_id)
 
 
 def borough_namer(f):
@@ -404,23 +358,19 @@ def borough_namer(f):
     # Sherbrooke
     if code == 43027:
         return {
-            1: 'Brompton–Rock Forest–Saint-Élie–Deauville',
-            2: 'Fleurimont',
-            3: 'Lennoxville',
-            4: 'Nations',
-        }[int(f.get('NO_ARON'))]
+            'de Lennoxville': 'Lennoxville',
+            'Les Nations': 'Nations',
+        }.get(name, boundaries.clean_attr('NM_ARON')(f))
 
     # Montréal
-    elif code == 66023:
+    if code == 66023:
         return {
             'Le Plateau-Mont-Royal': 'Plateau-Mont-Royal',
             'Le Sud-Ouest': 'Sud-Ouest',
-            'Pierrefond-Roxboro': 'Pierrefonds-Roxboro',
             'Rosemont--La-Petite-Patrie': 'Rosemont—La Petite-Patrie',
         }.get(name, boundaries.clean_attr('NM_ARON')(f))
 
-    else:
-        return boundaries.clean_attr('NM_ARON')(f)
+    return boundaries.clean_attr('NM_ARON')(f)
 
 
 # Check if required with:
@@ -428,8 +378,7 @@ def borough_namer(f):
 def district_ider(f):
     if f.get('CO_MUNCP') in (43027, 66023):  # Sherbrooke, Montréal
         return f.get('NO_DIS')  # e.g. "1.10"
-    else:
-        return int(f.get('NO_DIS'))
+    return int(f.get('NO_DIS'))
 
 
 for geographic_code, (name, type) in sets.items():
