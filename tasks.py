@@ -13,7 +13,9 @@ from io import StringIO
 from urllib.parse import urlparse
 from zipfile import BadZipfile, ZipFile
 
+import django
 import requests
+from django.conf import settings
 from invoke import run, task
 from opencivicdata.divisions import Division
 from pyrfc6266 import parse_filename
@@ -35,6 +37,15 @@ from constants import (
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
+kwargs = {}
+if 'GDAL_LIBRARY_PATH' in os.environ:
+    kwargs['GDAL_LIBRARY_PATH'] = os.getenv('GDAL_LIBRARY_PATH')
+if 'GEOS_LIBRARY_PATH' in os.environ:
+    kwargs['GEOS_LIBRARY_PATH'] = os.getenv('GEOS_LIBRARY_PATH')
+
+settings.configure(USE_I18N=False, INSTALLED_APPS=('boundaries',), **kwargs)
+django.setup()
+
 province_or_territory_abbreviation_memo = {}
 divisions_with_boroughs_memo = set()
 ocd_division_csv = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'country-ca.csv')
@@ -42,7 +53,7 @@ ocd_division_csv = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'cou
 
 def dirname(path):
     """
-    Returns the directory in which a shapefile exists.
+    Return the directory in which a shapefile exists.
     """
     # GitPython can't handle paths starting with "./".
     if path.startswith('./'):
@@ -55,7 +66,7 @@ def dirname(path):
 
 def registry(base='.'):
     """
-    Reads definition.py files.
+    Read definition.py files.
     """
     boundaries.autodiscover(base)
     return boundaries.registry
@@ -63,7 +74,7 @@ def registry(base='.'):
 
 def csv_dict_reader(url, encoding='utf-8'):
     """
-    Reads a remote CSV file.
+    Read a remote CSV file.
     """
     response = requests.get(url)
     response.encoding = encoding
@@ -80,7 +91,7 @@ def province_or_territory_abbreviation(code):
 
 def divisions_with_boroughs():
     """
-    Returns the OCD identifiers for divisions with boroughs.
+    Return the OCD identifiers for divisions with boroughs.
     """
     if not divisions_with_boroughs_memo:
         for division in Division.all('ca', from_csv=ocd_division_csv):
@@ -91,18 +102,21 @@ def divisions_with_boroughs():
 
 def type_id(id):
     """
-    Returns an OCD identifier's type ID.
+    Return an OCD identifier's type ID.
     """
     return id.rsplit(':', 1)[1]
 
 
 def get_definition(division_id, path=None):
     """
-    Returns the expected contents of a definition file.
+    Return the expected contents of a definition file.
     """
     config = {}
 
-    division = Division.get(division_id, from_csv=ocd_division_csv)
+    try:
+        division = Division.get(division_id, from_csv=ocd_division_csv)
+    except (TypeError, ValueError) as e:
+        raise ValueError(f"{division_id=} {path=}") from e
 
     # Determine slug, domain and authority.
     name = division.name
@@ -151,7 +165,7 @@ def get_definition(division_id, path=None):
         elif division._type == 'csd':
             config['authority'] = authorities + [division.attrs['organization_name']]
         else:
-            config['authority'] = ['']  # We have no expectation for the authority of a Census division
+            config['authority'] = ['Regional Municipality of %s' % name]
 
     elif division._type == 'borough':
         province_or_territory_sgc_code = type_id(division.parent.id)[:2]
@@ -209,7 +223,7 @@ def licenses(base='.'):
     Check that all data directories contain a LICENSE.txt.
     """
     for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
-        for dirname in ('.git', '__pycache__', 'docker', 'node_modules'):
+        for dirname in ('.git', '.github', '.venv', '__pycache__', 'docker', 'node_modules', 'vendor'):
             if dirname in dirnames:
                 dirnames.remove(dirname)
         for filename in ('.DS_Store', 'empty.csv'):
@@ -225,8 +239,9 @@ def permissions(base='.'):
     Fix file permissions.
     """
     for (dirpath, dirnames, filenames) in os.walk(base, followlinks=True):
-        if '.git' in dirnames:
-            dirnames.remove('.git')
+        for name in ('.git', '.venv'):
+            if name in dirnames:
+                dirnames.remove(name)
         if 'deploy.sh' in filenames:
             filenames.remove('deploy.sh')
         for filename in filenames:
@@ -248,12 +263,12 @@ def definitions(base='.'):
     def assert_match(slug, field, actual, expected):
         if isinstance(expected, re.Pattern):
             if not expected.search(actual):
-                print('%-60s Expected %s to match %s not %s' % (slug, field, expected.pattern, actual))
+                print('%-60s Expected %s to match "%s" not "%s"' % (slug, field, expected.pattern, actual))
         elif isinstance(expected, list):
             if actual not in expected:
-                print('%-60s Expected %s to be %s not %s' % (slug, field, expected[-1], actual))
+                print('%-60s Expected %s to be "%s" not "%s"' % (slug, field, expected[-1], actual))
         elif actual != expected and expected is not None:
-            print('%-60s Expected %s to be %s not %s' % (slug, field, expected, actual))
+            print('%-60s Expected %s to be "%s" not "%s"' % (slug, field, expected, actual))
 
     def has_multiple_sets(division_id):
         ocd_type = division_id.rsplit('/', 1)[1].split(':')[0]
@@ -271,6 +286,9 @@ def definitions(base='.'):
     seen = set()
     division_ids = set()
     for slug, config in registry(base).items():
+        if '.venv' in config['file']:
+            continue
+
         directory = dirname(config['file'])
 
         if config.get('extra'):
@@ -326,10 +344,10 @@ def definitions(base='.'):
 
         if slug not in ('Census divisions', 'Census subdivisions'):
             # Check for invalid keys or empty values.
-            invalid_keys = set(config['extra'].keys()) - {'division_id'}
+            invalid_keys = set(config.get('extra', {})) - {'division_id'}
             if invalid_keys:
                 print('%-60s Unrecognized key: %s' % (slug, ', '.join(invalid_keys)))
-            for key, value in config['extra'].items():
+            for key, value in config.get('extra', {}).items():
                 if not value:
                     print('%-60s Empty value for %s' % (slug, key))
 
@@ -357,6 +375,9 @@ def urls(base='.'):
 
     seen = set()
     for slug, config in registry(base).items():
+        if '.venv' in config['file']:
+            continue
+
         for key in ('source_url', 'licence_url', 'data_url'):
             if key in config:
                 url = config[key]
@@ -405,6 +426,9 @@ def manual(base='.'):
 
     seen = set()
     for slug, config in registry(base).items():
+        if '.venv' in config['file']:
+            continue
+
         last_updated = config['last_updated']
         directory = dirname(config['file'])
         # Skip automated and archival boundaries.
@@ -445,7 +469,9 @@ def shapefiles(base='.'):
 
             # Remove old files.
             for basename in os.listdir(directory):
-                if basename not in ('.DS_Store', '__pycache__', 'definition.py', 'LICENSE.txt', 'data.kml', 'data.kmz', 'data.zip'):
+                if basename not in (
+                    '.DS_Store', '__pycache__', 'definition.py', 'LICENSE.txt', 'data.kml', 'data.kmz', 'data.zip'
+                ):
                     os.unlink(os.path.join(directory, basename))
 
             files_to_add = []
@@ -569,6 +595,9 @@ def shapefiles(base='.'):
     # Retrieve shapefiles.
     processed = set()
     for slug, config in registry(base).items():
+        if '.venv' in config['file']:
+            continue
+
         if config['file'] not in processed and 'data_url' in config:
             processed.add(config['file'])
             url = config['data_url']
@@ -715,6 +744,9 @@ def spreadsheet(base='.', private_base='../represent-canada-private-data'):
     for directory, permission_to_distribute in [(base, 'Y'), (private_base, 'N')]:
         boundaries.registry = {}
         for slug, config in registry(directory).items():
+            if '.venv' in config['file']:
+                continue
+
             if 'extra' in config:
                 division_id = config['extra']['division_id']
                 if division_id in expecteds:
