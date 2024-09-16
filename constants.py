@@ -153,9 +153,7 @@ quartiers = [
     'ocd-division/country:ca/csd:2411040',  # Trois-Pistoles
     'ocd-division/country:ca/csd:2413095',  # Pohngamook
     'ocd-division/country:ca/csd:2434120',  # Lac-Sergent
-    'ocd-division/country:ca/csd:2446080',  # Cowansville
     'ocd-division/country:ca/csd:2453050',  # Saint-Joseph-de-Sorel
-    'ocd-division/country:ca/csd:2467025',  # Delson
     'ocd-division/country:ca/csd:2469055',  # Huntingdon
     'ocd-division/country:ca/csd:2483065',  # Maniwaki
     'ocd-division/country:ca/csd:2487090',  # La Sarre

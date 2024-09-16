@@ -273,7 +273,7 @@ sets = {
     89804: ["Lac-Simon", "districts"],
     90012: ["La Tuque", "districts"],
     9077: ["Mont-Joli", "districts"],
-    90801: ["", "districts"],
+    # 90801: ["", "districts"],
     90802: ["Wemotaci", "districts"],
     90804: ["Obedjiwan", "districts"],
     9092: ["Sainte-Luce", "districts"],
@@ -477,7 +477,7 @@ municipalities_with_boroughs = [
         'name': 'Sherbrooke',
         'geographic_code': 43027,
         'boroughs': {
-            'ocd-division/country:ca/csd:2443027/borough:1': 'Brompton—Rock Forest—Saint-Élie—Deauville',
+            'ocd-division/country:ca/csd:2443027/borough:1': 'Brompton–Rock Forest–Saint-Élie–Deauville',
             'ocd-division/country:ca/csd:2443027/borough:2': 'Fleurimont',
             'ocd-division/country:ca/csd:2443027/borough:3': 'Lennoxville',
             'ocd-division/country:ca/csd:2443027/borough:4': 'Nations',
