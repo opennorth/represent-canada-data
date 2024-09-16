@@ -1,0 +1,12 @@
+ci:
+  autoupdate_schedule: quarterly
+  skip: [pip-compile]
+default_language_version:
+    python: python3.10
+repos:
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.4.4
+    hooks:
+      - id: pip-compile
+        name: pip-compile requirements.in
+        args: [requirements.in, -o, requirements.txt]

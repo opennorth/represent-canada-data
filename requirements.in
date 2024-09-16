@@ -1,0 +1,7 @@
+django<5
+invoke
+lxml
+pyrfc6266
+represent-boundaries
+requests
+git+https://github.com/opencivicdata/python-opencivicdata-divisions
