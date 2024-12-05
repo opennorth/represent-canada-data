@@ -1,0 +1,26 @@
+Services Nouveau-Brunswick - GeoNB
+http://www.snb.ca/geonb
+
+**DESCRIPTION**
+Cette base de données représente sous forme de polygones les circonscriptions électorales du Nouveau-Brunswick pour l'année 2024. Chaque circonscription est représentée par un membre de l'Assemblée législative (MAL). Attributs : Nom de la circonscription, numéro de la circonscription, numéros des bureaux de vote, noms des MAL.
+
+**FORMAT**
+ESRI Shape File
+
+**DÉSIGNATION DES FICHIERS**
+geonb_2024_ped-cep.* - graphiques et attributs
+
+**RÉFÉRENCES SPATIALES**
+Système de référence: North-American Datum 1983 (CSRS)
+Projection: Stéréographique double
+EPSG: 2953
+
+**SOURCE**
+Élections Nouveau-Brunswick
+
+**DATE**
+2023-09-29
+
+**LICENCE**
+Licence des données ouvertes de GeoNB
+http://geonb.snb.ca/documents/license/geonb-odl_fr.pdf

@@ -1,0 +1,9 @@
+GeoNB Open Data Licence
+
+The use of the data accompanied by this file is governed by the GeoNB Open Data Licence.  The complete GeoNB Open Data Licence can be viewed at - 
+http://geonb.snb.ca/documents/license/geonb-odl_en.pdf
+
+Licence des données ouvertes de GeoNB
+
+L'utilisation des données accompagnées de ce fichier est régi par la licence des données ouvertes de GeoNB. Le contrat de licence des données ouvertes de GeoNB peut être consulté à - 
+http://geonb.snb.ca/documents/license/geonb-odl_fr.pdf
