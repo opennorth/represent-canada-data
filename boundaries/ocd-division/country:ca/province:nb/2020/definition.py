@@ -2,6 +2,7 @@ from datetime import date
 
 import boundaries
 
+# https://www.electionsnb.ca/content/enb/en/ped2020.html
 boundaries.register('New Brunswick electoral districts (2020)',
     singular='New Brunswick electoral district',
     domain='New Brunswick',
