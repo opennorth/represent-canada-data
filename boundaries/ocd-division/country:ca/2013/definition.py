@@ -8,7 +8,7 @@ def namer(f):
     return boundaries.clean_attr('FEDENAME')(f).replace('\u0092', "'")
 
 
-boundaries.register('Federal electoral districts',  # (2013 Representation Order)
+boundaries.register('Federal electoral districts (2013 Representation Order)',
     singular='Federal electoral district',
     domain='Canada',
     last_updated=date(2017, 8, 23),
