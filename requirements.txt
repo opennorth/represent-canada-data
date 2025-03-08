@@ -6,7 +6,7 @@ certifi==2024.8.30
     # via requests
 charset-normalizer==3.3.2
     # via requests
-django==4.2.18
+django==4.2.20
     # via
     #   -r requirements.in
     #   django-appconf
