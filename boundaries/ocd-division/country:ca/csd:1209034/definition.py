@@ -2,10 +2,16 @@ from datetime import date
 
 import boundaries
 
+
+def namer(f):
+    import boundaries
+    return boundaries.clean_attr('DISTNAME')(f).replace('&', "and")
+
+
 boundaries.register('Halifax districts',
     domain='Halifax, NS',
     last_updated=date(2024, 11, 6),
-    name_func=boundaries.clean_attr('DISTNAME'),
+    name_func=namer,
     id_func=boundaries.attr('DIST_ID'),
     authority='Halifax Regional Municipality',
     source_url='https://data-hrm.hub.arcgis.com/datasets/04c5bee564f84b4a8f1c8dd305896079_0',
