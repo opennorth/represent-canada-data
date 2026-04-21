@@ -17,11 +17,11 @@ idna==3.10
     # via requests
 invoke==0.11.1
     # via -r requirements.in
-lxml==4.9.1
+lxml==6.1.0
     # via -r requirements.in
 opencivicdata==2.5.0
     # via opencivicdata-divisions
-opencivicdata-divisions @ git+https://github.com/opencivicdata/python-opencivicdata-divisions@db601500b3cc80f3a9c1f4cf64b76705a82d3ced
+opencivicdata-divisions @ git+https://github.com/opencivicdata/python-opencivicdata-divisions
     # via -r requirements.in
 psycopg2-binary==2.9.9
     # via opencivicdata
@@ -37,7 +37,5 @@ six==1.16.0
     # via opencivicdata
 sqlparse==0.5.1
     # via django
-typing-extensions==4.12.2
-    # via asgiref
 urllib3==2.6.2
     # via requests
