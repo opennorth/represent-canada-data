@@ -35,7 +35,7 @@ requests==2.33.0
     # via -r requirements.in
 six==1.16.0
     # via opencivicdata
-sqlparse==0.5.4
+sqlparse==0.6.0
     # via django
 urllib3==2.7.0
     # via requests
