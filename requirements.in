@@ -1,4 +1,4 @@
-django<5
+django<6
 invoke
 lxml
 pyrfc6266
