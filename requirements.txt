@@ -37,5 +37,5 @@ six==1.16.0
     # via opencivicdata
 sqlparse==0.6.0
     # via django
-urllib3==2.7.0
+urllib3==2.8.0
     # via requests
