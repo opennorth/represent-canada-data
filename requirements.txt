@@ -2,7 +2,7 @@
 #    uv pip compile requirements.in -o requirements.txt
 asgiref==3.8.1
     # via django
-certifi==2024.8.30
+certifi==2026.10.19
     # via requests
 charset-normalizer==3.3.2
     # via requests
